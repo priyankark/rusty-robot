@@ -4,7 +4,7 @@ Use Rust 1.88+. Until registry publication, add:
 
 ```toml
 [dependencies]
-rusty-robot = { git = "https://github.com/priyankark/rusty-robot", tag = "v0.1.0" }
+rusty-robot-desktop = "0.1.2"
 ```
 
 Inspect without moving or typing:

@@ -21,11 +21,11 @@ Windows pass native desktop CI. Multi-monitor coverage differs by OS; see the da
 
 ## Start here
 
-Rust 1.88 or newer. Until a crates.io release is available, pin the GitHub tag:
+Rust 1.88 or newer. The Cargo package is `rusty-robot-desktop`; the Rust import remains `rusty_robot`:
 
 ```toml
 [dependencies]
-rusty-robot = { git = "https://github.com/priyankark/rusty-robot", tag = "v0.1.0" }
+rusty-robot-desktop = "0.1.2"
 ```
 
 ```rust,no_run
@@ -116,8 +116,10 @@ opt-in and use owned test windows. See [testing](docs/testing.md),
 
 The workspace includes `rusty-robot-media` (capture, resize, BLAKE3 frame fingerprints,
 JPEG/PNG encoding) and `rusty-robot-node` (Node-API input plus asynchronous media).
-Build the shared addon with `node scripts/build-node.cjs`; its output is
-`target/rusty-robot.node`. These companion crates currently ship from Git.
+Install `@priyankark/rusty-robot@0.1.2` for prebuilt Node-API binaries across seven
+desktop targets. No Rust compiler or install scripts are required. See
+[Node package requirements](packages/node/README.md). For source development,
+build with `node scripts/build-node.cjs`.
 See [the agent skill](skills/rusty-robot/SKILL.md) for integration and bounded scheduling.
 
 The [real application benchmark report](https://priyankark.github.io/rusty-robot/)

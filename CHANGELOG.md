@@ -2,6 +2,8 @@
 
 ## 0.1.2 — 2026-10-27
 
+- Publish the core as `rusty-robot-desktop` with the `rusty_robot` import and author `priyankark`.
+- Use the `@priyankark/rusty-robot` npm namespace.
 - Add a shared Node package containing prebuilt native binaries for seven OS/architecture targets.
 - Verify selected binary integrity and report unsupported OS/libc baselines explicitly.
 - Validate clean, script-free package installs on each target with minimum and current supported Node versions.

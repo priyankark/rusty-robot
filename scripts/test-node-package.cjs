@@ -45,7 +45,7 @@ function png() {
       const result = spawnSync(process.platform === 'win32' ? 'npm.cmd' : 'npm', args, {stdio:'inherit', shell:process.platform === 'win32'});
       if (result.status !== 0) throw new Error('Clean package installation failed');
     }
-    const packageRoot=path.join(directory,'node_modules/@priyankarkumar/rusty-robot');
+    const packageRoot=path.join(directory,'node_modules/@priyankark/rusty-robot');
     execFileSync(process.execPath, [__filename, '--smoke', packageRoot], { stdio: 'inherit' });
     const target=require(path.join(packageRoot,'platform.cjs')).selectTarget();
     // A fresh host process must reject corruption before dlopen executes it.

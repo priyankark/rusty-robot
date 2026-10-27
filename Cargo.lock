@@ -1221,7 +1221,7 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "cf54715a573b99ac80df0bc206da022bcd442c974952c7b9720069370852e21f"
 
 [[package]]
-name = "rusty-robot"
+name = "rusty-robot-desktop"
 version = "0.1.2"
 dependencies = [
  "block2",
@@ -1247,7 +1247,7 @@ dependencies = [
  "fast_image_resize",
  "image",
  "rayon",
- "rusty-robot",
+ "rusty-robot-desktop",
 ]
 
 [[package]]
@@ -1257,7 +1257,7 @@ dependencies = [
  "napi",
  "napi-build",
  "napi-derive",
- "rusty-robot",
+ "rusty-robot-desktop",
  "rusty-robot-media",
 ]
 

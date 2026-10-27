@@ -1,6 +1,6 @@
 # RobotJS test mapping and Rust contract
 
-Cargo package: `rusty-robot`. Rust import: `rusty_robot`. This is an independent
+Cargo package: `rusty-robot-desktop`. Rust import: `rusty_robot`. This is an independent
 Git repository. The upstream reference clone is separate, at `../robotjs`, pinned
 to `0af6073e1f1bcff865ffe52801c71647829cdc1c`.
 

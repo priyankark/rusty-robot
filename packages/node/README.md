@@ -5,7 +5,7 @@ JPEG/PNG processing. Installation includes all supported Node-API binaries: no
 Rust toolchain, Git checkout, install scripts, or runtime downloads are required.
 
 ```js
-const robot = require('@priyankarkumar/rusty-robot');
+const robot = require('@priyankark/rusty-robot');
 console.log(robot.getPermissions());
 const frame = await robot.captureFrame(1440, 85, null, true, 'jpeg');
 ```

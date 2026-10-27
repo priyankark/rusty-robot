@@ -1,13 +1,17 @@
 # Node / TypeScript consumer integration
 
-The shared `crates/rusty-robot-node` Node-API bridge composes input and the
-`rusty-robot-media` capture/processing library. Build it with
-`node scripts/build-node.cjs`; load `target/rusty-robot.node`. It is source-built
-from Git, not a published npm package. Keep consumers pinned to a commit and
-reuse this bridge instead of duplicating Rust wrappers.
+Install `@priyankark/rusty-robot@0.1.2`. The package includes SHA-256 verified
+Node-API binaries for macOS arm64/x64, Linux GNU arm64/x64, and Windows arm64/x64/ia32.
+It requires macOS 14+, glibc 2.35+ with X11 on Linux, or an interactive Windows desktop.
+Node 18+ is supported, except Windows arm64 requires Node 22+. Native Wayland and
+musl are not supported. No Rust compiler or install script is needed.
+
+The shared `crates/rusty-robot-node` bridge composes input and the
+`rusty-robot-media` capture/processing library. For development, build with
+`node scripts/build-node.cjs` and explicitly load `target/rusty-robot.node`.
 
 ```js
-const native = require('/absolute/trusted/rusty-robot.node');
+const native = require('@priyankark/rusty-robot');
 const frame = await native.captureFrame(1440, 85, previousHash, forceRefresh, 'jpeg');
 if (frame.data) send(frame.data, { width: frame.width, height: frame.height });
 previousHash = frame.fingerprint;
@@ -24,7 +28,7 @@ Before changing a real consumer:
   wheel units, display coordinate scaling, authenticated session gates, and drag
   ownership. Rust's `move_mouse` does not imply `drag_mouse`; track a held button
   in the adapter. Preserve release paths on disconnect/stop/cancel.
-- Make the new backend explicitly selectable while it is being validated. A
+- Use Rust by default in the validated consumers; retain explicit original-backend opt-in. A
   configured Rust backend that fails to load must report failure, not silently
   fall back to a different native implementation.
 - Pass native errors through. Do not accept NaN, infinity, fractional, or
@@ -43,19 +47,19 @@ cancellation, (2) existing authenticated socket tests with the Rust adapter chos
 Report each layer separately. A mocked addon test does not prove OS delivery.
 Keep native tests opt-in on developers' machines; use prepared desktop CI sessions.
 
-For distribution, a source-build preview may require Rust and a native toolchain.
-Do not advertise prebuilt binaries until each target is built, packaged, and tested.
-Pin the Rust Git dependency to a commit and commit Cargo.lock. Document rollback
-to the existing backend while the integration remains experimental.
+For distribution, test the exact installed archive on every claimed native target.
+Verify loading, media output, and corruption rejection with install scripts disabled.
+Defer macOS Accessibility checks until an input action so users can grant permission
+without breaking application startup. A failed native load must remain actionable.
 
-## Dogfood example
+## Dogfood examples
 
-[AirCodum Agentum PR #7](https://github.com/priyankark/agentum-cli/pull/7) is a
-source-build example of this approach. It keeps RobotJS as the default and makes
-Rust input and media selectable. Inspect its current review/CI status before adopting it;
-a draft integration is not a published Node distribution. Its tests cover addon
-load failures, drag-state transitions, authenticated VNC controls, and a separate
-owned-window native workflow.
+Agentum uses Rust input and media by default. Set `AGENTUM_INPUT_BACKEND=robotjs`
+and `AGENTUM_MEDIA_BACKEND=robotjs` to explicitly select the original implementations.
+AirCodum uses the corresponding `AIRCODUM_INPUT_BACKEND` and `AIRCODUM_MEDIA_BACKEND`
+variables. Source builds can be selected with an absolute `*_RUSTY_ROBOT_PATH`.
+Verify the installed app version: Agentum 2.1.0 and AirCodum 0.4.0 still used original
+defaults; Agentum 2.2.0 and AirCodum 0.5.0 introduce packaged Rust defaults.
 
 [AirCodum PR #33](https://github.com/priyankark/AirCodum/pull/33) uses the same shared
 addon inside a real VS Code extension host. The public benchmark report includes
