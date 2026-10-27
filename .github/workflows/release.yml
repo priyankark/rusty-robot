@@ -46,5 +46,5 @@ jobs:
           GH_TOKEN: ${{ github.token }}
           RELEASE_TAG: ${{ github.ref_name }}
         run: |
-          sha256sum target/package/*.crate > target/package/SHA256SUMS
+          (cd target/package && sha256sum *.crate > SHA256SUMS)
           gh release create "$RELEASE_TAG" target/package/*.crate target/package/SHA256SUMS             --verify-tag --title "Rusty Robot $RELEASE_TAG" --notes-file CHANGELOG.md --prerelease
