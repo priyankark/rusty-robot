@@ -14,7 +14,9 @@ integration boundary; keep its authentication, focus policy, and input ownership
 
 1. Identify OS, interactive session, crate revision, and the consumer's current
    input/capture path. Start with permission queries, display enumeration, and
-   cursor position. `Option<bool>::None` means the platform has no corresponding
+   cursor position. Confirm the session is unlocked and the owned target has focus
+   before input; an available display alone does not establish either.
+   `Option<bool>::None` means the platform has no corresponding
    permission API, not that access is granted.
 2. For Rust, read [Rust API recipes](references/rust-api.md). For Node/TypeScript,
    also read [consumer integration](references/node-integration.md). Pin a release

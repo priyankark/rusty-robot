@@ -17,8 +17,9 @@ publication. The `release.yml` workflow does not require registry credentials.
 
 CI deploys the benchmark site and rustdoc to GitHub Pages only after its required
 checks pass on main. Third-party actions are pinned to commits and Dependabot
-proposes updates. Native desktop jobs are manually dispatched because they
-require a real session and may need permission grants.
+proposes updates. Hosted Linux/Windows desktop jobs run for relevant backend/test changes and can
+also be manually dispatched. Local macOS input tests still need an unlocked
+session and permission grants.
 
 For a future crates.io release, first confirm name ownership and configure a
 registry publishing identity; use `cargo publish --dry-run --locked` before the

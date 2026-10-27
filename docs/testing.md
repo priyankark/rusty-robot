@@ -52,10 +52,10 @@ tests or leaves cases ignored is treated as a failure. Use `--dry-run` to inspec
 the commands, or `--output PATH` to preserve another run.
 
 The default command without `--secondary` works on Windows and Linux/X11 too,
-but explicitly omits the secondary-display cases. The manually dispatched
-`.github/workflows/desktop.yml` prepares a Linux Xvfb/Openbox session and a Windows
-runner, runs this command, and uploads the evidence even on failures. These jobs
-are configured, not yet remotely executed. Their omitted multi-monitor checks
+but explicitly omits the secondary-display cases. The
+`.github/workflows/desktop.yml` runs on relevant backend/test changes or manual
+dispatch and prepares a Linux Xvfb/Openbox session and a Windows
+runner, runs this command, and uploads the evidence even on failures. Both jobs have passed remotely; see the dated [validation record](validation.md). Their omitted multi-monitor checks
 still require suitable hosts. Native macOS validation needs local permission
 grants and is run outside the hosted workflow.
 

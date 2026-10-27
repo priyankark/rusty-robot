@@ -1,5 +1,26 @@
 # Validation record
 
+**Public release validation, 2026-10-27:** [cross-platform CI](https://github.com/priyankark/rusty-robot/actions)
+is green. [Native desktop CI run](https://github.com/priyankark/rusty-robot/actions/runs/40543218651)
+passed **33 tests on Linux/X11 and 33 on Windows**: 32 desktop contracts plus the
+visual workflow test on each. Both runs explicitly omit secondary-monitor checks.
+Hosted native runs now execute for input/backend/test changes as well as manual
+dispatch. macOS has the earlier 37-execution library checkpoint and a new real
+[Agentum integration](https://github.com/priyankark/agentum-cli/pull/7) AppKit pass.
+
+The first Windows runs exposed fixture issues: unreliable inherited stdin, a
+window wider than the available placement on the 1024-pixel display, and isolated
+UTF-16 units in event observations that Rust's JSON parser rejects. The control
+channel now uses loopback TCP, placement respects display bounds, and diagnostic
+strings preserve isolated units as numeric arrays. Editor text assertions remain
+exact; incomplete text is never repaired into a passing value. Two Node protocol
+regressions accompany the fix. All native assertions passed on the final run.
+
+The published benchmark report also passed actual Chromium checks for both
+comparison modes, sorting, 21/13 rows, no JavaScript errors, and 390-pixel mobile
+page width. Desktop and mobile viewport screenshots were visually inspected.
+
+
 **Open-source packaging checkpoint, 2026-10-27:** 117 headless tests with PNG /
 107 without passed, including four compiled agent-skill examples. Both Clippy
 configurations, Rust 1.88 library checks, rustdoc with warnings denied, Cargo

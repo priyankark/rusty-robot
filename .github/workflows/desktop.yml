@@ -1,7 +1,16 @@
 name: Native desktop validation
 
-# GUI verification is explicit and separate from the headless contract matrix.
-on: workflow_dispatch
+# Hosted jobs own their desktop sessions. Local macOS tests remain explicitly opt-in.
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths: ['src/**', 'tests/**', 'scripts/validate-desktop.py', '.github/workflows/desktop.yml']
+  pull_request:
+    paths: ['src/**', 'tests/**', 'scripts/validate-desktop.py', '.github/workflows/desktop.yml']
+concurrency:
+  group: desktop-${{ github.ref }}
+  cancel-in-progress: true
 permissions:
   contents: read
 

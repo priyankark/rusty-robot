@@ -35,3 +35,12 @@ For distribution, a source-build preview may require Rust and a native toolchain
 Do not advertise prebuilt binaries until each target is built, packaged, and tested.
 Pin the Rust Git dependency to a commit and commit Cargo.lock. Document rollback
 to the existing backend while the integration remains experimental.
+
+## Dogfood example
+
+[AirCodum Agentum PR #7](https://github.com/priyankark/agentum-cli/pull/7) is a
+source-build example of this approach. It keeps RobotJS as the default and makes
+Rust input selectable. Inspect its current review/CI status before adopting it;
+a draft integration is not a published Node distribution. Its tests cover addon
+load failures, drag-state transitions, authenticated VNC controls, and a separate
+owned-window native workflow.

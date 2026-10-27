@@ -11,8 +11,8 @@ Move, click, type, capture, and find pixels or images through one Rust API.
 Rusty Robot ports the [RobotJS](https://github.com/octalmage/robotjs) test contract
 into an independent Rust implementation; it does not require Node.js or a C++ addon.
 
-**0.1 is an early release.** macOS has real desktop verification. Linux/X11 and
-Windows have native backends and CI contracts; see the dated
+**0.1 is an early release.** macOS has real desktop verification; Linux/X11 and
+Windows pass native desktop CI. Multi-monitor coverage differs by OS; see the dated
 [validation record](docs/validation.md) for exactly what has run.
 
 [API documentation](https://priyankark.github.io/rusty-robot/api/rusty_robot/) ·

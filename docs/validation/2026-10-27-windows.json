@@ -1,0 +1,74 @@
+{
+  "started": "2026-10-27T16:41:05.572212+00:00",
+  "platform": "Windows-2022Server-10.0.20348-SP0",
+  "omissions": [
+    "Secondary-display capture and negative-origin visual workflows were not run"
+  ],
+  "results": [
+    {
+      "name": "inspect",
+      "command": [
+        "cargo",
+        "run",
+        "--locked",
+        "--example",
+        "inspect"
+      ],
+      "exit_code": 0,
+      "seconds": 25.76,
+      "test_counts": [],
+      "validation_error": null
+    },
+    {
+      "name": "desktop",
+      "command": [
+        "cargo",
+        "test",
+        "--locked",
+        "--test",
+        "desktop",
+        "--",
+        "--ignored",
+        "--test-threads=1",
+        "--nocapture",
+        "--skip",
+        "captures_secondary_display_at_signed_origin"
+      ],
+      "exit_code": 0,
+      "seconds": 98.43,
+      "test_counts": [
+        {
+          "passed": 32,
+          "failed": 0,
+          "ignored": 0
+        }
+      ],
+      "validation_error": null
+    },
+    {
+      "name": "primary",
+      "command": [
+        "cargo",
+        "test",
+        "--locked",
+        "--test",
+        "visual_desktop",
+        "--",
+        "--ignored",
+        "--nocapture"
+      ],
+      "exit_code": 0,
+      "seconds": 14.47,
+      "test_counts": [
+        {
+          "passed": 1,
+          "failed": 0,
+          "ignored": 0
+        }
+      ],
+      "validation_error": null
+    }
+  ],
+  "complete": true,
+  "passed": true
+}
