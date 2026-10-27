@@ -14,7 +14,7 @@ The running phone server was preserved. Raw local evidence is under
 | Checkout desktop validation | 34 desktop contracts plus primary, negative-origin secondary, and AppKit workflows passed: 37 executions, no skipped desktop tests |
 | Native Node release archive | Fresh public GitHub URL installation with install scripts disabled; native JPEG/PNG processing passed. Local archive integrity-corruption rejection also passed |
 | Agentum public npm 2.1.0 | Fresh normal install, version/help, rejected anonymous connection, real authenticated terminal command/output/exit, and independently decoded pairing QR passed |
-| Agentum 2.2.0 candidate | 43 tests passed, two existing opt-in tests skipped; actual authenticated AppKit click, Unicode, multiline, shortcut cleanup and drag selection passed |
+| Agentum 2.2.0 candidate | 54 tests passed, two existing opt-in tests skipped; actual authenticated AppKit click, Unicode, multiline, shortcut cleanup and drag selection passed |
 | AirCodum 0.5.0 candidate VSIX | Seven binary hashes and native media validated; actual isolated VS Code activation, pairing, capture, PNG screenshot command, native editor input, file upload, reconnect and server restart passed |
 | Benchmark evidence | 21 Rust/RobotJS comparisons, 13 optimization comparisons and 1,428 batches checked; consumer report regenerated in check mode without differences |
 
@@ -22,16 +22,17 @@ Dogfood reproduced and fixed fractional/non-numeric video quality settings that
 could poison the Rust capture loop in both consumers. Regression tests failed
 before the fixes and passed afterwards. AirCodum also showed an API-key error
 after a successful ordinary file upload; AI is optional, so that error was
-removed and a saved-file regression added. AirCodum's suite now has 34 passes.
+removed and a saved-file regression added. AirCodum's suite now has 35 passes, including display-loss recovery.
 The Node quickstart was made runnable as a CommonJS file, and the skill now
 documents installation from the public archive when npm is unavailable.
 
-Release gaps remain. The advertised `@priyankark/rusty-robot@0.1.2` npm alias
-returned 404; clean consumer checkouts therefore failed `npm ci`. The public
-GitHub archive works and preserves the same import name. Agentum's current npm
-release is 2.1.0 and Marketplace's AirCodum release is 0.4.0; the Rust-default
-2.2.0/0.5.0 candidates have not been published. Candidate lockfiles and final
-multi-platform packaging checks still need completion after npm authentication.
+The initial clean installs found that `@priyankark/rusty-robot@0.1.2` on npm
+returned 404. Both consumers now pin the public GitHub release archive and its
+integrity hash in their lockfiles, retaining the same import name. Fresh `npm ci`
+installs and full consumer suites pass without a local Rust toolchain or npm
+scope publication. The npm mirror still requires account authentication.
+Agentum's public npm release is 2.1.0 and Marketplace's AirCodum release is 0.4.0;
+the Rust-default 2.2.0/0.5.0 candidates have not yet been published.
 
 Concurrent macOS capture is a separate limitation: a second Node process using
 the same executable path timed out while the existing phone server was running.
@@ -44,9 +45,39 @@ quality 85, target 30 FPS). This is a single smoke run, not a replacement for th
 published repeated A/B benchmark and not a fix for concurrent instances.
 
 This session did not test a physical phone, WAN transport, optional paid AI
-services, additional operating systems, or physical monitor hot-plug. Earlier
-cross-platform CI evidence below remains separate. One repeated VS Code input
-run aborted when focus moved away; the guard prevented input into another app.
+services, or physical monitor hot-plug. Published Cargo 0.1.2 consumer tests
+[passed on macOS, Windows and Linux](https://github.com/priyankark/rusty-robot/actions/runs/40578986922).
+The [native package matrix](https://github.com/priyankark/rusty-robot/actions/runs/40578986881)
+passed for all seven binaries on minimum/current Node versions. These hosted
+checks establish installation and processing behavior; they do not substitute
+for physical desktop validation on every platform.
+
+The final desktop rerun exposed an unavailable main display. Waking the display
+restored enumeration; eager display queries had also broken ordinary AirCodum
+connections. Both consumers now defer capture lookup into the retryable loop.
+AirCodum heartbeat and quality configuration remain usable without a display.
+Agentum rejects a stream start without retaining a subscription, and accepts a
+retry after the display returns. Regression tests reproduce both failures before
+the fixes and pass afterwards.
+
+The updated local VSIX passed video delivery and the independently decoded PNG
+screenshot, but repeated input runs stopped at the owned-editor focus guard.
+They are **incomplete**, not desktop passes; no focus guard was bypassed. The
+previous full journey passed before the display-recovery changes. The exact
+CI-built updated VSIX additionally passed all seven binary hashes, native media,
+and activation in VS Code 1.101.0 / Node 22.15.1 on the local Mac. The final
+[AirCodum matrix](https://github.com/priyankark/AirCodum/actions/runs/40581071719)
+passed on macOS ARM64/x64, Linux ARM64/x64 and Windows ARM64/x64, using that
+single VSIX and minimum supported VS Code.
+
+The final [Agentum package matrix](https://github.com/priyankark/agentum-cli/actions/runs/40580990823)
+also passed on all six targets, on minimum and current Node. Each host installed
+the same archive with install scripts disabled, exercised Rust image processing,
+and ran a real terminal command through the shipped session manager, checking
+output, exit and natural Node shutdown. The Windows check initially bypassed
+Agentum's existing PTY cleanup by constructing node-pty directly; the corrected
+check uses the product path and passes without forced process exit. The exact
+CI archive also passed a fresh installation and terminal run on the local Mac.
 
 The follow-up Codex chat report was reproduced against codex-cli 0.163.0: its
 `item.completed` assistant events were ignored by Agentum's legacy parser. The
@@ -55,7 +86,7 @@ tool failures, and rejects empty/error turns instead of reporting success.
 Nine new regression cases pass, including the authenticated phone protocol.
 Two live Codex turns delivered the expected chat text before notifications;
 the follow-up retained context and history contained both answers. Agentum's
-full local suite is now 52 passed / two opt-in skips. No mobile code change was
+full local suite is now 54 passed / two opt-in skips. No mobile code change was
 needed for its existing `codex_message` handler. The previously running server
 still needs a reload to use the updated module.
 
