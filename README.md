@@ -118,7 +118,8 @@ The workspace includes `rusty-robot-media` (capture, resize, BLAKE3 frame finger
 JPEG/PNG encoding) and `rusty-robot-node` (Node-API input plus asynchronous media).
 Install `@priyankark/rusty-robot@0.1.2` for prebuilt Node-API binaries across seven
 desktop targets. No Rust compiler or install scripts are required. See
-[Node package requirements](packages/node/README.md). For source development,
+[Node package requirements and release-archive installation](packages/node/README.md).
+The GitHub release archive is usable before its npm mirror is available. For source development,
 build with `node scripts/build-node.cjs`.
 See [the agent skill](skills/rusty-robot/SKILL.md) for integration and bounded scheduling.
 

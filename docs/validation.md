@@ -1,5 +1,64 @@
 # Validation record
 
+## New-user dogfood — 2026-10-27, afternoon
+
+Tested on macOS 27 / Apple Silicon with an active 1920×1080 desktop, granted
+Accessibility and Screen Recording, Node 24.22.0 and VS Code 1.141.0.
+The running phone server was preserved. Raw local evidence is under
+`target/dogfood-2026-10-27`; screenshots and credentials are not published.
+
+| User path | Result |
+| --- | --- |
+| Fresh Cargo application using crates.io 0.1.2 | 65 public API contracts with PNG and 55 without passed; source verified as the registry, not the checkout |
+| Published Cargo library driving actual applications | Chromium's eight workflows and native AppKit typing/editing passed using the external application |
+| Checkout desktop validation | 34 desktop contracts plus primary, negative-origin secondary, and AppKit workflows passed: 37 executions, no skipped desktop tests |
+| Native Node release archive | Fresh public GitHub URL installation with install scripts disabled; native JPEG/PNG processing passed. Local archive integrity-corruption rejection also passed |
+| Agentum public npm 2.1.0 | Fresh normal install, version/help, rejected anonymous connection, real authenticated terminal command/output/exit, and independently decoded pairing QR passed |
+| Agentum 2.2.0 candidate | 43 tests passed, two existing opt-in tests skipped; actual authenticated AppKit click, Unicode, multiline, shortcut cleanup and drag selection passed |
+| AirCodum 0.5.0 candidate VSIX | Seven binary hashes and native media validated; actual isolated VS Code activation, pairing, capture, PNG screenshot command, native editor input, file upload, reconnect and server restart passed |
+| Benchmark evidence | 21 Rust/RobotJS comparisons, 13 optimization comparisons and 1,428 batches checked; consumer report regenerated in check mode without differences |
+
+Dogfood reproduced and fixed fractional/non-numeric video quality settings that
+could poison the Rust capture loop in both consumers. Regression tests failed
+before the fixes and passed afterwards. AirCodum also showed an API-key error
+after a successful ordinary file upload; AI is optional, so that error was
+removed and a saved-file regression added. AirCodum's suite now has 34 passes.
+The Node quickstart was made runnable as a CommonJS file, and the skill now
+documents installation from the public archive when npm is unavailable.
+
+Release gaps remain. The advertised `@priyankark/rusty-robot@0.1.2` npm alias
+returned 404; clean consumer checkouts therefore failed `npm ci`. The public
+GitHub archive works and preserves the same import name. Agentum's current npm
+release is 2.1.0 and Marketplace's AirCodum release is 0.4.0; the Rust-default
+2.2.0/0.5.0 candidates have not been published. Candidate lockfiles and final
+multi-platform packaging checks still need completion after npm authentication.
+
+Concurrent macOS capture is a separate limitation: a second Node process using
+the same executable path timed out while the existing phone server was running.
+Both old and new native addons reproduced it. macOS replayd logs showed the two
+processes repeatedly replacing each other's connection. The same public addon
+captured successfully with an isolated copy of the Node executable, without
+stopping the existing server. Under that explicitly isolated condition Agentum
+delivered 214 changing, decodable 1440×810 JPEG frames in ten seconds (21.4 FPS,
+quality 85, target 30 FPS). This is a single smoke run, not a replacement for the
+published repeated A/B benchmark and not a fix for concurrent instances.
+
+This session did not test a physical phone, WAN transport, optional paid AI
+services, additional operating systems, or physical monitor hot-plug. Earlier
+cross-platform CI evidence below remains separate. One repeated VS Code input
+run aborted when focus moved away; the guard prevented input into another app.
+
+The follow-up Codex chat report was reproduced against codex-cli 0.163.0: its
+`item.completed` assistant events were ignored by Agentum's legacy parser. The
+fix supports current and legacy events, deduplicates completed items, preserves
+tool failures, and rejects empty/error turns instead of reporting success.
+Nine new regression cases pass, including the authenticated phone protocol.
+Two live Codex turns delivered the expected chat text before notifications;
+the follow-up retained context and history contained both answers. Agentum's
+full local suite is now 52 passed / two opt-in skips. No mobile code change was
+needed for its existing `codex_message` handler. The previously running server
+still needs a reload to use the updated module.
+
 **Public release validation, 2026-10-27:** [cross-platform CI](https://github.com/priyankark/rusty-robot/actions)
 is green. [Native desktop CI run](https://github.com/priyankark/rusty-robot/actions/runs/40543218651)
 passed **33 tests on Linux/X11 and 33 on Windows**: 32 desktop contracts plus the

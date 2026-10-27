@@ -4,10 +4,22 @@ Native Rust desktop input, screen capture, resize, BLAKE3 frame fingerprints, an
 JPEG/PNG processing. Installation includes all supported Node-API binaries: no
 Rust toolchain, Git checkout, install scripts, or runtime downloads are required.
 
+Install the verified release archive (also available before the npm mirror):
+
+```sh
+npm install https://github.com/priyankark/rusty-robot/releases/download/v0.1.2/priyankark-rusty-robot-0.1.2.tgz
+```
+
+Save this as `capture.cjs`, then run `node capture.cjs`:
+
 ```js
 const robot = require('@priyankark/rusty-robot');
-console.log(robot.getPermissions());
-const frame = await robot.captureFrame(1440, 85, null, true, 'jpeg');
+async function main() {
+  console.log(robot.getPermissions());
+  const frame = await robot.captureFrame(1440, 85, null, true, 'jpeg');
+  console.log({ width: frame.width, height: frame.height, bytes: frame.data.length });
+}
+main().catch(error => { console.error(error.message); process.exitCode = 1; });
 ```
 
 Supported: macOS 14+ (Apple Silicon and Intel), Windows 10/11 (x64, ARM64, and
