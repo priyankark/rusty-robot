@@ -1,6 +1,6 @@
 [package]
 name = "rusty-robot"
-version = "0.1.0"
+version = "0.1.1"
 edition = "2024"
 description = "Cross-platform desktop automation in Rust; test-first port of RobotJS"
 license = "MIT"

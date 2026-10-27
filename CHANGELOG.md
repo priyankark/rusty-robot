@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.1.1 — 2026-10-27
+
+- Make release checksums directly verifiable alongside downloaded archives.
+- Bound Linux desktop CI package installation and use the validated Ubuntu runner.
+- Keep core, media, and Node bridge versions aligned for consumer releases.
+- Runtime behavior and the published 0.1.0 benchmark measurements are unchanged.
+
 ## 0.1.0 — 2026-10-27
 
 Initial public preview of the Rust RobotJS port.
