@@ -52,7 +52,7 @@ jobs:
         env:
           BINARY_NAME: ${{ matrix.name }}
         run: node -e "const fs=require('node:fs');fs.mkdirSync('target/prebuilds',{recursive:true});fs.copyFileSync('target/rusty-robot.node','target/prebuilds/'+process.env.BINARY_NAME+'.node')"
-      - uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
         with:
           name: native-${{ matrix.name }}
           path: target/prebuilds/*.node
@@ -74,7 +74,7 @@ jobs:
       - run: node --test packages/node/platform.test.cjs
       - run: node scripts/package-node.cjs
       - run: npm pack ./packages/node --pack-destination .
-      - uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
         with:
           name: node-package
           path: priyankark-rusty-robot-*.tgz
