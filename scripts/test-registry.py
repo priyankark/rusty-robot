@@ -78,6 +78,7 @@ objc2-foundation = "0.3"
             passed = passed and totals['ignored'] == 0
         report['checks'].append({'name': name, 'success': passed, **totals})
         report['complete'] = len(report['checks']) == len(commands)
+        report['passed'] = report['complete'] and all(check['success'] for check in report['checks'])
         (output / 'report.json').write_text(json.dumps(report, indent=2) + '\n')
         print(f'{name}: {totals}; passed={passed}', flush=True)
         if not passed:
