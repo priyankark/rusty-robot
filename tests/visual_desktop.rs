@@ -4,8 +4,9 @@ use serde_json::{Value, json};
 use std::{
     fs,
     io::{BufRead, BufReader, Write},
+    net::{TcpListener, TcpStream},
     path::PathBuf,
-    process::{Child, ChildStdin, Command, Stdio},
+    process::{Child, Command, Stdio},
     sync::mpsc::{self, Receiver},
     thread,
     time::{Duration, Instant},
@@ -13,7 +14,7 @@ use std::{
 
 struct Desktop {
     child: Child,
-    input: ChildStdin,
+    input: TcpStream,
     output: Receiver<Value>,
     ready: Value,
     artifacts: PathBuf,
@@ -34,14 +35,39 @@ impl Desktop {
         if cfg!(target_os = "linux") {
             command.arg("--no-sandbox");
         }
+        let listener = TcpListener::bind("127.0.0.1:0").unwrap();
+        listener.set_nonblocking(true).unwrap();
         let mut child = command
+            .env(
+                "RUSTY_ROBOT_QA_CONTROL_PORT",
+                listener.local_addr().unwrap().port().to_string(),
+            )
             .arg(root.join("tests/gui/verification/main.cjs"))
-            .stdin(Stdio::piped())
+            .stdin(Stdio::null())
             .stdout(Stdio::piped())
             .stderr(Stdio::inherit())
             .spawn()
             .unwrap();
-        let input = child.stdin.take().unwrap();
+        // Electron's GUI subsystem cannot reliably read inherited stdin on
+        // Windows. A loopback control socket only requests observations/focus;
+        // all tested input still comes through native Rust events.
+        let deadline = Instant::now() + Duration::from_secs(15);
+        let input = loop {
+            match listener.accept() {
+                Ok((stream, _)) => break stream,
+                Err(error)
+                    if error.kind() == std::io::ErrorKind::WouldBlock
+                        && Instant::now() < deadline =>
+                {
+                    thread::sleep(Duration::from_millis(20))
+                }
+                Err(error) => {
+                    let _ = child.kill();
+                    let _ = child.wait();
+                    panic!("QA control connection failed: {error}");
+                }
+            }
+        };
         let stdout = child.stdout.take().unwrap();
         let (tx, output) = mpsc::channel();
         thread::spawn(move || {

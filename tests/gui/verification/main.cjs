@@ -2,6 +2,7 @@
 const { app, BrowserWindow, screen } = require('electron');
 const readline = require('node:readline');
 const path = require('node:path');
+const net = require('node:net');
 app.commandLine.appendSwitch('force-color-profile', 'srgb');
 app.commandLine.appendSwitch('force-raster-color-profile', 'srgb');
 let window;
@@ -24,7 +25,9 @@ app.whenReady().then(async () => {
   const elements = await window.webContents.executeJavaScript('geometry()');
   send({ ready: true, bounds, elements });
   // This channel only reads observations and labels screenshots; input is native.
-  readline.createInterface({ input: process.stdin }).on('line', async line => {
+  readline.createInterface({ input: net.createConnection({
+    host: '127.0.0.1', port: Number(process.env.RUSTY_ROBOT_QA_CONTROL_PORT),
+  }).on('error', error => { send({ error: String(error) }); app.quit(); }) }).on('line', async line => {
     try {
       const command = JSON.parse(line);
       if (command.phase) await window.webContents.executeJavaScript(
