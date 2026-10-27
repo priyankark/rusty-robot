@@ -1,0 +1,112 @@
+name: Prebuilt Node binaries
+on:
+  workflow_dispatch:
+  workflow_call:
+  pull_request:
+    paths: ['packages/node/**', 'scripts/*node*.cjs', 'crates/**', 'src/**', 'Cargo*', '.github/workflows/native-binaries.yml']
+permissions:
+  contents: read
+jobs:
+  build:
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - { os: macos-14, arch: arm64, target: aarch64-apple-darwin, name: darwin-arm64 }
+          - { os: macos-15-intel, arch: x64, target: x86_64-apple-darwin, name: darwin-x64 }
+          - { os: ubuntu-22.04, arch: x64, target: x86_64-unknown-linux-gnu, name: linux-x64-gnu }
+          - { os: ubuntu-22.04-arm, arch: arm64, target: aarch64-unknown-linux-gnu, name: linux-arm64-gnu }
+          - { os: windows-2022, arch: x64, target: x86_64-pc-windows-msvc, name: win32-x64 }
+          - { os: windows-2022, arch: x86, target: i686-pc-windows-msvc, name: win32-ia32 }
+          - { os: windows-11-arm, arch: arm64, target: aarch64-pc-windows-msvc, name: win32-arm64 }
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 25
+    env:
+      CARGO_BUILD_TARGET: ${{ matrix.target }}
+      MACOSX_DEPLOYMENT_TARGET: '14.0'
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803
+      - uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38
+        with:
+          node-version: '22'
+          architecture: ${{ matrix.arch }}
+      - uses: dtolnay/rust-toolchain@b725eda525362e7cf34af9a7243cac1e3f01a7ec
+        with:
+          targets: ${{ matrix.target }}
+      - run: node scripts/build-node.cjs
+      - run: node --test crates/rusty-robot-node/tests/media.cjs
+      - name: Verify Linux capture on its native architecture
+        if: runner.os == 'Linux'
+        timeout-minutes: 5
+        run: |
+          sudo apt-get -o Acquire::http::Timeout=30 -o Acquire::https::Timeout=30 -o Acquire::Retries=2 update
+          sudo apt-get -o Acquire::http::Timeout=30 -o Acquire::https::Timeout=30 -o Acquire::Retries=2 install -y --no-install-recommends xvfb xauth
+          RUSTY_ROBOT_TEST_CAPTURE=1 xvfb-run -a node --test crates/rusty-robot-node/tests/media.cjs
+      - name: Verify Windows capture on its native architecture
+        if: runner.os == 'Windows'
+        run: |
+          $env:RUSTY_ROBOT_TEST_CAPTURE = '1'
+          node --test crates/rusty-robot-node/tests/media.cjs
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+      - name: Stage native binary
+        env:
+          BINARY_NAME: ${{ matrix.name }}
+        run: node -e "const fs=require('node:fs');fs.mkdirSync('target/prebuilds',{recursive:true});fs.copyFileSync('target/rusty-robot.node','target/prebuilds/'+process.env.BINARY_NAME+'.node')"
+      - uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f
+        with:
+          name: native-${{ matrix.name }}
+          path: target/prebuilds/*.node
+          if-no-files-found: error
+  package:
+    needs: build
+    runs-on: ubuntu-22.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803
+      - uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38
+        with:
+          node-version: '22'
+      - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093
+        with:
+          pattern: native-*
+          merge-multiple: true
+          path: packages/node/prebuilds
+      - run: node --test packages/node/platform.test.cjs
+      - run: node scripts/package-node.cjs
+      - run: npm pack ./packages/node --pack-destination .
+      - uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f
+        with:
+          name: node-package
+          path: priyankarkumar-rusty-robot-*.tgz
+          if-no-files-found: error
+  verify:
+    needs: package
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - { os: macos-14, arch: arm64, minimum: '18', current: '24' }
+          - { os: macos-15-intel, arch: x64, minimum: '18', current: '24' }
+          - { os: ubuntu-22.04, arch: x64, minimum: '18', current: '24' }
+          - { os: ubuntu-22.04-arm, arch: arm64, minimum: '18', current: '24' }
+          - { os: windows-2022, arch: x64, minimum: '18', current: '24' }
+          - { os: windows-2022, arch: x86, minimum: '18', current: '22' }
+          - { os: windows-11-arm, arch: arm64, minimum: '22', current: '24' }
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803
+      - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093
+        with:
+          name: node-package
+          path: target/npm
+      - uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38
+        with:
+          node-version: ${{ matrix.minimum }}
+          architecture: ${{ matrix.arch }}
+      - run: node scripts/test-node-package.cjs target/npm
+      - uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38
+        with:
+          node-version: ${{ matrix.current }}
+          architecture: ${{ matrix.arch }}
+      - run: node scripts/test-node-package.cjs target/npm

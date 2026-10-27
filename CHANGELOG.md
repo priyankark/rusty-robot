@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.1.2 — 2026-10-27
+
+- Add a shared Node package containing prebuilt native binaries for seven OS/architecture targets.
+- Verify selected binary integrity and report unsupported OS/libc baselines explicitly.
+- Validate clean, script-free package installs on each target with minimum and current supported Node versions.
+- Preserve the existing native runtime, input semantics, and media algorithms.
+
 ## 0.1.1 — 2026-10-27
 
 - Make release checksums directly verifiable alongside downloaded archives.

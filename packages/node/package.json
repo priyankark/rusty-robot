@@ -1,0 +1,13 @@
+{
+  "name": "@priyankarkumar/rusty-robot",
+  "version": "0.1.2",
+  "description": "Prebuilt Rust desktop input, capture and asynchronous image processing for Node.js",
+  "main": "index.cjs",
+  "types": "index.d.ts",
+  "license": "MIT",
+  "repository": { "type": "git", "url": "https://github.com/priyankark/rusty-robot.git", "directory": "packages/node" },
+  "engines": { "node": ">=18" },
+  "files": ["index.cjs", "platform.cjs", "index.d.ts", "prebuilds/*.node", "manifest.json", "README.md", "LICENSE.md", "NOTICE.md"],
+  "scripts": { "prepack": "node ../../scripts/package-node.cjs --verify" },
+  "publishConfig": { "access": "public" }
+}
