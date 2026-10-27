@@ -1,6 +1,6 @@
 # Rust API recipes
 
-Use Rust 1.88+. Until registry publication, add:
+Use Rust 1.88+ and add the core package:
 
 ```toml
 [dependencies]

@@ -41,7 +41,7 @@ jobs:
         run: |
           sudo apt-get -o Acquire::http::Timeout=30 -o Acquire::https::Timeout=30 -o Acquire::Retries=2 update
           sudo apt-get -o Acquire::http::Timeout=30 -o Acquire::https::Timeout=30 -o Acquire::Retries=2 install -y --no-install-recommends xvfb xauth
-          RUSTY_ROBOT_TEST_CAPTURE=1 xvfb-run -a node --test crates/rusty-robot-node/tests/media.cjs
+          RUSTY_ROBOT_TEST_CAPTURE=1 xvfb-run -a --server-args="-screen 0 1920x1080x24 -noreset" node --test crates/rusty-robot-node/tests/media.cjs
       - name: Verify Windows capture on its native architecture
         if: runner.os == 'Windows'
         run: |
