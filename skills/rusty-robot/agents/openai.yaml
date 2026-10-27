@@ -1,0 +1,4 @@
+interface:
+  display_name: "Rusty Robot"
+  short_description: "Build and verify native desktop automation in Rust"
+  default_prompt: "Use $rusty-robot to integrate and verify desktop automation in this application."

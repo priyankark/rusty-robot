@@ -1,0 +1,88 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>Rusty Robot desktop verification</title>
+<style>
+* { box-sizing: border-box; }
+body { margin: 0; padding: 24px; background: #102034; color: #eaf2fc; font: 16px system-ui; }
+h1 { font-size: 24px; margin: 0 0 8px; }
+#phase { color: #8edcc8; margin-bottom: 20px; }
+.row { display: flex; gap: 20px; margin-bottom: 18px; }
+.panel { background: #1c314b; padding: 16px; border-radius: 8px; }
+.row > .panel:first-child { flex: 0 0 320px; }
+button { font: inherit; padding: 10px 18px; cursor: pointer; }
+#clicks { min-width: 265px; }
+#counts { margin-top: 10px; font-variant-numeric: tabular-nums; }
+#marker { width: 96px; height: 64px; background: #c0ff33; border: 0; padding: 0; border-radius: 0; position: relative; }
+#marker::after { content: ''; position: absolute; left: 16px; top: 16px; width: 24px; height: 24px; background: #e94079; }
+#dragzone { width: 490px; height: 145px; position: relative; background: #14273d; }
+#drag { position: absolute; left: 10px; top: 35px; width: 68px; height: 60px; background: #f7ad45; color: #102034; display: grid; place-items: center; touch-action: none; user-select: none; cursor: grab; }
+#drop { position: absolute; left: 350px; top: 25px; width: 110px; height: 90px; border: 2px dashed #8edcc8; display: grid; place-items: center; }
+#scroll { width: 410px; height: 145px; overflow: scroll; background: white; color: #102034; }
+#scrollcontent { width: 1600px; height: 1500px; background: repeating-linear-gradient(0deg, #dceef5 0px, #dceef5 39px, #81b2c6 40px, #81b2c6 41px); padding: 10px; }
+textarea { width: 100%; height: 125px; padding: 10px; font: 18px system-ui; resize: none; }
+#status { font-size: 13px; white-space: pre-wrap; }
+</style>
+<h1>Rusty Robot · Native desktop verification</h1>
+<div id="phase">Waiting for native input</div>
+<div class="row">
+  <div class="panel"><button id="clicks">Click / double / right / middle</button><div id="counts">No clicks yet</div></div>
+  <div class="panel"><button id="marker" aria-label="Image target"></button></div>
+  <div class="panel" style="flex:1"><div id="status">Events observed by Chromium</div></div>
+</div>
+<div class="row">
+  <div id="dragzone"><div id="drop">Drop here</div><div id="drag">Drag me</div></div>
+  <div id="scroll"><div id="scrollcontent">Scroll vertically and horizontally ↔ ↕</div></div>
+</div>
+<label for="editor">Unicode text and keyboard editing</label>
+<textarea id="editor" spellcheck="false"></textarea>
+<script>
+const counts = { click: 0, dblclick: 0, contextmenu: 0, middle: 0, marker: 0, drops: 0 };
+const events = [];
+const $ = id => document.getElementById(id);
+function log(event) {
+  events.push(event);
+  if (events.length > 10000) events.shift();
+  $('counts').textContent = `Left ${counts.click} · Double ${counts.dblclick} · Right ${counts.contextmenu} · Middle ${counts.middle}`;
+  $('status').textContent = `Image clicks: ${counts.marker}  Drops: ${counts.drops}\nScroll: ${$('scroll').scrollLeft}, ${$('scroll').scrollTop}\nEvents: ${events.length}`;
+}
+for (const type of ['mousedown','mouseup','click','dblclick','contextmenu','auxclick','keydown','keyup','input','wheel']) {
+  document.addEventListener(type, e => {
+    if (type === 'contextmenu') e.preventDefault();
+    if (e.target.id === 'clicks') {
+      if (['click','dblclick','contextmenu'].includes(type)) counts[type]++;
+      if (type === 'auxclick' && e.button === 1) counts.middle++;
+    }
+    if (e.target.id === 'marker' && type === 'click') counts.marker++;
+    log({ type, id: e.target.id, button: e.button, buttons: e.buttons,
+      key: e.key, shift: e.shiftKey, control: e.ctrlKey, alt: e.altKey, meta: e.metaKey,
+      trusted: e.isTrusted, x: e.screenX, y: e.screenY, deltaX: e.deltaX, deltaY: e.deltaY,
+      data: e.data, inputType: e.inputType });
+  }, { passive: false });
+}
+$('scroll').addEventListener('scroll', () => log({ type: 'scroll', x: $('scroll').scrollLeft, y: $('scroll').scrollTop }));
+let dragging = false;
+$('drag').addEventListener('pointerdown', e => { dragging = true; e.target.setPointerCapture(e.pointerId); });
+$('drag').addEventListener('pointermove', e => {
+  if (!dragging) return;
+  const r = $('dragzone').getBoundingClientRect();
+  $('drag').style.left = `${e.clientX-r.left-34}px`;
+  $('drag').style.top = `${e.clientY-r.top-30}px`;
+});
+$('drag').addEventListener('pointerup', e => {
+  if (!dragging) return;
+  dragging = false;
+  const r = $('drop').getBoundingClientRect();
+  if (e.clientX >= r.left && e.clientX < r.right && e.clientY >= r.top && e.clientY < r.bottom) {
+    counts.drops++; $('drop').textContent = 'Dropped ✓'; $('drag').textContent = 'Done';
+  }
+  log({ type: 'drop', x: e.screenX, y: e.screenY, trusted: e.isTrusted });
+});
+function geometry() {
+  return Object.fromEntries(['clicks','marker','drag','drop','scroll','editor'].map(id => {
+    const r = $(id).getBoundingClientRect();
+    return [id, { x: r.x, y: r.y, width: r.width, height: r.height }];
+  }));
+}
+function observe() { return { focused: document.hasFocus(), counts: {...counts}, text: $('editor').value,
+  scroll: { x: $('scroll').scrollLeft, y: $('scroll').scrollTop }, events: [...events] }; }
+</script>

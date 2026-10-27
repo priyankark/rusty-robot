@@ -1,0 +1,53 @@
+name: Native desktop validation
+
+# GUI verification is explicit and separate from the headless contract matrix.
+on: workflow_dispatch
+permissions:
+  contents: read
+
+jobs:
+  native:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-24.04, windows-2022]
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803
+      - uses: dtolnay/rust-toolchain@b725eda525362e7cf34af9a7243cac1e3f01a7ec
+      - uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38
+        with:
+          node-version: '24'
+          cache: npm
+          cache-dependency-path: tests/gui/package-lock.json
+      - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1
+        with:
+          python-version: '3.x'
+      - name: Install X11 desktop dependencies
+        if: runner.os == 'Linux'
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y xvfb xauth openbox libxtst6 libgtk-3-0 \
+            libnss3 libasound2t64 libgbm1 libatk-bridge2.0-0 libxkbcommon0
+      - name: Install pinned Electron fixture
+        run: |
+          npm ci --prefix tests/gui
+          node tests/gui/node_modules/electron/install.js
+      - name: Run Linux X11 native tests
+        if: runner.os == 'Linux'
+        shell: bash
+        run: |
+          xvfb-run --auto-servernum --server-args='-screen 0 1920x1080x24 -ac +extension RANDR' \
+            bash -c 'openbox > /tmp/rusty-robot-openbox.log 2>&1 & python scripts/validate-desktop.py'
+      - name: Run Windows native tests
+        if: runner.os == 'Windows'
+        run: python scripts/validate-desktop.py
+      - name: Preserve test results and captures
+        if: always()
+        uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f
+        with:
+          name: desktop-${{ matrix.os }}
+          path: target/desktop-validation/
+          if-no-files-found: warn
+          retention-days: 14

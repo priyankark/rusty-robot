@@ -1,0 +1,899 @@
+{
+  "upstream": "https://github.com/octalmage/robotjs",
+  "revision": "0af6073e1f1bcff865ffe52801c71647829cdc1c",
+  "source_sha256": {
+    "test/bitmap.js": "043c32d93fcbfea903e03521bfa7692dfa1e9b6f01f722f44ed40012439d8ba0",
+    "test/image.js": "4f2805f71116105e973f3f7131b27c5e95c015c6e20879308c606b4e621bf493",
+    "test/integration/keyboard.js": "6a4f10b4f8116da4ea4ce98c2ee2aeae51fd7fc2e7577f9b30b1493f61a2efc5",
+    "test/integration/mouse.js": "51f4590eaca9bba89c883220c1559d1e8876bc5405f4987af59ea3cff3c2aac4",
+    "test/integration/screen.js": "04b66d06dd353f9754e148e69c373b49225a1e6c8925fabb9fac0f9761726dbd",
+    "test/keyboard.js": "651e017d43500aea2e38392179eb9757c6f669fa601ffdce5da560c09c0dec0c",
+    "test/mouse.js": "f550c5df6b4179d846b7b8a752bf5456d115887595388a5e2930188306ac3241",
+    "test/permissions.js": "533db3a862a43faf0d2273dab1c51260f9e798354e4e71f03b42f631094c90bd",
+    "test/screen.js": "dfc00ca902f7781c988d9b507d2e0435fd8d6c26058fbaf8f5be19050b85662e",
+    "test/helpers/images.js": "eda3d15b379574c105a2b3ff4c8f7a9f719f63420358038d1220036c13da254f",
+    "test/helpers/targetpractice.js": "c09072946fb59fde6db4360d4544d6d07fa73e5a6c618e2125a44be58c00831b"
+  },
+  "cases": [
+    {
+      "source": "test/bitmap.js",
+      "name": "Get a bitmap and check the parameters.",
+      "rust": [
+        {
+          "file": "tests/desktop.rs",
+          "test": "bitmap_parameters"
+        }
+      ]
+    },
+    {
+      "source": "test/bitmap.js",
+      "name": "Get a bitmap of a specific size.",
+      "rust": [
+        {
+          "file": "tests/desktop.rs",
+          "test": "bitmap_specific_size"
+        }
+      ]
+    },
+    {
+      "source": "test/bitmap.js",
+      "name": "Get a bitmap and make sure the colorAt works as expected.",
+      "rust": [
+        {
+          "file": "tests/desktop.rs",
+          "test": "captured_bitmap_color_and_bounds"
+        }
+      ]
+    },
+    {
+      "source": "test/bitmap.js",
+      "name": "Reads padded rows without crossing into row padding.",
+      "rust": [
+        {
+          "file": "tests/bitmap.rs",
+          "test": "reads_padded_rows"
+        }
+      ]
+    },
+    {
+      "source": "test/bitmap.js",
+      "name": "Finds colors inside sub-rectangles with non-zero origins.",
+      "rust": [
+        {
+          "file": "tests/bitmap.rs",
+          "test": "color_search_rect_origins"
+        }
+      ]
+    },
+    {
+      "source": "test/bitmap.js",
+      "name": "Finds bitmaps inside padded haystacks and respects search rect origins.",
+      "rust": [
+        {
+          "file": "tests/bitmap.rs",
+          "test": "image_search_padding_and_rect_origins"
+        }
+      ]
+    },
+    {
+      "source": "test/bitmap.js",
+      "name": "Finds overlapping images through the final valid row and column.",
+      "rust": [
+        {
+          "file": "tests/bitmap.rs",
+          "test": "overlapping_images_include_final_row_and_column"
+        }
+      ]
+    },
+    {
+      "source": "test/bitmap.js",
+      "name": "Rejects colors and images beyond the configured tolerance.",
+      "rust": [
+        {
+          "file": "tests/bitmap.rs",
+          "test": "tolerance_threshold"
+        }
+      ]
+    },
+    {
+      "source": "test/bitmap.js",
+      "name": "Accepts hash-prefixed colors and rejects malformed color values.",
+      "rust": [
+        {
+          "file": "tests/bitmap.rs",
+          "test": "hex_color_validation"
+        },
+        {
+          "file": "docs/type-contracts.md",
+          "contract": "color_must_be_string"
+        }
+      ]
+    },
+    {
+      "source": "test/bitmap.js",
+      "name": "Applies non-zero color tolerance symmetrically for every channel.",
+      "rust": [
+        {
+          "file": "tests/bitmap.rs",
+          "test": "color_tolerance_is_symmetric_for_every_channel"
+        }
+      ]
+    },
+    {
+      "source": "test/bitmap.js",
+      "name": "Applies non-zero image tolerance symmetrically across mixed channel deltas.",
+      "rust": [
+        {
+          "file": "tests/bitmap.rs",
+          "test": "image_tolerance_is_symmetric_for_mixed_deltas"
+        }
+      ]
+    },
+    {
+      "source": "test/bitmap.js",
+      "name": "Rejects NaN in every search rectangle field.",
+      "rust": [
+        {
+          "file": "docs/type-contracts.md",
+          "contract": "search_rectangle_x_nan"
+        },
+        {
+          "file": "docs/type-contracts.md",
+          "contract": "search_rectangle_y_nan"
+        },
+        {
+          "file": "docs/type-contracts.md",
+          "contract": "search_rectangle_width_nan"
+        },
+        {
+          "file": "docs/type-contracts.md",
+          "contract": "search_rectangle_height_nan"
+        }
+      ],
+      "adaptation": "Integer metadata/rectangle fields reject these values at compile time."
+    },
+    {
+      "source": "test/bitmap.js",
+      "name": "Rejects Infinity in every search rectangle field.",
+      "rust": [
+        {
+          "file": "docs/type-contracts.md",
+          "contract": "search_rectangle_x_infinity"
+        },
+        {
+          "file": "docs/type-contracts.md",
+          "contract": "search_rectangle_y_infinity"
+        },
+        {
+          "file": "docs/type-contracts.md",
+          "contract": "search_rectangle_width_infinity"
+        },
+        {
+          "file": "docs/type-contracts.md",
+          "contract": "search_rectangle_height_infinity"
+        }
+      ],
+      "adaptation": "Integer metadata/rectangle fields reject these values at compile time."
+    },
+    {
+      "source": "test/bitmap.js",
+      "name": "Rejects fractional numbers in every search rectangle field.",
+      "rust": [
+        {
+          "file": "docs/type-contracts.md",
+          "contract": "search_rectangle_x_fractional"
+        },
+        {
+          "file": "docs/type-contracts.md",
+          "contract": "search_rectangle_y_fractional"
+        },
+        {
+          "file": "docs/type-contracts.md",
+          "contract": "search_rectangle_width_fractional"
+        },
+        {
+          "file": "docs/type-contracts.md",
+          "contract": "search_rectangle_height_fractional"
+        }
+      ],
+      "adaptation": "Integer metadata/rectangle fields reject these values at compile time."
+    },
+    {
+      "source": "test/bitmap.js",
+      "name": "Rejects numbers outside the native range in every search rectangle field.",
+      "rust": [
+        {
+          "file": "tests/bitmap.rs",
+          "test": "search_rect_rejects_native_range_overflow"
+        }
+      ],
+      "adaptation": "usize::MAX exercises overflow at the Rust native boundary in place of JavaScript Number.MAX_VALUE."
+    },
+    {
+      "source": "test/bitmap.js",
+      "name": "Rejects non-finite and out-of-range search tolerances.",
+      "rust": [
+        {
+          "file": "tests/bitmap.rs",
+          "test": "rejects_invalid_tolerances"
+        }
+      ]
+    },
+    {
+      "source": "test/bitmap.js",
+      "name": "Rejects malformed bitmap metadata with NaN dimensions.",
+      "rust": [
+        {
+          "file": "docs/type-contracts.md",
+          "contract": "metadata_nan_dimensions"
+        }
+      ],
+      "adaptation": "Integer metadata/rectangle fields reject these values at compile time."
+    },
+    {
+      "source": "test/bitmap.js",
+      "name": "Rejects malformed bitmap metadata with infinite dimensions.",
+      "rust": [
+        {
+          "file": "docs/type-contracts.md",
+          "contract": "metadata_infinite_dimensions"
+        }
+      ],
+      "adaptation": "Integer metadata/rectangle fields reject these values at compile time."
+    },
+    {
+      "source": "test/bitmap.js",
+      "name": "Rejects malformed bitmap metadata with fractional row strides.",
+      "rust": [
+        {
+          "file": "docs/type-contracts.md",
+          "contract": "metadata_fractional_stride"
+        }
+      ],
+      "adaptation": "Integer metadata/rectangle fields reject these values at compile time."
+    },
+    {
+      "source": "test/bitmap.js",
+      "name": "Rejects malformed bitmap metadata with dimensions outside the native range.",
+      "rust": [
+        {
+          "file": "tests/bitmap.rs",
+          "test": "metadata_dimensions_outside_native_range"
+        }
+      ],
+      "adaptation": "usize::MAX exercises overflow at the Rust native boundary in place of JavaScript Number.MAX_VALUE."
+    },
+    {
+      "source": "test/bitmap.js",
+      "name": "Rejects malformed bitmap metadata with bitsPerPixel values that wrap through uint8.",
+      "rust": [
+        {
+          "file": "tests/bitmap.rs",
+          "test": "metadata_bits_do_not_wrap"
+        }
+      ]
+    },
+    {
+      "source": "test/bitmap.js",
+      "name": "Rejects malformed bitmap metadata with bytesPerPixel values that wrap through uint8.",
+      "rust": [
+        {
+          "file": "tests/bitmap.rs",
+          "test": "metadata_bytes_do_not_wrap"
+        }
+      ]
+    },
+    {
+      "source": "test/bitmap.js",
+      "name": "Rejects malformed bitmap metadata with inconsistent pixel metadata.",
+      "rust": [
+        {
+          "file": "tests/bitmap.rs",
+          "test": "metadata_consistent_pixel_format"
+        }
+      ]
+    },
+    {
+      "source": "test/bitmap.js",
+      "name": "Rejects malformed bitmap metadata with row strides smaller than their pixels.",
+      "rust": [
+        {
+          "file": "tests/bitmap.rs",
+          "test": "metadata_stride_covers_row"
+        }
+      ]
+    },
+    {
+      "source": "test/bitmap.js",
+      "name": "Rejects malformed bitmap metadata with buffers smaller than their declared metadata.",
+      "rust": [
+        {
+          "file": "tests/bitmap.rs",
+          "test": "metadata_buffer_covers_rows"
+        }
+      ]
+    },
+    {
+      "source": "test/bitmap.js",
+      "name": "Returns the documented negative result for every search variant.",
+      "rust": [
+        {
+          "file": "tests/bitmap.rs",
+          "test": "all_search_variants_return_negative_results"
+        }
+      ]
+    },
+    {
+      "source": "test/image.js",
+      "name": "Loads a BMP file and uses it as a search bitmap.",
+      "rust": [
+        {
+          "file": "tests/image.rs",
+          "test": "loads_bmp_as_search_bitmap"
+        }
+      ]
+    },
+    {
+      "source": "test/image.js",
+      "name": "Rejects unsupported four-character load extensions.",
+      "rust": [
+        {
+          "file": "tests/image.rs",
+          "test": "rejects_four_character_load_extensions"
+        }
+      ]
+    },
+    {
+      "source": "test/image.js",
+      "name": "Saves BMP files with consistent headers and pixels.",
+      "rust": [
+        {
+          "file": "tests/image.rs",
+          "test": "saves_bmp_with_consistent_headers_and_pixels"
+        }
+      ]
+    },
+    {
+      "source": "test/image.js",
+      "name": "Saves and reloads PNG bitmaps when PNG support is enabled.",
+      "rust": [
+        {
+          "file": "tests/image.rs",
+          "test": "saves_and_reloads_png"
+        }
+      ]
+    },
+    {
+      "source": "test/image.js",
+      "name": "Decodes a valid 2x2 RGB PNG.",
+      "rust": [
+        {
+          "file": "tests/image.rs",
+          "test": "decodes_rgb_png"
+        }
+      ]
+    },
+    {
+      "source": "test/image.js",
+      "name": "Decodes a valid 2x2 RGBA PNG.",
+      "rust": [
+        {
+          "file": "tests/image.rs",
+          "test": "decodes_rgba_png"
+        }
+      ]
+    },
+    {
+      "source": "test/image.js",
+      "name": "Decodes a valid 2x2 grayscale PNG.",
+      "rust": [
+        {
+          "file": "tests/image.rs",
+          "test": "decodes_grayscale_png"
+        }
+      ]
+    },
+    {
+      "source": "test/image.js",
+      "name": "Decodes a valid 2x2 grayscale-alpha PNG.",
+      "rust": [
+        {
+          "file": "tests/image.rs",
+          "test": "decodes_grayscale_alpha_png"
+        }
+      ]
+    },
+    {
+      "source": "test/image.js",
+      "name": "Decodes a valid 2x2 palette PNG.",
+      "rust": [
+        {
+          "file": "tests/image.rs",
+          "test": "decodes_palette_png"
+        }
+      ]
+    },
+    {
+      "source": "test/image.js",
+      "name": "Decodes a valid 2x2 palette with tRNS PNG.",
+      "rust": [
+        {
+          "file": "tests/image.rs",
+          "test": "decodes_transparent_palette_png"
+        }
+      ]
+    },
+    {
+      "source": "test/image.js",
+      "name": "Rejects PNG operations when PNG support is disabled.",
+      "rust": [
+        {
+          "file": "tests/image.rs",
+          "test": "rejects_png_when_disabled"
+        }
+      ]
+    },
+    {
+      "source": "test/image.js",
+      "name": "Rejects unsupported four-character save extensions.",
+      "rust": [
+        {
+          "file": "tests/image.rs",
+          "test": "rejects_four_character_save_extensions"
+        }
+      ]
+    },
+    {
+      "source": "test/image.js",
+      "name": "Converts capture-space points into screen-space points.",
+      "rust": [
+        {
+          "file": "tests/image.rs",
+          "test": "capture_to_screen_coordinates"
+        }
+      ]
+    },
+    {
+      "source": "test/image.js",
+      "name": "Converts target centers from captures with negative origins and non-uniform scaling.",
+      "rust": [
+        {
+          "file": "tests/image.rs",
+          "test": "target_centers_with_negative_origins_and_nonuniform_scaling"
+        }
+      ]
+    },
+    {
+      "source": "test/image.js",
+      "name": "findColors iterates across row boundaries correctly.",
+      "rust": [
+        {
+          "file": "tests/image.rs",
+          "test": "find_colors_crosses_rows"
+        }
+      ]
+    },
+    {
+      "source": "test/image.js",
+      "name": "findImages iterates across row boundaries correctly.",
+      "rust": [
+        {
+          "file": "tests/image.rs",
+          "test": "find_images_crosses_rows"
+        }
+      ]
+    },
+    {
+      "source": "test/image.js",
+      "name": "Does not move or click when clickImage cannot find its target.",
+      "rust": [
+        {
+          "file": "tests/image.rs",
+          "test": "missing_image_does_not_move_or_click"
+        }
+      ]
+    },
+    {
+      "source": "test/image.js",
+      "name": "Defaults an omitted button to left for direct double clicks.",
+      "rust": [
+        {
+          "file": "tests/image.rs",
+          "test": "direct_double_click_defaults_to_left"
+        }
+      ]
+    },
+    {
+      "source": "test/image.js",
+      "name": "Defaults an omitted button to left when double-clicking a found image.",
+      "rust": [
+        {
+          "file": "tests/image.rs",
+          "test": "image_double_click_defaults_to_left"
+        }
+      ]
+    },
+    {
+      "source": "test/keyboard.js",
+      "name": "Tap a key.",
+      "rust": [
+        {
+          "file": "tests/desktop.rs",
+          "test": "taps_key"
+        },
+        {
+          "file": "docs/type-contracts.md",
+          "contract": "key_tap_missing_arguments"
+        }
+      ]
+    },
+    {
+      "source": "test/keyboard.js",
+      "name": "Tap all keys.",
+      "rust": [
+        {
+          "file": "tests/desktop.rs",
+          "test": "taps_all_keys"
+        }
+      ]
+    },
+    {
+      "source": "test/keyboard.js",
+      "name": "Tap all numpad keys.",
+      "rust": [
+        {
+          "file": "tests/desktop.rs",
+          "test": "taps_all_numpad_keys"
+        }
+      ]
+    },
+    {
+      "source": "test/keyboard.js",
+      "name": "Tap a Unicode character.",
+      "rust": [
+        {
+          "file": "tests/desktop.rs",
+          "test": "taps_unicode"
+        },
+        {
+          "file": "docs/type-contracts.md",
+          "contract": "unicode_tap_missing_arguments"
+        }
+      ]
+    },
+    {
+      "source": "test/keyboard.js",
+      "name": "Test Key Toggle.",
+      "rust": [
+        {
+          "file": "tests/desktop.rs",
+          "test": "toggles_key"
+        }
+      ]
+    },
+    {
+      "source": "test/keyboard.js",
+      "name": "Type Ctrl+Shift+RightArrow.",
+      "rust": [
+        {
+          "file": "tests/desktop.rs",
+          "test": "control_shift_right_arrow"
+        }
+      ]
+    },
+    {
+      "source": "test/keyboard.js",
+      "name": "Type a string.",
+      "rust": [
+        {
+          "file": "tests/desktop.rs",
+          "test": "types_string"
+        },
+        {
+          "file": "docs/type-contracts.md",
+          "contract": "type_string_missing_arguments"
+        }
+      ]
+    },
+    {
+      "source": "test/keyboard.js",
+      "name": "Type a string with delay.",
+      "rust": [
+        {
+          "file": "tests/desktop.rs",
+          "test": "types_string_with_delay"
+        },
+        {
+          "file": "docs/type-contracts.md",
+          "contract": "type_string_delayed_missing_arguments"
+        }
+      ]
+    },
+    {
+      "source": "test/mouse.js",
+      "name": "Get the initial mouse position.",
+      "rust": [
+        {
+          "file": "tests/desktop.rs",
+          "test": "initial_mouse_position"
+        }
+      ]
+    },
+    {
+      "source": "test/mouse.js",
+      "name": "Move the mouse.",
+      "rust": [
+        {
+          "file": "tests/desktop.rs",
+          "test": "moves_mouse"
+        },
+        {
+          "file": "docs/type-contracts.md",
+          "contract": "move_mouse_extra_arguments"
+        },
+        {
+          "file": "docs/type-contracts.md",
+          "contract": "move_mouse_missing_arguments"
+        },
+        {
+          "file": "docs/type-contracts.md",
+          "contract": "move_mouse_string_coordinates"
+        }
+      ],
+      "adaptation": "Rust rejects implicit numeric-string coercion; callers must parse coordinates explicitly."
+    },
+    {
+      "source": "test/mouse.js",
+      "name": "Move the mouse smoothly.",
+      "rust": [
+        {
+          "file": "tests/desktop.rs",
+          "test": "moves_mouse_smoothly"
+        },
+        {
+          "file": "docs/type-contracts.md",
+          "contract": "move_mouse_smooth_extra_arguments"
+        },
+        {
+          "file": "docs/type-contracts.md",
+          "contract": "move_mouse_smooth_missing_arguments"
+        },
+        {
+          "file": "docs/type-contracts.md",
+          "contract": "move_mouse_smooth_string_coordinates"
+        }
+      ],
+      "adaptation": "Rust rejects implicit numeric-string coercion; callers must parse coordinates explicitly."
+    },
+    {
+      "source": "test/mouse.js",
+      "name": "Move the mouse smoothly without timer stalls.",
+      "rust": [
+        {
+          "file": "tests/desktop.rs",
+          "test": "smooth_movement_has_no_timer_stalls"
+        }
+      ]
+    },
+    {
+      "source": "test/mouse.js",
+      "name": "Click the mouse.",
+      "rust": [
+        {
+          "file": "tests/desktop.rs",
+          "test": "clicks_mouse"
+        },
+        {
+          "file": "docs/type-contracts.md",
+          "contract": "mouse_click_extra_arguments"
+        }
+      ]
+    },
+    {
+      "source": "test/mouse.js",
+      "name": "Drag the mouse.",
+      "rust": [
+        {
+          "file": "tests/desktop.rs",
+          "test": "drags_mouse"
+        },
+        {
+          "file": "docs/type-contracts.md",
+          "contract": "drag_mouse_missing_arguments"
+        },
+        {
+          "file": "docs/type-contracts.md",
+          "contract": "drag_mouse_extra_arguments"
+        }
+      ]
+    },
+    {
+      "source": "test/mouse.js",
+      "name": "Mouse scroll.",
+      "rust": [
+        {
+          "file": "tests/desktop.rs",
+          "test": "scrolls_mouse"
+        }
+      ]
+    },
+    {
+      "source": "test/mouse.js",
+      "name": "Mouse Toggle",
+      "rust": [
+        {
+          "file": "tests/desktop.rs",
+          "test": "toggles_mouse"
+        }
+      ]
+    },
+    {
+      "source": "test/permissions.js",
+      "name": "Reports permission status without prompting.",
+      "rust": [
+        {
+          "file": "tests/permissions.rs",
+          "test": "reports_permission_status_without_prompting"
+        }
+      ]
+    },
+    {
+      "source": "test/permissions.js",
+      "name": "Exposes explicit permission request functions.",
+      "rust": [
+        {
+          "file": "tests/permissions.rs",
+          "test": "exposes_explicit_permission_requests"
+        }
+      ]
+    },
+    {
+      "source": "test/screen.js",
+      "name": "Get pixel color.",
+      "rust": [
+        {
+          "file": "tests/desktop.rs",
+          "test": "pixel_color"
+        },
+        {
+          "file": "docs/type-contracts.md",
+          "contract": "get_pixel_color_missing_arguments"
+        },
+        {
+          "file": "docs/type-contracts.md",
+          "contract": "get_pixel_color_extra_arguments"
+        }
+      ]
+    },
+    {
+      "source": "test/screen.js",
+      "name": "Get screen size.",
+      "rust": [
+        {
+          "file": "tests/desktop.rs",
+          "test": "screen_size"
+        }
+      ]
+    },
+    {
+      "source": "test/screen.js",
+      "name": "Get displays.",
+      "rust": [
+        {
+          "file": "tests/desktop.rs",
+          "test": "enumerates_displays"
+        }
+      ]
+    },
+    {
+      "source": "test/screen.js",
+      "name": "Captures pixels from a non-main display at its signed origin.",
+      "rust": [
+        {
+          "file": "tests/desktop.rs",
+          "test": "captures_secondary_display_at_signed_origin"
+        }
+      ]
+    },
+    {
+      "source": "test/integration/keyboard.js",
+      "name": "types",
+      "rust": [
+        {
+          "file": "tests/gui/integration.rs",
+          "test": "types"
+        }
+      ]
+    },
+    {
+      "source": "test/integration/keyboard.js",
+      "name": "types shifted symbols",
+      "rust": [
+        {
+          "file": "tests/gui/integration.rs",
+          "test": "types_shifted_symbols"
+        }
+      ]
+    },
+    {
+      "source": "test/integration/keyboard.js",
+      "name": "replaces selected input with the platform select-all shortcut",
+      "rust": [
+        {
+          "file": "tests/gui/integration.rs",
+          "test": "replaces_selected_input"
+        }
+      ]
+    },
+    {
+      "source": "test/integration/keyboard.js",
+      "name": "types a non-ASCII character with unicodeTap on macOS",
+      "rust": [
+        {
+          "file": "tests/gui/integration.rs",
+          "test": "types_non_ascii_with_unicode_tap_on_macos"
+        }
+      ]
+    },
+    {
+      "source": "test/integration/keyboard.js",
+      "name": "keyTap accepts multi-character key names",
+      "rust": [
+        {
+          "file": "tests/gui/integration.rs",
+          "test": "accepts_multi_character_key_names"
+        }
+      ]
+    },
+    {
+      "source": "test/integration/mouse.js",
+      "name": "clicks",
+      "rust": [
+        {
+          "file": "tests/gui/integration.rs",
+          "test": "clicks"
+        }
+      ]
+    },
+    {
+      "source": "test/integration/mouse.js",
+      "name": "scrolls vertically",
+      "rust": [
+        {
+          "file": "tests/gui/integration.rs",
+          "test": "scrolls_vertically"
+        }
+      ]
+    },
+    {
+      "source": "test/integration/mouse.js",
+      "name": "scrolls horizontally",
+      "rust": [
+        {
+          "file": "tests/gui/integration.rs",
+          "test": "scrolls_horizontally"
+        }
+      ]
+    },
+    {
+      "source": "test/integration/screen.js",
+      "name": "reads a pixel color",
+      "rust": [
+        {
+          "file": "tests/gui/integration.rs",
+          "test": "reads_pixel_color"
+        }
+      ]
+    },
+    {
+      "source": "test/integration/screen.js",
+      "name": "captures the full screen with the same top-left origin as getPixelColor",
+      "rust": [
+        {
+          "file": "tests/gui/integration.rs",
+          "test": "full_capture_uses_pixel_color_origin"
+        }
+      ]
+    }
+  ]
+}

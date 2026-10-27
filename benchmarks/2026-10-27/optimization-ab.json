@@ -1,0 +1,1413 @@
+{
+  "measured_at_utc": "2026-10-27T15:31:27.865653+00:00",
+  "binary_sha256": {
+    "before": "a5ec63a15087b0f1d1c1b4f46ba68efb2746c506fce6f83dfa6386a6400d6c66",
+    "after": "8618aec92888fbde46443a01a79b2353346e07de0a0e875c8bdb9361cf1b2195"
+  },
+  "results": [
+    {
+      "case": "find_image_tolerant",
+      "checksum": 243433248,
+      "iterations": 32,
+      "language": "rust",
+      "ns_per_op": [
+        2334011.71875,
+        2337917.96875,
+        2347083.3125,
+        2349519.53125,
+        2349080.71875,
+        2339839.84375,
+        2377515.625
+      ],
+      "observed": 7607289,
+      "version": "before",
+      "round": 1
+    },
+    {
+      "case": "find_image_tolerant",
+      "checksum": 243433248,
+      "iterations": 32,
+      "language": "rust",
+      "ns_per_op": [
+        2402774.75,
+        2423032.53125,
+        2394149.75,
+        2408138.03125,
+        2425000.0,
+        2405442.71875,
+        2408756.5
+      ],
+      "observed": 7607289,
+      "version": "after",
+      "round": 1
+    },
+    {
+      "case": "find_images_dense",
+      "checksum": 4096576,
+      "iterations": 64,
+      "language": "rust",
+      "ns_per_op": [
+        1107223.953125,
+        1100422.515625,
+        1099432.296875,
+        1108235.03125,
+        1085690.109375,
+        1098871.09375,
+        1102547.53125
+      ],
+      "observed": 64009,
+      "version": "before",
+      "round": 1
+    },
+    {
+      "case": "find_images_dense",
+      "checksum": 4096576,
+      "iterations": 64,
+      "language": "rust",
+      "ns_per_op": [
+        1002600.9062499999,
+        993606.1249999999,
+        976365.875,
+        980132.15625,
+        987048.8281249999,
+        986636.0624999999,
+        1001062.5
+      ],
+      "observed": 64009,
+      "version": "after",
+      "round": 1
+    },
+    {
+      "case": "find_colors_dense",
+      "checksum": 67108864,
+      "iterations": 1024,
+      "language": "rust",
+      "ns_per_op": [
+        63101.84765625001,
+        61975.4228515625,
+        70729.1259765625,
+        69184.7734375,
+        68623.0869140625,
+        68057.90234375,
+        68066.0400390625
+      ],
+      "observed": 65536,
+      "version": "before",
+      "round": 1
+    },
+    {
+      "case": "find_colors_dense",
+      "checksum": 67108864,
+      "iterations": 1024,
+      "language": "rust",
+      "ns_per_op": [
+        51404.6630859375,
+        37971.39453125,
+        46281.2900390625,
+        38110.0263671875,
+        42580.28125,
+        57561.5634765625,
+        46544.3115234375
+      ],
+      "observed": 65536,
+      "version": "after",
+      "round": 1
+    },
+    {
+      "case": "count_color_dense",
+      "checksum": 67108864,
+      "iterations": 1024,
+      "language": "rust",
+      "ns_per_op": [
+        51752.44140625,
+        52098.185546875,
+        50342.6923828125,
+        50790.6904296875,
+        51439.65625,
+        51170.5732421875,
+        50263.2646484375
+      ],
+      "observed": 65536,
+      "version": "before",
+      "round": 1
+    },
+    {
+      "case": "count_color_dense",
+      "checksum": 134217728,
+      "iterations": 2048,
+      "language": "rust",
+      "ns_per_op": [
+        20323.79150390625,
+        20332.0517578125,
+        20312.01171875,
+        20221.13037109375,
+        20446.83837890625,
+        20443.09521484375,
+        20450.0732421875
+      ],
+      "observed": 65536,
+      "version": "after",
+      "round": 1
+    },
+    {
+      "case": "find_image_absent",
+      "checksum": 0,
+      "iterations": 32,
+      "language": "rust",
+      "ns_per_op": [
+        2438867.1875,
+        2472502.59375,
+        2463778.625,
+        2438623.6875,
+        2425841.15625,
+        2414516.9375,
+        2411350.25
+      ],
+      "observed": 0,
+      "version": "before",
+      "round": 1
+    },
+    {
+      "case": "find_image_absent",
+      "checksum": 0,
+      "iterations": 32,
+      "language": "rust",
+      "ns_per_op": [
+        2148423.15625,
+        2194273.4375,
+        2139966.15625,
+        2145003.90625,
+        2179630.21875,
+        2138863.28125,
+        2154069.0
+      ],
+      "observed": 0,
+      "version": "after",
+      "round": 1
+    },
+    {
+      "case": "find_color_late",
+      "checksum": 243433248,
+      "iterations": 32,
+      "language": "rust",
+      "ns_per_op": [
+        1360609.375,
+        1355222.65625,
+        1342420.5625,
+        1344470.0625,
+        1348764.3125,
+        1385598.96875,
+        1373953.125
+      ],
+      "observed": 7607289,
+      "version": "before",
+      "round": 1
+    },
+    {
+      "case": "find_color_late",
+      "checksum": 973732992,
+      "iterations": 128,
+      "language": "rust",
+      "ns_per_op": [
+        487892.578125,
+        483007.484375,
+        492488.609375,
+        491659.50781250006,
+        493471.3515625,
+        490783.53125,
+        494362.3046875
+      ],
+      "observed": 7607289,
+      "version": "after",
+      "round": 1
+    },
+    {
+      "case": "load_bmp",
+      "checksum": 66355200,
+      "iterations": 32,
+      "language": "rust",
+      "ns_per_op": [
+        1595546.875,
+        1591492.1875,
+        1581138.03125,
+        1587881.53125,
+        1582647.125,
+        1626217.46875,
+        1582295.59375
+      ],
+      "observed": 2073600,
+      "version": "before",
+      "round": 1
+    },
+    {
+      "case": "load_bmp",
+      "checksum": 265420800,
+      "iterations": 128,
+      "language": "rust",
+      "ns_per_op": [
+        592538.7421875,
+        601021.8125,
+        591350.9140625,
+        592627.6015625,
+        603309.5703125,
+        597133.1328125,
+        591951.5
+      ],
+      "observed": 2073600,
+      "version": "after",
+      "round": 1
+    },
+    {
+      "case": "find_image_late",
+      "checksum": 243433248,
+      "iterations": 32,
+      "language": "rust",
+      "ns_per_op": [
+        2358402.34375,
+        2343813.8125,
+        2351494.78125,
+        2366542.96875,
+        2364427.0625,
+        2359632.8125,
+        2354997.40625
+      ],
+      "observed": 7607289,
+      "version": "before",
+      "round": 1
+    },
+    {
+      "case": "find_image_late",
+      "checksum": 243433248,
+      "iterations": 32,
+      "language": "rust",
+      "ns_per_op": [
+        2093643.25,
+        2069945.3125,
+        2103480.46875,
+        2088045.5937499998,
+        2084904.9687500002,
+        2079687.5,
+        2105924.46875
+      ],
+      "observed": 7607289,
+      "version": "after",
+      "round": 1
+    },
+    {
+      "case": "count_image_dense",
+      "checksum": 4096576,
+      "iterations": 64,
+      "language": "rust",
+      "ns_per_op": [
+        1129604.171875,
+        1133390.625,
+        1143676.421875,
+        1149746.75,
+        1139178.390625,
+        1137551.421875,
+        1124283.859375
+      ],
+      "observed": 64009,
+      "version": "before",
+      "round": 1
+    },
+    {
+      "case": "count_image_dense",
+      "checksum": 4096576,
+      "iterations": 64,
+      "language": "rust",
+      "ns_per_op": [
+        961167.3125,
+        966404.296875,
+        966815.109375,
+        962246.09375,
+        965169.265625,
+        974078.125,
+        964029.296875
+      ],
+      "observed": 64009,
+      "version": "after",
+      "round": 1
+    },
+    {
+      "case": "count_color_absent",
+      "checksum": 0,
+      "iterations": 32,
+      "language": "rust",
+      "ns_per_op": [
+        1726239.59375,
+        1690059.875,
+        1732032.5625,
+        1717153.625,
+        1707837.25,
+        1673640.625,
+        1685278.65625
+      ],
+      "observed": 0,
+      "version": "before",
+      "round": 1
+    },
+    {
+      "case": "count_color_absent",
+      "checksum": 0,
+      "iterations": 64,
+      "language": "rust",
+      "ns_per_op": [
+        627483.0625,
+        631913.421875,
+        626712.890625,
+        631302.734375,
+        639674.484375,
+        624583.328125,
+        624492.1875
+      ],
+      "observed": 0,
+      "version": "after",
+      "round": 1
+    },
+    {
+      "case": "save_bmp",
+      "checksum": 0,
+      "iterations": 16,
+      "language": "rust",
+      "ns_per_op": [
+        3167684.875,
+        3219096.375,
+        3180270.8125,
+        3212658.875,
+        3181924.4375,
+        3173539.0625,
+        3211223.9375
+      ],
+      "observed": 0,
+      "version": "before",
+      "round": 1
+    },
+    {
+      "case": "save_bmp",
+      "checksum": 0,
+      "iterations": 64,
+      "language": "rust",
+      "ns_per_op": [
+        1982388.0156249998,
+        983347.0000000001,
+        957611.328125,
+        1834205.734375,
+        973371.75,
+        1989432.953125,
+        977884.7656250001
+      ],
+      "observed": 0,
+      "version": "after",
+      "round": 1
+    },
+    {
+      "case": "find_color_early",
+      "checksum": 1074003968,
+      "iterations": 262144,
+      "language": "rust",
+      "ns_per_op": [
+        14.24264907836914,
+        13.433616638183594,
+        13.13924789428711,
+        14.411449432373047,
+        13.166744232177734,
+        13.42709732055664,
+        14.754772186279297
+      ],
+      "observed": 4097,
+      "version": "before",
+      "round": 1
+    },
+    {
+      "case": "find_color_early",
+      "checksum": 1074003968,
+      "iterations": 262144,
+      "language": "rust",
+      "ns_per_op": [
+        14.041900634765625,
+        12.662254333496094,
+        13.412952423095703,
+        13.773761749267578,
+        12.662094116210938,
+        14.073055267333984,
+        14.042377471923828
+      ],
+      "observed": 4097,
+      "version": "after",
+      "round": 1
+    },
+    {
+      "case": "find_color_absent",
+      "checksum": 0,
+      "iterations": 32,
+      "language": "rust",
+      "ns_per_op": [
+        1472277.34375,
+        1483462.25,
+        1489518.21875,
+        1482652.34375,
+        1467264.3125,
+        1458256.53125,
+        1466960.9375
+      ],
+      "observed": 0,
+      "version": "before",
+      "round": 1
+    },
+    {
+      "case": "find_color_absent",
+      "checksum": 0,
+      "iterations": 128,
+      "language": "rust",
+      "ns_per_op": [
+        504534.17968749994,
+        509762.3671875,
+        515581.375,
+        512643.55468750006,
+        513506.83593750006,
+        512618.1640625,
+        511302.40625000006
+      ],
+      "observed": 0,
+      "version": "after",
+      "round": 1
+    },
+    {
+      "case": "find_colors_dense",
+      "checksum": 67108864,
+      "iterations": 1024,
+      "language": "rust",
+      "ns_per_op": [
+        38052.65234375,
+        47555.37890625,
+        39440.7138671875,
+        40752.7265625,
+        53142.416015625,
+        40239.1767578125,
+        40449.259765625
+      ],
+      "observed": 65536,
+      "version": "after",
+      "round": 2
+    },
+    {
+      "case": "find_colors_dense",
+      "checksum": 67108864,
+      "iterations": 1024,
+      "language": "rust",
+      "ns_per_op": [
+        65501.95312499999,
+        64377.15722656249,
+        63348.79589843751,
+        63122.76171875,
+        63009.35839843749,
+        62543.904296875,
+        62588.623046875
+      ],
+      "observed": 65536,
+      "version": "before",
+      "round": 2
+    },
+    {
+      "case": "find_images_dense",
+      "checksum": 4096576,
+      "iterations": 64,
+      "language": "rust",
+      "ns_per_op": [
+        1006173.828125,
+        982760.421875,
+        1019789.0625000001,
+        992935.546875,
+        1015421.875,
+        993336.59375,
+        1003295.5781250001
+      ],
+      "observed": 64009,
+      "version": "after",
+      "round": 2
+    },
+    {
+      "case": "find_images_dense",
+      "checksum": 4096576,
+      "iterations": 64,
+      "language": "rust",
+      "ns_per_op": [
+        1100007.8125,
+        1109199.21875,
+        1102294.921875,
+        1115903.0,
+        1134324.21875,
+        1128330.078125,
+        1121569.65625
+      ],
+      "observed": 64009,
+      "version": "before",
+      "round": 2
+    },
+    {
+      "case": "count_color_dense",
+      "checksum": 134217728,
+      "iterations": 2048,
+      "language": "rust",
+      "ns_per_op": [
+        20429.3212890625,
+        20538.98095703125,
+        20313.41552734375,
+        20300.35400390625,
+        20442.2607421875,
+        20320.02783203125,
+        20367.77783203125
+      ],
+      "observed": 65536,
+      "version": "after",
+      "round": 2
+    },
+    {
+      "case": "count_color_dense",
+      "checksum": 67108864,
+      "iterations": 1024,
+      "language": "rust",
+      "ns_per_op": [
+        51049.1533203125,
+        51228.7197265625,
+        50441.3251953125,
+        50206.9091796875,
+        50793.5791015625,
+        50591.8779296875,
+        51914.3466796875
+      ],
+      "observed": 65536,
+      "version": "before",
+      "round": 2
+    },
+    {
+      "case": "find_color_absent",
+      "checksum": 0,
+      "iterations": 128,
+      "language": "rust",
+      "ns_per_op": [
+        526909.8359375,
+        529357.75,
+        526864.5859375,
+        520309.24218750006,
+        515551.42968750006,
+        514952.1484375,
+        515246.09374999994
+      ],
+      "observed": 0,
+      "version": "after",
+      "round": 2
+    },
+    {
+      "case": "find_color_absent",
+      "checksum": 0,
+      "iterations": 32,
+      "language": "rust",
+      "ns_per_op": [
+        1485842.4375,
+        1460828.125,
+        1456001.3125,
+        1511356.78125,
+        1474345.0625,
+        1481984.375,
+        1500516.90625
+      ],
+      "observed": 0,
+      "version": "before",
+      "round": 2
+    },
+    {
+      "case": "count_image_dense",
+      "checksum": 4096576,
+      "iterations": 64,
+      "language": "rust",
+      "ns_per_op": [
+        963046.875,
+        974817.0625,
+        984240.8749999999,
+        961284.515625,
+        967103.515625,
+        959292.96875,
+        986500.6406250001
+      ],
+      "observed": 64009,
+      "version": "after",
+      "round": 2
+    },
+    {
+      "case": "count_image_dense",
+      "checksum": 4096576,
+      "iterations": 64,
+      "language": "rust",
+      "ns_per_op": [
+        1141863.9375,
+        1136408.203125,
+        1150678.375,
+        1140296.21875,
+        1144536.46875,
+        1139195.96875,
+        1139766.265625
+      ],
+      "observed": 64009,
+      "version": "before",
+      "round": 2
+    },
+    {
+      "case": "find_image_absent",
+      "checksum": 0,
+      "iterations": 32,
+      "language": "rust",
+      "ns_per_op": [
+        2165294.28125,
+        2159372.40625,
+        2162162.75,
+        2154920.5625,
+        2165070.3125,
+        2163772.125,
+        2163583.34375
+      ],
+      "observed": 0,
+      "version": "after",
+      "round": 2
+    },
+    {
+      "case": "find_image_absent",
+      "checksum": 0,
+      "iterations": 32,
+      "language": "rust",
+      "ns_per_op": [
+        2431684.90625,
+        2426380.1875,
+        2434286.46875,
+        2434147.15625,
+        2424234.375,
+        2426516.9375,
+        2436140.625
+      ],
+      "observed": 0,
+      "version": "before",
+      "round": 2
+    },
+    {
+      "case": "load_bmp",
+      "checksum": 265420800,
+      "iterations": 128,
+      "language": "rust",
+      "ns_per_op": [
+        596572.265625,
+        595058.59375,
+        600819.984375,
+        596604.171875,
+        599943.0390625,
+        603497.0703125,
+        600716.46875
+      ],
+      "observed": 2073600,
+      "version": "after",
+      "round": 2
+    },
+    {
+      "case": "load_bmp",
+      "checksum": 66355200,
+      "iterations": 32,
+      "language": "rust",
+      "ns_per_op": [
+        1589406.25,
+        1603259.125,
+        1591138.0,
+        1591145.84375,
+        1611835.9375,
+        1607056.0,
+        1597778.65625
+      ],
+      "observed": 2073600,
+      "version": "before",
+      "round": 2
+    },
+    {
+      "case": "count_color_absent",
+      "checksum": 0,
+      "iterations": 64,
+      "language": "rust",
+      "ns_per_op": [
+        633502.609375,
+        640560.546875,
+        636489.578125,
+        632610.671875,
+        629299.46875,
+        639956.390625,
+        636317.046875
+      ],
+      "observed": 0,
+      "version": "after",
+      "round": 2
+    },
+    {
+      "case": "count_color_absent",
+      "checksum": 0,
+      "iterations": 32,
+      "language": "rust",
+      "ns_per_op": [
+        1722270.8125,
+        1748875.0,
+        1748126.3125,
+        1739636.71875,
+        1732649.75,
+        1756401.0625,
+        1746654.9375
+      ],
+      "observed": 0,
+      "version": "before",
+      "round": 2
+    },
+    {
+      "case": "save_bmp",
+      "checksum": 0,
+      "iterations": 64,
+      "language": "rust",
+      "ns_per_op": [
+        2086252.59375,
+        938718.09375,
+        977997.390625,
+        2034408.8593750002,
+        958503.265625,
+        952886.078125,
+        1926868.5
+      ],
+      "observed": 0,
+      "version": "after",
+      "round": 2
+    },
+    {
+      "case": "save_bmp",
+      "checksum": 0,
+      "iterations": 16,
+      "language": "rust",
+      "ns_per_op": [
+        3218599.0,
+        3215734.375,
+        3263494.8125,
+        3209502.5625,
+        12911018.25,
+        3244208.3125,
+        3224028.625
+      ],
+      "observed": 0,
+      "version": "before",
+      "round": 2
+    },
+    {
+      "case": "find_color_late",
+      "checksum": 973732992,
+      "iterations": 128,
+      "language": "rust",
+      "ns_per_op": [
+        496334.9609375,
+        488757.4921875,
+        495817.3828125,
+        486728.84375,
+        481598.9609375,
+        482617.8359375,
+        485680.34375
+      ],
+      "observed": 7607289,
+      "version": "after",
+      "round": 2
+    },
+    {
+      "case": "find_color_late",
+      "checksum": 243433248,
+      "iterations": 32,
+      "language": "rust",
+      "ns_per_op": [
+        1378259.125,
+        1388273.4375,
+        1391065.09375,
+        1381680.96875,
+        1381360.6875,
+        1391838.5625,
+        1387608.09375
+      ],
+      "observed": 7607289,
+      "version": "before",
+      "round": 2
+    },
+    {
+      "case": "find_color_early",
+      "checksum": 1074003968,
+      "iterations": 262144,
+      "language": "rust",
+      "ns_per_op": [
+        14.073371887207031,
+        12.579761505126953,
+        13.378143310546875,
+        13.883907318115234,
+        12.78829574584961,
+        15.342552185058594,
+        13.512928009033203
+      ],
+      "observed": 4097,
+      "version": "after",
+      "round": 2
+    },
+    {
+      "case": "find_color_early",
+      "checksum": 1074003968,
+      "iterations": 262144,
+      "language": "rust",
+      "ns_per_op": [
+        13.377506256103516,
+        12.930870056152344,
+        14.082908630371094,
+        13.601940155029297,
+        13.028301239013672,
+        14.273006439208984,
+        13.31551742553711
+      ],
+      "observed": 4097,
+      "version": "before",
+      "round": 2
+    },
+    {
+      "case": "find_image_tolerant",
+      "checksum": 243433248,
+      "iterations": 32,
+      "language": "rust",
+      "ns_per_op": [
+        2439496.09375,
+        2444440.125,
+        2419071.59375,
+        2466998.71875,
+        2416701.84375,
+        2434515.625,
+        2454627.625
+      ],
+      "observed": 7607289,
+      "version": "after",
+      "round": 2
+    },
+    {
+      "case": "find_image_tolerant",
+      "checksum": 243433248,
+      "iterations": 32,
+      "language": "rust",
+      "ns_per_op": [
+        2362661.4375,
+        2373156.25,
+        2385757.8125,
+        2367437.5,
+        2393231.78125,
+        2370509.125,
+        2364231.78125
+      ],
+      "observed": 7607289,
+      "version": "before",
+      "round": 2
+    },
+    {
+      "case": "find_image_late",
+      "checksum": 243433248,
+      "iterations": 32,
+      "language": "rust",
+      "ns_per_op": [
+        2095697.90625,
+        2102570.3125,
+        2104536.46875,
+        2097707.03125,
+        2093360.6875,
+        2113579.4375,
+        2088695.3125
+      ],
+      "observed": 7607289,
+      "version": "after",
+      "round": 2
+    },
+    {
+      "case": "find_image_late",
+      "checksum": 243433248,
+      "iterations": 32,
+      "language": "rust",
+      "ns_per_op": [
+        2373110.65625,
+        2387582.03125,
+        2380528.65625,
+        2377962.25,
+        2369238.28125,
+        2375244.8125,
+        2378509.125
+      ],
+      "observed": 7607289,
+      "version": "before",
+      "round": 2
+    },
+    {
+      "case": "find_color_late",
+      "checksum": 243433248,
+      "iterations": 32,
+      "language": "rust",
+      "ns_per_op": [
+        1364074.21875,
+        1401480.46875,
+        1418200.5,
+        1369154.9375,
+        1406389.3125,
+        1375652.34375,
+        1387825.5
+      ],
+      "observed": 7607289,
+      "version": "before",
+      "round": 3
+    },
+    {
+      "case": "find_color_late",
+      "checksum": 973732992,
+      "iterations": 128,
+      "language": "rust",
+      "ns_per_op": [
+        496100.91406250006,
+        496633.4609375,
+        488865.55468750006,
+        482802.0859375,
+        489827.46875000006,
+        500651.03906250006,
+        491245.1171875
+      ],
+      "observed": 7607289,
+      "version": "after",
+      "round": 3
+    },
+    {
+      "case": "find_images_dense",
+      "checksum": 4096576,
+      "iterations": 64,
+      "language": "rust",
+      "ns_per_op": [
+        1118673.828125,
+        1126242.84375,
+        1122352.203125,
+        1130078.78125,
+        1108408.203125,
+        1122417.328125,
+        1182160.15625
+      ],
+      "observed": 64009,
+      "version": "before",
+      "round": 3
+    },
+    {
+      "case": "find_images_dense",
+      "checksum": 4096576,
+      "iterations": 64,
+      "language": "rust",
+      "ns_per_op": [
+        1000003.25,
+        1023228.5156250001,
+        1000549.4687500001,
+        986906.90625,
+        1004983.078125,
+        998424.4843750001,
+        992386.0625
+      ],
+      "observed": 64009,
+      "version": "after",
+      "round": 3
+    },
+    {
+      "case": "save_bmp",
+      "checksum": 0,
+      "iterations": 16,
+      "language": "rust",
+      "ns_per_op": [
+        3224010.375,
+        3238914.0625,
+        3217294.25,
+        3289562.5,
+        3230916.625,
+        3431885.4375,
+        3218057.3125
+      ],
+      "observed": 0,
+      "version": "before",
+      "round": 3
+    },
+    {
+      "case": "save_bmp",
+      "checksum": 0,
+      "iterations": 64,
+      "language": "rust",
+      "ns_per_op": [
+        2019765.6249999998,
+        983808.59375,
+        1840144.53125,
+        948081.375,
+        989052.078125,
+        1953505.859375,
+        967643.875
+      ],
+      "observed": 0,
+      "version": "after",
+      "round": 3
+    },
+    {
+      "case": "load_bmp",
+      "checksum": 66355200,
+      "iterations": 32,
+      "language": "rust",
+      "ns_per_op": [
+        1675596.34375,
+        1622618.5,
+        1629295.5625,
+        1623000.0,
+        1616223.96875,
+        1644937.5,
+        1848996.09375
+      ],
+      "observed": 2073600,
+      "version": "before",
+      "round": 3
+    },
+    {
+      "case": "load_bmp",
+      "checksum": 265420800,
+      "iterations": 128,
+      "language": "rust",
+      "ns_per_op": [
+        604653.96875,
+        609349.609375,
+        603851.234375,
+        600661.78125,
+        603564.453125,
+        604280.921875,
+        609868.4921875
+      ],
+      "observed": 2073600,
+      "version": "after",
+      "round": 3
+    },
+    {
+      "case": "find_color_early",
+      "checksum": 1074003968,
+      "iterations": 262144,
+      "language": "rust",
+      "ns_per_op": [
+        13.072174072265625,
+        14.362335205078125,
+        13.439495086669922,
+        13.124465942382812,
+        14.871757507324219,
+        13.247173309326172,
+        14.275074005126953
+      ],
+      "observed": 4097,
+      "version": "before",
+      "round": 3
+    },
+    {
+      "case": "find_color_early",
+      "checksum": 1074003968,
+      "iterations": 262144,
+      "language": "rust",
+      "ns_per_op": [
+        13.058025360107422,
+        13.769786834716797,
+        13.94875717163086,
+        12.937068939208984,
+        13.484001159667969,
+        14.44244384765625,
+        13.079326629638672
+      ],
+      "observed": 4097,
+      "version": "after",
+      "round": 3
+    },
+    {
+      "case": "count_image_dense",
+      "checksum": 4096576,
+      "iterations": 64,
+      "language": "rust",
+      "ns_per_op": [
+        1141223.3125,
+        1144774.734375,
+        1153286.453125,
+        1168370.4375,
+        1143121.09375,
+        1141051.421875,
+        1152484.375
+      ],
+      "observed": 64009,
+      "version": "before",
+      "round": 3
+    },
+    {
+      "case": "count_image_dense",
+      "checksum": 4096576,
+      "iterations": 64,
+      "language": "rust",
+      "ns_per_op": [
+        975998.046875,
+        963597.015625,
+        962889.3125,
+        967583.984375,
+        986953.7812500001,
+        975975.25,
+        987297.515625
+      ],
+      "observed": 64009,
+      "version": "after",
+      "round": 3
+    },
+    {
+      "case": "find_image_tolerant",
+      "checksum": 243433248,
+      "iterations": 32,
+      "language": "rust",
+      "ns_per_op": [
+        2379260.4375,
+        2370675.78125,
+        2387203.125,
+        2387338.53125,
+        2394454.4375,
+        2388079.4375,
+        2395407.5625
+      ],
+      "observed": 7607289,
+      "version": "before",
+      "round": 3
+    },
+    {
+      "case": "find_image_tolerant",
+      "checksum": 243433248,
+      "iterations": 32,
+      "language": "rust",
+      "ns_per_op": [
+        2451667.96875,
+        2441376.28125,
+        2444322.9375,
+        2446927.0625,
+        2441171.875,
+        2433748.6875,
+        2441661.4375
+      ],
+      "observed": 7607289,
+      "version": "after",
+      "round": 3
+    },
+    {
+      "case": "count_color_dense",
+      "checksum": 67108864,
+      "iterations": 1024,
+      "language": "rust",
+      "ns_per_op": [
+        51607.6259765625,
+        51778.076171875,
+        51127.5634765625,
+        51731.5673828125,
+        51179.4833984375,
+        51676.06640625,
+        51899.0478515625
+      ],
+      "observed": 65536,
+      "version": "before",
+      "round": 3
+    },
+    {
+      "case": "count_color_dense",
+      "checksum": 134217728,
+      "iterations": 2048,
+      "language": "rust",
+      "ns_per_op": [
+        20519.1650390625,
+        20581.11572265625,
+        20507.5478515625,
+        20712.1171875,
+        20922.078125,
+        20910.86865234375,
+        20613.28125
+      ],
+      "observed": 65536,
+      "version": "after",
+      "round": 3
+    },
+    {
+      "case": "find_color_absent",
+      "checksum": 0,
+      "iterations": 32,
+      "language": "rust",
+      "ns_per_op": [
+        1477225.28125,
+        1428386.71875,
+        1475151.03125,
+        1478342.4375,
+        1483417.96875,
+        1464522.125,
+        1534045.5625
+      ],
+      "observed": 0,
+      "version": "before",
+      "round": 3
+    },
+    {
+      "case": "find_color_absent",
+      "checksum": 0,
+      "iterations": 128,
+      "language": "rust",
+      "ns_per_op": [
+        508338.8671875,
+        518640.30468749994,
+        517087.890625,
+        520307.94531249994,
+        513032.546875,
+        515918.6171875,
+        520366.85937499994
+      ],
+      "observed": 0,
+      "version": "after",
+      "round": 3
+    },
+    {
+      "case": "find_image_late",
+      "checksum": 243433248,
+      "iterations": 32,
+      "language": "rust",
+      "ns_per_op": [
+        2407967.4375,
+        2385442.71875,
+        2362850.28125,
+        2370324.21875,
+        2361861.96875,
+        2379855.46875,
+        2396829.4375
+      ],
+      "observed": 7607289,
+      "version": "before",
+      "round": 3
+    },
+    {
+      "case": "find_image_late",
+      "checksum": 243433248,
+      "iterations": 32,
+      "language": "rust",
+      "ns_per_op": [
+        2121214.84375,
+        2115066.40625,
+        2106885.4375,
+        2105718.75,
+        2087494.78125,
+        2091609.3750000002,
+        2127213.53125
+      ],
+      "observed": 7607289,
+      "version": "after",
+      "round": 3
+    },
+    {
+      "case": "find_colors_dense",
+      "checksum": 67108864,
+      "iterations": 1024,
+      "language": "rust",
+      "ns_per_op": [
+        66234.2529296875,
+        67514.9736328125,
+        72114.7861328125,
+        67843.953125,
+        66609.7412109375,
+        64971.3544921875,
+        71843.3837890625
+      ],
+      "observed": 65536,
+      "version": "before",
+      "round": 3
+    },
+    {
+      "case": "find_colors_dense",
+      "checksum": 67108864,
+      "iterations": 1024,
+      "language": "rust",
+      "ns_per_op": [
+        41569.9052734375,
+        40999.2275390625,
+        42690.0634765625,
+        42545.6953125,
+        41069.4990234375,
+        41207.8046875,
+        40840.4130859375
+      ],
+      "observed": 65536,
+      "version": "after",
+      "round": 3
+    },
+    {
+      "case": "find_image_absent",
+      "checksum": 0,
+      "iterations": 32,
+      "language": "rust",
+      "ns_per_op": [
+        2467104.1875,
+        2506713.53125,
+        2439462.21875,
+        2453931.0,
+        2445531.25,
+        2452653.65625,
+        2447675.78125
+      ],
+      "observed": 0,
+      "version": "before",
+      "round": 3
+    },
+    {
+      "case": "find_image_absent",
+      "checksum": 0,
+      "iterations": 32,
+      "language": "rust",
+      "ns_per_op": [
+        2206902.34375,
+        2197513.03125,
+        2138238.28125,
+        2174875.0,
+        2182190.125,
+        2156191.40625,
+        2228121.09375
+      ],
+      "observed": 0,
+      "version": "after",
+      "round": 3
+    },
+    {
+      "case": "count_color_absent",
+      "checksum": 0,
+      "iterations": 32,
+      "language": "rust",
+      "ns_per_op": [
+        1659727.84375,
+        1686259.09375,
+        1786682.28125,
+        1759990.90625,
+        1777766.9375,
+        1708967.4375,
+        1751181.0
+      ],
+      "observed": 0,
+      "version": "before",
+      "round": 3
+    },
+    {
+      "case": "count_color_absent",
+      "checksum": 0,
+      "iterations": 64,
+      "language": "rust",
+      "ns_per_op": [
+        659309.25,
+        639485.03125,
+        642094.40625,
+        636493.484375,
+        638451.171875,
+        656975.265625,
+        642561.84375
+      ],
+      "observed": 0,
+      "version": "after",
+      "round": 3
+    }
+  ]
+}
