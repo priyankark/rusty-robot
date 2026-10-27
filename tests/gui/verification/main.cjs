@@ -13,7 +13,8 @@ app.whenReady().then(async () => {
     ? displays.find(d => d.bounds.x < 0) : screen.getPrimaryDisplay();
   if (!display) throw new Error('Negative-origin secondary display required');
   window = new BrowserWindow({
-    x: display.bounds.x + 60, y: display.bounds.y + 60,
+    x: display.bounds.x + Math.min(60, Math.max(0, display.bounds.width - 1000)),
+    y: display.bounds.y + Math.min(60, Math.max(0, display.bounds.height - 620)),
     width: 1000, height: 620, frame: false, resizable: false,
     alwaysOnTop: true, acceptFirstMouse: true,
     webPreferences: { backgroundThrottling: false },
