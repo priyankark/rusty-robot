@@ -1,7 +1,8 @@
 [package]
-name = "rusty-robot"
-version = "0.1.1"
+name = "rusty-robot-desktop"
+version = "0.1.2"
 edition = "2024"
+authors = ["priyankark"]
 description = "Cross-platform desktop automation in Rust; test-first port of RobotJS"
 license = "MIT"
 rust-version = "1.88"
@@ -12,6 +13,9 @@ readme = "README.md"
 keywords = ["automation", "desktop", "robotjs", "screen", "input"]
 categories = ["api-bindings", "multimedia::images"]
 include = ["/src/**", "/docs/type-contracts.md", "/skills/rusty-robot/references/rust-api.md", "/examples/*.rs", "/tests/**/*.rs", "/tests/gui/*.swift", "/tests/gui/*.json", "/tests/gui/verification/**", "/Cargo.toml", "/Cargo.lock", "/README.md", "/LICENSE.md", "/NOTICE.md", "/CHANGELOG.md"]
+
+[lib]
+name = "rusty_robot"
 
 [features]
 default = ["png"]

@@ -5,3 +5,9 @@ __pycache__/
 *.pyc
 .env
 .env.*
+/packages/node/prebuilds/
+/packages/node/manifest.json
+/packages/node/index.d.ts
+/packages/node/LICENSE.md
+/packages/node/NOTICE.md
+/packages/node/*.tgz

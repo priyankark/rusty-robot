@@ -1,6 +1,6 @@
 [package]
 name = "rusty-robot-media"
-version = "0.1.1"
+version = "0.1.2"
 edition = "2024"
 rust-version = "1.88"
 license = "MIT"
@@ -8,7 +8,7 @@ publish = false
 description = "Bounded Rust frame processing for desktop automation and remote display"
 
 [dependencies]
-rusty-robot = { path = "../..", default-features = false }
+rusty-robot = { package = "rusty-robot-desktop", path = "../..", default-features = false }
 image = { version = "=0.25.9", default-features = false, features = ["jpeg", "png"] }
 fast_image_resize = { version = "=5.1.4", features = ["rayon"] }
 rayon = "1.11"

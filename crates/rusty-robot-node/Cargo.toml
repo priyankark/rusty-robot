@@ -1,6 +1,6 @@
 [package]
 name = "rusty-robot-node"
-version = "0.1.1"
+version = "0.1.2"
 edition = "2024"
 rust-version = "1.88"
 license = "MIT"
@@ -14,7 +14,7 @@ doctest = false
 [dependencies]
 napi = { version = "2", default-features = false, features = ["napi6"] }
 napi-derive = "2"
-rusty-robot = { path = "../..", default-features = false }
+rusty-robot = { package = "rusty-robot-desktop", path = "../..", default-features = false }
 rusty-robot-media = { path = "../rusty-robot-media" }
 
 [build-dependencies]

@@ -5,9 +5,9 @@ description: Integrate Rusty Robot desktop automation in Rust applications or mi
 
 # Rusty Robot
 
-Use the `rusty-robot` Cargo package (`rusty_robot` import) from
-https://github.com/priyankark/rusty-robot. This is a Rust library, not a CLI, MCP
-server, or drop-in JavaScript package. Inspect the consumer before selecting an
+Use the `rusty-robot-desktop` Cargo package (`rusty_robot` import) from
+https://github.com/priyankark/rusty-robot. The Node package is `@priyankark/rusty-robot`. This is a library, not a CLI or MCP
+server. Inspect the consumer before selecting an
 integration boundary; keep its authentication, focus policy, and input ownership.
 
 ## Working sequence
@@ -19,8 +19,7 @@ integration boundary; keep its authentication, focus policy, and input ownership
    `Option<bool>::None` means the platform has no corresponding
    permission API, not that access is granted.
 2. For Rust, read [Rust API recipes](references/rust-api.md). For Node/TypeScript,
-   also read [consumer integration](references/node-integration.md). Pin a release
-   tag or commit; do not assume a crates.io or npm package has been published.
+   also read [consumer integration](references/node-integration.md). Pin the published package version; use a release commit for source builds.
 3. Compile the smallest real consumer path. Use an owned test window for live
    input. Assert what the target app received, not merely a successful API return.
    Reuse existing task authorization; this skill adds no permission to message,
@@ -61,7 +60,8 @@ limitations live in the repository's `docs/testing.md` and `docs/benchmarks.md`.
 ## Native media for Node hosts
 
 Use `crates/rusty-robot-media` for Rust capture/resize/hash/encode and the shared
-`crates/rusty-robot-node` bridge for Node apps. Build with `node scripts/build-node.cjs`.
+`crates/rusty-robot-node` bridge for Node apps. Install `@priyankark/rusty-robot@0.1.2` for verified
+prebuilt binaries, or build from source with `node scripts/build-node.cjs`.
 `await addon.captureFrame(1440, 85, previousFingerprint, forceRefresh, 'jpeg')`
 returns dimensions, fingerprint and optional `data`. Missing data means unchanged;
 force a periodic refresh for recovering subscribers. `resizeImage` accepts JPEG/PNG.

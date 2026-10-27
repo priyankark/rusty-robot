@@ -5,6 +5,8 @@ on:
 permissions:
   contents: read
 jobs:
+  native-binaries:
+    uses: ./.github/workflows/native-binaries.yml
   verify:
     strategy:
       fail-fast: false
@@ -23,7 +25,7 @@ jobs:
       - run: cargo test --no-default-features --locked
       - run: cargo package --locked
   publish:
-    needs: verify
+    needs: [verify, native-binaries]
     runs-on: ubuntu-latest
     timeout-minutes: 15
     permissions:
@@ -41,10 +43,14 @@ jobs:
           assert os.environ['RELEASE_TAG'] == 'v' + version, 'Tag must match Cargo version'
           PYTHON
       - run: cargo package --locked
+      - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093
+        with:
+          name: node-package
+          path: target/package
       - name: Publish verified source package
         env:
           GH_TOKEN: ${{ github.token }}
           RELEASE_TAG: ${{ github.ref_name }}
         run: |
-          (cd target/package && sha256sum *.crate > SHA256SUMS)
-          gh release create "$RELEASE_TAG" target/package/*.crate target/package/SHA256SUMS             --verify-tag --title "Rusty Robot $RELEASE_TAG" --notes-file CHANGELOG.md --prerelease
+          (cd target/package && sha256sum *.crate *.tgz > SHA256SUMS)
+          gh release create "$RELEASE_TAG" target/package/*.crate target/package/*.tgz target/package/SHA256SUMS             --verify-tag --title "Rusty Robot $RELEASE_TAG" --notes-file CHANGELOG.md --prerelease
