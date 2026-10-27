@@ -23,10 +23,15 @@ jobs:
       - uses: dtolnay/rust-toolchain@b725eda525362e7cf34af9a7243cac1e3f01a7ec
         with:
           components: rustfmt, clippy
-      - run: cargo fmt --check
-      - run: cargo clippy --all-targets --all-features --locked -- -D warnings
-      - run: cargo clippy --all-targets --no-default-features --locked -- -D warnings
-      - run: cargo test --all-features --locked --no-fail-fast
+      - uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38
+        with:
+          node-version: '24'
+      - run: node scripts/build-node.cjs
+      - run: node --test crates/rusty-robot-node/tests/media.cjs
+      - run: cargo fmt --all --check
+      - run: cargo clippy --workspace --all-targets --all-features --locked -- -D warnings
+      - run: cargo clippy --workspace --all-targets --no-default-features --locked -- -D warnings
+      - run: cargo test --workspace --all-features --locked --no-fail-fast
       - run: cargo test --no-default-features --locked --no-fail-fast
       - run: cargo doc --all-features --locked --no-deps
         env:
@@ -39,7 +44,7 @@ jobs:
       - uses: dtolnay/rust-toolchain@b725eda525362e7cf34af9a7243cac1e3f01a7ec
         with:
           toolchain: '1.88.0'
-      - run: cargo check --lib --all-features --locked
+      - run: cargo check --workspace --lib --all-features --locked
       - run: cargo check --lib --no-default-features --locked
   evidence:
     runs-on: ubuntu-latest

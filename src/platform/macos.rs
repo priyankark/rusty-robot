@@ -385,9 +385,20 @@ pub(crate) fn key_event(code: u32, down: bool, flags: u32) -> Result<()> {
     Ok(())
 }
 pub(crate) fn unicode(character: char) -> Result<()> {
-    input_permission()?;
     let mut buffer = [0; 2];
-    let utf16 = character.encode_utf16(&mut buffer);
+    post_unicode(character.encode_utf16(&mut buffer))
+}
+pub(crate) fn unicode_text(text: &str) -> Result<()> {
+    let utf16: Vec<u16> = text.encode_utf16().collect();
+    if utf16.len() > 20 {
+        return Err(err(
+            "A native Unicode event supports at most 20 UTF-16 units",
+        ));
+    }
+    post_unicode(&utf16)
+}
+fn post_unicode(utf16: &[u16]) -> Result<()> {
+    input_permission()?;
     // SAFETY: UTF-16 is valid and borrowed only while the API copies it into the event.
     unsafe {
         for down in [true, false] {

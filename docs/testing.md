@@ -131,8 +131,9 @@ The secondary run repeats the workflows at a negative desktop origin and a
 different display density. `get_pixel_color` retains the upstream main-display
 contract; use `capture(Some(rect)).color_at(...)` on signed secondary coordinates.
 
-On macOS, text insertion retains a **10 ms minimum interval per Unicode scalar**,
-including when the configured delay is zero or the requested CPM exceeds 6,000.
+On macOS, `type_string` batches up to 20 UTF-16 units without splitting a scalar,
+with a **10 ms minimum interval per batch**, including at zero configured delay.
+`type_string_delayed` keeps the per-scalar floor even above 6,000 CPM.
 Native text services corrupted unpaced text in the stress test even though the
 key events arrived. This interval is an observed mitigation, not a guarantee that
 every application accepts arbitrary input rates. Newline and carriage return
@@ -182,3 +183,14 @@ cargo check --target x86_64-pc-windows-gnu --all-targets
 The first diagnostic reads permissions, displays and pointer location without
 prompting; the second additionally saves a screenshot. Cross-target checking
 validates compilation, not actual event injection or capture on those platforms.
+
+## Composed frame processing
+
+`cargo test --workspace --all-features` also verifies media pixel order, row padding,
+alpha-independent hashing, cache invalidation, PNG round trips, JPEG decode/color
+tolerance, malformed input and allocation bounds. `node scripts/build-node.cjs`
+then `node --test crates/rusty-robot-node/tests/media.cjs` verifies worker ownership,
+queue saturation/recovery and event-loop progress. Set `RUSTY_ROBOT_TEST_CAPTURE=1`
+only on an authorized desktop to include real JPEG and PNG capture.
+The batched input implementation passed the Chromium eight-workflow desktop fixture
+and native AppKit Unicode/editing fixture on this Mac on 2026-10-27.

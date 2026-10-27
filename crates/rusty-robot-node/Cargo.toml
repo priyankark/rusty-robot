@@ -1,0 +1,21 @@
+[package]
+name = "rusty-robot-node"
+version = "0.1.0"
+edition = "2024"
+rust-version = "1.88"
+license = "MIT"
+publish = false
+
+[lib]
+crate-type = ["cdylib"]
+test = false
+doctest = false
+
+[dependencies]
+napi = { version = "2", default-features = false, features = ["napi6"] }
+napi-derive = "2"
+rusty-robot = { path = "../..", default-features = false }
+rusty-robot-media = { path = "../rusty-robot-media" }
+
+[build-dependencies]
+napi-build = "2"

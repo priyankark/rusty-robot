@@ -39,3 +39,8 @@ objc2 = "0.6"
 objc2-foundation = "0.3"
 objc2-core-graphics = "0.3"
 objc2-screen-capture-kit = "0.3"
+
+[workspace]
+members = [".", "crates/rusty-robot-media", "crates/rusty-robot-node"]
+default-members = ["."]
+resolver = "3"

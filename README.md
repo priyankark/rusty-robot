@@ -68,7 +68,8 @@ BMP-only builds.
 Bitmap coordinates are physical pixels; desktop coordinates are logical positions.
 Use bitmap conversion methods rather than assuming a scale of one. A capture
 rectangle must fit inside a single display. Text input on macOS retains a 10 ms
-minimum interval per Unicode scalar based on native delivery testing.
+minimum interval per native text batch (up to 20 UTF-16 units); paced typing
+retains per-character intervals. This is based on native delivery testing.
 
 ## Measured performance
 
@@ -110,3 +111,11 @@ opt-in and use owned test windows. See [testing](docs/testing.md),
 ## License
 
 [MIT](LICENSE.md), with RobotJS attribution retained in [NOTICE.md](NOTICE.md).
+
+### Composed media workers
+
+The workspace includes `rusty-robot-media` (capture, resize, BLAKE3 frame fingerprints,
+JPEG/PNG encoding) and `rusty-robot-node` (Node-API input plus asynchronous media).
+Build the shared addon with `node scripts/build-node.cjs`; its output is
+`target/rusty-robot.node`. These companion crates currently ship from Git.
+See [the agent skill](skills/rusty-robot/SKILL.md) for integration and bounded scheduling.

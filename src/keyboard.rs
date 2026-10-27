@@ -108,6 +108,27 @@ fn toggle(output: &mut impl KeyboardOutput, code: u32, down: bool, flags: u32) -
     }
     Ok(())
 }
+// Quartz text events have a small UTF-16 payload. Never split a Rust scalar or
+// put Return in that payload: native controls may drop a Unicode LF/CR.
+#[cfg(any(target_os = "macos", test))]
+fn text_chunk(text: &str) -> (&str, &str) {
+    let mut units = 0;
+    for (index, character) in text.char_indices() {
+        if matches!(character, '\n' | '\r') {
+            return text.split_at(if index == 0 {
+                character.len_utf8()
+            } else {
+                index
+            });
+        }
+        units += character.len_utf16();
+        if units > 20 {
+            return text.split_at(index);
+        }
+    }
+    (text, "")
+}
+
 impl Robot {
     /// Set the delay after keyboard events. On macOS, Unicode text retains a
     /// 10 ms minimum delivery interval; physical key events use the given delay.
@@ -139,8 +160,26 @@ impl Robot {
         wait_for_text(Duration::from_millis(DELAY.load(Ordering::Relaxed)));
         Ok(())
     }
+    /// Insert text. macOS batches up to 20 UTF-16 units per native event;
+    /// the keyboard delay applies between batches. Use `type_string_delayed`
+    /// when a per-character rate is required.
     pub fn type_string(&self, text: &str) -> Result<()> {
         let _lock = platform::input_lock()?;
+        #[cfg(target_os = "macos")]
+        {
+            let mut remaining = text;
+            while !remaining.is_empty() {
+                let (chunk, rest) = text_chunk(remaining);
+                if chunk == "\n" || chunk == "\r" {
+                    type_character(&mut NativeKeyboard, chunk.chars().next().unwrap())?;
+                } else {
+                    platform::unicode_text(chunk)?;
+                }
+                wait_for_text(Duration::from_millis(DELAY.load(Ordering::Relaxed)));
+                remaining = rest;
+            }
+        }
+        #[cfg(not(target_os = "macos"))]
         for character in text.chars() {
             type_character(&mut NativeKeyboard, character)?;
             wait_for_text(Duration::from_millis(DELAY.load(Ordering::Relaxed)));

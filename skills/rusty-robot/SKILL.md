@@ -42,7 +42,7 @@ integration boundary; keep its authentication, focus policy, and input ownership
   at a negative origin, use `capture(Some(rect))` and bitmap `color_at`.
 - A key is named `enter`, not `return`; modifiers include `command`, `control`,
   `alt`, and `shift`. Use `type_string` for Unicode text, `key_tap` for shortcuts.
-  macOS text has a 10 ms minimum interval per scalar even at zero configured delay.
+  macOS `type_string` batches up to 20 UTF-16 units per native event with a 10 ms minimum interval per batch. Newlines use Return events. `type_string_delayed` retains per-scalar pacing.
 - `drag_mouse` moves with a held button; callers still press/release it. When
   adapting a stream of mouse events, track the held button and use drag movement.
 - Bitmap storage is BGR/BGRA with row stride; it is not tightly packed RGBA.
@@ -57,3 +57,16 @@ integration boundary; keep its authentication, focus policy, and input ownership
 For library changes, run `cargo test --all-features --locked`, the corresponding
 `--no-default-features` run, fmt and Clippy. Native test instructions and benchmark
 limitations live in the repository's `docs/testing.md` and `docs/benchmarks.md`.
+
+## Native media for Node hosts
+
+Use `crates/rusty-robot-media` for Rust capture/resize/hash/encode and the shared
+`crates/rusty-robot-node` bridge for Node apps. Build with `node scripts/build-node.cjs`.
+`await addon.captureFrame(1440, 85, previousFingerprint, forceRefresh, 'jpeg')`
+returns dimensions, fingerprint and optional `data`. Missing data means unchanged;
+force a periodic refresh for recovering subscribers. `resizeImage` accepts JPEG/PNG.
+Pixel work runs on workers with two outstanding jobs maximum and four resize threads.
+Keep one live capture in flight, drop obsolete results after stop/settings changes,
+and handle queue rejection. Do not silently fall back to JS when Rust is selected.
+Benchmark real socket delivery with fixed dimensions/quality/FPS; distinguish host
+CPU from subprocess/system CPU and invalid output from successful delivery.

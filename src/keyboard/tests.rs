@@ -261,3 +261,26 @@ fn unicode_interval_keeps_platform_floor_and_larger_requested_delays() {
         assert_eq!(text_interval(delay), delay);
     }
 }
+
+#[test]
+fn text_batches_preserve_unicode_boundaries_and_return_events() {
+    for size in 0..=45 {
+        for suffix in ["", "🌍", "e\u{301}", "👩‍💻", "\n", "\r\n", " 中文 "] {
+            let original = format!("{}{}{}", "x".repeat(size), suffix, "🌍".repeat(21));
+            let mut remaining = original.as_str();
+            let mut reconstructed = String::new();
+            while !remaining.is_empty() {
+                let (chunk, rest) = text_chunk(remaining);
+                assert!(!chunk.is_empty());
+                assert!(chunk.encode_utf16().count() <= 20);
+                if chunk.contains(['\n', '\r']) {
+                    assert!(chunk == "\n" || chunk == "\r");
+                }
+                reconstructed.push_str(chunk);
+                remaining = rest;
+            }
+            assert_eq!(reconstructed, original);
+        }
+    }
+    assert_eq!(text_chunk(""), ("", ""));
+}
