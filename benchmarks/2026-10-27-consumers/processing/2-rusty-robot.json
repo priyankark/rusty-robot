@@ -1,0 +1,336 @@
+{
+  "backend": "rusty-robot",
+  "node": "v24.22.0",
+  "jimp": "1.6.1",
+  "quality": 85,
+  "warmups": 1,
+  "repetitions": 15,
+  "cases": [
+    {
+      "name": "decode_encode",
+      "source_width": 1440,
+      "source_height": 810,
+      "samples": [
+        {
+          "ms": 6.512333000000012,
+          "cpu_ms": 6.516,
+          "bytes": 63676,
+          "stages": {
+            "resize_ms": 0.000042,
+            "hash_ms": 1.323458,
+            "encode_ms": 4.409790999999999
+          }
+        },
+        {
+          "ms": 6.509750000000011,
+          "cpu_ms": 6.514,
+          "bytes": 63676,
+          "stages": {
+            "resize_ms": 0.000042,
+            "hash_ms": 1.329833,
+            "encode_ms": 4.411083
+          }
+        },
+        {
+          "ms": 6.501625000000004,
+          "cpu_ms": 6.505,
+          "bytes": 63676,
+          "stages": {
+            "resize_ms": 0,
+            "hash_ms": 1.321875,
+            "encode_ms": 4.414375
+          }
+        },
+        {
+          "ms": 6.653874999999999,
+          "cpu_ms": 6.647,
+          "bytes": 63676,
+          "stages": {
+            "resize_ms": 0.000041,
+            "hash_ms": 1.338208,
+            "encode_ms": 4.483875
+          }
+        },
+        {
+          "ms": 6.556291999999999,
+          "cpu_ms": 6.545,
+          "bytes": 63676,
+          "stages": {
+            "resize_ms": 0.000041,
+            "hash_ms": 1.352709,
+            "encode_ms": 4.425959
+          }
+        },
+        {
+          "ms": 7.041125000000008,
+          "cpu_ms": 6.891,
+          "bytes": 63676,
+          "stages": {
+            "resize_ms": 0,
+            "hash_ms": 1.413583,
+            "encode_ms": 4.5695
+          }
+        },
+        {
+          "ms": 6.8627500000000055,
+          "cpu_ms": 6.827,
+          "bytes": 63676,
+          "stages": {
+            "resize_ms": 0.000041,
+            "hash_ms": 1.3375,
+            "encode_ms": 4.748584
+          }
+        },
+        {
+          "ms": 6.582707999999997,
+          "cpu_ms": 6.574,
+          "bytes": 63676,
+          "stages": {
+            "resize_ms": 0,
+            "hash_ms": 1.320584,
+            "encode_ms": 4.48325
+          }
+        },
+        {
+          "ms": 6.6698749999999905,
+          "cpu_ms": 6.639,
+          "bytes": 63676,
+          "stages": {
+            "resize_ms": 0.000042,
+            "hash_ms": 1.415125,
+            "encode_ms": 4.466666999999999
+          }
+        },
+        {
+          "ms": 6.5278749999999945,
+          "cpu_ms": 6.53,
+          "bytes": 63676,
+          "stages": {
+            "resize_ms": 0,
+            "hash_ms": 1.339625,
+            "encode_ms": 4.410208
+          }
+        },
+        {
+          "ms": 6.505875000000003,
+          "cpu_ms": 6.511,
+          "bytes": 63676,
+          "stages": {
+            "resize_ms": 0.000042,
+            "hash_ms": 1.3221669999999999,
+            "encode_ms": 4.4024160000000006
+          }
+        },
+        {
+          "ms": 6.651374999999973,
+          "cpu_ms": 6.638,
+          "bytes": 63676,
+          "stages": {
+            "resize_ms": 0.000042,
+            "hash_ms": 1.322292,
+            "encode_ms": 4.55675
+          }
+        },
+        {
+          "ms": 6.590749999999986,
+          "cpu_ms": 6.571,
+          "bytes": 63676,
+          "stages": {
+            "resize_ms": 0,
+            "hash_ms": 1.351583,
+            "encode_ms": 4.4636249999999995
+          }
+        },
+        {
+          "ms": 6.552625000000006,
+          "cpu_ms": 6.54,
+          "bytes": 63676,
+          "stages": {
+            "resize_ms": 0.000041,
+            "hash_ms": 1.323667,
+            "encode_ms": 4.457458
+          }
+        },
+        {
+          "ms": 6.537959000000001,
+          "cpu_ms": 6.526,
+          "bytes": 63676,
+          "stages": {
+            "resize_ms": 0.000041,
+            "hash_ms": 1.336167,
+            "encode_ms": 4.426791000000001
+          }
+        }
+      ],
+      "psnr_db": 48.8503834408438,
+      "correctness": {
+        "decoded": true,
+        "width": 1440,
+        "height": 810
+      }
+    },
+    {
+      "name": "decode_resize_encode",
+      "source_width": 1920,
+      "source_height": 1080,
+      "samples": [
+        {
+          "ms": 9.26079199999998,
+          "cpu_ms": 13.205,
+          "bytes": 126446,
+          "stages": {
+            "resize_ms": 1.7181250000000001,
+            "hash_ms": 1.402958,
+            "encode_ms": 4.981625
+          }
+        },
+        {
+          "ms": 9.018165999999951,
+          "cpu_ms": 13.314,
+          "bytes": 126446,
+          "stages": {
+            "resize_ms": 1.8215,
+            "hash_ms": 1.356792,
+            "encode_ms": 4.678375
+          }
+        },
+        {
+          "ms": 8.81579099999999,
+          "cpu_ms": 13.079,
+          "bytes": 126446,
+          "stages": {
+            "resize_ms": 1.716542,
+            "hash_ms": 1.329916,
+            "encode_ms": 4.645792
+          }
+        },
+        {
+          "ms": 8.787791000000027,
+          "cpu_ms": 13.03,
+          "bytes": 126446,
+          "stages": {
+            "resize_ms": 1.63175,
+            "hash_ms": 1.346958,
+            "encode_ms": 4.700584
+          }
+        },
+        {
+          "ms": 9.194124999999985,
+          "cpu_ms": 13.319,
+          "bytes": 126446,
+          "stages": {
+            "resize_ms": 1.758917,
+            "hash_ms": 1.362042,
+            "encode_ms": 4.902791
+          }
+        },
+        {
+          "ms": 8.700041999999996,
+          "cpu_ms": 12.856,
+          "bytes": 126446,
+          "stages": {
+            "resize_ms": 1.5559580000000002,
+            "hash_ms": 1.337625,
+            "encode_ms": 4.705125
+          }
+        },
+        {
+          "ms": 8.700458999999967,
+          "cpu_ms": 12.728,
+          "bytes": 126446,
+          "stages": {
+            "resize_ms": 1.50975,
+            "hash_ms": 1.3425,
+            "encode_ms": 4.724333
+          }
+        },
+        {
+          "ms": 8.683916999999951,
+          "cpu_ms": 12.554,
+          "bytes": 126446,
+          "stages": {
+            "resize_ms": 1.495959,
+            "hash_ms": 1.358709,
+            "encode_ms": 4.703333
+          }
+        },
+        {
+          "ms": 8.825707999999963,
+          "cpu_ms": 12.856,
+          "bytes": 126446,
+          "stages": {
+            "resize_ms": 1.655125,
+            "hash_ms": 1.341209,
+            "encode_ms": 4.638958000000001
+          }
+        },
+        {
+          "ms": 8.54970800000001,
+          "cpu_ms": 12.473,
+          "bytes": 126446,
+          "stages": {
+            "resize_ms": 1.470958,
+            "hash_ms": 1.32875,
+            "encode_ms": 4.649
+          }
+        },
+        {
+          "ms": 8.573416000000009,
+          "cpu_ms": 12.389,
+          "bytes": 126446,
+          "stages": {
+            "resize_ms": 1.450916,
+            "hash_ms": 1.342625,
+            "encode_ms": 4.6817079999999995
+          }
+        },
+        {
+          "ms": 8.971292000000005,
+          "cpu_ms": 12.87,
+          "bytes": 126446,
+          "stages": {
+            "resize_ms": 1.572083,
+            "hash_ms": 1.352917,
+            "encode_ms": 4.911375
+          }
+        },
+        {
+          "ms": 8.987416999999994,
+          "cpu_ms": 13.115,
+          "bytes": 126446,
+          "stages": {
+            "resize_ms": 1.63125,
+            "hash_ms": 1.417209,
+            "encode_ms": 4.713958
+          }
+        },
+        {
+          "ms": 13.081999999999994,
+          "cpu_ms": 16.879,
+          "bytes": 126446,
+          "stages": {
+            "resize_ms": 1.689167,
+            "hash_ms": 1.350375,
+            "encode_ms": 8.877667
+          }
+        },
+        {
+          "ms": 11.306916000000001,
+          "cpu_ms": 17.301,
+          "bytes": 126446,
+          "stages": {
+            "resize_ms": 2.330417,
+            "hash_ms": 1.662334,
+            "encode_ms": 5.348667
+          }
+        }
+      ],
+      "psnr_db": 38.638971832680284,
+      "correctness": {
+        "decoded": true,
+        "width": 1440,
+        "height": 810
+      }
+    }
+  ]
+}

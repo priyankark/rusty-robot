@@ -10,6 +10,9 @@ Initial public preview of the Rust RobotJS port.
 - 77 mapped upstream cases, exhaustive regressions, and opt-in native GUI fixtures.
 - Public 21-operation benchmark data, report, and reproducible runner.
 - Agent skill, contributor guide, CI, documentation deployment, and release packaging.
+- Composable Rust media and Node-API crates: bounded asynchronous capture/resize/hash/encode.
+- Batched macOS Unicode insertion, preserving scalar boundaries and native Return events.
+- Real AirCodum/Agentum input and streaming comparison with raw evidence.
 
 Known limits: native Wayland unsupported; macOS small captures are slower than
 RobotJS; Unicode typing has a macOS pacing floor; pre-1.0 APIs may change.

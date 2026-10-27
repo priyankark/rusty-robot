@@ -5,9 +5,9 @@ on:
   workflow_dispatch:
   push:
     branches: [main]
-    paths: ['src/**', 'tests/**', 'scripts/validate-desktop.py', '.github/workflows/desktop.yml']
+    paths: ['src/**', 'tests/**', 'crates/**', 'Cargo.toml', 'Cargo.lock', 'scripts/validate-desktop.py', '.github/workflows/desktop.yml']
   pull_request:
-    paths: ['src/**', 'tests/**', 'scripts/validate-desktop.py', '.github/workflows/desktop.yml']
+    paths: ['src/**', 'tests/**', 'crates/**', 'Cargo.toml', 'Cargo.lock', 'scripts/validate-desktop.py', '.github/workflows/desktop.yml']
 concurrency:
   group: desktop-${{ github.ref }}
   cancel-in-progress: true
@@ -43,15 +43,21 @@ jobs:
         run: |
           npm ci --prefix tests/gui
           node tests/gui/node_modules/electron/install.js
+      - name: Build shared native media addon
+        run: node scripts/build-node.cjs
       - name: Run Linux X11 native tests
         if: runner.os == 'Linux'
         shell: bash
         run: |
           xvfb-run --auto-servernum --server-args='-screen 0 1920x1080x24 -ac +extension RANDR' \
-            bash -c 'openbox > /tmp/rusty-robot-openbox.log 2>&1 & python scripts/validate-desktop.py'
+            bash -c 'openbox > /tmp/rusty-robot-openbox.log 2>&1 & python scripts/validate-desktop.py && RUSTY_ROBOT_TEST_CAPTURE=1 node --test crates/rusty-robot-node/tests/media.cjs'
       - name: Run Windows native tests
         if: runner.os == 'Windows'
-        run: python scripts/validate-desktop.py
+        run: |
+          python scripts/validate-desktop.py
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          $env:RUSTY_ROBOT_TEST_CAPTURE = '1'
+          node --test crates/rusty-robot-node/tests/media.cjs
       - name: Preserve test results and captures
         if: always()
         uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f

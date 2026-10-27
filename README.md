@@ -119,3 +119,8 @@ JPEG/PNG encoding) and `rusty-robot-node` (Node-API input plus asynchronous medi
 Build the shared addon with `node scripts/build-node.cjs`; its output is
 `target/rusty-robot.node`. These companion crates currently ship from Git.
 See [the agent skill](skills/rusty-robot/SKILL.md) for integration and bounded scheduling.
+
+The [real application benchmark report](https://priyankark.github.io/rusty-robot/)
+separates verified input, complete video delivery and isolated image processing.
+The [earlier 21-operation API comparison](https://priyankark.github.io/rusty-robot/api-benchmarks.html)
+remains available, including slower Rust cases.

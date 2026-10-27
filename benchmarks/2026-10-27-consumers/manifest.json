@@ -1,0 +1,30 @@
+{
+  "rust_commit": "b0c51bdd2c576f61ec20900b1d13c100a8579198",
+  "aircodum_runtime_commit": "329e9f57a0a0043fee84ced684cba0673d61d052",
+  "agentum_runtime_commit": "e1411f0c46ef9d9973dd2efbe7e6be39a7559f95",
+  "aircodum_pr": "https://github.com/priyankark/AirCodum/pull/33",
+  "agentum_pr": "https://github.com/priyankark/agentum-cli/pull/7",
+  "rustc": "rustc 1.99.1 (58cf8f9c3 2026-10-13)",
+  "node_benchmark_launcher": "v24.22.0",
+  "os": "27.0",
+  "architecture": "arm64",
+  "display": {
+    "logical": [
+      1920,
+      1080
+    ],
+    "captured_pixels": [
+      1920,
+      1080
+    ],
+    "output": [
+      1440,
+      810
+    ]
+  },
+  "addon_sha256": "3b8dc059f9947f30690fb6203e45e9915e61a11932ee6150450d8a80b46e7e2d",
+  "source_note": "Only benchmark env pinning and test/docs corrections followed the runtime commits. Raw files identify Node/VS Code/RobotJS versions; all input and frame work runs through the checked-in implementations.",
+  "benchmarks_sequential": true,
+  "baseline_media_env_override": "unset in recorded runs; launchers now explicitly pin MEDIA_BACKEND to prevent inherited overrides",
+  "cpu_caveat": "Host-process CPU is not total system CPU; original macOS subprocess work is excluded."
+}

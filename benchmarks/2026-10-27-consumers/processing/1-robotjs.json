@@ -1,0 +1,216 @@
+{
+  "backend": "robotjs",
+  "node": "v24.22.0",
+  "jimp": "1.6.1",
+  "quality": 85,
+  "warmups": 1,
+  "repetitions": 15,
+  "cases": [
+    {
+      "name": "decode_encode",
+      "source_width": 1440,
+      "source_height": 810,
+      "samples": [
+        {
+          "ms": 106.67312499999997,
+          "cpu_ms": 132.542,
+          "bytes": 70788,
+          "stages": null
+        },
+        {
+          "ms": 98.22970899999996,
+          "cpu_ms": 111.094,
+          "bytes": 70788,
+          "stages": null
+        },
+        {
+          "ms": 97.80370900000003,
+          "cpu_ms": 108.987,
+          "bytes": 70788,
+          "stages": null
+        },
+        {
+          "ms": 97.60412500000001,
+          "cpu_ms": 105.126,
+          "bytes": 70788,
+          "stages": null
+        },
+        {
+          "ms": 95.87591700000007,
+          "cpu_ms": 99.356,
+          "bytes": 70788,
+          "stages": null
+        },
+        {
+          "ms": 95.67049999999995,
+          "cpu_ms": 95.493,
+          "bytes": 70788,
+          "stages": null
+        },
+        {
+          "ms": 95.34679199999994,
+          "cpu_ms": 95.303,
+          "bytes": 70788,
+          "stages": null
+        },
+        {
+          "ms": 105.15899999999999,
+          "cpu_ms": 129.683,
+          "bytes": 70788,
+          "stages": null
+        },
+        {
+          "ms": 93.95466699999997,
+          "cpu_ms": 96.151,
+          "bytes": 70788,
+          "stages": null
+        },
+        {
+          "ms": 100.74304200000006,
+          "cpu_ms": 100.652,
+          "bytes": 70788,
+          "stages": null
+        },
+        {
+          "ms": 108.05941699999994,
+          "cpu_ms": 111.798,
+          "bytes": 70788,
+          "stages": null
+        },
+        {
+          "ms": 101.78537499999993,
+          "cpu_ms": 107.463,
+          "bytes": 70788,
+          "stages": null
+        },
+        {
+          "ms": 94.67237499999987,
+          "cpu_ms": 95.38,
+          "bytes": 70788,
+          "stages": null
+        },
+        {
+          "ms": 95.74291700000003,
+          "cpu_ms": 97.143,
+          "bytes": 70788,
+          "stages": null
+        },
+        {
+          "ms": 98.15566599999988,
+          "cpu_ms": 110.169,
+          "bytes": 70788,
+          "stages": null
+        }
+      ],
+      "psnr_db": 48.83654134479319,
+      "correctness": {
+        "decoded": true,
+        "width": 1440,
+        "height": 810
+      }
+    },
+    {
+      "name": "decode_resize_encode",
+      "source_width": 1920,
+      "source_height": 1080,
+      "samples": [
+        {
+          "ms": 137.03725000000009,
+          "cpu_ms": 166.175,
+          "bytes": 115803,
+          "stages": null
+        },
+        {
+          "ms": 129.12433299999998,
+          "cpu_ms": 132.736,
+          "bytes": 115803,
+          "stages": null
+        },
+        {
+          "ms": 127.05820799999992,
+          "cpu_ms": 131.192,
+          "bytes": 115803,
+          "stages": null
+        },
+        {
+          "ms": 135.18495900000016,
+          "cpu_ms": 161.065,
+          "bytes": 115803,
+          "stages": null
+        },
+        {
+          "ms": 130.35874999999987,
+          "cpu_ms": 133.849,
+          "bytes": 115803,
+          "stages": null
+        },
+        {
+          "ms": 128.38316600000007,
+          "cpu_ms": 133.991,
+          "bytes": 115803,
+          "stages": null
+        },
+        {
+          "ms": 136.09904199999983,
+          "cpu_ms": 160.13,
+          "bytes": 115803,
+          "stages": null
+        },
+        {
+          "ms": 129.43229199999996,
+          "cpu_ms": 133.112,
+          "bytes": 115803,
+          "stages": null
+        },
+        {
+          "ms": 128.08558300000004,
+          "cpu_ms": 132.468,
+          "bytes": 115803,
+          "stages": null
+        },
+        {
+          "ms": 135.86841700000014,
+          "cpu_ms": 161.527,
+          "bytes": 115803,
+          "stages": null
+        },
+        {
+          "ms": 128.76850000000013,
+          "cpu_ms": 132.588,
+          "bytes": 115803,
+          "stages": null
+        },
+        {
+          "ms": 127.81858300000022,
+          "cpu_ms": 132.025,
+          "bytes": 115803,
+          "stages": null
+        },
+        {
+          "ms": 135.9139170000003,
+          "cpu_ms": 161.02,
+          "bytes": 115803,
+          "stages": null
+        },
+        {
+          "ms": 129.0072500000001,
+          "cpu_ms": 132.382,
+          "bytes": 115803,
+          "stages": null
+        },
+        {
+          "ms": 127.27362499999981,
+          "cpu_ms": 131.486,
+          "bytes": 115803,
+          "stages": null
+        }
+      ],
+      "psnr_db": 45.914903884413256,
+      "correctness": {
+        "decoded": true,
+        "width": 1440,
+        "height": 810
+      }
+    }
+  ]
+}

@@ -1,0 +1,1732 @@
+{
+  "measured_at": "2026-10-27T17:29:20.557Z",
+  "platform": "darwin",
+  "release": "27.0.0",
+  "cpu": "Apple M6",
+  "agentum_commit": "e1411f0c46ef9d9973dd2efbe7e6be39a7559f95",
+  "harness_note": "Benchmark harness changes are committed alongside this recorded snapshot",
+  "runs": [
+    {
+      "round": 1,
+      "backend": "robotjs",
+      "platform": "darwin",
+      "node": "v24.22.0",
+      "robotjs": "0.12.3",
+      "size": {
+        "width": 1920,
+        "height": 1080
+      },
+      "repetitions": 5,
+      "warmups": 1,
+      "observation_poll_ms": 2,
+      "transport": "Authenticated loopback VNC socket, same-process client/server; native AppKit target; capture stream stubbed",
+      "results": [
+        {
+          "case": "type_ascii_31",
+          "repetition": 0,
+          "dispatch_ms": 0.30441699999937555,
+          "delivered_ms": 29.394249999999374,
+          "passed": true,
+          "observed_text": "Agentum benchmark: hello world.",
+          "observed_clicks": 2
+        },
+        {
+          "case": "type_unicode",
+          "repetition": 0,
+          "dispatch_ms": 0.2711669999989681,
+          "delivered_ms": null,
+          "passed": false,
+          "observed_text": "Rust  中文 café",
+          "observed_clicks": 2
+        },
+        {
+          "case": "type_multiline",
+          "repetition": 0,
+          "dispatch_ms": 0.2943329999998241,
+          "delivered_ms": 20.358540999999605,
+          "passed": true,
+          "observed_text": "First line\nSecond line",
+          "observed_clicks": 2
+        },
+        {
+          "case": "shortcut_replace",
+          "repetition": 0,
+          "dispatch_ms": 37.02262499999961,
+          "delivered_ms": 56.967624999999316,
+          "passed": true,
+          "observed_text": "Replacement complete",
+          "observed_clicks": 2
+        },
+        {
+          "case": "edit_then_click",
+          "repetition": 0,
+          "dispatch_ms": 80.16433300000062,
+          "delivered_ms": null,
+          "passed": false,
+          "observed_text": "Ready ",
+          "observed_clicks": 3
+        },
+        {
+          "case": "click_button",
+          "repetition": 0,
+          "dispatch_ms": 50.681250000001455,
+          "delivered_ms": 50.77583300000151,
+          "passed": true,
+          "observed_text": "",
+          "observed_clicks": 4
+        },
+        {
+          "case": "type_unicode",
+          "repetition": 1,
+          "dispatch_ms": 0.23854199999914272,
+          "delivered_ms": null,
+          "passed": false,
+          "observed_text": "Rust  中文 café",
+          "observed_clicks": 4
+        },
+        {
+          "case": "type_multiline",
+          "repetition": 1,
+          "dispatch_ms": 0.2992080000003625,
+          "delivered_ms": 20.931749999999738,
+          "passed": true,
+          "observed_text": "First line\nSecond line",
+          "observed_clicks": 4
+        },
+        {
+          "case": "shortcut_replace",
+          "repetition": 1,
+          "dispatch_ms": 32.81408300000112,
+          "delivered_ms": 51.95233300000109,
+          "passed": true,
+          "observed_text": "Replacement complete",
+          "observed_clicks": 4
+        },
+        {
+          "case": "edit_then_click",
+          "repetition": 1,
+          "dispatch_ms": 88.36979100000099,
+          "delivered_ms": null,
+          "passed": false,
+          "observed_text": "Ready ",
+          "observed_clicks": 5
+        },
+        {
+          "case": "click_button",
+          "repetition": 1,
+          "dispatch_ms": 46.11879200000112,
+          "delivered_ms": 46.18108399999983,
+          "passed": true,
+          "observed_text": "",
+          "observed_clicks": 6
+        },
+        {
+          "case": "type_ascii_31",
+          "repetition": 1,
+          "dispatch_ms": 0.31999999999970896,
+          "delivered_ms": 22.919416000000638,
+          "passed": true,
+          "observed_text": "Agentum benchmark: hello world.",
+          "observed_clicks": 6
+        },
+        {
+          "case": "type_multiline",
+          "repetition": 2,
+          "dispatch_ms": 0.27070800000001327,
+          "delivered_ms": 21.272499999999127,
+          "passed": true,
+          "observed_text": "First line\nSecond line",
+          "observed_clicks": 6
+        },
+        {
+          "case": "shortcut_replace",
+          "repetition": 2,
+          "dispatch_ms": 32.307457999999315,
+          "delivered_ms": 50.23558299999786,
+          "passed": true,
+          "observed_text": "Replacement complete",
+          "observed_clicks": 6
+        },
+        {
+          "case": "edit_then_click",
+          "repetition": 2,
+          "dispatch_ms": 90.41520799999853,
+          "delivered_ms": null,
+          "passed": false,
+          "observed_text": "Ready ",
+          "observed_clicks": 7
+        },
+        {
+          "case": "click_button",
+          "repetition": 2,
+          "dispatch_ms": 46.39795899999808,
+          "delivered_ms": 46.45304199999737,
+          "passed": true,
+          "observed_text": "",
+          "observed_clicks": 8
+        },
+        {
+          "case": "type_ascii_31",
+          "repetition": 2,
+          "dispatch_ms": 0.36520799999925657,
+          "delivered_ms": 30.836332999999286,
+          "passed": true,
+          "observed_text": "Agentum benchmark: hello world.",
+          "observed_clicks": 8
+        },
+        {
+          "case": "type_unicode",
+          "repetition": 2,
+          "dispatch_ms": 0.2901669999992009,
+          "delivered_ms": null,
+          "passed": false,
+          "observed_text": "Rust  中文 café",
+          "observed_clicks": 8
+        },
+        {
+          "case": "shortcut_replace",
+          "repetition": 3,
+          "dispatch_ms": 35.64400000000023,
+          "delivered_ms": 57.78087500000038,
+          "passed": true,
+          "observed_text": "Replacement complete",
+          "observed_clicks": 8
+        },
+        {
+          "case": "edit_then_click",
+          "repetition": 3,
+          "dispatch_ms": 81.93604199999754,
+          "delivered_ms": null,
+          "passed": false,
+          "observed_text": "Ready ",
+          "observed_clicks": 9
+        },
+        {
+          "case": "click_button",
+          "repetition": 3,
+          "dispatch_ms": 47.82108299999891,
+          "delivered_ms": 47.88233299999774,
+          "passed": true,
+          "observed_text": "",
+          "observed_clicks": 10
+        },
+        {
+          "case": "type_ascii_31",
+          "repetition": 3,
+          "dispatch_ms": 0.3378329999977723,
+          "delivered_ms": 25.541707999997016,
+          "passed": true,
+          "observed_text": "Agentum benchmark: hello world.",
+          "observed_clicks": 10
+        },
+        {
+          "case": "type_unicode",
+          "repetition": 3,
+          "dispatch_ms": 0.24962499999674037,
+          "delivered_ms": null,
+          "passed": false,
+          "observed_text": "Rust  中文 café",
+          "observed_clicks": 10
+        },
+        {
+          "case": "type_multiline",
+          "repetition": 3,
+          "dispatch_ms": 0.2624590000050375,
+          "delivered_ms": 22.911833999998635,
+          "passed": true,
+          "observed_text": "First line\nSecond line",
+          "observed_clicks": 10
+        },
+        {
+          "case": "edit_then_click",
+          "repetition": 4,
+          "dispatch_ms": 79.33649999999761,
+          "delivered_ms": null,
+          "passed": false,
+          "observed_text": "Ready ",
+          "observed_clicks": 11
+        },
+        {
+          "case": "click_button",
+          "repetition": 4,
+          "dispatch_ms": 50.59687500000291,
+          "delivered_ms": 50.65950000000157,
+          "passed": true,
+          "observed_text": "",
+          "observed_clicks": 12
+        },
+        {
+          "case": "type_ascii_31",
+          "repetition": 4,
+          "dispatch_ms": 0.3254159999996773,
+          "delivered_ms": 23.00449999999546,
+          "passed": true,
+          "observed_text": "Agentum benchmark: hello world.",
+          "observed_clicks": 12
+        },
+        {
+          "case": "type_unicode",
+          "repetition": 4,
+          "dispatch_ms": 0.2490830000024289,
+          "delivered_ms": null,
+          "passed": false,
+          "observed_text": "Rust  中文 café",
+          "observed_clicks": 12
+        },
+        {
+          "case": "type_multiline",
+          "repetition": 4,
+          "dispatch_ms": 0.26762500000040745,
+          "delivered_ms": 22.76758300000074,
+          "passed": true,
+          "observed_text": "First line\nSecond line",
+          "observed_clicks": 12
+        },
+        {
+          "case": "shortcut_replace",
+          "repetition": 4,
+          "dispatch_ms": 35.77654199999961,
+          "delivered_ms": 57.37124999999651,
+          "passed": true,
+          "observed_text": "Replacement complete",
+          "observed_clicks": 12
+        }
+      ]
+    },
+    {
+      "round": 1,
+      "backend": "rusty-robot",
+      "platform": "darwin",
+      "node": "v24.22.0",
+      "robotjs": "0.12.3",
+      "size": {
+        "width": 1920,
+        "height": 1080
+      },
+      "repetitions": 5,
+      "warmups": 1,
+      "observation_poll_ms": 2,
+      "transport": "Authenticated loopback VNC socket, same-process client/server; native AppKit target; capture stream stubbed",
+      "results": [
+        {
+          "case": "type_ascii_31",
+          "repetition": 0,
+          "dispatch_ms": 24.521332999999686,
+          "delivered_ms": 24.59400000000005,
+          "passed": true,
+          "observed_text": "Agentum benchmark: hello world.",
+          "observed_clicks": 2
+        },
+        {
+          "case": "type_unicode",
+          "repetition": 0,
+          "dispatch_ms": 10.377916999999798,
+          "delivered_ms": 10.432458999999653,
+          "passed": true,
+          "observed_text": "Rust 🌍 中文 café",
+          "observed_clicks": 2
+        },
+        {
+          "case": "type_multiline",
+          "repetition": 0,
+          "dispatch_ms": 34.608374999999796,
+          "delivered_ms": 34.6875,
+          "passed": true,
+          "observed_text": "First line\nSecond line",
+          "observed_clicks": 2
+        },
+        {
+          "case": "shortcut_replace",
+          "repetition": 0,
+          "dispatch_ms": 34.900957999999264,
+          "delivered_ms": 34.97137500000008,
+          "passed": true,
+          "observed_text": "Replacement complete",
+          "observed_clicks": 2
+        },
+        {
+          "case": "edit_then_click",
+          "repetition": 0,
+          "dispatch_ms": 87.54075000000012,
+          "delivered_ms": 87.62616700000035,
+          "passed": true,
+          "observed_text": "Ready 🌍",
+          "observed_clicks": 3
+        },
+        {
+          "case": "click_button",
+          "repetition": 0,
+          "dispatch_ms": 46.92345899999964,
+          "delivered_ms": 46.99354200000016,
+          "passed": true,
+          "observed_text": "",
+          "observed_clicks": 4
+        },
+        {
+          "case": "type_unicode",
+          "repetition": 1,
+          "dispatch_ms": 11.277082999999948,
+          "delivered_ms": 11.32825000000048,
+          "passed": true,
+          "observed_text": "Rust 🌍 中文 café",
+          "observed_clicks": 4
+        },
+        {
+          "case": "type_multiline",
+          "repetition": 1,
+          "dispatch_ms": 33.80195800000001,
+          "delivered_ms": 33.87483299999985,
+          "passed": true,
+          "observed_text": "First line\nSecond line",
+          "observed_clicks": 4
+        },
+        {
+          "case": "shortcut_replace",
+          "repetition": 1,
+          "dispatch_ms": 32.80425000000014,
+          "delivered_ms": 32.86541599999964,
+          "passed": true,
+          "observed_text": "Replacement complete",
+          "observed_clicks": 4
+        },
+        {
+          "case": "edit_then_click",
+          "repetition": 1,
+          "dispatch_ms": 86.08479199999965,
+          "delivered_ms": 86.19033399999898,
+          "passed": true,
+          "observed_text": "Ready 🌍",
+          "observed_clicks": 5
+        },
+        {
+          "case": "click_button",
+          "repetition": 1,
+          "dispatch_ms": 46.10637499999939,
+          "delivered_ms": 46.191749999999956,
+          "passed": true,
+          "observed_text": "",
+          "observed_clicks": 6
+        },
+        {
+          "case": "type_ascii_31",
+          "repetition": 1,
+          "dispatch_ms": 24.75695799999994,
+          "delivered_ms": 24.81762499999968,
+          "passed": true,
+          "observed_text": "Agentum benchmark: hello world.",
+          "observed_clicks": 6
+        },
+        {
+          "case": "type_multiline",
+          "repetition": 2,
+          "dispatch_ms": 32.74320799999987,
+          "delivered_ms": 32.815042000000176,
+          "passed": true,
+          "observed_text": "First line\nSecond line",
+          "observed_clicks": 6
+        },
+        {
+          "case": "shortcut_replace",
+          "repetition": 2,
+          "dispatch_ms": 32.805709000000206,
+          "delivered_ms": 32.86250000000109,
+          "passed": true,
+          "observed_text": "Replacement complete",
+          "observed_clicks": 6
+        },
+        {
+          "case": "edit_then_click",
+          "repetition": 2,
+          "dispatch_ms": 83.45729199999914,
+          "delivered_ms": 83.53125,
+          "passed": true,
+          "observed_text": "Ready 🌍",
+          "observed_clicks": 7
+        },
+        {
+          "case": "click_button",
+          "repetition": 2,
+          "dispatch_ms": 45.31866599999921,
+          "delivered_ms": 45.38812499999949,
+          "passed": true,
+          "observed_text": "",
+          "observed_clicks": 8
+        },
+        {
+          "case": "type_ascii_31",
+          "repetition": 2,
+          "dispatch_ms": 21.306124999999156,
+          "delivered_ms": 21.380040999998528,
+          "passed": true,
+          "observed_text": "Agentum benchmark: hello world.",
+          "observed_clicks": 8
+        },
+        {
+          "case": "type_unicode",
+          "repetition": 2,
+          "dispatch_ms": 12.19670799999949,
+          "delivered_ms": 12.266625000000204,
+          "passed": true,
+          "observed_text": "Rust 🌍 中文 café",
+          "observed_clicks": 8
+        },
+        {
+          "case": "shortcut_replace",
+          "repetition": 3,
+          "dispatch_ms": 34.11079200000131,
+          "delivered_ms": 34.16308300000128,
+          "passed": true,
+          "observed_text": "Replacement complete",
+          "observed_clicks": 8
+        },
+        {
+          "case": "edit_then_click",
+          "repetition": 3,
+          "dispatch_ms": 78.6200000000008,
+          "delivered_ms": 78.6976250000007,
+          "passed": true,
+          "observed_text": "Ready 🌍",
+          "observed_clicks": 9
+        },
+        {
+          "case": "click_button",
+          "repetition": 3,
+          "dispatch_ms": 42.12404200000128,
+          "delivered_ms": 42.18633399999999,
+          "passed": true,
+          "observed_text": "",
+          "observed_clicks": 10
+        },
+        {
+          "case": "type_ascii_31",
+          "repetition": 3,
+          "dispatch_ms": 21.29045799999949,
+          "delivered_ms": 21.342333000000508,
+          "passed": true,
+          "observed_text": "Agentum benchmark: hello world.",
+          "observed_clicks": 10
+        },
+        {
+          "case": "type_unicode",
+          "repetition": 3,
+          "dispatch_ms": 12.816459000001487,
+          "delivered_ms": 12.896709000000556,
+          "passed": true,
+          "observed_text": "Rust 🌍 中文 café",
+          "observed_clicks": 10
+        },
+        {
+          "case": "type_multiline",
+          "repetition": 3,
+          "dispatch_ms": 37.264084000000366,
+          "delivered_ms": 37.33112500000061,
+          "passed": true,
+          "observed_text": "First line\nSecond line",
+          "observed_clicks": 10
+        },
+        {
+          "case": "edit_then_click",
+          "repetition": 4,
+          "dispatch_ms": 82.87625000000116,
+          "delivered_ms": 82.96212500000001,
+          "passed": true,
+          "observed_text": "Ready 🌍",
+          "observed_clicks": 11
+        },
+        {
+          "case": "click_button",
+          "repetition": 4,
+          "dispatch_ms": 46.077125000001615,
+          "delivered_ms": 46.16279200000099,
+          "passed": true,
+          "observed_text": "",
+          "observed_clicks": 12
+        },
+        {
+          "case": "type_ascii_31",
+          "repetition": 4,
+          "dispatch_ms": 24.732458000002225,
+          "delivered_ms": 24.789749999999913,
+          "passed": true,
+          "observed_text": "Agentum benchmark: hello world.",
+          "observed_clicks": 12
+        },
+        {
+          "case": "type_unicode",
+          "repetition": 4,
+          "dispatch_ms": 12.721000000001368,
+          "delivered_ms": 12.771082999999635,
+          "passed": true,
+          "observed_text": "Rust 🌍 中文 café",
+          "observed_clicks": 12
+        },
+        {
+          "case": "type_multiline",
+          "repetition": 4,
+          "dispatch_ms": 37.38104200000089,
+          "delivered_ms": 37.45029199999772,
+          "passed": true,
+          "observed_text": "First line\nSecond line",
+          "observed_clicks": 12
+        },
+        {
+          "case": "shortcut_replace",
+          "repetition": 4,
+          "dispatch_ms": 36.01570800000263,
+          "delivered_ms": 36.08104200000162,
+          "passed": true,
+          "observed_text": "Replacement complete",
+          "observed_clicks": 12
+        }
+      ]
+    },
+    {
+      "round": 2,
+      "backend": "rusty-robot",
+      "platform": "darwin",
+      "node": "v24.22.0",
+      "robotjs": "0.12.3",
+      "size": {
+        "width": 1920,
+        "height": 1080
+      },
+      "repetitions": 5,
+      "warmups": 1,
+      "observation_poll_ms": 2,
+      "transport": "Authenticated loopback VNC socket, same-process client/server; native AppKit target; capture stream stubbed",
+      "results": [
+        {
+          "case": "type_ascii_31",
+          "repetition": 0,
+          "dispatch_ms": 22.84704200000033,
+          "delivered_ms": 22.90991699999995,
+          "passed": true,
+          "observed_text": "Agentum benchmark: hello world.",
+          "observed_clicks": 2
+        },
+        {
+          "case": "type_unicode",
+          "repetition": 0,
+          "dispatch_ms": 12.712625000000116,
+          "delivered_ms": 12.774249999999483,
+          "passed": true,
+          "observed_text": "Rust 🌍 中文 café",
+          "observed_clicks": 2
+        },
+        {
+          "case": "type_multiline",
+          "repetition": 0,
+          "dispatch_ms": 35.421291999999994,
+          "delivered_ms": 35.48304199999984,
+          "passed": true,
+          "observed_text": "First line\nSecond line",
+          "observed_clicks": 2
+        },
+        {
+          "case": "shortcut_replace",
+          "repetition": 0,
+          "dispatch_ms": 34.13354100000015,
+          "delivered_ms": 34.198083000000224,
+          "passed": true,
+          "observed_text": "Replacement complete",
+          "observed_clicks": 2
+        },
+        {
+          "case": "edit_then_click",
+          "repetition": 0,
+          "dispatch_ms": 82.14337500000056,
+          "delivered_ms": 82.21658300000036,
+          "passed": true,
+          "observed_text": "Ready 🌍",
+          "observed_clicks": 3
+        },
+        {
+          "case": "click_button",
+          "repetition": 0,
+          "dispatch_ms": 46.10908300000028,
+          "delivered_ms": 46.169292000000496,
+          "passed": true,
+          "observed_text": "",
+          "observed_clicks": 4
+        },
+        {
+          "case": "type_unicode",
+          "repetition": 1,
+          "dispatch_ms": 12.725875000000087,
+          "delivered_ms": 12.781167000000096,
+          "passed": true,
+          "observed_text": "Rust 🌍 中文 café",
+          "observed_clicks": 4
+        },
+        {
+          "case": "type_multiline",
+          "repetition": 1,
+          "dispatch_ms": 32.75170799999978,
+          "delivered_ms": 33.941249999999854,
+          "passed": true,
+          "observed_text": "First line\nSecond line",
+          "observed_clicks": 4
+        },
+        {
+          "case": "shortcut_replace",
+          "repetition": 1,
+          "dispatch_ms": 32.78849999999966,
+          "delivered_ms": 32.84358299999985,
+          "passed": true,
+          "observed_text": "Replacement complete",
+          "observed_clicks": 4
+        },
+        {
+          "case": "edit_then_click",
+          "repetition": 1,
+          "dispatch_ms": 79.9974170000005,
+          "delivered_ms": 80.07079200000044,
+          "passed": true,
+          "observed_text": "Ready 🌍",
+          "observed_clicks": 5
+        },
+        {
+          "case": "click_button",
+          "repetition": 1,
+          "dispatch_ms": 46.113124999999854,
+          "delivered_ms": 46.17487500000061,
+          "passed": true,
+          "observed_text": "",
+          "observed_clicks": 6
+        },
+        {
+          "case": "type_ascii_31",
+          "repetition": 1,
+          "dispatch_ms": 22.07325000000128,
+          "delivered_ms": 22.123750000000655,
+          "passed": true,
+          "observed_text": "Agentum benchmark: hello world.",
+          "observed_clicks": 6
+        },
+        {
+          "case": "type_multiline",
+          "repetition": 2,
+          "dispatch_ms": 35.43241699999999,
+          "delivered_ms": 35.497041999999055,
+          "passed": true,
+          "observed_text": "First line\nSecond line",
+          "observed_clicks": 6
+        },
+        {
+          "case": "shortcut_replace",
+          "repetition": 2,
+          "dispatch_ms": 37.30158400000073,
+          "delivered_ms": 37.35950000000048,
+          "passed": true,
+          "observed_text": "Replacement complete",
+          "observed_clicks": 6
+        },
+        {
+          "case": "edit_then_click",
+          "repetition": 2,
+          "dispatch_ms": 75.49829200000022,
+          "delivered_ms": 75.57337499999994,
+          "passed": true,
+          "observed_text": "Ready 🌍",
+          "observed_clicks": 7
+        },
+        {
+          "case": "click_button",
+          "repetition": 2,
+          "dispatch_ms": 45.31029200000012,
+          "delivered_ms": 45.374541999999565,
+          "passed": true,
+          "observed_text": "",
+          "observed_clicks": 8
+        },
+        {
+          "case": "type_ascii_31",
+          "repetition": 2,
+          "dispatch_ms": 23.897791999999754,
+          "delivered_ms": 23.965416999999434,
+          "passed": true,
+          "observed_text": "Agentum benchmark: hello world.",
+          "observed_clicks": 8
+        },
+        {
+          "case": "type_unicode",
+          "repetition": 2,
+          "dispatch_ms": 11.403041999999914,
+          "delivered_ms": 11.459833999999319,
+          "passed": true,
+          "observed_text": "Rust 🌍 中文 café",
+          "observed_clicks": 8
+        },
+        {
+          "case": "shortcut_replace",
+          "repetition": 3,
+          "dispatch_ms": 35.515290999999706,
+          "delivered_ms": 35.57274999999936,
+          "passed": true,
+          "observed_text": "Replacement complete",
+          "observed_clicks": 8
+        },
+        {
+          "case": "edit_then_click",
+          "repetition": 3,
+          "dispatch_ms": 78.22662500000115,
+          "delivered_ms": 78.29925000000003,
+          "passed": true,
+          "observed_text": "Ready 🌍",
+          "observed_clicks": 9
+        },
+        {
+          "case": "click_button",
+          "repetition": 3,
+          "dispatch_ms": 48.71454200000153,
+          "delivered_ms": 48.79408400000102,
+          "passed": true,
+          "observed_text": "",
+          "observed_clicks": 10
+        },
+        {
+          "case": "type_ascii_31",
+          "repetition": 3,
+          "dispatch_ms": 21.277625000000626,
+          "delivered_ms": 21.32691700000032,
+          "passed": true,
+          "observed_text": "Agentum benchmark: hello world.",
+          "observed_clicks": 10
+        },
+        {
+          "case": "type_unicode",
+          "repetition": 3,
+          "dispatch_ms": 12.73845799999981,
+          "delivered_ms": 12.791666999999507,
+          "passed": true,
+          "observed_text": "Rust 🌍 中文 café",
+          "observed_clicks": 10
+        },
+        {
+          "case": "type_multiline",
+          "repetition": 3,
+          "dispatch_ms": 34.69524999999885,
+          "delivered_ms": 34.767541999999594,
+          "passed": true,
+          "observed_text": "First line\nSecond line",
+          "observed_clicks": 10
+        },
+        {
+          "case": "edit_then_click",
+          "repetition": 4,
+          "dispatch_ms": 78.30212500000016,
+          "delivered_ms": 78.37908299999981,
+          "passed": true,
+          "observed_text": "Ready 🌍",
+          "observed_clicks": 11
+        },
+        {
+          "case": "click_button",
+          "repetition": 4,
+          "dispatch_ms": 46.09216699999888,
+          "delivered_ms": 46.17454199999884,
+          "passed": true,
+          "observed_text": "",
+          "observed_clicks": 12
+        },
+        {
+          "case": "type_ascii_31",
+          "repetition": 4,
+          "dispatch_ms": 23.769250000001193,
+          "delivered_ms": 23.819917000000714,
+          "passed": true,
+          "observed_text": "Agentum benchmark: hello world.",
+          "observed_clicks": 12
+        },
+        {
+          "case": "type_unicode",
+          "repetition": 4,
+          "dispatch_ms": 11.410749999999098,
+          "delivered_ms": 11.482540999997582,
+          "passed": true,
+          "observed_text": "Rust 🌍 中文 café",
+          "observed_clicks": 12
+        },
+        {
+          "case": "type_multiline",
+          "repetition": 4,
+          "dispatch_ms": 34.60820800000147,
+          "delivered_ms": 34.675208000000566,
+          "passed": true,
+          "observed_text": "First line\nSecond line",
+          "observed_clicks": 12
+        },
+        {
+          "case": "shortcut_replace",
+          "repetition": 4,
+          "dispatch_ms": 32.801000000003114,
+          "delivered_ms": 32.855209000001196,
+          "passed": true,
+          "observed_text": "Replacement complete",
+          "observed_clicks": 12
+        }
+      ]
+    },
+    {
+      "round": 2,
+      "backend": "robotjs",
+      "platform": "darwin",
+      "node": "v24.22.0",
+      "robotjs": "0.12.3",
+      "size": {
+        "width": 1920,
+        "height": 1080
+      },
+      "repetitions": 5,
+      "warmups": 1,
+      "observation_poll_ms": 2,
+      "transport": "Authenticated loopback VNC socket, same-process client/server; native AppKit target; capture stream stubbed",
+      "results": [
+        {
+          "case": "type_ascii_31",
+          "repetition": 0,
+          "dispatch_ms": 0.32687500000065484,
+          "delivered_ms": 25.17950000000019,
+          "passed": true,
+          "observed_text": "Agentum benchmark: hello world.",
+          "observed_clicks": 2
+        },
+        {
+          "case": "type_unicode",
+          "repetition": 0,
+          "dispatch_ms": 0.24629099999947357,
+          "delivered_ms": null,
+          "passed": false,
+          "observed_text": "Rust  中文 café",
+          "observed_clicks": 2
+        },
+        {
+          "case": "type_multiline",
+          "repetition": 0,
+          "dispatch_ms": 0.28058299999975134,
+          "delivered_ms": 21.116290999998455,
+          "passed": true,
+          "observed_text": "First line\nSecond line",
+          "observed_clicks": 2
+        },
+        {
+          "case": "shortcut_replace",
+          "repetition": 0,
+          "dispatch_ms": 34.930207999999766,
+          "delivered_ms": 57.12791599999946,
+          "passed": true,
+          "observed_text": "Replacement complete",
+          "observed_clicks": 2
+        },
+        {
+          "case": "edit_then_click",
+          "repetition": 0,
+          "dispatch_ms": 79.74275000000125,
+          "delivered_ms": null,
+          "passed": false,
+          "observed_text": "Ready ",
+          "observed_clicks": 3
+        },
+        {
+          "case": "click_button",
+          "repetition": 0,
+          "dispatch_ms": 43.50483399999939,
+          "delivered_ms": 43.561374999999316,
+          "passed": true,
+          "observed_text": "",
+          "observed_clicks": 4
+        },
+        {
+          "case": "type_unicode",
+          "repetition": 1,
+          "dispatch_ms": 0.23345899999912945,
+          "delivered_ms": null,
+          "passed": false,
+          "observed_text": "Rust  中文 café",
+          "observed_clicks": 4
+        },
+        {
+          "case": "type_multiline",
+          "repetition": 1,
+          "dispatch_ms": 0.3232919999973092,
+          "delivered_ms": 20.856458999998722,
+          "passed": true,
+          "observed_text": "First line\nSecond line",
+          "observed_clicks": 4
+        },
+        {
+          "case": "shortcut_replace",
+          "repetition": 1,
+          "dispatch_ms": 35.739041999997426,
+          "delivered_ms": 57.71937500000058,
+          "passed": true,
+          "observed_text": "Replacement complete",
+          "observed_clicks": 4
+        },
+        {
+          "case": "edit_then_click",
+          "repetition": 1,
+          "dispatch_ms": 81.99433299999873,
+          "delivered_ms": null,
+          "passed": false,
+          "observed_text": "Ready ",
+          "observed_clicks": 5
+        },
+        {
+          "case": "click_button",
+          "repetition": 1,
+          "dispatch_ms": 48.81770899999901,
+          "delivered_ms": 48.87987499999872,
+          "passed": true,
+          "observed_text": "",
+          "observed_clicks": 6
+        },
+        {
+          "case": "type_ascii_31",
+          "repetition": 1,
+          "dispatch_ms": 0.3266250000015134,
+          "delivered_ms": 27.489207999999053,
+          "passed": true,
+          "observed_text": "Agentum benchmark: hello world.",
+          "observed_clicks": 6
+        },
+        {
+          "case": "type_multiline",
+          "repetition": 2,
+          "dispatch_ms": 0.2992500000000291,
+          "delivered_ms": 23.40583300000071,
+          "passed": true,
+          "observed_text": "First line\nSecond line",
+          "observed_clicks": 6
+        },
+        {
+          "case": "shortcut_replace",
+          "repetition": 2,
+          "dispatch_ms": 37.08216600000014,
+          "delivered_ms": 57.7912499999984,
+          "passed": true,
+          "observed_text": "Replacement complete",
+          "observed_clicks": 6
+        },
+        {
+          "case": "edit_then_click",
+          "repetition": 2,
+          "dispatch_ms": 79.84279099999912,
+          "delivered_ms": null,
+          "passed": false,
+          "observed_text": "Ready ",
+          "observed_clicks": 7
+        },
+        {
+          "case": "click_button",
+          "repetition": 2,
+          "dispatch_ms": 44.19041700000162,
+          "delivered_ms": 44.2556250000016,
+          "passed": true,
+          "observed_text": "",
+          "observed_clicks": 8
+        },
+        {
+          "case": "type_ascii_31",
+          "repetition": 2,
+          "dispatch_ms": 0.33879199999864795,
+          "delivered_ms": 24.042750000000524,
+          "passed": true,
+          "observed_text": "Agentum benchmark: hello world.",
+          "observed_clicks": 8
+        },
+        {
+          "case": "type_unicode",
+          "repetition": 2,
+          "dispatch_ms": 0.22866699999940465,
+          "delivered_ms": null,
+          "passed": false,
+          "observed_text": "Rust  中文 café",
+          "observed_clicks": 8
+        },
+        {
+          "case": "shortcut_replace",
+          "repetition": 3,
+          "dispatch_ms": 36.23358300000109,
+          "delivered_ms": 57.34479199999987,
+          "passed": true,
+          "observed_text": "Replacement complete",
+          "observed_clicks": 8
+        },
+        {
+          "case": "edit_then_click",
+          "repetition": 3,
+          "dispatch_ms": 78.16379199999938,
+          "delivered_ms": null,
+          "passed": false,
+          "observed_text": "Ready ",
+          "observed_clicks": 9
+        },
+        {
+          "case": "click_button",
+          "repetition": 3,
+          "dispatch_ms": 46.17370800000208,
+          "delivered_ms": 46.22562499999913,
+          "passed": true,
+          "observed_text": "",
+          "observed_clicks": 10
+        },
+        {
+          "case": "type_ascii_31",
+          "repetition": 3,
+          "dispatch_ms": 0.33416700000088895,
+          "delivered_ms": 29.478957999999693,
+          "passed": true,
+          "observed_text": "Agentum benchmark: hello world.",
+          "observed_clicks": 10
+        },
+        {
+          "case": "type_unicode",
+          "repetition": 3,
+          "dispatch_ms": 0.24787500000093132,
+          "delivered_ms": null,
+          "passed": false,
+          "observed_text": "Rust  中文 café",
+          "observed_clicks": 10
+        },
+        {
+          "case": "type_multiline",
+          "repetition": 3,
+          "dispatch_ms": 0.2732499999983702,
+          "delivered_ms": 19.171249999999418,
+          "passed": true,
+          "observed_text": "First line\nSecond line",
+          "observed_clicks": 10
+        },
+        {
+          "case": "edit_then_click",
+          "repetition": 4,
+          "dispatch_ms": 82.46587500000169,
+          "delivered_ms": null,
+          "passed": false,
+          "observed_text": "Ready ",
+          "observed_clicks": 11
+        },
+        {
+          "case": "click_button",
+          "repetition": 4,
+          "dispatch_ms": 48.80774999999994,
+          "delivered_ms": 48.864958999998635,
+          "passed": true,
+          "observed_text": "",
+          "observed_clicks": 12
+        },
+        {
+          "case": "type_ascii_31",
+          "repetition": 4,
+          "dispatch_ms": 0.337082999998529,
+          "delivered_ms": 27.48041699999885,
+          "passed": true,
+          "observed_text": "Agentum benchmark: hello world.",
+          "observed_clicks": 12
+        },
+        {
+          "case": "type_unicode",
+          "repetition": 4,
+          "dispatch_ms": 0.3230000000039581,
+          "delivered_ms": null,
+          "passed": false,
+          "observed_text": "Rust  中文 café",
+          "observed_clicks": 12
+        },
+        {
+          "case": "type_multiline",
+          "repetition": 4,
+          "dispatch_ms": 0.2836659999957192,
+          "delivered_ms": 19.60758299999725,
+          "passed": true,
+          "observed_text": "First line\nSecond line",
+          "observed_clicks": 12
+        },
+        {
+          "case": "shortcut_replace",
+          "repetition": 4,
+          "dispatch_ms": 33.50883299999987,
+          "delivered_ms": 50.66991699999926,
+          "passed": true,
+          "observed_text": "Replacement complete",
+          "observed_clicks": 12
+        }
+      ]
+    },
+    {
+      "round": 3,
+      "backend": "robotjs",
+      "platform": "darwin",
+      "node": "v24.22.0",
+      "robotjs": "0.12.3",
+      "size": {
+        "width": 1920,
+        "height": 1080
+      },
+      "repetitions": 5,
+      "warmups": 1,
+      "observation_poll_ms": 2,
+      "transport": "Authenticated loopback VNC socket, same-process client/server; native AppKit target; capture stream stubbed",
+      "results": [
+        {
+          "case": "type_ascii_31",
+          "repetition": 0,
+          "dispatch_ms": 0.3607499999998254,
+          "delivered_ms": 24.304040999999415,
+          "passed": true,
+          "observed_text": "Agentum benchmark: hello world.",
+          "observed_clicks": 2
+        },
+        {
+          "case": "type_unicode",
+          "repetition": 0,
+          "dispatch_ms": 0.270249999999578,
+          "delivered_ms": null,
+          "passed": false,
+          "observed_text": "Rust  中文 café",
+          "observed_clicks": 2
+        },
+        {
+          "case": "type_multiline",
+          "repetition": 0,
+          "dispatch_ms": 0.26404100000036124,
+          "delivered_ms": 22.463999999999942,
+          "passed": true,
+          "observed_text": "First line\nSecond line",
+          "observed_clicks": 2
+        },
+        {
+          "case": "shortcut_replace",
+          "repetition": 0,
+          "dispatch_ms": 34.28974999999991,
+          "delivered_ms": 50.45079199999964,
+          "passed": true,
+          "observed_text": "Replacement complete",
+          "observed_clicks": 2
+        },
+        {
+          "case": "edit_then_click",
+          "repetition": 0,
+          "dispatch_ms": 84.33316599999853,
+          "delivered_ms": null,
+          "passed": false,
+          "observed_text": "Ready ",
+          "observed_clicks": 3
+        },
+        {
+          "case": "click_button",
+          "repetition": 0,
+          "dispatch_ms": 46.134500000000116,
+          "delivered_ms": 46.19404200000099,
+          "passed": true,
+          "observed_text": "",
+          "observed_clicks": 4
+        },
+        {
+          "case": "type_unicode",
+          "repetition": 1,
+          "dispatch_ms": 0.2489580000001297,
+          "delivered_ms": null,
+          "passed": false,
+          "observed_text": "Rust  中文 café",
+          "observed_clicks": 4
+        },
+        {
+          "case": "type_multiline",
+          "repetition": 1,
+          "dispatch_ms": 0.28725000000122236,
+          "delivered_ms": 22.56379200000083,
+          "passed": true,
+          "observed_text": "First line\nSecond line",
+          "observed_clicks": 4
+        },
+        {
+          "case": "shortcut_replace",
+          "repetition": 1,
+          "dispatch_ms": 35.68608300000051,
+          "delivered_ms": 58.4465420000015,
+          "passed": true,
+          "observed_text": "Replacement complete",
+          "observed_clicks": 4
+        },
+        {
+          "case": "edit_then_click",
+          "repetition": 1,
+          "dispatch_ms": 84.48033299999952,
+          "delivered_ms": null,
+          "passed": false,
+          "observed_text": "Ready ",
+          "observed_clicks": 5
+        },
+        {
+          "case": "click_button",
+          "repetition": 1,
+          "dispatch_ms": 46.12866700000086,
+          "delivered_ms": 46.184832999999344,
+          "passed": true,
+          "observed_text": "",
+          "observed_clicks": 6
+        },
+        {
+          "case": "type_ascii_31",
+          "repetition": 1,
+          "dispatch_ms": 0.3283750000009604,
+          "delivered_ms": 22.1806660000002,
+          "passed": true,
+          "observed_text": "Agentum benchmark: hello world.",
+          "observed_clicks": 6
+        },
+        {
+          "case": "type_multiline",
+          "repetition": 2,
+          "dispatch_ms": 0.27862499999901047,
+          "delivered_ms": 20.138374999998632,
+          "passed": true,
+          "observed_text": "First line\nSecond line",
+          "observed_clicks": 6
+        },
+        {
+          "case": "shortcut_replace",
+          "repetition": 2,
+          "dispatch_ms": 36.838167000001704,
+          "delivered_ms": 57.469709000000876,
+          "passed": true,
+          "observed_text": "Replacement complete",
+          "observed_clicks": 6
+        },
+        {
+          "case": "edit_then_click",
+          "repetition": 2,
+          "dispatch_ms": 84.02279099999942,
+          "delivered_ms": null,
+          "passed": false,
+          "observed_text": "Ready ",
+          "observed_clicks": 7
+        },
+        {
+          "case": "click_button",
+          "repetition": 2,
+          "dispatch_ms": 50.648417000000336,
+          "delivered_ms": 50.71350000000166,
+          "passed": true,
+          "observed_text": "",
+          "observed_clicks": 8
+        },
+        {
+          "case": "type_ascii_31",
+          "repetition": 2,
+          "dispatch_ms": 0.30900000000110595,
+          "delivered_ms": 27.339083999999275,
+          "passed": true,
+          "observed_text": "Agentum benchmark: hello world.",
+          "observed_clicks": 8
+        },
+        {
+          "case": "type_unicode",
+          "repetition": 2,
+          "dispatch_ms": 0.2288750000006985,
+          "delivered_ms": null,
+          "passed": false,
+          "observed_text": "Rust  中文 café",
+          "observed_clicks": 8
+        },
+        {
+          "case": "shortcut_replace",
+          "repetition": 3,
+          "dispatch_ms": 33.748374999999214,
+          "delivered_ms": 50.18224999999802,
+          "passed": true,
+          "observed_text": "Replacement complete",
+          "observed_clicks": 8
+        },
+        {
+          "case": "edit_then_click",
+          "repetition": 3,
+          "dispatch_ms": 79.38566700000229,
+          "delivered_ms": null,
+          "passed": false,
+          "observed_text": "Ready ",
+          "observed_clicks": 9
+        },
+        {
+          "case": "click_button",
+          "repetition": 3,
+          "dispatch_ms": 51.538125000002765,
+          "delivered_ms": 51.60083300000042,
+          "passed": true,
+          "observed_text": "",
+          "observed_clicks": 10
+        },
+        {
+          "case": "type_ascii_31",
+          "repetition": 3,
+          "dispatch_ms": 0.3278749999954016,
+          "delivered_ms": 24.671541999996407,
+          "passed": true,
+          "observed_text": "Agentum benchmark: hello world.",
+          "observed_clicks": 10
+        },
+        {
+          "case": "type_unicode",
+          "repetition": 3,
+          "dispatch_ms": 0.22595800000271993,
+          "delivered_ms": null,
+          "passed": false,
+          "observed_text": "Rust  中文 café",
+          "observed_clicks": 10
+        },
+        {
+          "case": "type_multiline",
+          "repetition": 3,
+          "dispatch_ms": 0.28074999999807915,
+          "delivered_ms": 18.028542000000016,
+          "passed": true,
+          "observed_text": "First line\nSecond line",
+          "observed_clicks": 10
+        },
+        {
+          "case": "edit_then_click",
+          "repetition": 4,
+          "dispatch_ms": 81.61291599999822,
+          "delivered_ms": null,
+          "passed": false,
+          "observed_text": "Ready ",
+          "observed_clicks": 11
+        },
+        {
+          "case": "click_button",
+          "repetition": 4,
+          "dispatch_ms": 46.11941699999443,
+          "delivered_ms": 46.18145899999945,
+          "passed": true,
+          "observed_text": "",
+          "observed_clicks": 12
+        },
+        {
+          "case": "type_ascii_31",
+          "repetition": 4,
+          "dispatch_ms": 0.4187910000036936,
+          "delivered_ms": 28.074250000005122,
+          "passed": true,
+          "observed_text": "Agentum benchmark: hello world.",
+          "observed_clicks": 12
+        },
+        {
+          "case": "type_unicode",
+          "repetition": 4,
+          "dispatch_ms": 0.2394170000043232,
+          "delivered_ms": null,
+          "passed": false,
+          "observed_text": "Rust  中文 café",
+          "observed_clicks": 12
+        },
+        {
+          "case": "type_multiline",
+          "repetition": 4,
+          "dispatch_ms": 0.2747090000048047,
+          "delivered_ms": 21.93916700000409,
+          "passed": true,
+          "observed_text": "First line\nSecond line",
+          "observed_clicks": 12
+        },
+        {
+          "case": "shortcut_replace",
+          "repetition": 4,
+          "dispatch_ms": 32.82795800000167,
+          "delivered_ms": 50.664333000000624,
+          "passed": true,
+          "observed_text": "Replacement complete",
+          "observed_clicks": 12
+        }
+      ]
+    },
+    {
+      "round": 3,
+      "backend": "rusty-robot",
+      "platform": "darwin",
+      "node": "v24.22.0",
+      "robotjs": "0.12.3",
+      "size": {
+        "width": 1920,
+        "height": 1080
+      },
+      "repetitions": 5,
+      "warmups": 1,
+      "observation_poll_ms": 2,
+      "transport": "Authenticated loopback VNC socket, same-process client/server; native AppKit target; capture stream stubbed",
+      "results": [
+        {
+          "case": "type_ascii_31",
+          "repetition": 0,
+          "dispatch_ms": 22.829125000000204,
+          "delivered_ms": 22.89366599999994,
+          "passed": true,
+          "observed_text": "Agentum benchmark: hello world.",
+          "observed_clicks": 2
+        },
+        {
+          "case": "type_unicode",
+          "repetition": 0,
+          "dispatch_ms": 11.38037499999973,
+          "delivered_ms": 11.439832999999453,
+          "passed": true,
+          "observed_text": "Rust 🌍 中文 café",
+          "observed_clicks": 2
+        },
+        {
+          "case": "type_multiline",
+          "repetition": 0,
+          "dispatch_ms": 35.597749999999905,
+          "delivered_ms": 35.663166000000274,
+          "passed": true,
+          "observed_text": "First line\nSecond line",
+          "observed_clicks": 2
+        },
+        {
+          "case": "shortcut_replace",
+          "repetition": 0,
+          "dispatch_ms": 35.47233299999971,
+          "delivered_ms": 35.56445799999983,
+          "passed": true,
+          "observed_text": "Replacement complete",
+          "observed_clicks": 2
+        },
+        {
+          "case": "edit_then_click",
+          "repetition": 0,
+          "dispatch_ms": 86.09479199999987,
+          "delivered_ms": 86.18083399999978,
+          "passed": true,
+          "observed_text": "Ready 🌍",
+          "observed_clicks": 3
+        },
+        {
+          "case": "click_button",
+          "repetition": 0,
+          "dispatch_ms": 49.59504199999992,
+          "delivered_ms": 49.65795799999978,
+          "passed": true,
+          "observed_text": "",
+          "observed_clicks": 4
+        },
+        {
+          "case": "type_unicode",
+          "repetition": 1,
+          "dispatch_ms": 11.435083000000304,
+          "delivered_ms": 11.502166000000216,
+          "passed": true,
+          "observed_text": "Rust 🌍 中文 café",
+          "observed_clicks": 4
+        },
+        {
+          "case": "type_multiline",
+          "repetition": 1,
+          "dispatch_ms": 35.29512500000055,
+          "delivered_ms": 35.36383300000034,
+          "passed": true,
+          "observed_text": "First line\nSecond line",
+          "observed_clicks": 4
+        },
+        {
+          "case": "shortcut_replace",
+          "repetition": 1,
+          "dispatch_ms": 32.82795799999985,
+          "delivered_ms": 32.89124999999967,
+          "passed": true,
+          "observed_text": "Replacement complete",
+          "observed_clicks": 4
+        },
+        {
+          "case": "edit_then_click",
+          "repetition": 1,
+          "dispatch_ms": 80.00208300000122,
+          "delivered_ms": 80.07887500000106,
+          "passed": true,
+          "observed_text": "Ready 🌍",
+          "observed_clicks": 5
+        },
+        {
+          "case": "click_button",
+          "repetition": 1,
+          "dispatch_ms": 48.606040999999095,
+          "delivered_ms": 48.6830829999999,
+          "passed": true,
+          "observed_text": "",
+          "observed_clicks": 6
+        },
+        {
+          "case": "type_ascii_31",
+          "repetition": 1,
+          "dispatch_ms": 22.061499999999796,
+          "delivered_ms": 22.11750000000029,
+          "passed": true,
+          "observed_text": "Agentum benchmark: hello world.",
+          "observed_clicks": 6
+        },
+        {
+          "case": "type_multiline",
+          "repetition": 2,
+          "dispatch_ms": 35.368624999999156,
+          "delivered_ms": 35.42945800000052,
+          "passed": true,
+          "observed_text": "First line\nSecond line",
+          "observed_clicks": 6
+        },
+        {
+          "case": "shortcut_replace",
+          "repetition": 2,
+          "dispatch_ms": 32.742291999999,
+          "delivered_ms": 32.81566699999894,
+          "passed": true,
+          "observed_text": "Replacement complete",
+          "observed_clicks": 6
+        },
+        {
+          "case": "edit_then_click",
+          "repetition": 2,
+          "dispatch_ms": 79.98474999999962,
+          "delivered_ms": 80.06245899999885,
+          "passed": true,
+          "observed_text": "Ready 🌍",
+          "observed_clicks": 7
+        },
+        {
+          "case": "click_button",
+          "repetition": 2,
+          "dispatch_ms": 47.93675000000076,
+          "delivered_ms": 48.00395800000115,
+          "passed": true,
+          "observed_text": "",
+          "observed_clicks": 8
+        },
+        {
+          "case": "type_ascii_31",
+          "repetition": 2,
+          "dispatch_ms": 23.726125000001048,
+          "delivered_ms": 23.789416999999958,
+          "passed": true,
+          "observed_text": "Agentum benchmark: hello world.",
+          "observed_clicks": 8
+        },
+        {
+          "case": "type_unicode",
+          "repetition": 2,
+          "dispatch_ms": 11.420916999999463,
+          "delivered_ms": 11.47766700000102,
+          "passed": true,
+          "observed_text": "Rust 🌍 中文 café",
+          "observed_clicks": 8
+        },
+        {
+          "case": "shortcut_replace",
+          "repetition": 3,
+          "dispatch_ms": 31.946500000000015,
+          "delivered_ms": 32.00537500000064,
+          "passed": true,
+          "observed_text": "Replacement complete",
+          "observed_clicks": 8
+        },
+        {
+          "case": "edit_then_click",
+          "repetition": 3,
+          "dispatch_ms": 83.6395420000008,
+          "delivered_ms": 83.72004200000083,
+          "passed": true,
+          "observed_text": "Ready 🌍",
+          "observed_clicks": 9
+        },
+        {
+          "case": "click_button",
+          "repetition": 3,
+          "dispatch_ms": 47.936250000000655,
+          "delivered_ms": 48.01708300000064,
+          "passed": true,
+          "observed_text": "",
+          "observed_clicks": 10
+        },
+        {
+          "case": "type_ascii_31",
+          "repetition": 3,
+          "dispatch_ms": 24.759625000000597,
+          "delivered_ms": 24.827084000000468,
+          "passed": true,
+          "observed_text": "Agentum benchmark: hello world.",
+          "observed_clicks": 10
+        },
+        {
+          "case": "type_unicode",
+          "repetition": 3,
+          "dispatch_ms": 11.762749999999869,
+          "delivered_ms": 11.815333999998984,
+          "passed": true,
+          "observed_text": "Rust 🌍 中文 café",
+          "observed_clicks": 10
+        },
+        {
+          "case": "type_multiline",
+          "repetition": 3,
+          "dispatch_ms": 33.481165999999575,
+          "delivered_ms": 33.5523749999993,
+          "passed": true,
+          "observed_text": "First line\nSecond line",
+          "observed_clicks": 10
+        },
+        {
+          "case": "edit_then_click",
+          "repetition": 4,
+          "dispatch_ms": 84.16012500000033,
+          "delivered_ms": 84.23283300000003,
+          "passed": true,
+          "observed_text": "Ready 🌍",
+          "observed_clicks": 11
+        },
+        {
+          "case": "click_button",
+          "repetition": 4,
+          "dispatch_ms": 46.90216700000019,
+          "delivered_ms": 47.00041699999929,
+          "passed": true,
+          "observed_text": "",
+          "observed_clicks": 12
+        },
+        {
+          "case": "type_ascii_31",
+          "repetition": 4,
+          "dispatch_ms": 25.25916700000016,
+          "delivered_ms": 25.32312499999898,
+          "passed": true,
+          "observed_text": "Agentum benchmark: hello world.",
+          "observed_clicks": 12
+        },
+        {
+          "case": "type_unicode",
+          "repetition": 4,
+          "dispatch_ms": 12.725375000001804,
+          "delivered_ms": 12.788749999999709,
+          "passed": true,
+          "observed_text": "Rust 🌍 中文 café",
+          "observed_clicks": 12
+        },
+        {
+          "case": "type_multiline",
+          "repetition": 4,
+          "dispatch_ms": 36.74720800000068,
+          "delivered_ms": 36.811916999999085,
+          "passed": true,
+          "observed_text": "First line\nSecond line",
+          "observed_clicks": 12
+        },
+        {
+          "case": "shortcut_replace",
+          "repetition": 4,
+          "dispatch_ms": 36.8145829999994,
+          "delivered_ms": 36.87250000000131,
+          "passed": true,
+          "observed_text": "Replacement complete",
+          "observed_clicks": 12
+        }
+      ]
+    }
+  ]
+}

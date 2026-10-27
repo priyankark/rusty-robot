@@ -1,0 +1,1671 @@
+{
+  "measured_at": "2026-10-27T17:29:52.263Z",
+  "cpu": "Apple M6",
+  "platform": "darwin",
+  "release": "27.0.0",
+  "scope": "PNG decode/resize/JPEG encode only; no desktop capture or socket transport. robotjs label means the original Jimp image-processing dependency, not RobotJS itself.",
+  "runs": [
+    {
+      "round": 1,
+      "backend": "robotjs",
+      "node": "v24.22.0",
+      "jimp": "1.6.1",
+      "quality": 85,
+      "warmups": 1,
+      "repetitions": 15,
+      "cases": [
+        {
+          "name": "decode_encode",
+          "source_width": 1440,
+          "source_height": 810,
+          "samples": [
+            {
+              "ms": 106.67312499999997,
+              "cpu_ms": 132.542,
+              "bytes": 70788,
+              "stages": null
+            },
+            {
+              "ms": 98.22970899999996,
+              "cpu_ms": 111.094,
+              "bytes": 70788,
+              "stages": null
+            },
+            {
+              "ms": 97.80370900000003,
+              "cpu_ms": 108.987,
+              "bytes": 70788,
+              "stages": null
+            },
+            {
+              "ms": 97.60412500000001,
+              "cpu_ms": 105.126,
+              "bytes": 70788,
+              "stages": null
+            },
+            {
+              "ms": 95.87591700000007,
+              "cpu_ms": 99.356,
+              "bytes": 70788,
+              "stages": null
+            },
+            {
+              "ms": 95.67049999999995,
+              "cpu_ms": 95.493,
+              "bytes": 70788,
+              "stages": null
+            },
+            {
+              "ms": 95.34679199999994,
+              "cpu_ms": 95.303,
+              "bytes": 70788,
+              "stages": null
+            },
+            {
+              "ms": 105.15899999999999,
+              "cpu_ms": 129.683,
+              "bytes": 70788,
+              "stages": null
+            },
+            {
+              "ms": 93.95466699999997,
+              "cpu_ms": 96.151,
+              "bytes": 70788,
+              "stages": null
+            },
+            {
+              "ms": 100.74304200000006,
+              "cpu_ms": 100.652,
+              "bytes": 70788,
+              "stages": null
+            },
+            {
+              "ms": 108.05941699999994,
+              "cpu_ms": 111.798,
+              "bytes": 70788,
+              "stages": null
+            },
+            {
+              "ms": 101.78537499999993,
+              "cpu_ms": 107.463,
+              "bytes": 70788,
+              "stages": null
+            },
+            {
+              "ms": 94.67237499999987,
+              "cpu_ms": 95.38,
+              "bytes": 70788,
+              "stages": null
+            },
+            {
+              "ms": 95.74291700000003,
+              "cpu_ms": 97.143,
+              "bytes": 70788,
+              "stages": null
+            },
+            {
+              "ms": 98.15566599999988,
+              "cpu_ms": 110.169,
+              "bytes": 70788,
+              "stages": null
+            }
+          ],
+          "psnr_db": 48.83654134479319,
+          "correctness": {
+            "decoded": true,
+            "width": 1440,
+            "height": 810
+          }
+        },
+        {
+          "name": "decode_resize_encode",
+          "source_width": 1920,
+          "source_height": 1080,
+          "samples": [
+            {
+              "ms": 137.03725000000009,
+              "cpu_ms": 166.175,
+              "bytes": 115803,
+              "stages": null
+            },
+            {
+              "ms": 129.12433299999998,
+              "cpu_ms": 132.736,
+              "bytes": 115803,
+              "stages": null
+            },
+            {
+              "ms": 127.05820799999992,
+              "cpu_ms": 131.192,
+              "bytes": 115803,
+              "stages": null
+            },
+            {
+              "ms": 135.18495900000016,
+              "cpu_ms": 161.065,
+              "bytes": 115803,
+              "stages": null
+            },
+            {
+              "ms": 130.35874999999987,
+              "cpu_ms": 133.849,
+              "bytes": 115803,
+              "stages": null
+            },
+            {
+              "ms": 128.38316600000007,
+              "cpu_ms": 133.991,
+              "bytes": 115803,
+              "stages": null
+            },
+            {
+              "ms": 136.09904199999983,
+              "cpu_ms": 160.13,
+              "bytes": 115803,
+              "stages": null
+            },
+            {
+              "ms": 129.43229199999996,
+              "cpu_ms": 133.112,
+              "bytes": 115803,
+              "stages": null
+            },
+            {
+              "ms": 128.08558300000004,
+              "cpu_ms": 132.468,
+              "bytes": 115803,
+              "stages": null
+            },
+            {
+              "ms": 135.86841700000014,
+              "cpu_ms": 161.527,
+              "bytes": 115803,
+              "stages": null
+            },
+            {
+              "ms": 128.76850000000013,
+              "cpu_ms": 132.588,
+              "bytes": 115803,
+              "stages": null
+            },
+            {
+              "ms": 127.81858300000022,
+              "cpu_ms": 132.025,
+              "bytes": 115803,
+              "stages": null
+            },
+            {
+              "ms": 135.9139170000003,
+              "cpu_ms": 161.02,
+              "bytes": 115803,
+              "stages": null
+            },
+            {
+              "ms": 129.0072500000001,
+              "cpu_ms": 132.382,
+              "bytes": 115803,
+              "stages": null
+            },
+            {
+              "ms": 127.27362499999981,
+              "cpu_ms": 131.486,
+              "bytes": 115803,
+              "stages": null
+            }
+          ],
+          "psnr_db": 45.914903884413256,
+          "correctness": {
+            "decoded": true,
+            "width": 1440,
+            "height": 810
+          }
+        }
+      ]
+    },
+    {
+      "round": 1,
+      "backend": "rusty-robot",
+      "node": "v24.22.0",
+      "jimp": "1.6.1",
+      "quality": 85,
+      "warmups": 1,
+      "repetitions": 15,
+      "cases": [
+        {
+          "name": "decode_encode",
+          "source_width": 1440,
+          "source_height": 810,
+          "samples": [
+            {
+              "ms": 6.6143749999999955,
+              "cpu_ms": 6.615,
+              "bytes": 63676,
+              "stages": {
+                "resize_ms": 0.000041,
+                "hash_ms": 1.3383749999999999,
+                "encode_ms": 4.426833
+              }
+            },
+            {
+              "ms": 6.878499999999988,
+              "cpu_ms": 6.825,
+              "bytes": 63676,
+              "stages": {
+                "resize_ms": 0,
+                "hash_ms": 1.396666,
+                "encode_ms": 4.531417
+              }
+            },
+            {
+              "ms": 6.588499999999996,
+              "cpu_ms": 6.572,
+              "bytes": 63676,
+              "stages": {
+                "resize_ms": 0.000041,
+                "hash_ms": 1.352708,
+                "encode_ms": 4.443834
+              }
+            },
+            {
+              "ms": 6.608333999999999,
+              "cpu_ms": 6.598,
+              "bytes": 63676,
+              "stages": {
+                "resize_ms": 0,
+                "hash_ms": 1.336833,
+                "encode_ms": 4.455749999999999
+              }
+            },
+            {
+              "ms": 6.562624999999997,
+              "cpu_ms": 6.547,
+              "bytes": 63676,
+              "stages": {
+                "resize_ms": 0,
+                "hash_ms": 1.3367909999999998,
+                "encode_ms": 4.449542
+              }
+            },
+            {
+              "ms": 6.543166999999997,
+              "cpu_ms": 6.53,
+              "bytes": 63676,
+              "stages": {
+                "resize_ms": 0,
+                "hash_ms": 1.320125,
+                "encode_ms": 4.460625
+              }
+            },
+            {
+              "ms": 6.543959000000001,
+              "cpu_ms": 6.535,
+              "bytes": 63676,
+              "stages": {
+                "resize_ms": 0,
+                "hash_ms": 1.336125,
+                "encode_ms": 4.433834
+              }
+            },
+            {
+              "ms": 6.556541999999993,
+              "cpu_ms": 6.553,
+              "bytes": 63676,
+              "stages": {
+                "resize_ms": 0.000041,
+                "hash_ms": 1.339,
+                "encode_ms": 4.426625
+              }
+            },
+            {
+              "ms": 6.509624999999986,
+              "cpu_ms": 6.513,
+              "bytes": 63676,
+              "stages": {
+                "resize_ms": 0.000042,
+                "hash_ms": 1.32175,
+                "encode_ms": 4.413333000000001
+              }
+            },
+            {
+              "ms": 6.510666999999984,
+              "cpu_ms": 6.513,
+              "bytes": 63676,
+              "stages": {
+                "resize_ms": 0,
+                "hash_ms": 1.325791,
+                "encode_ms": 4.413333000000001
+              }
+            },
+            {
+              "ms": 6.528249999999986,
+              "cpu_ms": 6.53,
+              "bytes": 63676,
+              "stages": {
+                "resize_ms": 0,
+                "hash_ms": 1.3202909999999999,
+                "encode_ms": 4.437875
+              }
+            },
+            {
+              "ms": 6.521375000000006,
+              "cpu_ms": 6.521,
+              "bytes": 63676,
+              "stages": {
+                "resize_ms": 0.000042,
+                "hash_ms": 1.3375,
+                "encode_ms": 4.404624999999999
+              }
+            },
+            {
+              "ms": 6.513041000000015,
+              "cpu_ms": 6.516,
+              "bytes": 63676,
+              "stages": {
+                "resize_ms": 0,
+                "hash_ms": 1.3217089999999998,
+                "encode_ms": 4.4184589999999995
+              }
+            },
+            {
+              "ms": 6.497707999999989,
+              "cpu_ms": 6.505,
+              "bytes": 63676,
+              "stages": {
+                "resize_ms": 0,
+                "hash_ms": 1.320583,
+                "encode_ms": 4.409459
+              }
+            },
+            {
+              "ms": 6.511500000000012,
+              "cpu_ms": 6.524,
+              "bytes": 63676,
+              "stages": {
+                "resize_ms": 0,
+                "hash_ms": 1.3206660000000001,
+                "encode_ms": 4.407875000000001
+              }
+            }
+          ],
+          "psnr_db": 48.8503834408438,
+          "correctness": {
+            "decoded": true,
+            "width": 1440,
+            "height": 810
+          }
+        },
+        {
+          "name": "decode_resize_encode",
+          "source_width": 1920,
+          "source_height": 1080,
+          "samples": [
+            {
+              "ms": 9.030916999999988,
+              "cpu_ms": 13.432,
+              "bytes": 126446,
+              "stages": {
+                "resize_ms": 1.691333,
+                "hash_ms": 1.421875,
+                "encode_ms": 4.750667
+              }
+            },
+            {
+              "ms": 8.882416000000035,
+              "cpu_ms": 12.998,
+              "bytes": 126446,
+              "stages": {
+                "resize_ms": 1.689125,
+                "hash_ms": 1.358583,
+                "encode_ms": 4.687958
+              }
+            },
+            {
+              "ms": 8.627665999999977,
+              "cpu_ms": 12.551,
+              "bytes": 126446,
+              "stages": {
+                "resize_ms": 1.522875,
+                "hash_ms": 1.33,
+                "encode_ms": 4.662541
+              }
+            },
+            {
+              "ms": 9.278541999999959,
+              "cpu_ms": 13.139,
+              "bytes": 126446,
+              "stages": {
+                "resize_ms": 2.121041,
+                "hash_ms": 1.3395,
+                "encode_ms": 4.696917
+              }
+            },
+            {
+              "ms": 8.902874999999995,
+              "cpu_ms": 12.937,
+              "bytes": 126446,
+              "stages": {
+                "resize_ms": 1.662333,
+                "hash_ms": 1.330292,
+                "encode_ms": 4.671333
+              }
+            },
+            {
+              "ms": 8.564792000000011,
+              "cpu_ms": 12.506,
+              "bytes": 126446,
+              "stages": {
+                "resize_ms": 1.471,
+                "hash_ms": 1.3235000000000001,
+                "encode_ms": 4.665083
+              }
+            },
+            {
+              "ms": 9.385041999999999,
+              "cpu_ms": 12.843,
+              "bytes": 126446,
+              "stages": {
+                "resize_ms": 2.264209,
+                "hash_ms": 1.3342079999999998,
+                "encode_ms": 4.654292
+              }
+            },
+            {
+              "ms": 8.757791999999995,
+              "cpu_ms": 12.53,
+              "bytes": 126446,
+              "stages": {
+                "resize_ms": 1.484459,
+                "hash_ms": 1.3439159999999999,
+                "encode_ms": 4.8125
+              }
+            },
+            {
+              "ms": 8.752415999999982,
+              "cpu_ms": 12.627,
+              "bytes": 126446,
+              "stages": {
+                "resize_ms": 1.5965420000000001,
+                "hash_ms": 1.3407499999999999,
+                "encode_ms": 4.6631659999999995
+              }
+            },
+            {
+              "ms": 8.667665999999997,
+              "cpu_ms": 12.764,
+              "bytes": 126446,
+              "stages": {
+                "resize_ms": 1.612125,
+                "hash_ms": 1.32325,
+                "encode_ms": 4.630584
+              }
+            },
+            {
+              "ms": 8.665499999999952,
+              "cpu_ms": 12.669,
+              "bytes": 126446,
+              "stages": {
+                "resize_ms": 1.608625,
+                "hash_ms": 1.326208,
+                "encode_ms": 4.630999999999999
+              }
+            },
+            {
+              "ms": 9.636707999999999,
+              "cpu_ms": 13.476,
+              "bytes": 126446,
+              "stages": {
+                "resize_ms": 1.952459,
+                "hash_ms": 1.443792,
+                "encode_ms": 5.131125
+              }
+            },
+            {
+              "ms": 9.534541999999988,
+              "cpu_ms": 13.235,
+              "bytes": 126446,
+              "stages": {
+                "resize_ms": 2.238375,
+                "hash_ms": 1.345209,
+                "encode_ms": 4.653416
+              }
+            },
+            {
+              "ms": 8.795333000000028,
+              "cpu_ms": 12.688,
+              "bytes": 126446,
+              "stages": {
+                "resize_ms": 1.6496250000000001,
+                "hash_ms": 1.346792,
+                "encode_ms": 4.689083
+              }
+            },
+            {
+              "ms": 9.644292000000007,
+              "cpu_ms": 12.909,
+              "bytes": 126446,
+              "stages": {
+                "resize_ms": 2.232167,
+                "hash_ms": 1.4174579999999999,
+                "encode_ms": 4.859999999999999
+              }
+            }
+          ],
+          "psnr_db": 38.638971832680284,
+          "correctness": {
+            "decoded": true,
+            "width": 1440,
+            "height": 810
+          }
+        }
+      ]
+    },
+    {
+      "round": 2,
+      "backend": "rusty-robot",
+      "node": "v24.22.0",
+      "jimp": "1.6.1",
+      "quality": 85,
+      "warmups": 1,
+      "repetitions": 15,
+      "cases": [
+        {
+          "name": "decode_encode",
+          "source_width": 1440,
+          "source_height": 810,
+          "samples": [
+            {
+              "ms": 6.512333000000012,
+              "cpu_ms": 6.516,
+              "bytes": 63676,
+              "stages": {
+                "resize_ms": 0.000042,
+                "hash_ms": 1.323458,
+                "encode_ms": 4.409790999999999
+              }
+            },
+            {
+              "ms": 6.509750000000011,
+              "cpu_ms": 6.514,
+              "bytes": 63676,
+              "stages": {
+                "resize_ms": 0.000042,
+                "hash_ms": 1.329833,
+                "encode_ms": 4.411083
+              }
+            },
+            {
+              "ms": 6.501625000000004,
+              "cpu_ms": 6.505,
+              "bytes": 63676,
+              "stages": {
+                "resize_ms": 0,
+                "hash_ms": 1.321875,
+                "encode_ms": 4.414375
+              }
+            },
+            {
+              "ms": 6.653874999999999,
+              "cpu_ms": 6.647,
+              "bytes": 63676,
+              "stages": {
+                "resize_ms": 0.000041,
+                "hash_ms": 1.338208,
+                "encode_ms": 4.483875
+              }
+            },
+            {
+              "ms": 6.556291999999999,
+              "cpu_ms": 6.545,
+              "bytes": 63676,
+              "stages": {
+                "resize_ms": 0.000041,
+                "hash_ms": 1.352709,
+                "encode_ms": 4.425959
+              }
+            },
+            {
+              "ms": 7.041125000000008,
+              "cpu_ms": 6.891,
+              "bytes": 63676,
+              "stages": {
+                "resize_ms": 0,
+                "hash_ms": 1.413583,
+                "encode_ms": 4.5695
+              }
+            },
+            {
+              "ms": 6.8627500000000055,
+              "cpu_ms": 6.827,
+              "bytes": 63676,
+              "stages": {
+                "resize_ms": 0.000041,
+                "hash_ms": 1.3375,
+                "encode_ms": 4.748584
+              }
+            },
+            {
+              "ms": 6.582707999999997,
+              "cpu_ms": 6.574,
+              "bytes": 63676,
+              "stages": {
+                "resize_ms": 0,
+                "hash_ms": 1.320584,
+                "encode_ms": 4.48325
+              }
+            },
+            {
+              "ms": 6.6698749999999905,
+              "cpu_ms": 6.639,
+              "bytes": 63676,
+              "stages": {
+                "resize_ms": 0.000042,
+                "hash_ms": 1.415125,
+                "encode_ms": 4.466666999999999
+              }
+            },
+            {
+              "ms": 6.5278749999999945,
+              "cpu_ms": 6.53,
+              "bytes": 63676,
+              "stages": {
+                "resize_ms": 0,
+                "hash_ms": 1.339625,
+                "encode_ms": 4.410208
+              }
+            },
+            {
+              "ms": 6.505875000000003,
+              "cpu_ms": 6.511,
+              "bytes": 63676,
+              "stages": {
+                "resize_ms": 0.000042,
+                "hash_ms": 1.3221669999999999,
+                "encode_ms": 4.4024160000000006
+              }
+            },
+            {
+              "ms": 6.651374999999973,
+              "cpu_ms": 6.638,
+              "bytes": 63676,
+              "stages": {
+                "resize_ms": 0.000042,
+                "hash_ms": 1.322292,
+                "encode_ms": 4.55675
+              }
+            },
+            {
+              "ms": 6.590749999999986,
+              "cpu_ms": 6.571,
+              "bytes": 63676,
+              "stages": {
+                "resize_ms": 0,
+                "hash_ms": 1.351583,
+                "encode_ms": 4.4636249999999995
+              }
+            },
+            {
+              "ms": 6.552625000000006,
+              "cpu_ms": 6.54,
+              "bytes": 63676,
+              "stages": {
+                "resize_ms": 0.000041,
+                "hash_ms": 1.323667,
+                "encode_ms": 4.457458
+              }
+            },
+            {
+              "ms": 6.537959000000001,
+              "cpu_ms": 6.526,
+              "bytes": 63676,
+              "stages": {
+                "resize_ms": 0.000041,
+                "hash_ms": 1.336167,
+                "encode_ms": 4.426791000000001
+              }
+            }
+          ],
+          "psnr_db": 48.8503834408438,
+          "correctness": {
+            "decoded": true,
+            "width": 1440,
+            "height": 810
+          }
+        },
+        {
+          "name": "decode_resize_encode",
+          "source_width": 1920,
+          "source_height": 1080,
+          "samples": [
+            {
+              "ms": 9.26079199999998,
+              "cpu_ms": 13.205,
+              "bytes": 126446,
+              "stages": {
+                "resize_ms": 1.7181250000000001,
+                "hash_ms": 1.402958,
+                "encode_ms": 4.981625
+              }
+            },
+            {
+              "ms": 9.018165999999951,
+              "cpu_ms": 13.314,
+              "bytes": 126446,
+              "stages": {
+                "resize_ms": 1.8215,
+                "hash_ms": 1.356792,
+                "encode_ms": 4.678375
+              }
+            },
+            {
+              "ms": 8.81579099999999,
+              "cpu_ms": 13.079,
+              "bytes": 126446,
+              "stages": {
+                "resize_ms": 1.716542,
+                "hash_ms": 1.329916,
+                "encode_ms": 4.645792
+              }
+            },
+            {
+              "ms": 8.787791000000027,
+              "cpu_ms": 13.03,
+              "bytes": 126446,
+              "stages": {
+                "resize_ms": 1.63175,
+                "hash_ms": 1.346958,
+                "encode_ms": 4.700584
+              }
+            },
+            {
+              "ms": 9.194124999999985,
+              "cpu_ms": 13.319,
+              "bytes": 126446,
+              "stages": {
+                "resize_ms": 1.758917,
+                "hash_ms": 1.362042,
+                "encode_ms": 4.902791
+              }
+            },
+            {
+              "ms": 8.700041999999996,
+              "cpu_ms": 12.856,
+              "bytes": 126446,
+              "stages": {
+                "resize_ms": 1.5559580000000002,
+                "hash_ms": 1.337625,
+                "encode_ms": 4.705125
+              }
+            },
+            {
+              "ms": 8.700458999999967,
+              "cpu_ms": 12.728,
+              "bytes": 126446,
+              "stages": {
+                "resize_ms": 1.50975,
+                "hash_ms": 1.3425,
+                "encode_ms": 4.724333
+              }
+            },
+            {
+              "ms": 8.683916999999951,
+              "cpu_ms": 12.554,
+              "bytes": 126446,
+              "stages": {
+                "resize_ms": 1.495959,
+                "hash_ms": 1.358709,
+                "encode_ms": 4.703333
+              }
+            },
+            {
+              "ms": 8.825707999999963,
+              "cpu_ms": 12.856,
+              "bytes": 126446,
+              "stages": {
+                "resize_ms": 1.655125,
+                "hash_ms": 1.341209,
+                "encode_ms": 4.638958000000001
+              }
+            },
+            {
+              "ms": 8.54970800000001,
+              "cpu_ms": 12.473,
+              "bytes": 126446,
+              "stages": {
+                "resize_ms": 1.470958,
+                "hash_ms": 1.32875,
+                "encode_ms": 4.649
+              }
+            },
+            {
+              "ms": 8.573416000000009,
+              "cpu_ms": 12.389,
+              "bytes": 126446,
+              "stages": {
+                "resize_ms": 1.450916,
+                "hash_ms": 1.342625,
+                "encode_ms": 4.6817079999999995
+              }
+            },
+            {
+              "ms": 8.971292000000005,
+              "cpu_ms": 12.87,
+              "bytes": 126446,
+              "stages": {
+                "resize_ms": 1.572083,
+                "hash_ms": 1.352917,
+                "encode_ms": 4.911375
+              }
+            },
+            {
+              "ms": 8.987416999999994,
+              "cpu_ms": 13.115,
+              "bytes": 126446,
+              "stages": {
+                "resize_ms": 1.63125,
+                "hash_ms": 1.417209,
+                "encode_ms": 4.713958
+              }
+            },
+            {
+              "ms": 13.081999999999994,
+              "cpu_ms": 16.879,
+              "bytes": 126446,
+              "stages": {
+                "resize_ms": 1.689167,
+                "hash_ms": 1.350375,
+                "encode_ms": 8.877667
+              }
+            },
+            {
+              "ms": 11.306916000000001,
+              "cpu_ms": 17.301,
+              "bytes": 126446,
+              "stages": {
+                "resize_ms": 2.330417,
+                "hash_ms": 1.662334,
+                "encode_ms": 5.348667
+              }
+            }
+          ],
+          "psnr_db": 38.638971832680284,
+          "correctness": {
+            "decoded": true,
+            "width": 1440,
+            "height": 810
+          }
+        }
+      ]
+    },
+    {
+      "round": 2,
+      "backend": "robotjs",
+      "node": "v24.22.0",
+      "jimp": "1.6.1",
+      "quality": 85,
+      "warmups": 1,
+      "repetitions": 15,
+      "cases": [
+        {
+          "name": "decode_encode",
+          "source_width": 1440,
+          "source_height": 810,
+          "samples": [
+            {
+              "ms": 107.58070800000002,
+              "cpu_ms": 133.214,
+              "bytes": 70788,
+              "stages": null
+            },
+            {
+              "ms": 99.323125,
+              "cpu_ms": 113.567,
+              "bytes": 70788,
+              "stages": null
+            },
+            {
+              "ms": 97.095125,
+              "cpu_ms": 97.046,
+              "bytes": 70788,
+              "stages": null
+            },
+            {
+              "ms": 98.48200000000003,
+              "cpu_ms": 111.104,
+              "bytes": 70788,
+              "stages": null
+            },
+            {
+              "ms": 100.32216700000004,
+              "cpu_ms": 109.071,
+              "bytes": 70788,
+              "stages": null
+            },
+            {
+              "ms": 97.18283300000007,
+              "cpu_ms": 96.898,
+              "bytes": 70788,
+              "stages": null
+            },
+            {
+              "ms": 95.74258399999997,
+              "cpu_ms": 95.667,
+              "bytes": 70788,
+              "stages": null
+            },
+            {
+              "ms": 102.34516699999995,
+              "cpu_ms": 122.829,
+              "bytes": 70788,
+              "stages": null
+            },
+            {
+              "ms": 96.45175000000006,
+              "cpu_ms": 100.277,
+              "bytes": 70788,
+              "stages": null
+            },
+            {
+              "ms": 95.46241699999996,
+              "cpu_ms": 96.005,
+              "bytes": 70788,
+              "stages": null
+            },
+            {
+              "ms": 101.63479200000006,
+              "cpu_ms": 101.221,
+              "bytes": 70788,
+              "stages": null
+            },
+            {
+              "ms": 103.01591699999994,
+              "cpu_ms": 115.677,
+              "bytes": 70788,
+              "stages": null
+            },
+            {
+              "ms": 98.56904200000008,
+              "cpu_ms": 102.844,
+              "bytes": 70788,
+              "stages": null
+            },
+            {
+              "ms": 96.67866700000013,
+              "cpu_ms": 97.957,
+              "bytes": 70788,
+              "stages": null
+            },
+            {
+              "ms": 96.14887499999986,
+              "cpu_ms": 95.956,
+              "bytes": 70788,
+              "stages": null
+            }
+          ],
+          "psnr_db": 48.83654134479319,
+          "correctness": {
+            "decoded": true,
+            "width": 1440,
+            "height": 810
+          }
+        },
+        {
+          "name": "decode_resize_encode",
+          "source_width": 1920,
+          "source_height": 1080,
+          "samples": [
+            {
+              "ms": 140.21679100000006,
+              "cpu_ms": 166.484,
+              "bytes": 115803,
+              "stages": null
+            },
+            {
+              "ms": 131.05345799999986,
+              "cpu_ms": 132.798,
+              "bytes": 115803,
+              "stages": null
+            },
+            {
+              "ms": 129.6139579999999,
+              "cpu_ms": 136.474,
+              "bytes": 115803,
+              "stages": null
+            },
+            {
+              "ms": 138.98599999999988,
+              "cpu_ms": 163.44,
+              "bytes": 115803,
+              "stages": null
+            },
+            {
+              "ms": 134.15429200000017,
+              "cpu_ms": 135.917,
+              "bytes": 115803,
+              "stages": null
+            },
+            {
+              "ms": 127.95049999999992,
+              "cpu_ms": 134.031,
+              "bytes": 115803,
+              "stages": null
+            },
+            {
+              "ms": 136.02320899999995,
+              "cpu_ms": 160.838,
+              "bytes": 115803,
+              "stages": null
+            },
+            {
+              "ms": 130.67841700000008,
+              "cpu_ms": 132.898,
+              "bytes": 115803,
+              "stages": null
+            },
+            {
+              "ms": 129.53600000000006,
+              "cpu_ms": 133.96,
+              "bytes": 115803,
+              "stages": null
+            },
+            {
+              "ms": 136.07062499999984,
+              "cpu_ms": 160.194,
+              "bytes": 115803,
+              "stages": null
+            },
+            {
+              "ms": 129.5647909999998,
+              "cpu_ms": 131.494,
+              "bytes": 115803,
+              "stages": null
+            },
+            {
+              "ms": 129.24979200000007,
+              "cpu_ms": 133.364,
+              "bytes": 115803,
+              "stages": null
+            },
+            {
+              "ms": 138.56295799999998,
+              "cpu_ms": 164.813,
+              "bytes": 115803,
+              "stages": null
+            },
+            {
+              "ms": 143.30458399999998,
+              "cpu_ms": 144.363,
+              "bytes": 115803,
+              "stages": null
+            },
+            {
+              "ms": 129.55829099999983,
+              "cpu_ms": 133.527,
+              "bytes": 115803,
+              "stages": null
+            }
+          ],
+          "psnr_db": 45.914903884413256,
+          "correctness": {
+            "decoded": true,
+            "width": 1440,
+            "height": 810
+          }
+        }
+      ]
+    },
+    {
+      "round": 3,
+      "backend": "robotjs",
+      "node": "v24.22.0",
+      "jimp": "1.6.1",
+      "quality": 85,
+      "warmups": 1,
+      "repetitions": 15,
+      "cases": [
+        {
+          "name": "decode_encode",
+          "source_width": 1440,
+          "source_height": 810,
+          "samples": [
+            {
+              "ms": 105.53750000000002,
+              "cpu_ms": 130.274,
+              "bytes": 70788,
+              "stages": null
+            },
+            {
+              "ms": 99.54245900000001,
+              "cpu_ms": 113.445,
+              "bytes": 70788,
+              "stages": null
+            },
+            {
+              "ms": 95.31045900000004,
+              "cpu_ms": 95.421,
+              "bytes": 70788,
+              "stages": null
+            },
+            {
+              "ms": 98.97954200000004,
+              "cpu_ms": 111.693,
+              "bytes": 70788,
+              "stages": null
+            },
+            {
+              "ms": 99.42224999999996,
+              "cpu_ms": 107.721,
+              "bytes": 70788,
+              "stages": null
+            },
+            {
+              "ms": 93.56512500000008,
+              "cpu_ms": 93.563,
+              "bytes": 70788,
+              "stages": null
+            },
+            {
+              "ms": 93.72758400000009,
+              "cpu_ms": 93.683,
+              "bytes": 70788,
+              "stages": null
+            },
+            {
+              "ms": 96.46362500000009,
+              "cpu_ms": 107.648,
+              "bytes": 70788,
+              "stages": null
+            },
+            {
+              "ms": 98.27150000000006,
+              "cpu_ms": 103.73,
+              "bytes": 70788,
+              "stages": null
+            },
+            {
+              "ms": 95.39408400000002,
+              "cpu_ms": 95.751,
+              "bytes": 70788,
+              "stages": null
+            },
+            {
+              "ms": 93.528458,
+              "cpu_ms": 93.344,
+              "bytes": 70788,
+              "stages": null
+            },
+            {
+              "ms": 102.65595899999994,
+              "cpu_ms": 112.254,
+              "bytes": 70788,
+              "stages": null
+            },
+            {
+              "ms": 98.43379200000004,
+              "cpu_ms": 104.339,
+              "bytes": 70788,
+              "stages": null
+            },
+            {
+              "ms": 95.24212499999999,
+              "cpu_ms": 96.547,
+              "bytes": 70788,
+              "stages": null
+            },
+            {
+              "ms": 93.63870900000006,
+              "cpu_ms": 93.61,
+              "bytes": 70788,
+              "stages": null
+            }
+          ],
+          "psnr_db": 48.83654134479319,
+          "correctness": {
+            "decoded": true,
+            "width": 1440,
+            "height": 810
+          }
+        },
+        {
+          "name": "decode_resize_encode",
+          "source_width": 1920,
+          "source_height": 1080,
+          "samples": [
+            {
+              "ms": 139.54504199999997,
+              "cpu_ms": 167.397,
+              "bytes": 115803,
+              "stages": null
+            },
+            {
+              "ms": 129.39245899999992,
+              "cpu_ms": 132.245,
+              "bytes": 115803,
+              "stages": null
+            },
+            {
+              "ms": 138.9722499999998,
+              "cpu_ms": 168.112,
+              "bytes": 115803,
+              "stages": null
+            },
+            {
+              "ms": 130.8974589999998,
+              "cpu_ms": 137.191,
+              "bytes": 115803,
+              "stages": null
+            },
+            {
+              "ms": 127.34433399999989,
+              "cpu_ms": 128.067,
+              "bytes": 115803,
+              "stages": null
+            },
+            {
+              "ms": 143.54154199999994,
+              "cpu_ms": 168.495,
+              "bytes": 115803,
+              "stages": null
+            },
+            {
+              "ms": 134.93687499999987,
+              "cpu_ms": 139.437,
+              "bytes": 115803,
+              "stages": null
+            },
+            {
+              "ms": 129.63266699999986,
+              "cpu_ms": 146.979,
+              "bytes": 115803,
+              "stages": null
+            },
+            {
+              "ms": 131.2246250000003,
+              "cpu_ms": 139.179,
+              "bytes": 115803,
+              "stages": null
+            },
+            {
+              "ms": 133.4516249999997,
+              "cpu_ms": 157.392,
+              "bytes": 115803,
+              "stages": null
+            },
+            {
+              "ms": 126.38429199999973,
+              "cpu_ms": 129.895,
+              "bytes": 115803,
+              "stages": null
+            },
+            {
+              "ms": 126.9357500000001,
+              "cpu_ms": 131.145,
+              "bytes": 115803,
+              "stages": null
+            },
+            {
+              "ms": 133.538,
+              "cpu_ms": 157.797,
+              "bytes": 115803,
+              "stages": null
+            },
+            {
+              "ms": 127.38579200000004,
+              "cpu_ms": 130.753,
+              "bytes": 115803,
+              "stages": null
+            },
+            {
+              "ms": 127.60629100000006,
+              "cpu_ms": 133.335,
+              "bytes": 115803,
+              "stages": null
+            }
+          ],
+          "psnr_db": 45.914903884413256,
+          "correctness": {
+            "decoded": true,
+            "width": 1440,
+            "height": 810
+          }
+        }
+      ]
+    },
+    {
+      "round": 3,
+      "backend": "rusty-robot",
+      "node": "v24.22.0",
+      "jimp": "1.6.1",
+      "quality": 85,
+      "warmups": 1,
+      "repetitions": 15,
+      "cases": [
+        {
+          "name": "decode_encode",
+          "source_width": 1440,
+          "source_height": 810,
+          "samples": [
+            {
+              "ms": 6.507041000000001,
+              "cpu_ms": 6.51,
+              "bytes": 63676,
+              "stages": {
+                "resize_ms": 0,
+                "hash_ms": 1.321875,
+                "encode_ms": 4.4033750000000005
+              }
+            },
+            {
+              "ms": 6.492332999999988,
+              "cpu_ms": 6.496,
+              "bytes": 63676,
+              "stages": {
+                "resize_ms": 0,
+                "hash_ms": 1.3223340000000001,
+                "encode_ms": 4.403
+              }
+            },
+            {
+              "ms": 6.621583000000001,
+              "cpu_ms": 6.586,
+              "bytes": 63676,
+              "stages": {
+                "resize_ms": 0.000042,
+                "hash_ms": 1.388708,
+                "encode_ms": 4.402875
+              }
+            },
+            {
+              "ms": 6.517583999999999,
+              "cpu_ms": 6.524,
+              "bytes": 63676,
+              "stages": {
+                "resize_ms": 0,
+                "hash_ms": 1.320875,
+                "encode_ms": 4.408666
+              }
+            },
+            {
+              "ms": 6.498666,
+              "cpu_ms": 6.502,
+              "bytes": 63676,
+              "stages": {
+                "resize_ms": 0,
+                "hash_ms": 1.321416,
+                "encode_ms": 4.406292
+              }
+            },
+            {
+              "ms": 6.497500000000002,
+              "cpu_ms": 6.5,
+              "bytes": 63676,
+              "stages": {
+                "resize_ms": 0.000042,
+                "hash_ms": 1.3192080000000002,
+                "encode_ms": 4.415875
+              }
+            },
+            {
+              "ms": 6.503165999999993,
+              "cpu_ms": 6.506,
+              "bytes": 63676,
+              "stages": {
+                "resize_ms": 0.000042,
+                "hash_ms": 1.319958,
+                "encode_ms": 4.419042
+              }
+            },
+            {
+              "ms": 6.523832999999996,
+              "cpu_ms": 6.506,
+              "bytes": 63676,
+              "stages": {
+                "resize_ms": 0,
+                "hash_ms": 1.3635,
+                "encode_ms": 4.390334
+              }
+            },
+            {
+              "ms": 6.498917000000006,
+              "cpu_ms": 6.505,
+              "bytes": 63676,
+              "stages": {
+                "resize_ms": 0,
+                "hash_ms": 1.321542,
+                "encode_ms": 4.406083
+              }
+            },
+            {
+              "ms": 6.499083999999982,
+              "cpu_ms": 6.503,
+              "bytes": 63676,
+              "stages": {
+                "resize_ms": 0,
+                "hash_ms": 1.319792,
+                "encode_ms": 4.411083
+              }
+            },
+            {
+              "ms": 6.577666999999991,
+              "cpu_ms": 6.58,
+              "bytes": 63676,
+              "stages": {
+                "resize_ms": 0.000041,
+                "hash_ms": 1.320459,
+                "encode_ms": 4.491041
+              }
+            },
+            {
+              "ms": 6.711250000000007,
+              "cpu_ms": 6.708,
+              "bytes": 63676,
+              "stages": {
+                "resize_ms": 0,
+                "hash_ms": 1.401292,
+                "encode_ms": 4.4934579999999995
+              }
+            },
+            {
+              "ms": 7.237249999999989,
+              "cpu_ms": 7.18,
+              "bytes": 63676,
+              "stages": {
+                "resize_ms": 0,
+                "hash_ms": 1.321333,
+                "encode_ms": 5.132916000000001
+              }
+            },
+            {
+              "ms": 6.630874999999975,
+              "cpu_ms": 6.604,
+              "bytes": 63676,
+              "stages": {
+                "resize_ms": 0.000125,
+                "hash_ms": 1.372417,
+                "encode_ms": 4.457916
+              }
+            },
+            {
+              "ms": 6.583166000000006,
+              "cpu_ms": 6.572,
+              "bytes": 63676,
+              "stages": {
+                "resize_ms": 0.000041,
+                "hash_ms": 1.335625,
+                "encode_ms": 4.468917
+              }
+            }
+          ],
+          "psnr_db": 48.8503834408438,
+          "correctness": {
+            "decoded": true,
+            "width": 1440,
+            "height": 810
+          }
+        },
+        {
+          "name": "decode_resize_encode",
+          "source_width": 1920,
+          "source_height": 1080,
+          "samples": [
+            {
+              "ms": 9.03166600000003,
+              "cpu_ms": 13.181,
+              "bytes": 126446,
+              "stages": {
+                "resize_ms": 1.662416,
+                "hash_ms": 1.339667,
+                "encode_ms": 4.899125
+              }
+            },
+            {
+              "ms": 8.995000000000005,
+              "cpu_ms": 13.704,
+              "bytes": 126446,
+              "stages": {
+                "resize_ms": 1.7275,
+                "hash_ms": 1.345708,
+                "encode_ms": 4.697
+              }
+            },
+            {
+              "ms": 8.96550000000002,
+              "cpu_ms": 13.102,
+              "bytes": 126446,
+              "stages": {
+                "resize_ms": 1.516417,
+                "hash_ms": 1.3689170000000002,
+                "encode_ms": 4.9421669999999995
+              }
+            },
+            {
+              "ms": 8.671208000000036,
+              "cpu_ms": 12.553,
+              "bytes": 126446,
+              "stages": {
+                "resize_ms": 1.520667,
+                "hash_ms": 1.336292,
+                "encode_ms": 4.714833
+              }
+            },
+            {
+              "ms": 8.988249999999994,
+              "cpu_ms": 13.175,
+              "bytes": 126446,
+              "stages": {
+                "resize_ms": 1.62675,
+                "hash_ms": 1.413583,
+                "encode_ms": 4.771084
+              }
+            },
+            {
+              "ms": 9.089375000000018,
+              "cpu_ms": 13.032,
+              "bytes": 126446,
+              "stages": {
+                "resize_ms": 1.953917,
+                "hash_ms": 1.328125,
+                "encode_ms": 4.707584
+              }
+            },
+            {
+              "ms": 9.086333999999965,
+              "cpu_ms": 13.028,
+              "bytes": 126446,
+              "stages": {
+                "resize_ms": 1.6270419999999999,
+                "hash_ms": 1.426791,
+                "encode_ms": 4.899875
+              }
+            },
+            {
+              "ms": 9.000292000000002,
+              "cpu_ms": 13.173,
+              "bytes": 126446,
+              "stages": {
+                "resize_ms": 1.902292,
+                "hash_ms": 1.329291,
+                "encode_ms": 4.661417
+              }
+            },
+            {
+              "ms": 8.889916000000028,
+              "cpu_ms": 12.794,
+              "bytes": 126446,
+              "stages": {
+                "resize_ms": 1.547875,
+                "hash_ms": 1.322083,
+                "encode_ms": 4.912458
+              }
+            },
+            {
+              "ms": 9.020249999999976,
+              "cpu_ms": 12.992,
+              "bytes": 126446,
+              "stages": {
+                "resize_ms": 1.6027909999999999,
+                "hash_ms": 1.338625,
+                "encode_ms": 4.960708
+              }
+            },
+            {
+              "ms": 9.225209000000007,
+              "cpu_ms": 13.23,
+              "bytes": 126446,
+              "stages": {
+                "resize_ms": 2.040959,
+                "hash_ms": 1.369459,
+                "encode_ms": 4.704
+              }
+            },
+            {
+              "ms": 8.881750000000011,
+              "cpu_ms": 13.028,
+              "bytes": 126446,
+              "stages": {
+                "resize_ms": 1.656833,
+                "hash_ms": 1.355125,
+                "encode_ms": 4.746208
+              }
+            },
+            {
+              "ms": 8.864417000000003,
+              "cpu_ms": 12.942,
+              "bytes": 126446,
+              "stages": {
+                "resize_ms": 1.5683330000000002,
+                "hash_ms": 1.4423750000000002,
+                "encode_ms": 4.64325
+              }
+            },
+            {
+              "ms": 8.683958000000018,
+              "cpu_ms": 12.713,
+              "bytes": 126446,
+              "stages": {
+                "resize_ms": 1.539417,
+                "hash_ms": 1.344959,
+                "encode_ms": 4.679333
+              }
+            },
+            {
+              "ms": 8.915500000000009,
+              "cpu_ms": 13.019,
+              "bytes": 126446,
+              "stages": {
+                "resize_ms": 1.6177080000000001,
+                "hash_ms": 1.348959,
+                "encode_ms": 4.832625
+              }
+            }
+          ],
+          "psnr_db": 38.638971832680284,
+          "correctness": {
+            "decoded": true,
+            "width": 1440,
+            "height": 810
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -179,3 +179,23 @@ native Windows/Linux results, additional macOS versions and keyboard layouts,
 permission denial/revocation, and physical display hot-plug behavior. Passing this
 checkpoint establishes the tested macOS scope, not universal application or
 cross-platform compatibility.
+
+## Composed media and real consumer benchmarks — 2026-10-27
+
+The shared Node addon passed asynchronous JPEG/PNG processing, queue saturation,
+permit recovery, input-buffer ownership and event-loop progress contracts on
+Linux, macOS and Windows. Real macOS native capture passed JPEG/PNG checks; an
+owned full-screen grid additionally verified scaled coordinates and known cell
+color. [Captured PNG](validation/2026-10-27-owned-rust-capture.png) and
+[observation](validation/2026-10-27-owned-capture-proof.json) contain only synthetic
+fixture content. Batched input passed Chromium and native AppKit workflows.
+
+Actual VS Code and Agentum runs each performed 90 native input trials per backend:
+Rust passed 90/90 in each; the original passed 60/90 in each. The separate repeated
+video runs used real capture and authenticated socket transport, fixed 1440×810
+JPEG quality85 and 30FPS target. Median motion delivery was 23.9FPS for Rust in
+both apps, versus 9.7FPS in AirCodum and 9.5FPS in Agentum.
+[Raw evidence and limits](../benchmarks/2026-10-27-consumers/README.md) distinguish
+input-only tests, full stream delivery, host CPU and isolated image processing.
+The resize comparison has a documented filter/fidelity difference; no equal-quality
+claim is inferred solely from the JPEG quality setting.

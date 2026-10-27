@@ -33,7 +33,7 @@ jobs:
       - run: cargo clippy --workspace --all-targets --no-default-features --locked -- -D warnings
       - run: cargo test --workspace --all-features --locked --no-fail-fast
       - run: cargo test --no-default-features --locked --no-fail-fast
-      - run: cargo doc --all-features --locked --no-deps
+      - run: cargo doc --workspace --all-features --locked --no-deps
         env:
           RUSTDOCFLAGS: -D warnings
   msrv:
@@ -69,6 +69,8 @@ jobs:
         working-directory: rusty-robot
       - run: python3 scripts/benchmark-report.py --check
         working-directory: rusty-robot
+      - run: python3 scripts/consumer-report.py --check
+        working-directory: rusty-robot
       - run: cargo package --locked
         working-directory: rusty-robot
   pages-build:
@@ -80,7 +82,7 @@ jobs:
       - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803
       - uses: dtolnay/rust-toolchain@b725eda525362e7cf34af9a7243cac1e3f01a7ec
       - uses: actions/configure-pages@983d7736d9b0ae728b81ab479565c72886d7745b
-      - run: cargo doc --all-features --locked --no-deps
+      - run: cargo doc --workspace --all-features --locked --no-deps
         env:
           RUSTDOCFLAGS: -D warnings
       - run: python3 scripts/build-site.py

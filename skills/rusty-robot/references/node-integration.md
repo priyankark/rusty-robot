@@ -1,11 +1,22 @@
 # Node / TypeScript consumer integration
 
-There is no first-party published Node package yet. For a synchronous RobotJS
-consumer, a small Node-API binding is a practical initial seam: compile Rusty
-Robot into a `.node` addon, map native `Result` errors to JS exceptions, and expose
-only methods used by the consumer. Keep this separate from the core Rust crate.
-A subprocess/IPC adapter is another option, but requires async ordering, lifetime,
-and cancellation design; do not spawn a new process for every mouse event.
+The shared `crates/rusty-robot-node` Node-API bridge composes input and the
+`rusty-robot-media` capture/processing library. Build it with
+`node scripts/build-node.cjs`; load `target/rusty-robot.node`. It is source-built
+from Git, not a published npm package. Keep consumers pinned to a commit and
+reuse this bridge instead of duplicating Rust wrappers.
+
+```js
+const native = require('/absolute/trusted/rusty-robot.node');
+const frame = await native.captureFrame(1440, 85, previousHash, forceRefresh, 'jpeg');
+if (frame.data) send(frame.data, { width: frame.width, height: frame.height });
+previousHash = frame.fingerprint;
+```
+
+Media work runs off the JS loop. There are at most two outstanding jobs and four
+shared resize threads. Keep one stream request in flight; discard completions
+after cancellation/settings changes, and handle queue errors without silently
+switching backends. Pixel conversion, resizing, hashing and encoding stay in Rust.
 
 Before changing a real consumer:
 
@@ -19,8 +30,9 @@ Before changing a real consumer:
 - Pass native errors through. Do not accept NaN, infinity, fractional, or
   out-of-range coordinates via unchecked JS-to-Rust integer casts. Use bounded
   integer conversion before any input. Avoid shell execution to load/build paths.
-- Keep capture independent until its actual latency/format/scaling has been
-  measured. The library exposes BGR/BGRA, while many JS encoders expect RGBA.
+- Select input and capture independently for controlled comparisons. The core
+  bitmap API exposes BGR/BGRA; the media bridge handles conversion and returns
+  JPEG/PNG bytes with explicit output dimensions.
 - A synchronous binding keeps existing ordering but blocks the Node event loop
   during paced typing. Document this; a later worker/IPC architecture must retain
   ordering and release ownership rather than simply making each call parallel.
@@ -40,7 +52,12 @@ to the existing backend while the integration remains experimental.
 
 [AirCodum Agentum PR #7](https://github.com/priyankark/agentum-cli/pull/7) is a
 source-build example of this approach. It keeps RobotJS as the default and makes
-Rust input selectable. Inspect its current review/CI status before adopting it;
+Rust input and media selectable. Inspect its current review/CI status before adopting it;
 a draft integration is not a published Node distribution. Its tests cover addon
 load failures, drag-state transitions, authenticated VNC controls, and a separate
 owned-window native workflow.
+
+[AirCodum PR #33](https://github.com/priyankark/AirCodum/pull/33) uses the same shared
+addon inside a real VS Code extension host. The public benchmark report includes
+verified input, actual socket frame delivery and isolated processing. Read the
+methodology before using its FPS or CPU figures as application-level guarantees.
