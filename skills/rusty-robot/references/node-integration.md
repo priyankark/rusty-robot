@@ -6,6 +6,19 @@ It requires macOS 14+, glibc 2.35+ with X11 on Linux, or an interactive Windows 
 Node 18+ is supported, except Windows arm64 requires Node 22+. Native Wayland and
 musl are not supported. No Rust compiler or install script is needed.
 
+If npm reports that version as unpublished, install the same named package from
+the public release archive:
+
+```sh
+npm install https://github.com/priyankark/rusty-robot/releases/download/v0.1.2/priyankark-rusty-robot-0.1.2.tgz
+```
+
+On macOS 27, two screen-capturing Node processes using the same executable path
+were observed displacing each other's ScreenCaptureKit connection, even with
+permission granted. Test multi-process consumers explicitly; a successful
+permission query or single-process capture does not verify concurrent instances.
+Do not terminate another user's capture session to make a check pass.
+
 The shared `crates/rusty-robot-node` bridge composes input and the
 `rusty-robot-media` capture/processing library. For development, build with
 `node scripts/build-node.cjs` and explicitly load `target/rusty-robot.node`.

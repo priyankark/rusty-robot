@@ -1,0 +1,39 @@
+name: Published Cargo consumer
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: Published crates.io version to verify
+        default: '0.1.2'
+        required: true
+  pull_request:
+    paths: ['scripts/test-registry.py', '.github/workflows/registry-smoke.yml']
+permissions:
+  contents: read
+jobs:
+  consumer:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803
+      - uses: dtolnay/rust-toolchain@b725eda525362e7cf34af9a7243cac1e3f01a7ec
+      - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1
+        with:
+          python-version: '3.x'
+      - name: Exercise the registry dependency from a fresh application
+        shell: bash
+        env:
+          CRATE_VERSION: ${{ inputs.version || '0.1.2' }}
+        run: python scripts/test-registry.py --version "$CRATE_VERSION"
+      - uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f
+        if: always()
+        with:
+          name: registry-consumer-${{ matrix.os }}
+          path: |
+            target/registry-dogfood/report.json
+            target/registry-dogfood/*.log
+          if-no-files-found: error

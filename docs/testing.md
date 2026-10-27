@@ -1,5 +1,21 @@
 # Testing rusty-robot
 
+## Published-package dogfood
+
+```sh
+python3 scripts/test-registry.py
+# On an unlocked desktop with permission grants and the Electron fixture installed:
+python3 scripts/test-registry.py --desktop
+```
+
+This creates an external application pinned to crates.io `rusty-robot-desktop`
+0.1.2, verifies Cargo's resolved source, and runs the public API contracts with
+PNG enabled and disabled. `--desktop` also runs the Chromium workflows and, on
+macOS, AppKit editing against that registry dependency. GUI tooling is reused
+from `tests/gui/node_modules`; no local library source or path override is used.
+Results are saved under `target/registry-dogfood`. Ignored GUI cases in headless
+runs are reported separately from executed desktop tests.
+
 ## Headless contracts
 
 ```sh
