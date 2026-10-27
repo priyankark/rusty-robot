@@ -70,6 +70,15 @@ and activation in VS Code 1.101.0 / Node 22.15.1 on the local Mac. The final
 passed on macOS ARM64/x64, Linux ARM64/x64 and Windows ARM64/x64, using that
 single VSIX and minimum supported VS Code.
 
+The final [Agentum package matrix](https://github.com/priyankark/agentum-cli/actions/runs/40580990823)
+also passed on all six targets, on minimum and current Node. Each host installed
+the same archive with install scripts disabled, exercised Rust image processing,
+and ran a real terminal command through the shipped session manager, checking
+output, exit and natural Node shutdown. The Windows check initially bypassed
+Agentum's existing PTY cleanup by constructing node-pty directly; the corrected
+check uses the product path and passes without forced process exit. The exact
+CI archive also passed a fresh installation and terminal run on the local Mac.
+
 The follow-up Codex chat report was reproduced against codex-cli 0.163.0: its
 `item.completed` assistant events were ignored by Agentum's legacy parser. The
 fix supports current and legacy events, deduplicates completed items, preserves
