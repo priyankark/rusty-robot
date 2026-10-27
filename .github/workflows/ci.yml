@@ -58,6 +58,8 @@ jobs:
           node-version: '24'
       - uses: dtolnay/rust-toolchain@b725eda525362e7cf34af9a7243cac1e3f01a7ec
       - run: node rusty-robot/scripts/audit-rust-port.mjs robotjs
+      - run: node --test tests/gui/verification/protocol.test.cjs
+        working-directory: rusty-robot
       - run: python3 scripts/check-benchmarks.py
         working-directory: rusty-robot
       - run: python3 scripts/benchmark-report.py --check

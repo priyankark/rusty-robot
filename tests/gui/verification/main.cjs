@@ -6,7 +6,8 @@ const net = require('node:net');
 app.commandLine.appendSwitch('force-color-profile', 'srgb');
 app.commandLine.appendSwitch('force-raster-color-profile', 'srgb');
 let window;
-const send = value => process.stdout.write(JSON.stringify(value) + '\n');
+const { encode } = require('./protocol.cjs');
+const send = value => process.stdout.write(encode(value) + '\n');
 app.whenReady().then(async () => {
   const displays = screen.getAllDisplays();
   const display = process.env.RUSTY_ROBOT_QA_SECONDARY
