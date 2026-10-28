@@ -12,8 +12,8 @@ test = false
 doctest = false
 
 [dependencies]
-napi = { version = "2", default-features = false, features = ["napi6"] }
-napi-derive = "2"
+napi = { version = "3", default-features = false, features = ["napi6"] }
+napi-derive = "3"
 rusty-robot = { package = "rusty-robot-desktop", path = "../..", default-features = false }
 rusty-robot-media = { path = "../rusty-robot-media" }
 

@@ -2,6 +2,9 @@ version: 2
 updates:
   - package-ecosystem: cargo
     directory: /
+    groups:
+      napi:
+        patterns: ["napi", "napi-derive", "napi-build", "napi-sys"]
     schedule:
       interval: weekly
   - package-ecosystem: github-actions
