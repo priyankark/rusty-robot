@@ -6,8 +6,8 @@ library tests on one Mac, not application, network, or remote-desktop benchmarks
 
 The latest capture implementation takes **22.31 ms** for a full-screen RGB image,
 compared with **29.02 ms** for XCap. XCap is still faster for small regions.
-The optimized implementation is **unreleased source `1535dc2`**; installing
-version 0.1.2 does not include it. Results were recorded on 2026-10-28.
+The optimized implementation was measured at **source `1535dc2` and is included
+in crate 0.1.3**; version 0.1.2 does not include it. Results were recorded on 2026-10-28.
 
 - [What the measurements mean](#what-the-measurements-mean)
 - [Current capture results](#current-capture-results)
@@ -43,8 +43,8 @@ latency statistics. We do not turn incorrect results into speedups.
 ### Repeated captures
 
 **The optimized Rusty Robot beats XCap on repeated full-screen captures on this
-Mac. XCap still wins small-region latency.** This is **unreleased source
-`1535dc2`**, not the existing crates.io/npm 0.1.2 binaries.
+Mac. XCap still wins small-region latency.** This is **source `1535dc2`, included in crate 0.1.3**. The measurements were
+made before release; existing crates.io/npm 0.1.2 binaries do not include this change.
 
 Standalone API comparison on **Apple M6, macOS 27.0, Rust 1.99.1**, against
 **XCap 0.9.8**, measured 2026-10-28. No application integrations, network transport,

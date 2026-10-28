@@ -25,7 +25,7 @@ Rust 1.88 or newer. The Cargo package is `rusty-robot-desktop`; the Rust import 
 
 ```toml
 [dependencies]
-rusty-robot-desktop = "0.1.2"
+rusty-robot-desktop = "0.1.3"
 ```
 
 ```rust,no_run
@@ -74,7 +74,7 @@ retains per-character intervals. This is based on native delivery testing.
 ## Measured performance
 
 <!-- benchmark-summary:start -->
-On one Apple M6 Mac, the unreleased capture implementation returns a full-screen
+On one Apple M6 Mac, the capture implementation in crate 0.1.3 returns a full-screen
 RGB image in **22.31 ms versus XCap's 29.02 ms (1.30× faster)**. XCap remains faster
 for small regions. Output dimensions match; color-space processing differs.
 These results do not describe the published 0.1.2 binaries or other platforms.

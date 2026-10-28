@@ -4,7 +4,7 @@ Use Rust 1.88+ and add the core package:
 
 ```toml
 [dependencies]
-rusty-robot-desktop = "0.1.2"
+rusty-robot-desktop = "0.1.3"
 ```
 
 Inspect without moving or typing:
