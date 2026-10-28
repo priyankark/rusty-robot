@@ -1,5 +1,11 @@
 # Changelog
 
+## Unreleased
+
+- Capture requested regions directly on macOS 15.2+ instead of enumerating windows and copying the full display for every screenshot; retain the macOS 14 path.
+- Convert tagged screenshot pixels to sRGB with a shared Core Image context, nearest-neighbor sampling, and explicit render completion/error checks.
+- Add image-rendering regressions and live palette, fine-pattern, tiny-region, cursor-exclusion, and display-edge capture verification.
+
 ## 0.1.2 — 2026-10-27
 
 - Publish the core as `rusty-robot-desktop` with the `rusty_robot` import and author `priyankark`.

@@ -1,5 +1,8 @@
 # RobotJS-algorithm optimizations — 2026-10-27
 
+Historical results. See the [benchmark overview](../benchmark.md) for current
+capture results, metric explanations, and the limits of this older comparison.
+
 This follow-up preserves the [original benchmark](benchmarks.md) and changes only
 bitmap search and BMP I/O. RobotJS means its JavaScript API backed by the native
 C/C++ addon, not a pure JavaScript implementation.

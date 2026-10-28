@@ -34,6 +34,9 @@ impl Desktop {
         let mut command = Command::new(String::from_utf8(resolved.stdout).unwrap().trim());
         if cfg!(target_os = "linux") {
             command.arg("--no-sandbox");
+            if std::env::var_os("RUSTY_ROBOT_QA_SOFTWARE_RENDERING").is_some() {
+                command.arg("--disable-gpu");
+            }
         }
         let listener = TcpListener::bind("127.0.0.1:0").unwrap();
         listener.set_nonblocking(true).unwrap();

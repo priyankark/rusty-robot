@@ -210,3 +210,11 @@ queue saturation/recovery and event-loop progress. Set `RUSTY_ROBOT_TEST_CAPTURE
 only on an authorized desktop to include real JPEG and PNG capture.
 The batched input implementation passed the Chromium eight-workflow desktop fixture
 and native AppKit Unicode/editing fixture on this Mac on 2026-10-27.
+
+### Linux CI renderer
+
+The hosted Xvfb job sets `RUSTY_ROBOT_QA_SOFTWARE_RENDERING=1` so its owned
+Electron fixtures use `--disable-gpu`. Xvfb has no hardware GPU; otherwise the
+first Chromium GPU process can time out before the fixture emits readiness.
+All native X11 input, capture, pixel, and event assertions still run. This does
+not change the library backend or the default local desktop tests.

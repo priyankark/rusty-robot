@@ -48,6 +48,8 @@ jobs:
         run: node scripts/build-node.cjs
       - name: Run Linux X11 native tests
         if: runner.os == 'Linux'
+        env:
+          RUSTY_ROBOT_QA_SOFTWARE_RENDERING: '1'
         shell: bash
         run: |
           xvfb-run --auto-servernum --server-args='-screen 0 1920x1080x24 -ac +extension RANDR' \

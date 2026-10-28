@@ -69,6 +69,14 @@ jobs:
         working-directory: rusty-robot
       - run: python3 scripts/benchmark-report.py --check
         working-directory: rusty-robot
+      - run: python3 -m unittest discover -s tools/rust-ecosystem-benchmark -p 'test_*.py'
+        working-directory: rusty-robot
+      - name: Verify historical benchmark report against raw samples
+        run: python3 tools/rust-ecosystem-benchmark/report.py --check
+        working-directory: rusty-robot
+      - name: Verify current benchmark report and README summary
+        run: python3 tools/rust-ecosystem-benchmark/optimized_report.py --check
+        working-directory: rusty-robot
       - run: python3 scripts/consumer-report.py --check
         working-directory: rusty-robot
       - run: cargo package --locked

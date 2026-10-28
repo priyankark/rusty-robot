@@ -452,6 +452,39 @@ pub(crate) fn capture(display: &Display, rect: Rect) -> Result<Bitmap> {
             "Screen Recording permission is required to capture the desktop",
         ));
     }
+    // SAFETY: Availability is checked before calling the macOS 15.2 API.
+    // Use the direct region API on macOS 15.2+. It avoids enumerating shareable
+    // windows and capturing unrelated pixels for each screenshot.
+    let direct: bool = unsafe {
+        msg_send![SCScreenshotManager::class(), respondsToSelector: sel!(captureImageInRect:completionHandler:)]
+    };
+    if direct {
+        let (sender, receiver) = std::sync::mpsc::sync_channel(1);
+        // All callback captures are owned and may outlive a timed-out caller.
+        let completion = RcBlock::new(move |image: *mut CGImage, error: *mut NSError| {
+            let result = if !error.is_null() {
+                Err(err(unsafe { &*error }.localizedDescription().to_string()))
+            } else if image.is_null() {
+                Err(err("ScreenCaptureKit returned no image"))
+            } else {
+                render_srgb(image.cast(), rect.width, rect.height)
+            };
+            let _ = sender.send(result);
+        });
+        // SAFETY: The API copies the block; the CGRect contains only values.
+        unsafe {
+            SCScreenshotManager::captureImageInRect_completionHandler(
+                NSRect::new(
+                    NSPoint::new(rect.x as f64, rect.y as f64),
+                    NSSize::new(rect.width as f64, rect.height as f64),
+                ),
+                Some(&completion),
+            );
+        }
+        return receiver
+            .recv_timeout(std::time::Duration::from_secs(5))
+            .map_err(|_| err("ScreenCaptureKit screenshot timed out"))?;
+    }
     // SAFETY: Check method availability before using the macOS 14 screenshot API.
     let available: bool = unsafe {
         msg_send![SCScreenshotManager::class(),respondsToSelector:sel!(captureImageWithFilter:configuration:completionHandler:)]
@@ -585,4 +618,10 @@ fn copy_captured_image(
         }
         Ok(bitmap)
     }
+}
+
+#[path = "macos/capture_image.rs"]
+mod capture_image;
+fn render_srgb(image: Ref, width: usize, height: usize) -> Result<Bitmap> {
+    capture_image::render(image, width, height)
 }

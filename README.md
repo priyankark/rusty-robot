@@ -16,7 +16,7 @@ Windows pass native desktop CI. Multi-monitor coverage differs by OS; see the da
 [validation record](docs/validation.md) for exactly what has run.
 
 [API documentation](https://priyankark.github.io/rusty-robot/api/rusty_robot/) ·
-[Interactive benchmarks](https://priyankark.github.io/rusty-robot/) ·
+[Benchmarks](benchmark.md) ·
 [Agent skill](skills/rusty-robot/SKILL.md) · [Contributing](CONTRIBUTING.md)
 
 ## Start here
@@ -73,15 +73,26 @@ retains per-character intervals. This is based on native delivery testing.
 
 ## Measured performance
 
-The [full report](https://priyankark.github.io/rusty-robot/) compares **21 operations**
-with RobotJS 0.9.1's JavaScript API **and native addon**, on one Apple M6 Mac.
-Rust had lower medians in 17 cases, higher in four; this is not a statistical win
-count or a universal speedup. Exact color searches were about 2.1× faster;
-single-pixel capture took 6.08× as long. Dense result collection includes different
-Rust/JavaScript allocation costs. Some round ranges overlap.
+<!-- benchmark-summary:start -->
+On one Apple M6 Mac, the unreleased capture implementation returns a full-screen
+RGB image in **22.31 ms versus XCap's 29.02 ms (1.30× faster)**. XCap remains faster
+for small regions. Output dimensions match; color-space processing differs.
+These results do not describe the published 0.1.2 binaries or other platforms.
 
-[Raw samples and CSV](benchmarks/2026-10-27/) ·
-[Methodology](docs/benchmarks.md) · [Optimization history](docs/optimization-results.md)
+See [benchmark.md](benchmark.md) for metric explanations, results, quality checks,
+RobotJS comparisons, raw data, and reproduction steps.
+<!-- benchmark-summary:end -->
+
+## Node.js and media
+
+The workspace includes `rusty-robot-media` (capture, resize, BLAKE3 frame fingerprints,
+JPEG/PNG encoding) and `rusty-robot-node` (Node-API input plus asynchronous media).
+Install `@priyankark/rusty-robot@0.1.2` for prebuilt Node-API binaries across seven
+desktop targets. No Rust compiler or install scripts are required. See
+[Node package requirements and release-archive installation](packages/node/README.md).
+The GitHub release archive is usable before its npm mirror is available. For source development,
+build with `node scripts/build-node.cjs`.
+See [the agent skill](skills/rusty-robot/SKILL.md) for integration and bounded scheduling.
 
 ## For agents
 
@@ -111,19 +122,3 @@ opt-in and use owned test windows. See [testing](docs/testing.md),
 ## License
 
 [MIT](LICENSE.md), with RobotJS attribution retained in [NOTICE.md](NOTICE.md).
-
-### Composed media workers
-
-The workspace includes `rusty-robot-media` (capture, resize, BLAKE3 frame fingerprints,
-JPEG/PNG encoding) and `rusty-robot-node` (Node-API input plus asynchronous media).
-Install `@priyankark/rusty-robot@0.1.2` for prebuilt Node-API binaries across seven
-desktop targets. No Rust compiler or install scripts are required. See
-[Node package requirements and release-archive installation](packages/node/README.md).
-The GitHub release archive is usable before its npm mirror is available. For source development,
-build with `node scripts/build-node.cjs`.
-See [the agent skill](skills/rusty-robot/SKILL.md) for integration and bounded scheduling.
-
-The [real application benchmark report](https://priyankark.github.io/rusty-robot/)
-separates verified input, complete video delivery and isolated image processing.
-The [earlier 21-operation API comparison](https://priyankark.github.io/rusty-robot/api-benchmarks.html)
-remains available, including slower Rust cases.

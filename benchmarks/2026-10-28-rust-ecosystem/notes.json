@@ -1,0 +1,10 @@
+{
+  "capture_run": "Complete: three independent processes per library, 45 measured samples per case.",
+  "input_run": "Pilot only: one process per library, two measured samples per input case/profile. Two larger runs stopped at focus guards and are excluded.",
+  "pilot_capture": "Exploratory strict sRGB check rejected XCap display-space RGB. Final capture run separates fresh-content validity from exact sRGB fidelity.",
+  "excluded_runs": [
+    "/tmp/rust-ecosystem-focus-aborted",
+    "/tmp/rust-ecosystem-focus-aborted-second"
+  ],
+  "scope": "Standalone library APIs on an owned AppKit desktop fixture; no application integrations or network transport."
+}

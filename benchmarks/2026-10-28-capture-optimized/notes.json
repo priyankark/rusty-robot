@@ -1,0 +1,22 @@
+{
+  "implementation_commit": "1535dc2",
+  "baseline_source_commit": "caff367",
+  "baseline_core_commit": "457a095",
+  "baseline_binary_verified_against": "../2026-10-28-rust-ecosystem/manifest.json",
+  "scope": "Standalone fresh screenshots; no application integration, stream cache, network, or file encoding.",
+  "quality": "115 live captures, including 1132 checked pixels, 12 palette colors, one-logical-pixel checkerboard, cursor exclusion, and display corners. 12 additional captures from the old binary compare palette centers.",
+  "not_tested": [
+    "macOS 14 fallback on macOS 14 hardware",
+    "Intel Mac performance",
+    "secondary or rotated displays",
+    "HDR fidelity",
+    "energy use",
+    "physical phone or WAN latency"
+  ],
+  "rejected_prototypes": [
+    "Direct capture with Quartz-only conversion was slower on large images.",
+    "Caching shareable-content filters and padded regions remained slower.",
+    "The macOS 26 screenshot configuration path remained slower."
+  ],
+  "test_fixture_correction": "The initial cursor assertion sampled below its colored patch. The corrected 30x30 check stays within the patch; both direct screenshot APIs exclude the cursor on this host."
+}
