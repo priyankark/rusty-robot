@@ -15,6 +15,7 @@ import statistics
 import subprocess
 import threading
 import time
+import tomllib
 
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parent.parent
@@ -96,7 +97,7 @@ def main():
         'os':subprocess.check_output(['sw_vers'],text=True), 'arch':platform.machine(),
         'cpu':subprocess.check_output(['sysctl','-n','machdep.cpu.brand_string'],text=True).strip(),
         'memory_bytes':int(subprocess.check_output(['sysctl','-n','hw.memsize'],text=True)),
-        'versions':{'rusty-robot-desktop':'0.1.2 source at source_commit','enigo':'0.6.1','xcap':'0.9.8'},
+        'versions':{'rusty-robot-desktop':tomllib.loads((ROOT/'Cargo.toml').read_text())['package']['version']+' source at source_commit','enigo':'0.6.1','xcap':'0.9.8'},
         'rounds':args.rounds,'trials':args.trials,'capture_only':args.capture_only,'warmup_trials':2,'poll_interval_ms':2,
         'timeout_ms':750,'stability_check_ms':20,
         'binary_sha256':hashlib.sha256(BINARY.read_bytes()).hexdigest(),

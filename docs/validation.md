@@ -1,5 +1,20 @@
 # Validation record
 
+## 0.1.3 capture release — 2026-10-28
+
+The released capture code was merged in `a64a234`. Its [Rust contracts](https://github.com/priyankark/rusty-robot/actions/runs/40749976986)
+and [native desktop validation](https://github.com/priyankark/rusty-robot/actions/runs/40749977177)
+passed after merge. The preceding PR passed all seven native binary builds and
+minimum/current Node installation checks. The release preparation passed local
+workspace tests, the packaged-crate publish dry run, and benchmark evidence checks.
+
+See [benchmark.md](../benchmark.md) for the six-round macOS performance experiment,
+115-capture quality verification, and hardware/quality limitations. This release
+changes capture on macOS 15.2+ and retains the macOS 14 fallback. Hardware coverage
+must not be inferred from cross-platform compilation alone. Registry-consumer
+checks are run separately after the new version becomes available.
+
+
 ## Registry publication follow-up — 2026-10-27, evening
 
 `@priyankark/rusty-robot@0.1.2` and `agentum@2.2.0` are now public on npm,

@@ -1,6 +1,6 @@
 [package]
 name = "rusty-robot-desktop"
-version = "0.1.2"
+version = "0.1.3"
 edition = "2024"
 authors = ["priyankark"]
 description = "Cross-platform desktop automation in Rust; test-first port of RobotJS"

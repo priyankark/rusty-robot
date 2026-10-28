@@ -1,6 +1,6 @@
 {
   "name": "@priyankark/rusty-robot",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Prebuilt Rust desktop input, capture and asynchronous image processing for Node.js",
   "main": "index.cjs",
   "types": "index.d.ts",
