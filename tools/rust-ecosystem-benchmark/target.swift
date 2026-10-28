@@ -9,8 +9,19 @@ func emit(_ value: [String: Any]) {
 
 final class Patch: NSView {
     var green = false
+    var rgb: [Int]? = nil
+    var checkerboard = false
+    override var isFlipped: Bool { true }
     override func draw(_ dirtyRect: NSRect) {
-        (green ? NSColor(srgbRed: 0, green: 1, blue: 0, alpha: 1) : NSColor(srgbRed: 1, green: 0, blue: 0, alpha: 1)).setFill()
+        if checkerboard {
+            NSGraphicsContext.current?.cgContext.setShouldAntialias(false)
+            for y in 0..<Int(bounds.height) { for x in 0..<Int(bounds.width) {
+                ((x+y)%2 == 0 ? NSColor.white : NSColor.black).setFill()
+                NSRect(x:x,y:y,width:1,height:1).fill()
+            }}
+            return
+        }
+        (rgb.map { NSColor(srgbRed:Double($0[0])/255,green:Double($0[1])/255,blue:Double($0[2])/255,alpha:1) } ?? (green ? NSColor(srgbRed: 0, green: 1, blue: 0, alpha: 1) : NSColor(srgbRed: 1, green: 0, blue: 0, alpha: 1))).setFill()
         bounds.fill()
     }
 }
@@ -74,6 +85,8 @@ final class Target: NSObject, NSApplicationDelegate {
                         self.window.makeFirstResponder(self.editor)
                         self.editor.undoManager?.removeAllActions()
                     }
+                    if let rgb = command["rgb"] as? [Int] { self.patch.rgb = rgb; self.patch.checkerboard = false; self.patch.needsDisplay = true; self.window.displayIfNeeded() }
+                    if let pattern = command["checkerboard"] as? Bool { self.patch.checkerboard = pattern; self.patch.needsDisplay = true; self.window.displayIfNeeded() }
                     if let green = command["green"] as? Bool {
                         self.patch.green = green; self.patch.needsDisplay = true; self.window.displayIfNeeded()
                     }

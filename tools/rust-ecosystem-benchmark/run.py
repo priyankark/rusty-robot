@@ -85,6 +85,7 @@ def main():
     parser.add_argument('--rounds',type=int,default=3)
     parser.add_argument('--trials',type=int,default=15)
     parser.add_argument('--capture-only',action='store_true',help='No keyboard or mouse injection')
+    parser.add_argument('--baseline',type=Path,help='Optional pre-optimization driver executable for paired capture comparison')
     args=parser.parse_args()
     out=args.output.resolve(); out.mkdir(parents=True,exist_ok=True)
     fixture=HERE/'target/native-target'
@@ -101,6 +102,9 @@ def main():
         'binary_sha256':hashlib.sha256(BINARY.read_bytes()).hexdigest(),
         'cargo_lock_sha256':hashlib.sha256((HERE/'Cargo.lock').read_bytes()).hexdigest(),
         'background':'Existing desktop processes left running; no other benchmark runs concurrently.'}
+    if args.baseline:
+        metadata['baseline_binary_sha256']=hashlib.sha256(args.baseline.read_bytes()).hexdigest()
+        metadata['capture_order']='Latin rotation of rusty-robot, xcap, rusty-robot-before'
     (out/'manifest.json').write_text(json.dumps(metadata,indent=2)+'\n')
     target=None; driver=None; cursor=None
     raw=open(out/'samples.jsonl','w')
@@ -110,7 +114,7 @@ def main():
         target=Process([fixture],out/'fixture.stderr.log')
         time.sleep(.3)
         geometry=target.ready
-        checked_state(target)
+        if not args.capture_only: checked_state(target)
         cases=[('ascii31','text','','The quick brown fox jumps over.'),
                ('unicode','text','','café e\u0301 中文 👩‍💻 🚀'),
                ('emoji32','text','','🚀'*32),
@@ -168,8 +172,12 @@ def main():
                                 'round':rnd+1,'trial':trial-1,'warmup':trial<2,'success':result.get('ok',False),
                                 'api_ms':result.get('api_ms',0)/count,'calls_per_sample':count})
                 driver.close();driver=None
-            for backend in (['rusty-robot','xcap'] if rnd%2==0 else ['xcap','rusty-robot']):
-                driver=Process([BINARY,backend],out/f'{rnd}-{backend}-capture.stderr.log')
+            capture_order=['rusty-robot','xcap','rusty-robot-before'] if args.baseline else ['rusty-robot','xcap']
+            capture_order=capture_order[rnd%len(capture_order):]+capture_order[:rnd%len(capture_order)]
+            for backend in capture_order:
+                executable=args.baseline if backend=='rusty-robot-before' else BINARY
+                api_backend='rusty-robot' if backend=='rusty-robot-before' else backend
+                driver=Process([executable,api_backend],out/f'{rnd}-{backend}-capture.stderr.log')
                 if not driver.ready['capture_permission']: raise RuntimeError('Screen Recording permission unavailable')
                 display=driver.ready['display']; patch=geometry['patch']
                 px=patch['x']+patch['width']//2; py=patch['y']+patch['height']//2

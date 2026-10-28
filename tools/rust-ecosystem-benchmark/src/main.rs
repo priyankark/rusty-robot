@@ -26,6 +26,28 @@ impl Driver {
             Robot.set_mouse_delay(delay)?;
             return Ok(json!({"ok":true}));
         }
+        if op == "capture_check" {
+            let b = Robot.capture(if v["full"].as_bool().unwrap_or(false) {
+                None
+            } else {
+                Some(Rect {
+                    x,
+                    y,
+                    width: v["width"].as_u64().ok_or("width required")? as usize,
+                    height: v["height"].as_u64().ok_or("height required")? as usize,
+                })
+            })?;
+            let mut probes = Vec::new();
+            for p in v["probes"].as_array().ok_or("probes required")? {
+                let px = p[0].as_u64().ok_or("probe x")? as usize;
+                let py = p[1].as_u64().ok_or("probe y")? as usize;
+                let color = b.color_at(px.try_into()?, py.try_into()?)?;
+                probes.push(json!({"rgb":color,"alpha":b.image[py*b.byte_width+px*4+3]}));
+            }
+            return Ok(
+                json!({"ok":true,"width":b.width,"height":b.height,"screen_x":b.screen_x,"screen_y":b.screen_y,"scale_x":b.scale_x,"scale_y":b.scale_y,"probes":probes}),
+            );
+        }
         let start = Instant::now();
         let mut detail = json!({});
         if op == "capture" {
