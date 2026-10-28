@@ -1,5 +1,22 @@
 # Validation record
 
+## Registry publication follow-up — 2026-10-27, evening
+
+`@priyankark/rusty-robot@0.1.2` and `agentum@2.2.0` are now public on npm,
+with their `latest` tags set to those versions. Fresh registry installations
+with install scripts disabled passed native PNG/JPEG processing, invalid-image
+rejection, and a real Agentum terminal command through output, exit and cleanup.
+The CLI reports 2.2.0. Registry integrity hashes match the tested release archives.
+[Agentum 2.2.0 on GitHub](https://github.com/priyankark/agentum-cli/releases/tag/v2.2.0)
+is published; its downloaded archive is byte-identical to the six-platform CI artifact.
+These results resolve the npm publication gaps recorded in the afternoon below.
+
+AirCodum 0.5.0 remains in [PR #33](https://github.com/priyankark/AirCodum/pull/33),
+with all checks passing and automatic merge enabled after its required independent
+approval. The running phone server was preserved; loading the new Codex response
+parser still requires its restart. The desktop focus and concurrent macOS capture
+limitations below remain unresolved by publication.
+
 ## New-user dogfood — 2026-10-27, afternoon
 
 Tested on macOS 27 / Apple Silicon with an active 1920×1080 desktop, granted
