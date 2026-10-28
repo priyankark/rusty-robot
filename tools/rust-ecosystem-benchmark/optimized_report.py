@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""README results derived from the paired six-round capture experiment."""
+"""Benchmark results derived from the paired six-round capture experiment."""
 import argparse
 import json
 import statistics
@@ -25,7 +25,7 @@ def generate():
     assert q['passed'] and len(q['records'])==14 and q['cursor_test'].startswith('passed:')
     assert q['binary_sha256']==manifest['binary_sha256']
     by={(r['backend'],r['case']):r for r in summary}
-    text='''### Current capture results — faster full-screen automation
+    text='''### Repeated captures
 
 **The optimized Rusty Robot beats XCap on repeated full-screen captures on this
 Mac. XCap still wins small-region latency.** This is **unreleased source
@@ -34,7 +34,7 @@ Mac. XCap still wins small-region latency.** This is **unreleased source
 Standalone API comparison on **Apple M6, macOS 27.0, Rust 1.99.1**, against
 **XCap 0.9.8**, measured 2026-10-28. No application integrations, network transport,
 video encoding, or cached screenshot frames are involved. This is one host,
-not a cross-platform ranking. [Enigo + XCap selection and initial baseline](#initial-rust-ecosystem-baseline--before-capture-optimization).
+not a cross-platform ranking. [Enigo + XCap selection and initial baseline](#historical-input-and-capture-baseline).
 
 Each result is an owned CPU RGB buffer at the same requested logical dimensions;
 XCap's native 2× image is center-sampled down to match. Rusty Robot also converts
@@ -96,7 +96,7 @@ metadata remain in place. No deprecated capture API was introduced.
 
 **Quality verification:** the measured red/green fixture matched expected sRGB
 within ±3/channel for 270/270 optimized captures and 270/270 previous captures;
-XCap returned display-space colors outside that tolerance. A separate 115-capture
+XCap returned display-space colors outside that tolerance (0/270 matching the sRGB check). All 270 were valid, fresh captures; this is a color-space difference, not a capture failure. A separate 115-capture
 check covers 12 palette colors, a one-logical-pixel checkerboard, opaque tiny
 captures, display corners, and 900 pixels under the pointer. Full-display and
 tiny-region captures agree exactly at the checked fixture points. The broader
@@ -143,14 +143,44 @@ The exact binaries measured here are identified in the manifest.
 '''
     return START+'\n'+text+'\n'+END
 
+def readme_summary():
+    rows=json.loads((DIR/'summary.json').read_text())
+    by={(r['backend'],r['case']):r for r in rows}
+    rust=by['rusty-robot','full']['normalized_ms']['median']
+    xcap=by['xcap','full']['normalized_ms']['median']
+    return f"""<!-- benchmark-summary:start -->
+On one Apple M6 Mac, the unreleased capture implementation returns a full-screen
+RGB image in **{rust:.2f} ms versus XCap's {xcap:.2f} ms ({xcap/rust:.2f}× faster)**. XCap remains faster
+for small regions. Output dimensions match; color-space processing differs.
+These results do not describe the published 0.1.2 binaries or other platforms.
+
+See [benchmark.md](benchmark.md) for metric explanations, results, quality checks,
+RobotJS comparisons, raw data, and reproduction steps.
+<!-- benchmark-summary:end -->"""
+
+
+def replace_block(source, start, end, block):
+    if source.count(start)!=1 or source.count(end)!=1:
+        raise SystemExit(f'Expected exactly one report section: {start}')
+    a=source.index(start);b=source.index(end,a)+len(end)
+    return source[:a]+block+source[b:]
+
+
 def main():
     parser=argparse.ArgumentParser();parser.add_argument('--check',action='store_true');args=parser.parse_args()
-    p=ROOT/'README.md';s=p.read_text();block=generate()
-    if START in s:
-        a=s.index(START);b=s.index(END,a)+len(END);new=s[:a]+block+s[b:]
-    else:new=s.replace('## Measured performance\n','## Measured performance\n\n'+block+'\n',1)
-    if args.check:
-        if new!=s:raise SystemExit('Optimized README drift; run optimized_report.py')
-        print('Optimized README matches paired capture and quality evidence')
-    else:p.write_text(new)
+    # Validate the raw evidence before updating either document.
+    block=generate()
+    documents=[(ROOT/'benchmark.md',START,END,block),
+               (ROOT/'README.md','<!-- benchmark-summary:start -->',
+                '<!-- benchmark-summary:end -->',readme_summary())]
+    for path,start,end,block in documents:
+        source=path.read_text()
+        updated=replace_block(source,start,end,block)
+        if args.check:
+            if updated!=source:
+                raise SystemExit(f'{path.name} drift; run optimized_report.py')
+        else:
+            path.write_text(updated)
+    print('Benchmark report and README summary match paired capture and quality evidence')
+
 if __name__=='__main__':main()

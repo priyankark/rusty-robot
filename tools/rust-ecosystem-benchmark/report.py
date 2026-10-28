@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Regenerate the dated standalone Rust comparison block in the root README."""
+"""Regenerate the dated standalone Rust comparison block in the root benchmark report."""
 import argparse
 import json
 from pathlib import Path
@@ -39,7 +39,7 @@ integrations, JavaScript bridges, network transport, or video encoding.
 Rusty Robot is source revision `457a095` (package version 0.1.2); competitor
 versions and transitive dependencies are pinned in the benchmark Cargo.lock.
 
-#### Screenshots: XCap is faster on this Mac
+#### Historical screenshots: before the optimization
 
 All times below are milliseconds; **lower is better**. Each cell is **median / p95**.
 “Same-size RGB” includes converting each result to packed RGB at the requested
@@ -77,9 +77,9 @@ without an attached color profile; Rusty Robot explicitly requests sRGB. No ICC
 conversion cost is included for XCap, so this is **not an equal-color-fidelity
 speed comparison**. That matters for automation using exact RGB matches.
 
-Rusty Robot's small-region cost is a known limitation: its macOS backend captures
+The previous Rusty Robot implementation captured
 the full display before cropping to avoid partially transparent tiny captures.
-XCap uses a direct region capture. This benchmark does not change either algorithm.
+XCap uses a direct region capture. The current capture implementation above removes this full-display capture cost on macOS 15.2+.
 
 #### Keyboard and mouse: pilot only; full timing run pending
 
@@ -147,14 +147,14 @@ python3 tools/rust-ecosystem-benchmark/report.py --check
 
 def main():
     p=argparse.ArgumentParser();p.add_argument('--check',action='store_true');args=p.parse_args()
-    readme=ROOT/'README.md';s=readme.read_text();block=generate()
-    if START in s:
+    report=ROOT/'benchmark.md';s=report.read_text();block=generate()
+    if s.count(START)==1 and s.count(END)==1:
         a=s.index(START);b=s.index(END,a)+len(END)
         updated=s[:a]+block+s[b:]
-    else: updated=s.replace('## For agents',block+'\n\n## For agents')
+    else: raise SystemExit('Missing benchmark report markers')
     if args.check:
-        if updated!=s: raise SystemExit('README benchmark drift; run report.py')
-        print('README Rust benchmark matches raw evidence')
-    else: readme.write_text(updated)
+        if updated!=s: raise SystemExit('Benchmark report drift; run report.py')
+        print('Historical Rust benchmark report matches raw evidence')
+    else: report.write_text(updated)
 
 if __name__=='__main__': main()
