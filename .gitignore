@@ -11,3 +11,5 @@ __pycache__/
 /packages/node/LICENSE.md
 /packages/node/NOTICE.md
 /packages/node/*.tgz
+
+/tools/rust-ecosystem-benchmark/target/

@@ -1,0 +1,30 @@
+{
+  "enigo": {
+    "max_stable_version": "0.6.1",
+    "downloads": 3788440,
+    "recent_downloads": 1692428,
+    "updated_at": "2025-08-28T17:31:10.288974Z",
+    "repository": "https://github.com/enigo-rs/enigo"
+  },
+  "xcap": {
+    "max_stable_version": "0.9.8",
+    "downloads": 2622727,
+    "recent_downloads": 1319932,
+    "updated_at": "2026-08-01T13:53:21.406838Z",
+    "repository": "https://github.com/nashaofu/xcap.git"
+  },
+  "autopilot": {
+    "max_stable_version": "0.4.1",
+    "downloads": 82823,
+    "recent_downloads": 5086,
+    "updated_at": "2025-04-02T00:48:01.812410Z",
+    "repository": "https://github.com/autopilot-rs/autopilot-rs"
+  },
+  "rdev": {
+    "max_stable_version": "0.5.3",
+    "downloads": 851394,
+    "recent_downloads": 211730,
+    "updated_at": "2023-06-26T09:20:11.289928Z",
+    "repository": "https://github.com/Narsil/rdev"
+  }
+}

@@ -1,0 +1,13 @@
+[package]
+name = "rust-ecosystem-benchmark"
+version = "0.1.0"
+edition = "2024"
+publish = false
+
+[workspace]
+
+[dependencies]
+rusty-robot-desktop = { path = "../.." }
+enigo = "=0.6.1"
+xcap = "=0.9.8"
+serde_json = "1"

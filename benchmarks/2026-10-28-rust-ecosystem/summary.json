@@ -1,0 +1,182 @@
+[
+  {
+    "category": "capture",
+    "backend": "rusty-robot",
+    "profile": "",
+    "case": "full",
+    "successes": 45,
+    "attempts": 45,
+    "api_ms": {
+      "median": 46.555625000000006,
+      "p95": 51.251917,
+      "round_medians": [
+        33.556917,
+        48.266625,
+        46.925166
+      ],
+      "min_round_median": 33.556917,
+      "max_round_median": 48.266625
+    },
+    "normalized_ms": {
+      "median": 47.839542,
+      "p95": 52.539834,
+      "round_medians": [
+        34.976708,
+        49.763209,
+        48.208625
+      ],
+      "min_round_median": 34.976708,
+      "max_round_median": 49.763209
+    }
+  },
+  {
+    "category": "capture",
+    "backend": "rusty-robot",
+    "profile": "",
+    "case": "region100",
+    "successes": 45,
+    "attempts": 45,
+    "api_ms": {
+      "median": 43.526958,
+      "p95": 47.77775,
+      "round_medians": [
+        29.778667000000002,
+        46.411417,
+        43.956959
+      ],
+      "min_round_median": 29.778667000000002,
+      "max_round_median": 46.411417
+    },
+    "normalized_ms": {
+      "median": 43.536417,
+      "p95": 47.787499999999994,
+      "round_medians": [
+        29.788167,
+        46.421542,
+        43.966209
+      ],
+      "min_round_median": 29.788167,
+      "max_round_median": 46.421542
+    }
+  },
+  {
+    "category": "capture",
+    "backend": "rusty-robot",
+    "profile": "",
+    "case": "pixel",
+    "successes": 45,
+    "attempts": 45,
+    "api_ms": {
+      "median": 43.08195799999999,
+      "p95": 46.716458,
+      "round_medians": [
+        29.973542,
+        44.183333,
+        43.376959
+      ],
+      "min_round_median": 29.973542,
+      "max_round_median": 44.183333
+    },
+    "normalized_ms": {
+      "median": 43.082083,
+      "p95": 46.716666,
+      "round_medians": [
+        29.973875,
+        44.183542,
+        43.377292
+      ],
+      "min_round_median": 29.973875,
+      "max_round_median": 44.183542
+    }
+  },
+  {
+    "category": "capture",
+    "backend": "xcap",
+    "profile": "",
+    "case": "full",
+    "successes": 45,
+    "attempts": 45,
+    "api_ms": {
+      "median": 25.486375,
+      "p95": 29.468958,
+      "round_medians": [
+        25.489,
+        25.984040999999998,
+        22.535625
+      ],
+      "min_round_median": 22.535625,
+      "max_round_median": 25.984040999999998
+    },
+    "normalized_ms": {
+      "median": 26.659375,
+      "p95": 30.70225,
+      "round_medians": [
+        26.664,
+        27.241416,
+        23.702042
+      ],
+      "min_round_median": 23.702042,
+      "max_round_median": 27.241416
+    }
+  },
+  {
+    "category": "capture",
+    "backend": "xcap",
+    "profile": "",
+    "case": "region100",
+    "successes": 45,
+    "attempts": 45,
+    "api_ms": {
+      "median": 8.232958,
+      "p95": 9.527917,
+      "round_medians": [
+        8.145207999999998,
+        8.6915,
+        7.914041
+      ],
+      "min_round_median": 7.914041,
+      "max_round_median": 8.6915
+    },
+    "normalized_ms": {
+      "median": 8.238624999999999,
+      "p95": 9.535125,
+      "round_medians": [
+        8.150917,
+        8.697208999999999,
+        7.919333000000001
+      ],
+      "min_round_median": 7.919333000000001,
+      "max_round_median": 8.697208999999999
+    }
+  },
+  {
+    "category": "capture",
+    "backend": "xcap",
+    "profile": "",
+    "case": "pixel",
+    "successes": 45,
+    "attempts": 45,
+    "api_ms": {
+      "median": 8.2345,
+      "p95": 10.142999999999999,
+      "round_medians": [
+        8.46125,
+        8.174042,
+        8.2345
+      ],
+      "min_round_median": 8.174042,
+      "max_round_median": 8.46125
+    },
+    "normalized_ms": {
+      "median": 8.23475,
+      "p95": 10.143209,
+      "round_medians": [
+        8.461416,
+        8.1745,
+        8.23475
+      ],
+      "min_round_median": 8.1745,
+      "max_round_median": 8.461416
+    }
+  }
+]

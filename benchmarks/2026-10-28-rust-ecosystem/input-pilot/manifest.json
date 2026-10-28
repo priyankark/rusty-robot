@@ -1,0 +1,30 @@
+{
+  "started_utc": "2026-10-28T14:40:00.508029+00:00",
+  "source_commit": "457a0955e991e527c6067a8e1165716911d1b55c",
+  "rustc": "rustc 1.99.1 (58cf8f9c3 2026-10-13)\nbinary: rustc\ncommit-hash: 58cf8f9c35b355199727627d07ae34a4e2846d67\ncommit-date: 2026-10-13\nhost: aarch64-apple-darwin\nrelease: 1.99.1\nLLVM version: 23.1.1\n",
+  "os": "ProductName:\t\tmacOS\nProductVersion:\t\t27.0\nBuildVersion:\t\t26A425\n",
+  "arch": "arm64",
+  "cpu": "Apple M6",
+  "memory_bytes": 34359738368,
+  "versions": {
+    "rusty-robot-desktop": "0.1.2 source at source_commit",
+    "enigo": "0.6.1",
+    "xcap": "0.9.8"
+  },
+  "rounds": 1,
+  "trials": 2,
+  "warmup_trials": 2,
+  "poll_interval_ms": 2,
+  "timeout_ms": 750,
+  "stability_check_ms": 20,
+  "binary_sha256": "1aeed44ba27d2b1b58985a66f0318647149b24a57d29d84544d3a2f6a3823917",
+  "cargo_lock_sha256": "3c69fc7476f681af3c2cd347f9a029673540d36cb859a0e5dc1c1e25a2400369",
+  "background": "Existing desktop processes left running; no other benchmark runs concurrently.",
+  "display": {
+    "height": 1080,
+    "width": 1920,
+    "x": 0,
+    "y": 0
+  },
+  "completed_utc": "2026-10-28T14:40:15.963078+00:00"
+}
