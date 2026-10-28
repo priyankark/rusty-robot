@@ -73,6 +73,116 @@ retains per-character intervals. This is based on native delivery testing.
 
 ## Measured performance
 
+<!-- optimized-capture:start -->
+### Current capture results — faster full-screen automation
+
+**The optimized Rusty Robot beats XCap on repeated full-screen captures on this
+Mac. XCap still wins small-region latency.** This is **unreleased source
+`1535dc2`**, not the existing crates.io/npm 0.1.2 binaries.
+
+Standalone API comparison on **Apple M6, macOS 27.0, Rust 1.99.1**, against
+**XCap 0.9.8**, measured 2026-10-28. No application integrations, network transport,
+video encoding, or cached screenshot frames are involved. This is one host,
+not a cross-platform ranking. [Enigo + XCap selection and initial baseline](#initial-rust-ecosystem-baseline--before-capture-optimization).
+
+Each result is an owned CPU RGB buffer at the same requested logical dimensions;
+XCap's native 2× image is center-sampled down to match. Rusty Robot also converts
+to **sRGB**; XCap's values remain in display color space. Thus dimensions match,
+but color processing does not: XCap's numbers exclude sRGB conversion.
+
+| Capture | Previous Rust (ms) | Optimized Rust (ms) | XCap (ms) | Improvement over previous Rust | Current comparison |
+| --- | ---: | ---: | ---: | ---: | --- |
+| Full display, 1920×1080 | 50.98 | 22.31 | 29.02 | 2.29× | Rust 1.30× faster |
+| 100×100 region | 44.20 | 9.57 | 8.22 | 4.62× | XCap 1.16× faster |
+| One pixel | 45.37 | 9.54 | 8.24 | 4.75× | XCap 1.16× faster |
+
+These are medians of **90 measured calls per case/library**, from six fresh
+processes each. Every library passed **270/270 measured freshness checks**.
+The previous binary is byte-identical to the original benchmark binary, verified
+by SHA-256. It was rerun alongside both contenders; improvements above are not
+calculated across different experiments.
+
+| Capture | Rust API median / p95 (ms) | XCap API median / p95 (ms) | Rust same-size RGB p95 (ms) | XCap same-size RGB p95 (ms) |
+| --- | ---: | ---: | ---: | ---: |
+| Full display | 21.02 / 23.75 | 27.87 / 30.14 | 25.03 | 31.30 |
+| 100×100 | 9.57 / 11.93 | 8.21 / 9.95 | 11.93 | 9.96 |
+| One pixel | 9.54 / 11.54 | 8.24 / 9.88 | 11.54 | 9.88 |
+
+| Capture | Rust round-median range, same-size RGB (ms) | XCap round-median range (ms) |
+| --- | ---: | ---: |
+| Full display | 19.94–23.39 | 25.02–29.60 |
+| 100×100 | 9.31–9.76 | 8.10–8.64 |
+| One pixel | 9.22–9.82 | 8.17–8.31 |
+
+**Cold calls matter too.** The first full-display API call in each fresh process
+includes first-use capture/render initialization, but excludes process startup
+and XCap monitor discovery. These six samples are separate from the warm table:
+
+| First API call | Median (ms) | Range (ms) |
+| --- | ---: | ---: |
+| Previous Rust | 106.70 | 96.19–110.68 |
+| Optimized Rust | 43.43 | 42.29–52.66 |
+| XCap | 42.82 | 36.20–49.53 |
+
+The cold Rust/XCap ranges overlap: there is no demonstrated cold-call win.
+
+**What changed:** on macOS 15.2+, screenshots use ScreenCaptureKit's direct region
+API. This avoids enumerating shareable windows and copying the full display for
+tiny requests. One thread-safe Core Image context reuses compiled rendering state
+for sRGB conversion and nearest-neighbor reduction; each call captures fresh pixels
+and waits for rendering to finish. Render errors propagate. The macOS 14 path,
+permission checks, logical-size API contract, cursor exclusion, and coordinate
+metadata remain in place. No deprecated capture API was introduced.
+
+**Quality verification:** the measured red/green fixture matched expected sRGB
+within ±3/channel for 270/270 optimized captures and 270/270 previous captures;
+XCap returned display-space colors outside that tolerance. A separate 115-capture
+check covers 12 palette colors, a one-logical-pixel checkerboard, opaque tiny
+captures, display corners, and 900 pixels under the pointer. Full-display and
+tiny-region captures agree exactly at the checked fixture points. The broader
+palette differs from the old implementation by at most 2/channel; some colors in
+both implementations differ from the fixture's nominal RGB by more than 3 because
+of display color conversion. This does **not** establish perfect color accuracy,
+HDR quality, or universal bit-for-bit equivalence with old captures.
+
+Five rendering regressions additionally check arbitrary sRGB pixels, orientation,
+exact center sampling, alpha, native-density rendering internally, invalid sizes,
+and concurrent calls. The public capture API still returns logical-resolution
+images on macOS; this update does not add a native-resolution public API.
+
+**Protocol:** two warmups, then 15 measured calls per case/process; six rounds
+rotate the three libraries through every execution position twice. Each capture
+follows a red/green fixture change and a 40 ms presentation wait outside timing.
+The timer ends at an owned CPU buffer. Cases are full display, 100×100, then one
+pixel; p95 is nearest rank. Round ranges describe variation, not confidence
+intervals. Existing desktop processes remain running. No energy-use, Linux,
+Windows, Intel Mac, secondary-display, or persistent-video-stream speed claim is
+made. Full input timing remains pending an idle desktop; the initial pilot below
+is not upgraded to a larger result by these capture tests.
+
+Reproduce from an unlocked macOS desktop with Screen Recording permission:
+
+```sh
+cargo build --release --locked --manifest-path tools/rust-ecosystem-benchmark/Cargo.toml
+python3 tools/rust-ecosystem-benchmark/run.py /tmp/capture-new --capture-only --rounds 6
+# Add --baseline /path/to/old/driver for the balanced three-library experiment.
+python3 tools/rust-ecosystem-benchmark/verify_capture.py /tmp/capture-quality.json
+# Optional --cursor also needs Accessibility; it moves/restores only the pointer.
+python3 tools/rust-ecosystem-benchmark/optimized_report.py --check
+```
+
+For the historical driver, build `tools/rust-ecosystem-benchmark` at `caff367`
+in a separate checkout; its core is the original `457a095` source.
+The exact binaries measured here are identified in the manifest.
+
+[Raw samples](benchmarks/2026-10-28-capture-optimized/samples.jsonl) ·
+[All summaries](benchmarks/2026-10-28-capture-optimized/summary.json) ·
+[Environment and hashes](benchmarks/2026-10-28-capture-optimized/manifest.json) ·
+[Live quality evidence](benchmarks/2026-10-28-capture-optimized/quality.json) ·
+[Scope and omissions](benchmarks/2026-10-28-capture-optimized/notes.json)
+
+<!-- optimized-capture:end -->
+
 The [RobotJS API report](https://priyankark.github.io/rusty-robot/api-benchmarks.html) compares **21 operations**
 with RobotJS 0.9.1's JavaScript API **and native addon**, on one Apple M6 Mac.
 Rust had lower medians in 17 cases, higher in four; this is not a statistical win
@@ -84,7 +194,10 @@ Rust/JavaScript allocation costs. Some round ranges overlap.
 [Methodology](docs/benchmarks.md) · [Optimization history](docs/optimization-results.md)
 
 <!-- rust-ecosystem-benchmark:start -->
-### Rust ecosystem comparison — 2026-10-28
+<details>
+<summary>Initial benchmark and input pilot (2026-10-28)</summary>
+
+### Initial Rust ecosystem baseline — before capture optimization
 
 **Enigo + XCap is our reference Rust stack, not a universal “best” claim.**
 [Enigo 0.6.1](https://github.com/enigo-rs/enigo) supplies keyboard/mouse input;
@@ -195,6 +308,7 @@ python3 tools/rust-ecosystem-benchmark/report.py --check
 [Environment and binary hashes](benchmarks/2026-10-28-rust-ecosystem/manifest.json) ·
 [Benchmark source and lockfile](tools/rust-ecosystem-benchmark/)
 
+</details>
 <!-- rust-ecosystem-benchmark:end -->
 
 ## For agents

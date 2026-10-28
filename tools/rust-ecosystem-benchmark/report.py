@@ -25,7 +25,7 @@ def generate():
     assert len(summary)==6
     assert all(r['attempts']==45 and r['successes']==45 for r in summary)
     by={(r['backend'],r['case']):r for r in summary}
-    text='''### Rust ecosystem comparison — 2026-10-28
+    text='''### Initial Rust ecosystem baseline — before capture optimization
 
 **Enigo + XCap is our reference Rust stack, not a universal “best” claim.**
 [Enigo 0.6.1](https://github.com/enigo-rs/enigo) supplies keyboard/mouse input;
@@ -143,7 +143,7 @@ python3 tools/rust-ecosystem-benchmark/report.py --check
 [Environment and binary hashes](benchmarks/2026-10-28-rust-ecosystem/manifest.json) ·
 [Benchmark source and lockfile](tools/rust-ecosystem-benchmark/)
 '''
-    return START+'\n'+text+'\n'+END
+    return START+'\n<details>\n<summary>Initial benchmark and input pilot (2026-10-28)</summary>\n\n'+text+'\n</details>\n'+END
 
 def main():
     p=argparse.ArgumentParser();p.add_argument('--check',action='store_true');args=p.parse_args()

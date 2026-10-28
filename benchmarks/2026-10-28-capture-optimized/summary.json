@@ -1,0 +1,326 @@
+[
+  {
+    "category": "capture",
+    "backend": "rusty-robot",
+    "profile": "",
+    "case": "full",
+    "successes": 90,
+    "attempts": 90,
+    "api_ms": {
+      "median": 21.023916999999997,
+      "p95": 23.753708,
+      "round_medians": [
+        21.607833,
+        19.549291999999998,
+        18.671166,
+        22.108084,
+        19.298667,
+        20.199209
+      ],
+      "min_round_median": 18.671166,
+      "max_round_median": 22.108084
+    },
+    "normalized_ms": {
+      "median": 22.3055625,
+      "p95": 25.025167,
+      "round_medians": [
+        22.864917,
+        20.8015,
+        19.942083,
+        23.387,
+        20.598583,
+        21.46825
+      ],
+      "min_round_median": 19.942083,
+      "max_round_median": 23.387
+    }
+  },
+  {
+    "category": "capture",
+    "backend": "rusty-robot",
+    "profile": "",
+    "case": "region100",
+    "successes": 90,
+    "attempts": 90,
+    "api_ms": {
+      "median": 9.5661875,
+      "p95": 11.927416999999998,
+      "round_medians": [
+        9.608375,
+        9.715625000000001,
+        9.749083,
+        9.319916,
+        9.306292000000001,
+        9.561958
+      ],
+      "min_round_median": 9.306292000000001,
+      "max_round_median": 9.749083
+    },
+    "normalized_ms": {
+      "median": 9.573646,
+      "p95": 11.93475,
+      "round_medians": [
+        9.615208,
+        9.722875,
+        9.756083,
+        9.326832999999999,
+        9.313292,
+        9.569792000000001
+      ],
+      "min_round_median": 9.313292,
+      "max_round_median": 9.756083
+    }
+  },
+  {
+    "category": "capture",
+    "backend": "rusty-robot",
+    "profile": "",
+    "case": "pixel",
+    "successes": 90,
+    "attempts": 90,
+    "api_ms": {
+      "median": 9.540813,
+      "p95": 11.535958,
+      "round_medians": [
+        9.394082999999998,
+        9.611792,
+        9.8245,
+        9.495583,
+        9.21725,
+        9.456917
+      ],
+      "min_round_median": 9.21725,
+      "max_round_median": 9.8245
+    },
+    "normalized_ms": {
+      "median": 9.541167,
+      "p95": 11.536083000000001,
+      "round_medians": [
+        9.39425,
+        9.612167,
+        9.824667,
+        9.495708,
+        9.217540999999999,
+        9.457084
+      ],
+      "min_round_median": 9.217540999999999,
+      "max_round_median": 9.824667
+    }
+  },
+  {
+    "category": "capture",
+    "backend": "xcap",
+    "profile": "",
+    "case": "full",
+    "successes": 90,
+    "attempts": 90,
+    "api_ms": {
+      "median": 27.8692085,
+      "p95": 30.144042,
+      "round_medians": [
+        28.429208000000003,
+        23.846958,
+        27.914875,
+        27.910958,
+        28.223083,
+        27.924583
+      ],
+      "min_round_median": 23.846958,
+      "max_round_median": 28.429208000000003
+    },
+    "normalized_ms": {
+      "median": 29.0245835,
+      "p95": 31.298083999999996,
+      "round_medians": [
+        29.598416,
+        25.020542,
+        29.0895,
+        29.063665999999998,
+        29.376083,
+        29.070458000000002
+      ],
+      "min_round_median": 25.020542,
+      "max_round_median": 29.598416
+    }
+  },
+  {
+    "category": "capture",
+    "backend": "xcap",
+    "profile": "",
+    "case": "region100",
+    "successes": 90,
+    "attempts": 90,
+    "api_ms": {
+      "median": 8.214499499999999,
+      "p95": 9.95025,
+      "round_medians": [
+        8.094959000000001,
+        8.176041,
+        8.163709,
+        8.381666,
+        8.633000000000001,
+        8.255125
+      ],
+      "min_round_median": 8.094959000000001,
+      "max_round_median": 8.633000000000001
+    },
+    "normalized_ms": {
+      "median": 8.219854,
+      "p95": 9.956958,
+      "round_medians": [
+        8.100249999999999,
+        8.181541000000001,
+        8.169042,
+        8.387458,
+        8.63875,
+        8.260667
+      ],
+      "min_round_median": 8.100249999999999,
+      "max_round_median": 8.63875
+    }
+  },
+  {
+    "category": "capture",
+    "backend": "xcap",
+    "profile": "",
+    "case": "pixel",
+    "successes": 90,
+    "attempts": 90,
+    "api_ms": {
+      "median": 8.242646,
+      "p95": 9.877749999999999,
+      "round_medians": [
+        8.166708,
+        8.22775,
+        8.190125,
+        8.240167,
+        8.29175,
+        8.307500000000001
+      ],
+      "min_round_median": 8.166708,
+      "max_round_median": 8.307500000000001
+    },
+    "normalized_ms": {
+      "median": 8.243020999999999,
+      "p95": 9.878,
+      "round_medians": [
+        8.167041999999999,
+        8.228124999999999,
+        8.190334,
+        8.240542,
+        8.292041,
+        8.307708
+      ],
+      "min_round_median": 8.167041999999999,
+      "max_round_median": 8.307708
+    }
+  },
+  {
+    "category": "capture",
+    "backend": "rusty-robot-before",
+    "profile": "",
+    "case": "full",
+    "successes": 90,
+    "attempts": 90,
+    "api_ms": {
+      "median": 49.6165415,
+      "p95": 54.946083,
+      "round_medians": [
+        46.472709,
+        50.857416,
+        50.334458,
+        47.223208,
+        52.859417,
+        50.033708000000004
+      ],
+      "min_round_median": 46.472709,
+      "max_round_median": 52.859417
+    },
+    "normalized_ms": {
+      "median": 50.982958499999995,
+      "p95": 56.496833,
+      "round_medians": [
+        47.756292,
+        52.287334,
+        51.766625,
+        48.596124999999994,
+        54.155125,
+        51.320791
+      ],
+      "min_round_median": 47.756292,
+      "max_round_median": 54.155125
+    }
+  },
+  {
+    "category": "capture",
+    "backend": "rusty-robot-before",
+    "profile": "",
+    "case": "region100",
+    "successes": 90,
+    "attempts": 90,
+    "api_ms": {
+      "median": 44.188312499999995,
+      "p95": 48.8795,
+      "round_medians": [
+        41.135625000000005,
+        47.324042,
+        47.086166,
+        42.969542,
+        47.338375,
+        43.859
+      ],
+      "min_round_median": 41.135625000000005,
+      "max_round_median": 47.338375
+    },
+    "normalized_ms": {
+      "median": 44.197917000000004,
+      "p95": 48.890917,
+      "round_medians": [
+        41.14491700000001,
+        47.333332999999996,
+        47.095458,
+        42.978750000000005,
+        47.34775,
+        43.868583
+      ],
+      "min_round_median": 41.14491700000001,
+      "max_round_median": 47.34775
+    }
+  },
+  {
+    "category": "capture",
+    "backend": "rusty-robot-before",
+    "profile": "",
+    "case": "pixel",
+    "successes": 90,
+    "attempts": 90,
+    "api_ms": {
+      "median": 45.367896,
+      "p95": 49.311292,
+      "round_medians": [
+        46.382208,
+        45.919374999999995,
+        47.586792,
+        43.37575,
+        46.415084,
+        43.529625
+      ],
+      "min_round_median": 43.37575,
+      "max_round_median": 47.586792
+    },
+    "normalized_ms": {
+      "median": 45.368125,
+      "p95": 49.311583,
+      "round_medians": [
+        46.382416,
+        45.919708,
+        47.586999999999996,
+        43.376042,
+        46.415375000000004,
+        43.53
+      ],
+      "min_round_median": 43.376042,
+      "max_round_median": 47.586999999999996
+    }
+  }
+]

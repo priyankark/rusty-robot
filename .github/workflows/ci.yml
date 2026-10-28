@@ -73,6 +73,8 @@ jobs:
         working-directory: rusty-robot
       - run: python3 tools/rust-ecosystem-benchmark/report.py --check
         working-directory: rusty-robot
+      - run: python3 tools/rust-ecosystem-benchmark/optimized_report.py --check
+        working-directory: rusty-robot
       - run: python3 scripts/consumer-report.py --check
         working-directory: rusty-robot
       - run: cargo package --locked
