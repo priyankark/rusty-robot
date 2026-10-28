@@ -52,6 +52,11 @@ impl Target {
         let mut command = Command::new(paths["electron"].as_str().unwrap());
         if cfg!(target_os = "linux") {
             command.args(["--no-sandbox", "--disable-setuid-sandbox"]);
+            // Xvfb has no hardware GPU. Avoid Chromium's failing GPU startup
+            // before fixture readiness; native X11 input/capture still runs.
+            if std::env::var_os("RUSTY_ROBOT_QA_SOFTWARE_RENDERING").is_some() {
+                command.arg("--disable-gpu");
+            }
         }
         let mut child = command
             .arg(paths["app"].as_str().unwrap())
