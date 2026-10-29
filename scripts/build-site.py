@@ -13,7 +13,11 @@ for name in ('optimization-results.md', 'benchmarks.md'):
     html = html.replace('href="' + name + '"', 'href="https://github.com/priyankark/rusty-robot/blob/main/docs/' + name + '"')
 (out / 'api-benchmarks.html').write_text(html)
 consumer = (root / 'docs/consumer-benchmarks.html').read_text().replace('../assets/robot.png', 'assets/robot.png')
-(out / 'index.html').write_text(consumer)
+(out / 'consumer-benchmarks.html').write_text(consumer)
+for source, destination in [('site-index.html', 'index.html'),
+                            ('building-rusty-robot.html', 'building-rusty-robot.html'),
+                            ('site.css', 'site.css')]:
+    shutil.copyfile(root / 'docs' / source, out / destination)
 (out / '.nojekyll').touch()
 shutil.copytree(root / 'assets', out / 'assets')
 shutil.copytree(root / 'benchmarks', out / 'benchmarks')
