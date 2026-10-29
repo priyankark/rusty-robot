@@ -54,12 +54,12 @@ commands and platform limitations.
 
 ## Platform details discovered during implementation
 
-macOS captures use ScreenCaptureKit with explicit sRGB/BGRA output at native
-Retina density. The Rust crop samples logical pixel centers without interpolation,
-matching RobotJS's logical-size captures and preserving exact UI colors. This
-avoids filtering artifacts from tiny native capture regions and a second color
-conversion. Capturing a small region currently captures its entire containing
-display first; optimizing that path is future work.
+As of 0.1.3, macOS 15.2+ captures the requested region directly with
+ScreenCaptureKit. A shared Core Image context renders tagged pixels into owned
+sRGB/BGRA output, sampling logical pixel centers without interpolation. The
+macOS 14 fallback captures the containing display before cropping. The public
+capture contract remains logical resolution on macOS. See the dated
+[benchmark and quality report](../benchmark.md) for measurements and limitations.
 
 The GUI fixture retains its pinned upstream version. Rust now waits for its
 marker center and corners to settle, terminates Electron gracefully, and focuses
@@ -69,8 +69,9 @@ negative origins. It is not a production backend or mock.
 
 Linux requires X11/XTest; native Wayland support is future work. Windows uses
 thread-scoped DPI awareness and GDI handles released through RAII. Linux and
-Windows have passed cross-target checks and linting; native GUI validation still
-requires those operating systems. CI is configured for headless tests on all three.
+Windows have passed native desktop CI as well as cross-target checks and linting.
+CI also runs headless contracts on all three platforms; physical multi-monitor
+and keyboard-layout coverage remain limited. See [validation](validation.md).
 
 No implementation or test result here constitutes complete RobotJS API parity
 outside the recorded test contract. Some untested platform-specific media and

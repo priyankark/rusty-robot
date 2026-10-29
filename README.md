@@ -17,6 +17,7 @@ Windows pass native desktop CI. Multi-monitor coverage differs by OS; see the da
 
 [API documentation](https://priyankark.github.io/rusty-robot/api/rusty_robot/) ·
 [Benchmarks](benchmark.md) ·
+[How we built it](https://priyankark.github.io/rusty-robot/building-rusty-robot.html) ·
 [Agent skill](skills/rusty-robot/SKILL.md) · [Contributing](CONTRIBUTING.md)
 
 ## Start here
