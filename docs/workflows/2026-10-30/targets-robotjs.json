@@ -1,0 +1,41 @@
+{
+  "mode": "targets",
+  "language": "robotjs",
+  "seconds": 5.0358999999761584,
+  "verified": false,
+  "state": {
+    "saved": [],
+    "hits": 0,
+    "misses": 0,
+    "errors": [],
+    "trusted": 0,
+    "active": true,
+    "finished": true,
+    "failure": "Failed to capture the requested screen rect.",
+    "seconds": 5.0358999999761584
+  },
+  "permissions": {
+    "accessibility": true,
+    "capture": true,
+    "displays": 1,
+    "cursor": {
+      "x": 398,
+      "y": 487
+    }
+  },
+  "actions": [
+    {
+      "command": {
+        "op": "find",
+        "x": 188,
+        "y": 376,
+        "width": 864,
+        "height": 410
+      },
+      "error": "Failed to capture the requested screen rect.",
+      "ms": 5018.763042000002
+    }
+  ],
+  "frames": 112,
+  "start_offset": 1.1010878330000013
+}

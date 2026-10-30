@@ -28,3 +28,30 @@ video SHA-256 hashes with `--check`.
 Cases: 1,000 dense color-result collections; 5,000 absent-color scans;
 1,500 late template matches; 5,000 BMP loads. BMP loads check a known pixel as
 well as dimensions. Output formats differ (RobotJS BGR24, Rust BGRA32).
+
+## Actual desktop workflows
+
+`workflow.html` is an owned interactive app. The `desktop` Rust binary and
+`desktop-robotjs.cjs` send native OS input; the task-board workflow also uses
+each library's real screen capture and color search. The harness uses DOM reads
+only for geometry of the owned window and field/result verification. Target
+positions are found from captured pixels. It stops on loss of focus.
+
+On an unlocked Mac with Accessibility and Screen Recording permission:
+
+```sh
+cargo build --release --locked --manifest-path tools/benchmark-demo/Cargo.toml --bin desktop
+node tools/benchmark-demo/workflow-record.cjs /path/to/robotjs /new/output/directory
+```
+
+Keep the owned app focused during the run. Each implementation runs sequentially;
+recordings are aligned at task start, played at 1x speed, and combined side by side.
+Both retain their default 10 ms input delays. UI verification, IPC, display
+presentation, and recording overhead are included. The completed pane freezes
+while the other finishes. No synthetic input is dispatched to fill the form.
+
+Published run: `docs/workflows/2026-10-30`. Eight complete customer records were
+verified for both implementations. Rust completed 48 screenshot/search/click
+cycles with no misses. RobotJS capture returned an error on this host; this is
+retained as a failed run, not converted into a speedup. `workflow-report.py`
+checks the outcomes and video hashes and builds the primary video gallery.

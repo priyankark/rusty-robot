@@ -1,0 +1,224 @@
+{
+  "date": "2026-10-30T04:18:13.470Z",
+  "cpu": "Apple M6",
+  "os": "27.0",
+  "node": "v24.22.0",
+  "rustc": "rustc 1.99.1 (58cf8f9c3 2026-10-13)",
+  "source_commit": "b7df8ace4e855a29571ba7727732055a071dbe2d",
+  "robotjs_commit": "0af6073e1f1bcff865ffe52801c71647829cdc1c",
+  "sha256": {
+    "rust": "d6680bee8741382af5523980ea3755f0def9bc3a183e2af777b8d7dc705c0d19",
+    "robotjs": "417bf9ba442737797efeaa046518699ebc02c5b840b2fae267b18ba651c71777",
+    "fixture": "b6733a7b0b0e4f8ed3d7bbde2ee312c488a3c57cf62ce9be29775042e6ee2d1f",
+    "recorder": "54a0d418756feee2407faac4f782307d90ee13eb33fe9c1fc6970591345dd9a7"
+  },
+  "method": "Sequential real desktop recordings, aligned at task start and combined side by side at 1x speed. Native input only; DOM reads verify delivery. Both retain default 10ms delays; text batching differs. Checks, IPC, rendering and recording are included. No isolated benchmark claim.",
+  "runs": [
+    {
+      "mode": "form",
+      "results": [
+        {
+          "mode": "form",
+          "language": "robotjs",
+          "seconds": 10.181300000071525,
+          "verified": true,
+          "state": {
+            "saved": [
+              [
+                "Avery Chen",
+                "avery.chen@example.test",
+                "Send the revised onboarding pack and confirm the Friday review."
+              ],
+              [
+                "Morgan Patel",
+                "morgan.patel@example.test",
+                "Prepare a demo workspace with the import and export examples."
+              ],
+              [
+                "Jordan Silva",
+                "jordan.silva@example.test",
+                "Follow up on the accessibility feedback from the design review."
+              ],
+              [
+                "Casey Brooks",
+                "casey.brooks@example.test",
+                "Share the monthly report with the operations contact next week."
+              ],
+              [
+                "Riley Khan",
+                "riley.khan@example.test",
+                "Schedule a product walkthrough after the new account is ready."
+              ],
+              [
+                "Taylor Reed",
+                "taylor.reed@example.test",
+                "Confirm the trial requirements and send the setup instructions."
+              ],
+              [
+                "Sam Rivera",
+                "sam.rivera@example.test",
+                "Collect the migration checklist before the next planning call."
+              ],
+              [
+                "Alex Kim",
+                "alex.kim@example.test",
+                "Arrange a feedback session with the customer support team."
+              ]
+            ],
+            "hits": 0,
+            "misses": 0,
+            "errors": [],
+            "trusted": 1579,
+            "active": true,
+            "finished": true,
+            "failure": null,
+            "seconds": 10.181300000071525
+          },
+          "permissions": {
+            "accessibility": true,
+            "capture": true,
+            "displays": 1,
+            "cursor": {
+              "x": 398,
+              "y": 487
+            }
+          },
+          "frames": 180,
+          "start_offset": 1.101488583
+        },
+        {
+          "mode": "form",
+          "language": "rust",
+          "seconds": 1.1971000000238419,
+          "verified": true,
+          "state": {
+            "saved": [
+              [
+                "Avery Chen",
+                "avery.chen@example.test",
+                "Send the revised onboarding pack and confirm the Friday review."
+              ],
+              [
+                "Morgan Patel",
+                "morgan.patel@example.test",
+                "Prepare a demo workspace with the import and export examples."
+              ],
+              [
+                "Jordan Silva",
+                "jordan.silva@example.test",
+                "Follow up on the accessibility feedback from the design review."
+              ],
+              [
+                "Casey Brooks",
+                "casey.brooks@example.test",
+                "Share the monthly report with the operations contact next week."
+              ],
+              [
+                "Riley Khan",
+                "riley.khan@example.test",
+                "Schedule a product walkthrough after the new account is ready."
+              ],
+              [
+                "Taylor Reed",
+                "taylor.reed@example.test",
+                "Confirm the trial requirements and send the setup instructions."
+              ],
+              [
+                "Sam Rivera",
+                "sam.rivera@example.test",
+                "Collect the migration checklist before the next planning call."
+              ],
+              [
+                "Alex Kim",
+                "alex.kim@example.test",
+                "Arrange a feedback session with the customer support team."
+              ]
+            ],
+            "hits": 0,
+            "misses": 0,
+            "errors": [],
+            "trusted": 151,
+            "active": true,
+            "finished": true,
+            "failure": null,
+            "seconds": 1.1971000000238419
+          },
+          "permissions": {
+            "accessibility": true,
+            "capture": true,
+            "cursor": {
+              "x": 398,
+              "y": 487
+            },
+            "displays": 1
+          },
+          "frames": 61,
+          "start_offset": 1.1008140419999999
+        }
+      ],
+      "video_sha256": "29408b2193c89044fe6d750ea80d998fdd7de2b7a1e1c8d2e04201af60bb837d"
+    },
+    {
+      "mode": "targets",
+      "results": [
+        {
+          "mode": "targets",
+          "language": "robotjs",
+          "seconds": 5.0358999999761584,
+          "verified": false,
+          "state": {
+            "saved": [],
+            "hits": 0,
+            "misses": 0,
+            "errors": [],
+            "trusted": 0,
+            "active": true,
+            "finished": true,
+            "failure": "Failed to capture the requested screen rect.",
+            "seconds": 5.0358999999761584
+          },
+          "permissions": {
+            "accessibility": true,
+            "capture": true,
+            "displays": 1,
+            "cursor": {
+              "x": 398,
+              "y": 487
+            }
+          },
+          "frames": 112,
+          "start_offset": 1.1010878330000013
+        },
+        {
+          "mode": "targets",
+          "language": "rust",
+          "seconds": 2.4534000000953675,
+          "verified": true,
+          "state": {
+            "saved": [],
+            "hits": 48,
+            "misses": 0,
+            "errors": [],
+            "trusted": 48,
+            "active": true,
+            "finished": true,
+            "failure": null,
+            "seconds": 2.4534000000953675
+          },
+          "permissions": {
+            "accessibility": true,
+            "capture": true,
+            "cursor": {
+              "x": 398,
+              "y": 487
+            },
+            "displays": 1
+          },
+          "frames": 77,
+          "start_offset": 1.1010038339999992
+        }
+      ],
+      "video_sha256": "53d19cd5321dbe5b294bc84023ac671fc21423e4130aa4b1219b017e569b13fc"
+    }
+  ]
+}
