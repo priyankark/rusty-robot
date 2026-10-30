@@ -69,6 +69,12 @@ jobs:
         working-directory: rusty-robot
       - run: python3 scripts/benchmark-report.py --check
         working-directory: rusty-robot
+      - run: python3 scripts/demo-report.py --check
+        working-directory: rusty-robot
+      - run: node --check docs/benchmark-explorer.js
+        working-directory: rusty-robot
+      - run: cargo check --manifest-path tools/benchmark-demo/Cargo.toml --locked
+        working-directory: rusty-robot
       - run: python3 -m unittest discover -s tools/rust-ecosystem-benchmark -p 'test_*.py'
         working-directory: rusty-robot
       - name: Verify historical benchmark report against raw samples
