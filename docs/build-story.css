@@ -1,0 +1,32 @@
+.build-story main{max-width:850px}
+.build-story article>section{margin-top:64px}
+.build-story h2{margin-top:8px;font-size:clamp(26px,4vw,34px)}
+.build-story h3{line-height:1.35;margin:32px 0 14px}
+.build-story .chapter{font-size:12px;font-weight:750;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);border-top:1px solid var(--line);padding-top:28px;margin-bottom:12px}
+.story-contents{margin:32px 0 48px;padding:20px 26px;background:var(--panel);border-radius:10px;font-size:16px}
+.story-contents ol{margin:0;padding-left:22px}
+.story-contents li{margin:8px 0;padding-left:6px}
+.build-story blockquote{margin:28px 0;padding:6px 0 6px 22px;border-left:3px solid var(--accent)}
+.build-story blockquote p{font-size:21px;line-height:1.5;margin:0 0 10px}
+.build-story cite{font-size:14px;font-style:normal;color:var(--muted)}
+.build-story .evidence{margin:24px 0;padding:16px 20px;border:1px solid var(--line);border-radius:8px;font-size:16px}
+.build-story summary{cursor:pointer;font-weight:650;line-height:1.5}
+.build-story details[open]>summary{margin-bottom:18px}
+.build-story details p:last-child{margin-bottom:0}
+.build-story .story-decisions{padding-left:24px}
+.build-story .story-decisions li{padding-left:5px;margin-bottom:22px}
+.story-figure{margin:28px 0}
+.story-figure .table-wrap{margin-bottom:12px}
+.story-figure figcaption,.video-guide{font-size:15px;color:var(--muted)}
+.build-story td,.build-story th{white-space:normal}
+.build-story #workloads>section{margin-top:38px;padding-top:8px;border-top:1px solid var(--line)}
+.build-story .workload-result{margin-bottom:8px;font-size:17px}
+.workload-result strong{color:var(--accent)}
+.build-story .demo-card{margin-top:24px;margin-bottom:26px}
+.build-story .demo-card .links{margin-top:14px}
+.build-story .demo-card figcaption{font-size:14px;color:var(--muted)}
+.challenge-list{margin:26px 0}
+.challenge-list dt{font-weight:700;border-top:1px solid var(--line);padding-top:18px}
+.challenge-list dd{margin:6px 0 22px;color:var(--muted)}
+.build-story [id]{scroll-margin-top:24px}
+@media(max-width:600px){.build-story table{font-size:13px}.build-story td,.build-story th{padding:10px 5px}.build-story .evidence{padding:14px}.build-story blockquote p{font-size:19px}.story-contents{padding:16px 20px}.build-story article>section{margin-top:42px}}
