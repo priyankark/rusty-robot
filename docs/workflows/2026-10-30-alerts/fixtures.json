@@ -1,0 +1,506 @@
+[
+  {
+    "name": "00",
+    "width": 1920,
+    "height": 1080,
+    "expected": [
+      [
+        49,
+        299,
+        100,
+        28
+      ]
+    ],
+    "sha256": "115c91ceff7e706b2bb411248c48aa08978b82018166ee50d6ddc5df68444aab"
+  },
+  {
+    "name": "01",
+    "width": 1920,
+    "height": 1080,
+    "expected": [],
+    "sha256": "6938bb27e160a0d038f3dfd447732efc329ca82ee8e260e6f1817d5f09454615"
+  },
+  {
+    "name": "02",
+    "width": 1920,
+    "height": 1080,
+    "expected": [],
+    "sha256": "d25ba5cd95be233f4a318e7c740e112ddff24b5211eb4069bba8011a6ca9e692"
+  },
+  {
+    "name": "03",
+    "width": 1920,
+    "height": 1080,
+    "expected": [],
+    "sha256": "a14a8869b4e7fbd055d4f4056b8da7e4c05ee294866e8303fe334f4b93b99309"
+  },
+  {
+    "name": "04",
+    "width": 1920,
+    "height": 1080,
+    "expected": [],
+    "sha256": "128f937a4d3652ff3b2d4dfc47c36104bb8cd1b7ea9d17d32f17e75196eed6ee"
+  },
+  {
+    "name": "05",
+    "width": 1920,
+    "height": 1080,
+    "expected": [
+      [
+        283,
+        809,
+        100,
+        28
+      ]
+    ],
+    "sha256": "3dfe87666d2d21c1c857a730b6a9387bcd2607073ef89e96b1222a11a1cdb4e7"
+  },
+  {
+    "name": "06",
+    "width": 1920,
+    "height": 1080,
+    "expected": [],
+    "sha256": "9c7b5a4aafc37ff6fbac393deb7bb60f9e4157010558b4b9d057669e7d5c099b"
+  },
+  {
+    "name": "07",
+    "width": 1920,
+    "height": 1080,
+    "expected": [],
+    "sha256": "f56ff9aed9fecd826d06c333155345a0f63256782a10d7a9a01b418481fb8b82"
+  },
+  {
+    "name": "08",
+    "width": 1920,
+    "height": 1080,
+    "expected": [],
+    "sha256": "9714ab9d25d4936a6e15b263255a37df6020cb516fbb08676085303d2da0be38"
+  },
+  {
+    "name": "09",
+    "width": 1920,
+    "height": 1080,
+    "expected": [],
+    "sha256": "20d740b772af73c52e4dfeba21840e2553b7e57e7337823811fafb017432f858"
+  },
+  {
+    "name": "10",
+    "width": 1920,
+    "height": 1080,
+    "expected": [
+      [
+        517,
+        469,
+        100,
+        28
+      ]
+    ],
+    "sha256": "b8ad3430b0a8267d0621feb6aabde3660f2388f87a19aba00d8ae0d5ec3c0a7e"
+  },
+  {
+    "name": "11",
+    "width": 1920,
+    "height": 1080,
+    "expected": [],
+    "sha256": "f91f30ffa99f3442e5c77ac5365f01a46d9e5cae4510c8442715cfa8e251f12a"
+  },
+  {
+    "name": "12",
+    "width": 1920,
+    "height": 1080,
+    "expected": [],
+    "sha256": "6b9ce450822c25050d6661ac95f97fac1bde2e3fcd13dffd11f4349ef96d2515"
+  },
+  {
+    "name": "13",
+    "width": 1920,
+    "height": 1080,
+    "expected": [],
+    "sha256": "c28be667422028e9ea684b849fe22977bcc22da76a273fe8a40f950d36866482"
+  },
+  {
+    "name": "14",
+    "width": 1920,
+    "height": 1080,
+    "expected": [],
+    "sha256": "82eeeafa410834bca91984f998e78abb10ede098e37d1fa2cbd0d9c15fce366e"
+  },
+  {
+    "name": "15",
+    "width": 1920,
+    "height": 1080,
+    "expected": [
+      [
+        751,
+        979,
+        100,
+        28
+      ]
+    ],
+    "sha256": "6d77b2468ae4c9ef8e72dd665ab6fa6c6f0b9867264e5a7a04b37069246ebce0"
+  },
+  {
+    "name": "16",
+    "width": 1920,
+    "height": 1080,
+    "expected": [],
+    "sha256": "7ca8ba3f45a3b9645201c1ed44ccda88a54f08a7e012e3aac9419e9700cdf9f9"
+  },
+  {
+    "name": "17",
+    "width": 1920,
+    "height": 1080,
+    "expected": [],
+    "sha256": "5c20a348a846dcd3b5cff87f21ea7d9d605367c797e7aeebab91b8346ecbdbc0"
+  },
+  {
+    "name": "18",
+    "width": 1920,
+    "height": 1080,
+    "expected": [],
+    "sha256": "0efe5109cff879337037cc6fe9deb67b3555a376555952378811a0661a7c2918"
+  },
+  {
+    "name": "19",
+    "width": 1920,
+    "height": 1080,
+    "expected": [],
+    "sha256": "46d108316db2ddb50569e1cea0592dc3f3acabf3d7185a4a425bfac3a350951e"
+  },
+  {
+    "name": "20",
+    "width": 1920,
+    "height": 1080,
+    "expected": [
+      [
+        985,
+        639,
+        100,
+        28
+      ]
+    ],
+    "sha256": "461d4ef08ae928962cc9e807c73503878cd3007e3332f2d1a7781431c25bd1c6"
+  },
+  {
+    "name": "21",
+    "width": 1920,
+    "height": 1080,
+    "expected": [],
+    "sha256": "800ac690b89d82a5dac83288cb9d3054077e19df90294d607c24c7972cf36567"
+  },
+  {
+    "name": "22",
+    "width": 1920,
+    "height": 1080,
+    "expected": [],
+    "sha256": "16b4b8e82307bae1acd775453cb9f00b3fc16f2329bccfdfd9cabaff81d77eb6"
+  },
+  {
+    "name": "23",
+    "width": 1920,
+    "height": 1080,
+    "expected": [],
+    "sha256": "ce9fe835410826c228fa36b9584736572a2b85f2aab1e97c56400bb1bfb5189c"
+  },
+  {
+    "name": "24",
+    "width": 1920,
+    "height": 1080,
+    "expected": [],
+    "sha256": "2bc2ce06539e2b41fa868d44e1516b703f6d9b6ac032a1327747bb671bb3f69c"
+  },
+  {
+    "name": "25",
+    "width": 1920,
+    "height": 1080,
+    "expected": [
+      [
+        1219,
+        299,
+        100,
+        28
+      ]
+    ],
+    "sha256": "1fa6d983f575c73f3e381e872b51edc1bbd7fe427cbbc543c10dc4d1f3df1c9d"
+  },
+  {
+    "name": "26",
+    "width": 1920,
+    "height": 1080,
+    "expected": [],
+    "sha256": "f5ef45044eeed278eec6371e94e871f1aa73303785dd8a4215ebe0ff21792fe1"
+  },
+  {
+    "name": "27",
+    "width": 1920,
+    "height": 1080,
+    "expected": [],
+    "sha256": "06998b3ae7dc427a7d614773ba3ce21726b75f2269663ee5fb9466057e74b51b"
+  },
+  {
+    "name": "28",
+    "width": 1920,
+    "height": 1080,
+    "expected": [],
+    "sha256": "d61065cf9a95c9b23a0a95d64da02e0f229d280bbbaf0da11da2c5ca5a261d65"
+  },
+  {
+    "name": "29",
+    "width": 1920,
+    "height": 1080,
+    "expected": [],
+    "sha256": "403f59722bd97b24d3b627879973df86df0e4a9c53cef6568bf43cd24c58e18b"
+  },
+  {
+    "name": "30",
+    "width": 1920,
+    "height": 1080,
+    "expected": [
+      [
+        1453,
+        809,
+        100,
+        28
+      ]
+    ],
+    "sha256": "f48aab3bf57c1695b25e6d092c96bb9af5419aa434c04f61126eb5fc03d9e963"
+  },
+  {
+    "name": "31",
+    "width": 1920,
+    "height": 1080,
+    "expected": [],
+    "sha256": "ad9f60cc7f33f0cabe5a0c66ef7ee896128e6615ace30d100240dca8bf1afd6b"
+  },
+  {
+    "name": "32",
+    "width": 1920,
+    "height": 1080,
+    "expected": [],
+    "sha256": "990a82f94a2b390897161bc3a24d81a93e46943eb92c3c2266ab9410be37e618"
+  },
+  {
+    "name": "33",
+    "width": 1920,
+    "height": 1080,
+    "expected": [],
+    "sha256": "cf4a27ef85f61314c3bf13b7e9309b65a971b71b5a4e73a67ffb1aa160e97c55"
+  },
+  {
+    "name": "34",
+    "width": 1920,
+    "height": 1080,
+    "expected": [],
+    "sha256": "7f5bf8f4b473d4866b29462267870792f71b20e073ed54956f7a274b39f429d0"
+  },
+  {
+    "name": "35",
+    "width": 1920,
+    "height": 1080,
+    "expected": [
+      [
+        1687,
+        469,
+        100,
+        28
+      ]
+    ],
+    "sha256": "7e847a7c48faaeb857a1e8c8d197549e1b3c97360bd7854f75ccd4609f892e89"
+  },
+  {
+    "name": "36",
+    "width": 1920,
+    "height": 1080,
+    "expected": [],
+    "sha256": "0677b08fa9b8b0b073c05437aaba86780688f3de7c64b5b1c92beebf0a7b9da7"
+  },
+  {
+    "name": "37",
+    "width": 1920,
+    "height": 1080,
+    "expected": [],
+    "sha256": "f83d12e878cdc23ab59d7900cb9ccc922fe2fb8ea7e765a243d4492ecfd5e84b"
+  },
+  {
+    "name": "38",
+    "width": 1920,
+    "height": 1080,
+    "expected": [],
+    "sha256": "b400323ce5bc6276334ac5dbd72b7a31dd1def3f9fea41d7fcddb67d4101b793"
+  },
+  {
+    "name": "39",
+    "width": 1920,
+    "height": 1080,
+    "expected": [],
+    "sha256": "8f4d15ff55c3b8c9a71b28e627a9c5e1a17ff9a00aeba715278dbdc41923f98a"
+  },
+  {
+    "name": "40",
+    "width": 1920,
+    "height": 1080,
+    "expected": [
+      [
+        49,
+        299,
+        100,
+        28
+      ]
+    ],
+    "sha256": "d39823013d9afa6f9f3dec7de9fe26c05c4115a7e03ff5869c4efbbd8208e526"
+  },
+  {
+    "name": "41",
+    "width": 1920,
+    "height": 1080,
+    "expected": [],
+    "sha256": "ac2aa3bbbdd92338da0e985bee9a50d7b13b47a9e2f407498ddd7ebfa026b3f7"
+  },
+  {
+    "name": "42",
+    "width": 1920,
+    "height": 1080,
+    "expected": [],
+    "sha256": "0123bf0dd0034041106e09ff605ebb00e92721151bc8cf0405e84a4c7781bdad"
+  },
+  {
+    "name": "43",
+    "width": 1920,
+    "height": 1080,
+    "expected": [],
+    "sha256": "858f87ccb60522c31f0b5f085600497ef89acd78319b81c17632578e74223df4"
+  },
+  {
+    "name": "44",
+    "width": 1920,
+    "height": 1080,
+    "expected": [],
+    "sha256": "7f1e2338c037b56c2b60c5f7f8f7c5b31dbf3949fc2653d5bb13a66ebb966827"
+  },
+  {
+    "name": "45",
+    "width": 1920,
+    "height": 1080,
+    "expected": [
+      [
+        283,
+        809,
+        100,
+        28
+      ]
+    ],
+    "sha256": "3355645da3c303ff9ff049ec535799c01f6c46cea684160f9f16facb12c431fe"
+  },
+  {
+    "name": "46",
+    "width": 1920,
+    "height": 1080,
+    "expected": [],
+    "sha256": "887b094b12681eaed90bc23d362b01b9c7b69e878423f6cf7e74d1ff0c25251b"
+  },
+  {
+    "name": "47",
+    "width": 1920,
+    "height": 1080,
+    "expected": [],
+    "sha256": "0e9f2be23d308afdae5173d441685f5fe7a5ecb4e2153e1d44c64943f356abbd"
+  },
+  {
+    "name": "48",
+    "width": 1920,
+    "height": 1080,
+    "expected": [],
+    "sha256": "a2e2676ef31cfa0e1fc5601593c1b1976d7c5cf4d7540b955f3aad4cd87aff04"
+  },
+  {
+    "name": "49",
+    "width": 1920,
+    "height": 1080,
+    "expected": [],
+    "sha256": "c26f391dfd063c506b4fd509134c0398ce267d0e849a407827cc518fcefdbc01"
+  },
+  {
+    "name": "50",
+    "width": 1920,
+    "height": 1080,
+    "expected": [
+      [
+        517,
+        469,
+        100,
+        28
+      ]
+    ],
+    "sha256": "501f8807eff88f2b97c9354e026f24f87b3866e4583b8a02e3c81f47b867dc0a"
+  },
+  {
+    "name": "51",
+    "width": 1920,
+    "height": 1080,
+    "expected": [],
+    "sha256": "cf11acd8163400d2d31698ac7ac66c3f5ea8e47a04003d494ce4b111119662ef"
+  },
+  {
+    "name": "52",
+    "width": 1920,
+    "height": 1080,
+    "expected": [],
+    "sha256": "88f6d5f95c644d60854cb948f81e23dc2f37e3fa2aa41aae5fb708ed2c7bc6b1"
+  },
+  {
+    "name": "53",
+    "width": 1920,
+    "height": 1080,
+    "expected": [],
+    "sha256": "e8f0234d6d1eb25456b3f954d330fc4c3dbd8a8b6f5b1cb710eca8fd3a4b9348"
+  },
+  {
+    "name": "54",
+    "width": 1920,
+    "height": 1080,
+    "expected": [],
+    "sha256": "879ee992907ebb7564532f7655d5985bbf189383920ab500623e88770a4d3180"
+  },
+  {
+    "name": "55",
+    "width": 1920,
+    "height": 1080,
+    "expected": [
+      [
+        751,
+        979,
+        100,
+        28
+      ]
+    ],
+    "sha256": "c0fdb2563b44f7e56ccf98d4935dfb6019e2e87819bd204a0e92b16d6ce8712d"
+  },
+  {
+    "name": "56",
+    "width": 1920,
+    "height": 1080,
+    "expected": [],
+    "sha256": "dd0ab92566bccaed31d82a382101c80f37cdc300b7ae3c4d4910e4d16cd88d3e"
+  },
+  {
+    "name": "57",
+    "width": 1920,
+    "height": 1080,
+    "expected": [],
+    "sha256": "5e3d1d4d7445c6c7c215d7f402c025568c4d8a8e0b164e14d2b34f759870aadd"
+  },
+  {
+    "name": "58",
+    "width": 1920,
+    "height": 1080,
+    "expected": [],
+    "sha256": "82f0d0cdf3e724f9b40033925b9327aaebf26d9375e2e84952814deef9534d1a"
+  },
+  {
+    "name": "59",
+    "width": 1920,
+    "height": 1080,
+    "expected": [],
+    "sha256": "8c6719574f0d4e73c752c082b8f39eee757e6b3d74efe6cfe82f6c8f8bf58776"
+  }
+]

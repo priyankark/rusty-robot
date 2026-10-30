@@ -118,3 +118,50 @@ not every possible optimized JavaScript buffer-scanning implementation.
 The primary gallery leads with this measured Rust win and links the controlled
 typing comparison, where zero-keyboard-delay Node was faster and equal-rate
 text entry was tied. Earlier default-delay videos remain explicitly qualified.
+
+
+## More screenshot workloads: alerts and test heatmaps
+
+The main write-up embeds all three screenshot comparisons and both controlled
+native typing videos. `scripts/workload-report.py --check` verifies all 36
+measured screenshot batches, six video event streams, alternating order, exact
+expected answers, and corpus/video hashes before checking generated article text.
+It also checks the heatmap's raw pixel counts, before any division into test tiles.
+
+- `alerts`: 60 monitoring screenshots, 40 services each. Twelve have one failed
+  badge; 48 have none. Both public first-color APIs locate the exact red pixel,
+  then construct a known-size 100×28 rectangle. Expected geometry comes from
+  the fixture DOM. Search and result construction are timed.
+- `heatmap`: 60 screenshots with 10,800 tiles each. Both public color-count APIs
+  count exact green pixels. Each passing tile covers 70 pixels. Raw counts must
+  equal independently generated expectations ×70; conversion to test counts
+  happens after timing. These fixtures contain 547,560 passing checks.
+
+These cases return small results, unlike the original find-all-color workload.
+They use known synthetic layouts, not arbitrary UI recognition. All three use
+identical preloaded BGRA32 inputs, a complete verified warmup, six alternating
+trials per library, and no video recording during measurement. Each illustrative
+video is a separate pair of sequential runs; its timings include progress and
+recording overhead. Loading, decoding, and screen capture are outside the timer.
+
+Use the archived `screenshots.zip` in
+`docs/workflows/2026-10-30-alerts/` or `docs/workflows/2026-10-30-heatmap/` for exact
+inputs. Extract into an empty directory, decode every PNG with ffmpeg as in the
+previous section, and retain `fixtures.json`. The recorder verifies all raw BGRA
+hashes before starting. Chrome, ffmpeg, macOS, and the pinned RobotJS addon are
+required by this recording harness.
+
+```sh
+cargo build --release --locked --manifest-path tools/benchmark-demo/Cargo.toml --bin workloads
+node tools/benchmark-demo/workload-record.cjs alerts /path/to/robotjs /path/to/alerts-fixtures /new/alerts-results
+node tools/benchmark-demo/workload-record.cjs heatmap /path/to/robotjs /path/to/heatmap-fixtures /new/heatmap-results
+python3 scripts/workload-report.py --check
+```
+
+To generate new inputs instead, use `node tools/benchmark-demo/make-workload-fixtures.cjs
+/new/fixtures alerts` (or `heatmap`). Regenerated rendering may differ from the
+archived PNGs. Keep new measurements in new directories; never overwrite a
+published experiment. The article generator targets the checked-in evidence,
+not an arbitrary new run. The manifests retain source commits, binary/source
+hashes, environment, and each trial time. No library release is needed for
+these benchmark additions.

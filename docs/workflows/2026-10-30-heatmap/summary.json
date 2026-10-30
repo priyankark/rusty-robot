@@ -1,0 +1,18 @@
+{
+  "results": {
+    "robotjs": {
+      "median_ms": 111.926958,
+      "min_ms": 110.968333,
+      "max_ms": 112.36
+    },
+    "rust": {
+      "median_ms": 37.677499999999995,
+      "min_ms": 37.26483399999999,
+      "max_ms": 41.391791999999995
+    }
+  },
+  "ratio": 2.9706577665715614,
+  "screenshots": 60,
+  "targets": 547560,
+  "verified_runs": 12
+}

@@ -1,0 +1,761 @@
+{
+  "complete": {
+    "case": "alerts",
+    "raw_pixel_counts": [],
+    "results": [
+      [
+        [
+          49,
+          299,
+          100,
+          28
+        ]
+      ],
+      [],
+      [],
+      [],
+      [],
+      [
+        [
+          283,
+          809,
+          100,
+          28
+        ]
+      ],
+      [],
+      [],
+      [],
+      [],
+      [
+        [
+          517,
+          469,
+          100,
+          28
+        ]
+      ],
+      [],
+      [],
+      [],
+      [],
+      [
+        [
+          751,
+          979,
+          100,
+          28
+        ]
+      ],
+      [],
+      [],
+      [],
+      [],
+      [
+        [
+          985,
+          639,
+          100,
+          28
+        ]
+      ],
+      [],
+      [],
+      [],
+      [],
+      [
+        [
+          1219,
+          299,
+          100,
+          28
+        ]
+      ],
+      [],
+      [],
+      [],
+      [],
+      [
+        [
+          1453,
+          809,
+          100,
+          28
+        ]
+      ],
+      [],
+      [],
+      [],
+      [],
+      [
+        [
+          1687,
+          469,
+          100,
+          28
+        ]
+      ],
+      [],
+      [],
+      [],
+      [],
+      [
+        [
+          49,
+          299,
+          100,
+          28
+        ]
+      ],
+      [],
+      [],
+      [],
+      [],
+      [
+        [
+          283,
+          809,
+          100,
+          28
+        ]
+      ],
+      [],
+      [],
+      [],
+      [],
+      [
+        [
+          517,
+          469,
+          100,
+          28
+        ]
+      ],
+      [],
+      [],
+      [],
+      [],
+      [
+        [
+          751,
+          979,
+          100,
+          28
+        ]
+      ],
+      [],
+      [],
+      [],
+      []
+    ],
+    "screenshots": 60,
+    "seconds": 0.042684042,
+    "targets": 12,
+    "type": "complete",
+    "verified": true
+  },
+  "events": [
+    {
+      "type": "ready"
+    },
+    {
+      "index": 0,
+      "result": [
+        [
+          49,
+          299,
+          100,
+          28
+        ]
+      ],
+      "seconds": 0.000174459,
+      "type": "progress"
+    },
+    {
+      "index": 1,
+      "result": [],
+      "seconds": 0.000839209,
+      "type": "progress"
+    },
+    {
+      "index": 2,
+      "result": [],
+      "seconds": 0.001394417,
+      "type": "progress"
+    },
+    {
+      "index": 3,
+      "result": [],
+      "seconds": 0.001985709,
+      "type": "progress"
+    },
+    {
+      "index": 4,
+      "result": [],
+      "seconds": 0.002899209,
+      "type": "progress"
+    },
+    {
+      "index": 5,
+      "result": [
+        [
+          283,
+          809,
+          100,
+          28
+        ]
+      ],
+      "seconds": 0.00337025,
+      "type": "progress"
+    },
+    {
+      "index": 6,
+      "result": [],
+      "seconds": 0.004076209,
+      "type": "progress"
+    },
+    {
+      "index": 7,
+      "result": [],
+      "seconds": 0.004773167,
+      "type": "progress"
+    },
+    {
+      "index": 8,
+      "result": [],
+      "seconds": 0.005493167,
+      "type": "progress"
+    },
+    {
+      "index": 9,
+      "result": [],
+      "seconds": 0.006183709,
+      "type": "progress"
+    },
+    {
+      "index": 10,
+      "result": [
+        [
+          517,
+          469,
+          100,
+          28
+        ]
+      ],
+      "seconds": 0.006474125,
+      "type": "progress"
+    },
+    {
+      "index": 11,
+      "result": [],
+      "seconds": 0.007090417,
+      "type": "progress"
+    },
+    {
+      "index": 12,
+      "result": [],
+      "seconds": 0.007705584,
+      "type": "progress"
+    },
+    {
+      "index": 13,
+      "result": [],
+      "seconds": 0.008461375,
+      "type": "progress"
+    },
+    {
+      "index": 14,
+      "result": [],
+      "seconds": 0.009258792,
+      "type": "progress"
+    },
+    {
+      "index": 15,
+      "result": [
+        [
+          751,
+          979,
+          100,
+          28
+        ]
+      ],
+      "seconds": 0.009830542,
+      "type": "progress"
+    },
+    {
+      "index": 16,
+      "result": [],
+      "seconds": 0.010641209,
+      "type": "progress"
+    },
+    {
+      "index": 17,
+      "result": [],
+      "seconds": 0.011305459,
+      "type": "progress"
+    },
+    {
+      "index": 18,
+      "result": [],
+      "seconds": 0.011970542,
+      "type": "progress"
+    },
+    {
+      "index": 19,
+      "result": [],
+      "seconds": 0.012631334,
+      "type": "progress"
+    },
+    {
+      "index": 20,
+      "result": [
+        [
+          985,
+          639,
+          100,
+          28
+        ]
+      ],
+      "seconds": 0.013068584,
+      "type": "progress"
+    },
+    {
+      "index": 21,
+      "result": [],
+      "seconds": 0.013723,
+      "type": "progress"
+    },
+    {
+      "index": 22,
+      "result": [],
+      "seconds": 0.014360125,
+      "type": "progress"
+    },
+    {
+      "index": 23,
+      "result": [],
+      "seconds": 0.0149835,
+      "type": "progress"
+    },
+    {
+      "index": 24,
+      "result": [],
+      "seconds": 0.015644834,
+      "type": "progress"
+    },
+    {
+      "index": 25,
+      "result": [
+        [
+          1219,
+          299,
+          100,
+          28
+        ]
+      ],
+      "seconds": 0.015814959,
+      "type": "progress"
+    },
+    {
+      "index": 26,
+      "result": [],
+      "seconds": 0.016584417,
+      "type": "progress"
+    },
+    {
+      "index": 27,
+      "result": [],
+      "seconds": 0.017214792,
+      "type": "progress"
+    },
+    {
+      "index": 28,
+      "result": [],
+      "seconds": 0.017863,
+      "type": "progress"
+    },
+    {
+      "index": 29,
+      "result": [],
+      "seconds": 0.018565042,
+      "type": "progress"
+    },
+    {
+      "index": 30,
+      "result": [
+        [
+          1453,
+          809,
+          100,
+          28
+        ]
+      ],
+      "seconds": 0.019044834,
+      "type": "progress"
+    },
+    {
+      "index": 31,
+      "result": [],
+      "seconds": 0.019667875,
+      "type": "progress"
+    },
+    {
+      "index": 32,
+      "result": [],
+      "seconds": 0.020355084,
+      "type": "progress"
+    },
+    {
+      "index": 33,
+      "result": [],
+      "seconds": 0.021011375,
+      "type": "progress"
+    },
+    {
+      "index": 34,
+      "result": [],
+      "seconds": 0.021721959,
+      "type": "progress"
+    },
+    {
+      "index": 35,
+      "result": [
+        [
+          1687,
+          469,
+          100,
+          28
+        ]
+      ],
+      "seconds": 0.0220095,
+      "type": "progress"
+    },
+    {
+      "index": 36,
+      "result": [],
+      "seconds": 0.022767167,
+      "type": "progress"
+    },
+    {
+      "index": 37,
+      "result": [],
+      "seconds": 0.023430792,
+      "type": "progress"
+    },
+    {
+      "index": 38,
+      "result": [],
+      "seconds": 0.024165875,
+      "type": "progress"
+    },
+    {
+      "index": 39,
+      "result": [],
+      "seconds": 0.024721459,
+      "type": "progress"
+    },
+    {
+      "index": 40,
+      "result": [
+        [
+          49,
+          299,
+          100,
+          28
+        ]
+      ],
+      "seconds": 0.024905875,
+      "type": "progress"
+    },
+    {
+      "index": 41,
+      "result": [],
+      "seconds": 0.026076,
+      "type": "progress"
+    },
+    {
+      "index": 42,
+      "result": [],
+      "seconds": 0.02695225,
+      "type": "progress"
+    },
+    {
+      "index": 43,
+      "result": [],
+      "seconds": 0.027851,
+      "type": "progress"
+    },
+    {
+      "index": 44,
+      "result": [],
+      "seconds": 0.028805167,
+      "type": "progress"
+    },
+    {
+      "index": 45,
+      "result": [
+        [
+          283,
+          809,
+          100,
+          28
+        ]
+      ],
+      "seconds": 0.029545084,
+      "type": "progress"
+    },
+    {
+      "index": 46,
+      "result": [],
+      "seconds": 0.030477584,
+      "type": "progress"
+    },
+    {
+      "index": 47,
+      "result": [],
+      "seconds": 0.031417167,
+      "type": "progress"
+    },
+    {
+      "index": 48,
+      "result": [],
+      "seconds": 0.032350334,
+      "type": "progress"
+    },
+    {
+      "index": 49,
+      "result": [],
+      "seconds": 0.03333525,
+      "type": "progress"
+    },
+    {
+      "index": 50,
+      "result": [
+        [
+          517,
+          469,
+          100,
+          28
+        ]
+      ],
+      "seconds": 0.033751625,
+      "type": "progress"
+    },
+    {
+      "index": 51,
+      "result": [],
+      "seconds": 0.034807417,
+      "type": "progress"
+    },
+    {
+      "index": 52,
+      "result": [],
+      "seconds": 0.035797209,
+      "type": "progress"
+    },
+    {
+      "index": 53,
+      "result": [],
+      "seconds": 0.03674175,
+      "type": "progress"
+    },
+    {
+      "index": 54,
+      "result": [],
+      "seconds": 0.037845959,
+      "type": "progress"
+    },
+    {
+      "index": 55,
+      "result": [
+        [
+          751,
+          979,
+          100,
+          28
+        ]
+      ],
+      "seconds": 0.038802667,
+      "type": "progress"
+    },
+    {
+      "index": 56,
+      "result": [],
+      "seconds": 0.03963175,
+      "type": "progress"
+    },
+    {
+      "index": 57,
+      "result": [],
+      "seconds": 0.040869417,
+      "type": "progress"
+    },
+    {
+      "index": 58,
+      "result": [],
+      "seconds": 0.041650334,
+      "type": "progress"
+    },
+    {
+      "index": 59,
+      "result": [],
+      "seconds": 0.04268,
+      "type": "progress"
+    },
+    {
+      "case": "alerts",
+      "raw_pixel_counts": [],
+      "results": [
+        [
+          [
+            49,
+            299,
+            100,
+            28
+          ]
+        ],
+        [],
+        [],
+        [],
+        [],
+        [
+          [
+            283,
+            809,
+            100,
+            28
+          ]
+        ],
+        [],
+        [],
+        [],
+        [],
+        [
+          [
+            517,
+            469,
+            100,
+            28
+          ]
+        ],
+        [],
+        [],
+        [],
+        [],
+        [
+          [
+            751,
+            979,
+            100,
+            28
+          ]
+        ],
+        [],
+        [],
+        [],
+        [],
+        [
+          [
+            985,
+            639,
+            100,
+            28
+          ]
+        ],
+        [],
+        [],
+        [],
+        [],
+        [
+          [
+            1219,
+            299,
+            100,
+            28
+          ]
+        ],
+        [],
+        [],
+        [],
+        [],
+        [
+          [
+            1453,
+            809,
+            100,
+            28
+          ]
+        ],
+        [],
+        [],
+        [],
+        [],
+        [
+          [
+            1687,
+            469,
+            100,
+            28
+          ]
+        ],
+        [],
+        [],
+        [],
+        [],
+        [
+          [
+            49,
+            299,
+            100,
+            28
+          ]
+        ],
+        [],
+        [],
+        [],
+        [],
+        [
+          [
+            283,
+            809,
+            100,
+            28
+          ]
+        ],
+        [],
+        [],
+        [],
+        [],
+        [
+          [
+            517,
+            469,
+            100,
+            28
+          ]
+        ],
+        [],
+        [],
+        [],
+        [],
+        [
+          [
+            751,
+            979,
+            100,
+            28
+          ]
+        ],
+        [],
+        [],
+        [],
+        []
+      ],
+      "screenshots": 60,
+      "seconds": 0.042684042,
+      "targets": 12,
+      "type": "complete",
+      "verified": true
+    }
+  ]
+}
