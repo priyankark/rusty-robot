@@ -106,8 +106,8 @@ def embed(name, parts):
     write(article, source[:start] + begin + '\n' + '\n'.join(parts) + '\n' + end + source[finish:])
 
 
-parts = ['''<section id="workloads" aria-labelledby="workload-heading">
-<p class="chapter">03 · Put the gains to work</p><h2 id="workload-heading">What faster image analysis buys an automation</h2>
+parts = ['''<details class="evidence" id="controlled-workloads"><summary>Three controlled screenshot examples</summary><section aria-labelledby="workload-heading">
+<h3 id="workload-heading">Generated layouts, with known answers</h3>
 <p>We tested three tasks on generated screenshots with known colors and layouts: collect Ready badges, find a failed deployment, and count passing test tiles. Both libraries received identical pixels already loaded into memory; <strong>capture and image loading are excluded.</strong></p>
 <p>Each time is the median of six 60-image batches, with every answer checked. A 2× speedup means half the analysis time. These are comparisons of the public APIs on one Mac.</p>
 <details class="evidence"><summary>Shared method, machine, and limits</summary><p>Both receive identical preloaded 1920 × 1080 BGRA32 buffers. Each fresh process completes and verifies a full warmup. Six rounds alternate library order. No recording runs during measurement; outputs are checked after the timer. There are no artificial sleeps in the timed analysis.</p><p>Apple M6, macOS 27.0, Node 24.22.0, Rust 1.99.1 release builds; RobotJS commit <code>0af6073</code>. Allocation and public API wrapper costs are included. Capture, PNG decoding, disk reads, and warmup are excluded.</p><p>Each corpus contains 60 distinct images of one generated design. We selected these cases to illustrate image-analysis wins; they are not a representative sample of all automation. We did not compare custom JavaScript buffer scans. Results are specific to this machine and these public APIs, and their ratios should not be averaged.</p></details>
@@ -132,19 +132,7 @@ for case, info in CASES.items():
         parts.append(f'<tr><th scope="row">{number}</th>' + ''.join(f'<td><a href="{base}{rows[lang]["file"]}">{rows[lang]["seconds"] * 1000:.2f}</a></td>' for lang in ['robotjs', 'rust']) + '</tr>')
     parts.append('</tbody></table></div><p>' + '; '.join(f'{label} range: {stats[lang]["min_ms"]:.2f}–{stats[lang]["max_ms"]:.2f} ms' for lang, label in [('robotjs', 'RobotJS'), ('rust', 'Rust')]) + '.</p>')
     parts.append(f'<div class="links"><a href="{base}summary.json">Computed summary</a><a href="{base}manifest.json">Environment, runs, and hashes</a><a href="{base}screenshots.zip">All 60 input screenshots</a><a href="{base}fixtures.json">Expected outputs and input hashes</a><a href="{base}{info["video"]}.mp4" download>Video</a><a href="https://github.com/priyankark/rusty-robot/tree/main/tools/benchmark-demo">Source and reproduction steps</a></div></details></section>')
-parts.append('</section>')
+parts.append('</section></details>')
 embed('WORKLOAD COMPARISONS', parts)
 
-typing = json.loads((ROOT / 'docs/workflows/2026-10-30-controlled/summary.json').read_text())
-parts = ['''<div class="table-wrap" tabindex="0"><table><caption>Same form, 8 records, 24 fields, 769 ASCII characters · median seconds</caption><thead><tr><th scope="col">Typing profile</th><th scope="col">RobotJS</th><th scope="col">Rust</th><th scope="col">Result</th></tr></thead><tbody>''']
-for profile, label, verdict in [('zero', 'Requested keyboard delay: 0 ms', 'RobotJS faster'), ('paced', 'Matched 6,000 characters/minute', 'Effectively tied')]:
-    stats = typing['profiles'][profile]
-    assert all(s['passed'] == s['attempts'] == 6 for s in stats.values())
-    parts.append(f'<tr><th scope="row">{label}</th><td>{stats["robotjs"]["median"]:.3f} s</td><td>{stats["rust"]["median"]:.3f} s</td><td>{verdict}</td></tr>')
-parts.append('''</tbody></table></div><details class="evidence"><summary>Typing videos, method, and the earlier pacing correction</summary><p>Both libraries entered the same records through native input into an owned Chrome form. Mouse delay was 10 ms and key-tap delay was zero for both. One warmup per backend and profile preceded six alternating measured trials, without recording. Every saved field matched in every trial.</p>''')
-for profile, label in [('zero', 'Zero requested keyboard delay'), ('paced', 'Matched typing rate')]:
-    base = f'workflows/2026-10-30-controlled/{profile}'
-    parts.append(f'<figure class="demo-card"><h3>{label}</h3><video controls playsinline preload="none" aria-label="{label}, RobotJS and Rust side by side" poster="{base}.png"><source src="{base}.mp4" type="video/mp4"><a href="{base}.mp4">Download video</a></video><figcaption>Separate illustrative recordings after measurement; video clocks are not the table medians.</figcaption></figure>')
-parts.append('''<p>The <a href="default-workflow-demos.html">earlier default-delay demo</a> favored Rust because RobotJS waited per character while Rust batched text. Its typing pace was not matched; the table above uses explicit timing profiles.</p><p><a href="typing-comparison.html">Full protocol and all typing trials</a> · <a href="workflows/2026-10-30-controlled/manifest.json">Raw evidence manifest</a>. RobotJS capture failed on this host during the earlier default workflow run; that failure is excluded from speed ratios.</p></details>''')
-embed('TYPING COMPARISON', parts)
-print('Verified 36 screenshot batches, 6 recorded takes, exact outputs, corpus/video hashes, and both generated story sections.')
+print('Verified 36 screenshot batches, 6 recorded takes, exact outputs, corpus/video hashes, and generated controlled cases.')

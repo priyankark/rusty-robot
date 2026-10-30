@@ -26,7 +26,7 @@
 <li><a href="#contract">Define what the rewrite must preserve</a></li>
 <li><a href="#optimization">Find out why the first port was slower</a></li>
 <li><a href="#workloads">See where the performance gains matter</a></li>
-<li><a href="#desktop">Compare typing speed</a></li>
+<li><a href="#limitations">See where Rust is still slower</a></li>
 <li><a href="#capture">Fix the screenshot bottleneck</a></li>
 <li><a href="#release">Ship it, and name the work still ahead</a></li>
 </ol></nav>
@@ -74,9 +74,11 @@
 <div data-benchmark-explorer data-family="color"><p><a href="api-benchmarks.html">Open the benchmark results</a>.</p></div>
 <p><a href="api-benchmarks.html">Full-screen explorer, all cases, and Rust before/after graphs</a> · <a href="https://github.com/priyankark/rusty-robot/tree/v0.1.3/benchmarks/2026-10-27">Raw samples</a> · <a href="https://github.com/priyankark/rusty-robot/blob/v0.1.3/docs/benchmarks.md">Original baseline and reproduction</a>.</p>
 </details></section>
+<!-- BEGIN REAL APP COMPARISONS -->
+<!-- END REAL APP COMPARISONS -->
 <!-- BEGIN WORKLOAD COMPARISONS -->
-<section id="workloads" aria-labelledby="workload-heading">
-<p class="chapter">03 · Put the gains to work</p><h2 id="workload-heading">What faster image analysis buys an automation</h2>
+<details class="evidence" id="controlled-workloads"><summary>Three controlled screenshot examples</summary><section aria-labelledby="workload-heading">
+<h3 id="workload-heading">Generated layouts, with known answers</h3>
 <p>We tested three tasks on generated screenshots with known colors and layouts: collect Ready badges, find a failed deployment, and count passing test tiles. Both libraries received identical pixels already loaded into memory; <strong>capture and image loading are excluded.</strong></p>
 <p>Each time is the median of six 60-image batches, with every answer checked. A 2× speedup means half the analysis time. These are comparisons of the public APIs on one Mac.</p>
 <details class="evidence"><summary>Shared method, machine, and limits</summary><p>Both receive identical preloaded 1920 × 1080 BGRA32 buffers. Each fresh process completes and verifies a full warmup. Six rounds alternate library order. No recording runs during measurement; outputs are checked after the timer. There are no artificial sleeps in the timed analysis.</p><p>Apple M6, macOS 27.0, Node 24.22.0, Rust 1.99.1 release builds; RobotJS commit <code>0af6073</code>. Allocation and public API wrapper costs are included. Capture, PNG decoding, disk reads, and warmup are excluded.</p><p>Each corpus contains 60 distinct images of one generated design. We selected these cases to illustrate image-analysis wins; they are not a representative sample of all automation. We did not compare custom JavaScript buffer scans. Results are specific to this machine and these public APIs, and their ratios should not be averaged.</p></details>
@@ -117,20 +119,11 @@
 <tr><th scope="row">6</th><td><a href="workflows/2026-10-30-heatmap/robotjs-6.json">111.82</a></td><td><a href="workflows/2026-10-30-heatmap/rust-6.json">38.11</a></td></tr>
 </tbody></table></div><p>RobotJS range: 110.97–112.36 ms; Rust range: 37.26–41.39 ms.</p>
 <div class="links"><a href="workflows/2026-10-30-heatmap/summary.json">Computed summary</a><a href="workflows/2026-10-30-heatmap/manifest.json">Environment, runs, and hashes</a><a href="workflows/2026-10-30-heatmap/screenshots.zip">All 60 input screenshots</a><a href="workflows/2026-10-30-heatmap/fixtures.json">Expected outputs and input hashes</a><a href="workflows/2026-10-30-heatmap/workload.mp4" download>Video</a><a href="https://github.com/priyankark/rusty-robot/tree/main/tools/benchmark-demo">Source and reproduction steps</a></div></details></section>
-</section>
+</section></details>
 <!-- END WORKLOAD COMPARISONS -->
-<section aria-labelledby="desktop"><p class="chapter">04 · Input delivery</p><h2 id="desktop">Typing did not show the same gains</h2>
-<p>We filled the same 24 form fields through native keyboard input and checked every saved value. RobotJS was faster at zero requested keyboard delay; at a matched typing rate, the two were effectively tied.</p>
-<!-- BEGIN TYPING COMPARISON -->
-<div class="table-wrap" tabindex="0"><table><caption>Same form, 8 records, 24 fields, 769 ASCII characters · median seconds</caption><thead><tr><th scope="col">Typing profile</th><th scope="col">RobotJS</th><th scope="col">Rust</th><th scope="col">Result</th></tr></thead><tbody>
-<tr><th scope="row">Requested keyboard delay: 0 ms</th><td>0.950 s</td><td>1.100 s</td><td>RobotJS faster</td></tr>
-<tr><th scope="row">Matched 6,000 characters/minute</th><td>9.619 s</td><td>9.605 s</td><td>Effectively tied</td></tr>
-</tbody></table></div><details class="evidence"><summary>Typing videos, method, and the earlier pacing correction</summary><p>Both libraries entered the same records through native input into an owned Chrome form. Mouse delay was 10 ms and key-tap delay was zero for both. One warmup per backend and profile preceded six alternating measured trials, without recording. Every saved field matched in every trial.</p>
-<figure class="demo-card"><h3>Zero requested keyboard delay</h3><video controls playsinline preload="none" aria-label="Zero requested keyboard delay, RobotJS and Rust side by side" poster="workflows/2026-10-30-controlled/zero.png"><source src="workflows/2026-10-30-controlled/zero.mp4" type="video/mp4"><a href="workflows/2026-10-30-controlled/zero.mp4">Download video</a></video><figcaption>Separate illustrative recordings after measurement; video clocks are not the table medians.</figcaption></figure>
-<figure class="demo-card"><h3>Matched typing rate</h3><video controls playsinline preload="none" aria-label="Matched typing rate, RobotJS and Rust side by side" poster="workflows/2026-10-30-controlled/paced.png"><source src="workflows/2026-10-30-controlled/paced.mp4" type="video/mp4"><a href="workflows/2026-10-30-controlled/paced.mp4">Download video</a></video><figcaption>Separate illustrative recordings after measurement; video clocks are not the table medians.</figcaption></figure>
-<p>The <a href="default-workflow-demos.html">earlier default-delay demo</a> favored Rust because RobotJS waited per character while Rust batched text. Its typing pace was not matched; the table above uses explicit timing profiles.</p><p><a href="typing-comparison.html">Full protocol and all typing trials</a> · <a href="workflows/2026-10-30-controlled/manifest.json">Raw evidence manifest</a>. RobotJS capture failed on this host during the earlier default workflow run; that failure is excluded from speed ratios.</p></details>
-<!-- END TYPING COMPARISON -->
-<p>Rust retains a 10 ms minimum interval between native Unicode text batches to preserve delivery. Reducing that delay remains a performance opportunity, provided applications still receive every character correctly.</p>
+<section aria-labelledby="limitations"><p class="chapter">04 · Remaining performance gaps</p><h2 id="limitations">Where Rust is still slower</h2>
+<p>In the October 27 API run, BMP loading took Rust about <strong>13% longer</strong> (it returns a larger BGRA buffer), and display enumeration about <strong>27% longer</strong>. Small-region capture took <strong>5.43× as long</strong>; single-pixel capture took <strong>6.08× as long</strong>. Those capture numbers predate the backend improvement described next.</p>
+<p>In the separate controlled form test, zero-delay entry took <strong>1.100 s versus RobotJS’s 0.950 s</strong>; matched-rate entry was effectively tied. Exact image search was also roughly tied in the API run. The <a href="api-benchmarks.html">complete API results</a> and <a href="typing-comparison.html">input measurements</a> retain the slower cases and their methods.</p>
 </section>
 <section aria-labelledby="capture"><p class="chapter">05 · The cost before image search even begins</p><h2 id="capture">A faster scan cannot rescue a slow screenshot</h2>
 <p>The image-analysis wins start with pixels already in memory. A desktop agent needs to obtain those pixels first. The Node comparison made that bottleneck obvious: a small capture took the early Rust backend about 25.95 ms versus RobotJS’s 4.78 ms.</p>
