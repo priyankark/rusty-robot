@@ -1,0 +1,631 @@
+{
+  "complete": {
+    "type": "complete",
+    "case": "heatmap",
+    "seconds": 0.13246175,
+    "screenshots": 60,
+    "targets": 547560,
+    "verified": true,
+    "results": [
+      8100,
+      8208,
+      8316,
+      8424,
+      8532,
+      8640,
+      8748,
+      8856,
+      8964,
+      9072,
+      9180,
+      9288,
+      9396,
+      9504,
+      9612,
+      9720,
+      9828,
+      9936,
+      10044,
+      10152,
+      8100,
+      8208,
+      8316,
+      8424,
+      8532,
+      8640,
+      8748,
+      8856,
+      8964,
+      9072,
+      9180,
+      9288,
+      9396,
+      9504,
+      9612,
+      9720,
+      9828,
+      9936,
+      10044,
+      10152,
+      8100,
+      8208,
+      8316,
+      8424,
+      8532,
+      8640,
+      8748,
+      8856,
+      8964,
+      9072,
+      9180,
+      9288,
+      9396,
+      9504,
+      9612,
+      9720,
+      9828,
+      9936,
+      10044,
+      10152
+    ],
+    "raw_pixel_counts": [
+      567000,
+      574560,
+      582120,
+      589680,
+      597240,
+      604800,
+      612360,
+      619920,
+      627480,
+      635040,
+      642600,
+      650160,
+      657720,
+      665280,
+      672840,
+      680400,
+      687960,
+      695520,
+      703080,
+      710640,
+      567000,
+      574560,
+      582120,
+      589680,
+      597240,
+      604800,
+      612360,
+      619920,
+      627480,
+      635040,
+      642600,
+      650160,
+      657720,
+      665280,
+      672840,
+      680400,
+      687960,
+      695520,
+      703080,
+      710640,
+      567000,
+      574560,
+      582120,
+      589680,
+      597240,
+      604800,
+      612360,
+      619920,
+      627480,
+      635040,
+      642600,
+      650160,
+      657720,
+      665280,
+      672840,
+      680400,
+      687960,
+      695520,
+      703080,
+      710640
+    ]
+  },
+  "events": [
+    {
+      "type": "ready"
+    },
+    {
+      "type": "progress",
+      "index": 0,
+      "result": 8100,
+      "seconds": 0.001773875
+    },
+    {
+      "type": "progress",
+      "index": 1,
+      "result": 8208,
+      "seconds": 0.003612459
+    },
+    {
+      "type": "progress",
+      "index": 2,
+      "result": 8316,
+      "seconds": 0.005745417
+    },
+    {
+      "type": "progress",
+      "index": 3,
+      "result": 8424,
+      "seconds": 0.008376
+    },
+    {
+      "type": "progress",
+      "index": 4,
+      "result": 8532,
+      "seconds": 0.010379959
+    },
+    {
+      "type": "progress",
+      "index": 5,
+      "result": 8640,
+      "seconds": 0.012341292
+    },
+    {
+      "type": "progress",
+      "index": 6,
+      "result": 8748,
+      "seconds": 0.014316959
+    },
+    {
+      "type": "progress",
+      "index": 7,
+      "result": 8856,
+      "seconds": 0.016284875
+    },
+    {
+      "type": "progress",
+      "index": 8,
+      "result": 8964,
+      "seconds": 0.018228792
+    },
+    {
+      "type": "progress",
+      "index": 9,
+      "result": 9072,
+      "seconds": 0.020223667
+    },
+    {
+      "type": "progress",
+      "index": 10,
+      "result": 9180,
+      "seconds": 0.022561125
+    },
+    {
+      "type": "progress",
+      "index": 11,
+      "result": 9288,
+      "seconds": 0.02508475
+    },
+    {
+      "type": "progress",
+      "index": 12,
+      "result": 9396,
+      "seconds": 0.02732125
+    },
+    {
+      "type": "progress",
+      "index": 13,
+      "result": 9504,
+      "seconds": 0.029439209
+    },
+    {
+      "type": "progress",
+      "index": 14,
+      "result": 9612,
+      "seconds": 0.031821125
+    },
+    {
+      "type": "progress",
+      "index": 15,
+      "result": 9720,
+      "seconds": 0.033899125
+    },
+    {
+      "type": "progress",
+      "index": 16,
+      "result": 9828,
+      "seconds": 0.035877542
+    },
+    {
+      "type": "progress",
+      "index": 17,
+      "result": 9936,
+      "seconds": 0.038336667
+    },
+    {
+      "type": "progress",
+      "index": 18,
+      "result": 10044,
+      "seconds": 0.040707542
+    },
+    {
+      "type": "progress",
+      "index": 19,
+      "result": 10152,
+      "seconds": 0.043066792
+    },
+    {
+      "type": "progress",
+      "index": 20,
+      "result": 8100,
+      "seconds": 0.045637875
+    },
+    {
+      "type": "progress",
+      "index": 21,
+      "result": 8208,
+      "seconds": 0.047607334
+    },
+    {
+      "type": "progress",
+      "index": 22,
+      "result": 8316,
+      "seconds": 0.049488334
+    },
+    {
+      "type": "progress",
+      "index": 23,
+      "result": 8424,
+      "seconds": 0.051464417
+    },
+    {
+      "type": "progress",
+      "index": 24,
+      "result": 8532,
+      "seconds": 0.053463417
+    },
+    {
+      "type": "progress",
+      "index": 25,
+      "result": 8640,
+      "seconds": 0.055618834
+    },
+    {
+      "type": "progress",
+      "index": 26,
+      "result": 8748,
+      "seconds": 0.057966959
+    },
+    {
+      "type": "progress",
+      "index": 27,
+      "result": 8856,
+      "seconds": 0.060373292
+    },
+    {
+      "type": "progress",
+      "index": 28,
+      "result": 8964,
+      "seconds": 0.062569625
+    },
+    {
+      "type": "progress",
+      "index": 29,
+      "result": 9072,
+      "seconds": 0.064450167
+    },
+    {
+      "type": "progress",
+      "index": 30,
+      "result": 9180,
+      "seconds": 0.066411417
+    },
+    {
+      "type": "progress",
+      "index": 31,
+      "result": 9288,
+      "seconds": 0.068406167
+    },
+    {
+      "type": "progress",
+      "index": 32,
+      "result": 9396,
+      "seconds": 0.070363292
+    },
+    {
+      "type": "progress",
+      "index": 33,
+      "result": 9504,
+      "seconds": 0.0727625
+    },
+    {
+      "type": "progress",
+      "index": 34,
+      "result": 9612,
+      "seconds": 0.075252
+    },
+    {
+      "type": "progress",
+      "index": 35,
+      "result": 9720,
+      "seconds": 0.07729125
+    },
+    {
+      "type": "progress",
+      "index": 36,
+      "result": 9828,
+      "seconds": 0.079268917
+    },
+    {
+      "type": "progress",
+      "index": 37,
+      "result": 9936,
+      "seconds": 0.081397125
+    },
+    {
+      "type": "progress",
+      "index": 38,
+      "result": 10044,
+      "seconds": 0.083876667
+    },
+    {
+      "type": "progress",
+      "index": 39,
+      "result": 10152,
+      "seconds": 0.086043334
+    },
+    {
+      "type": "progress",
+      "index": 40,
+      "result": 8100,
+      "seconds": 0.088229792
+    },
+    {
+      "type": "progress",
+      "index": 41,
+      "result": 8208,
+      "seconds": 0.090751625
+    },
+    {
+      "type": "progress",
+      "index": 42,
+      "result": 8316,
+      "seconds": 0.093218625
+    },
+    {
+      "type": "progress",
+      "index": 43,
+      "result": 8424,
+      "seconds": 0.09551925
+    },
+    {
+      "type": "progress",
+      "index": 44,
+      "result": 8532,
+      "seconds": 0.098057042
+    },
+    {
+      "type": "progress",
+      "index": 45,
+      "result": 8640,
+      "seconds": 0.100249584
+    },
+    {
+      "type": "progress",
+      "index": 46,
+      "result": 8748,
+      "seconds": 0.102397042
+    },
+    {
+      "type": "progress",
+      "index": 47,
+      "result": 8856,
+      "seconds": 0.104965667
+    },
+    {
+      "type": "progress",
+      "index": 48,
+      "result": 8964,
+      "seconds": 0.107582709
+    },
+    {
+      "type": "progress",
+      "index": 49,
+      "result": 9072,
+      "seconds": 0.109905042
+    },
+    {
+      "type": "progress",
+      "index": 50,
+      "result": 9180,
+      "seconds": 0.112045959
+    },
+    {
+      "type": "progress",
+      "index": 51,
+      "result": 9288,
+      "seconds": 0.114217084
+    },
+    {
+      "type": "progress",
+      "index": 52,
+      "result": 9396,
+      "seconds": 0.116380792
+    },
+    {
+      "type": "progress",
+      "index": 53,
+      "result": 9504,
+      "seconds": 0.118587667
+    },
+    {
+      "type": "progress",
+      "index": 54,
+      "result": 9612,
+      "seconds": 0.120895709
+    },
+    {
+      "type": "progress",
+      "index": 55,
+      "result": 9720,
+      "seconds": 0.12296875
+    },
+    {
+      "type": "progress",
+      "index": 56,
+      "result": 9828,
+      "seconds": 0.125564167
+    },
+    {
+      "type": "progress",
+      "index": 57,
+      "result": 9936,
+      "seconds": 0.127975042
+    },
+    {
+      "type": "progress",
+      "index": 58,
+      "result": 10044,
+      "seconds": 0.130238084
+    },
+    {
+      "type": "progress",
+      "index": 59,
+      "result": 10152,
+      "seconds": 0.132455417
+    },
+    {
+      "type": "complete",
+      "case": "heatmap",
+      "seconds": 0.13246175,
+      "screenshots": 60,
+      "targets": 547560,
+      "verified": true,
+      "results": [
+        8100,
+        8208,
+        8316,
+        8424,
+        8532,
+        8640,
+        8748,
+        8856,
+        8964,
+        9072,
+        9180,
+        9288,
+        9396,
+        9504,
+        9612,
+        9720,
+        9828,
+        9936,
+        10044,
+        10152,
+        8100,
+        8208,
+        8316,
+        8424,
+        8532,
+        8640,
+        8748,
+        8856,
+        8964,
+        9072,
+        9180,
+        9288,
+        9396,
+        9504,
+        9612,
+        9720,
+        9828,
+        9936,
+        10044,
+        10152,
+        8100,
+        8208,
+        8316,
+        8424,
+        8532,
+        8640,
+        8748,
+        8856,
+        8964,
+        9072,
+        9180,
+        9288,
+        9396,
+        9504,
+        9612,
+        9720,
+        9828,
+        9936,
+        10044,
+        10152
+      ],
+      "raw_pixel_counts": [
+        567000,
+        574560,
+        582120,
+        589680,
+        597240,
+        604800,
+        612360,
+        619920,
+        627480,
+        635040,
+        642600,
+        650160,
+        657720,
+        665280,
+        672840,
+        680400,
+        687960,
+        695520,
+        703080,
+        710640,
+        567000,
+        574560,
+        582120,
+        589680,
+        597240,
+        604800,
+        612360,
+        619920,
+        627480,
+        635040,
+        642600,
+        650160,
+        657720,
+        665280,
+        672840,
+        680400,
+        687960,
+        695520,
+        703080,
+        710640,
+        567000,
+        574560,
+        582120,
+        589680,
+        597240,
+        604800,
+        612360,
+        619920,
+        627480,
+        635040,
+        642600,
+        650160,
+        657720,
+        665280,
+        672840,
+        680400,
+        687960,
+        695520,
+        703080,
+        710640
+      ]
+    }
+  ]
+}

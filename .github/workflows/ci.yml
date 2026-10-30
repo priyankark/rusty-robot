@@ -77,6 +77,10 @@ jobs:
         working-directory: rusty-robot
       - run: python3 scripts/dashboard-report.py --check
         working-directory: rusty-robot
+      - run: python3 scripts/workload-report.py --check
+        working-directory: rusty-robot
+      - run: node --check docs/workload-videos.js
+        working-directory: rusty-robot
       - run: node --check docs/benchmark-explorer.js
         working-directory: rusty-robot
       - run: cargo check --manifest-path tools/benchmark-demo/Cargo.toml --locked
