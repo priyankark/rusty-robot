@@ -1,0 +1,536 @@
+{
+  "profile": "zero",
+  "language": "robotjs",
+  "round": 1,
+  "warmup": false,
+  "recorded": false,
+  "verified": true,
+  "seconds": 0.9499000000953675,
+  "failed_after_seconds": null,
+  "error": null,
+  "state": {
+    "saved": [
+      [
+        "Avery Chen",
+        "avery.chen@example.test",
+        "Send the revised onboarding pack and confirm the Friday review."
+      ],
+      [
+        "Morgan Patel",
+        "morgan.patel@example.test",
+        "Prepare a demo workspace with the import and export examples."
+      ],
+      [
+        "Jordan Silva",
+        "jordan.silva@example.test",
+        "Follow up on the accessibility feedback from the design review."
+      ],
+      [
+        "Casey Brooks",
+        "casey.brooks@example.test",
+        "Share the monthly report with the operations contact next week."
+      ],
+      [
+        "Riley Khan",
+        "riley.khan@example.test",
+        "Schedule a product walkthrough after the new account is ready."
+      ],
+      [
+        "Taylor Reed",
+        "taylor.reed@example.test",
+        "Confirm the trial requirements and send the setup instructions."
+      ],
+      [
+        "Sam Rivera",
+        "sam.rivera@example.test",
+        "Collect the migration checklist before the next planning call."
+      ],
+      [
+        "Alex Kim",
+        "alex.kim@example.test",
+        "Arrange a feedback session with the customer support team."
+      ]
+    ],
+    "hits": 0,
+    "misses": 0,
+    "errors": [],
+    "trusted": 1579,
+    "active": true,
+    "finished": true,
+    "failure": null,
+    "seconds": 0.9499000000953675
+  },
+  "actualFields": {
+    "name": "",
+    "email": "",
+    "note": ""
+  },
+  "permissions": {
+    "accessibility": true,
+    "capture": true,
+    "displays": 1,
+    "cursor": {
+      "x": 398,
+      "y": 487
+    }
+  },
+  "actions": [
+    {
+      "command": {
+        "op": "click",
+        "x": 398,
+        "y": 487
+      },
+      "result": {},
+      "ms": 24.988292
+    },
+    {
+      "command": {
+        "op": "type",
+        "text": "Avery Chen"
+      },
+      "result": {},
+      "ms": 11.679166999999325
+    },
+    {
+      "command": {
+        "op": "key",
+        "key": "tab"
+      },
+      "result": {},
+      "ms": 0.151915999999801
+    },
+    {
+      "command": {
+        "op": "type",
+        "text": "avery.chen@example.test"
+      },
+      "result": {},
+      "ms": 0.19887500000004366
+    },
+    {
+      "command": {
+        "op": "key",
+        "key": "tab"
+      },
+      "result": {},
+      "ms": 0.10966699999971752
+    },
+    {
+      "command": {
+        "op": "type",
+        "text": "Send the revised onboarding pack and confirm the Friday review."
+      },
+      "result": {},
+      "ms": 0.3564169999999649
+    },
+    {
+      "command": {
+        "op": "key",
+        "key": "tab"
+      },
+      "result": {},
+      "ms": 0.12808299999960582
+    },
+    {
+      "command": {
+        "op": "key",
+        "key": "enter"
+      },
+      "result": {},
+      "ms": 0.13254200000028504
+    },
+    {
+      "command": {
+        "op": "type",
+        "text": "Morgan Patel"
+      },
+      "result": {},
+      "ms": 0.19145800000023883
+    },
+    {
+      "command": {
+        "op": "key",
+        "key": "tab"
+      },
+      "result": {},
+      "ms": 0.13062499999978172
+    },
+    {
+      "command": {
+        "op": "type",
+        "text": "morgan.patel@example.test"
+      },
+      "result": {},
+      "ms": 0.23337499999979627
+    },
+    {
+      "command": {
+        "op": "key",
+        "key": "tab"
+      },
+      "result": {},
+      "ms": 0.18591699999979028
+    },
+    {
+      "command": {
+        "op": "type",
+        "text": "Prepare a demo workspace with the import and export examples."
+      },
+      "result": {},
+      "ms": 0.6195840000000317
+    },
+    {
+      "command": {
+        "op": "key",
+        "key": "tab"
+      },
+      "result": {},
+      "ms": 0.20316600000023755
+    },
+    {
+      "command": {
+        "op": "key",
+        "key": "enter"
+      },
+      "result": {},
+      "ms": 0.13637500000004366
+    },
+    {
+      "command": {
+        "op": "type",
+        "text": "Jordan Silva"
+      },
+      "result": {},
+      "ms": 0.19666599999982282
+    },
+    {
+      "command": {
+        "op": "key",
+        "key": "tab"
+      },
+      "result": {},
+      "ms": 0.11133400000016991
+    },
+    {
+      "command": {
+        "op": "type",
+        "text": "jordan.silva@example.test"
+      },
+      "result": {},
+      "ms": 0.25366699999995035
+    },
+    {
+      "command": {
+        "op": "key",
+        "key": "tab"
+      },
+      "result": {},
+      "ms": 0.09774999999990541
+    },
+    {
+      "command": {
+        "op": "type",
+        "text": "Follow up on the accessibility feedback from the design review."
+      },
+      "result": {},
+      "ms": 0.36670799999956216
+    },
+    {
+      "command": {
+        "op": "key",
+        "key": "tab"
+      },
+      "result": {},
+      "ms": 0.1112089999996897
+    },
+    {
+      "command": {
+        "op": "key",
+        "key": "enter"
+      },
+      "result": {},
+      "ms": 0.1035409999994954
+    },
+    {
+      "command": {
+        "op": "type",
+        "text": "Casey Brooks"
+      },
+      "result": {},
+      "ms": 0.16883299999972223
+    },
+    {
+      "command": {
+        "op": "key",
+        "key": "tab"
+      },
+      "result": {},
+      "ms": 0.1680420000002414
+    },
+    {
+      "command": {
+        "op": "type",
+        "text": "casey.brooks@example.test"
+      },
+      "result": {},
+      "ms": 0.25020800000038435
+    },
+    {
+      "command": {
+        "op": "key",
+        "key": "tab"
+      },
+      "result": {},
+      "ms": 0.11520800000016607
+    },
+    {
+      "command": {
+        "op": "type",
+        "text": "Share the monthly report with the operations contact next week."
+      },
+      "result": {},
+      "ms": 0.4218330000003334
+    },
+    {
+      "command": {
+        "op": "key",
+        "key": "tab"
+      },
+      "result": {},
+      "ms": 0.11333300000023883
+    },
+    {
+      "command": {
+        "op": "key",
+        "key": "enter"
+      },
+      "result": {},
+      "ms": 0.10591700000077253
+    },
+    {
+      "command": {
+        "op": "type",
+        "text": "Riley Khan"
+      },
+      "result": {},
+      "ms": 0.1340409999993426
+    },
+    {
+      "command": {
+        "op": "key",
+        "key": "tab"
+      },
+      "result": {},
+      "ms": 0.09912499999973079
+    },
+    {
+      "command": {
+        "op": "type",
+        "text": "riley.khan@example.test"
+      },
+      "result": {},
+      "ms": 0.18941700000050332
+    },
+    {
+      "command": {
+        "op": "key",
+        "key": "tab"
+      },
+      "result": {},
+      "ms": 0.16733399999975518
+    },
+    {
+      "command": {
+        "op": "type",
+        "text": "Schedule a product walkthrough after the new account is ready."
+      },
+      "result": {},
+      "ms": 0.42433299999993324
+    },
+    {
+      "command": {
+        "op": "key",
+        "key": "tab"
+      },
+      "result": {},
+      "ms": 0.11220900000080292
+    },
+    {
+      "command": {
+        "op": "key",
+        "key": "enter"
+      },
+      "result": {},
+      "ms": 0.0878339999999298
+    },
+    {
+      "command": {
+        "op": "type",
+        "text": "Taylor Reed"
+      },
+      "result": {},
+      "ms": 0.1879159999998592
+    },
+    {
+      "command": {
+        "op": "key",
+        "key": "tab"
+      },
+      "result": {},
+      "ms": 0.10337500000059663
+    },
+    {
+      "command": {
+        "op": "type",
+        "text": "taylor.reed@example.test"
+      },
+      "result": {},
+      "ms": 0.23924999999962893
+    },
+    {
+      "command": {
+        "op": "key",
+        "key": "tab"
+      },
+      "result": {},
+      "ms": 0.12337500000012369
+    },
+    {
+      "command": {
+        "op": "type",
+        "text": "Confirm the trial requirements and send the setup instructions."
+      },
+      "result": {},
+      "ms": 0.41883299999972223
+    },
+    {
+      "command": {
+        "op": "key",
+        "key": "tab"
+      },
+      "result": {},
+      "ms": 0.114875000000211
+    },
+    {
+      "command": {
+        "op": "key",
+        "key": "enter"
+      },
+      "result": {},
+      "ms": 0.11108299999978044
+    },
+    {
+      "command": {
+        "op": "type",
+        "text": "Sam Rivera"
+      },
+      "result": {},
+      "ms": 0.16200000000026193
+    },
+    {
+      "command": {
+        "op": "key",
+        "key": "tab"
+      },
+      "result": {},
+      "ms": 0.10616699999991397
+    },
+    {
+      "command": {
+        "op": "type",
+        "text": "sam.rivera@example.test"
+      },
+      "result": {},
+      "ms": 0.19395799999983865
+    },
+    {
+      "command": {
+        "op": "key",
+        "key": "tab"
+      },
+      "result": {},
+      "ms": 0.10079200000018318
+    },
+    {
+      "command": {
+        "op": "type",
+        "text": "Collect the migration checklist before the next planning call."
+      },
+      "result": {},
+      "ms": 0.47854199999983393
+    },
+    {
+      "command": {
+        "op": "key",
+        "key": "tab"
+      },
+      "result": {},
+      "ms": 0.1115829999998823
+    },
+    {
+      "command": {
+        "op": "key",
+        "key": "enter"
+      },
+      "result": {},
+      "ms": 0.11420899999939138
+    },
+    {
+      "command": {
+        "op": "type",
+        "text": "Alex Kim"
+      },
+      "result": {},
+      "ms": 0.15029199999935372
+    },
+    {
+      "command": {
+        "op": "key",
+        "key": "tab"
+      },
+      "result": {},
+      "ms": 0.10208300000067538
+    },
+    {
+      "command": {
+        "op": "type",
+        "text": "alex.kim@example.test"
+      },
+      "result": {},
+      "ms": 0.1946669999997539
+    },
+    {
+      "command": {
+        "op": "key",
+        "key": "tab"
+      },
+      "result": {},
+      "ms": 0.15799999999944703
+    },
+    {
+      "command": {
+        "op": "type",
+        "text": "Arrange a feedback session with the customer support team."
+      },
+      "result": {},
+      "ms": 0.4834579999997004
+    },
+    {
+      "command": {
+        "op": "key",
+        "key": "tab"
+      },
+      "result": {},
+      "ms": 0.11508300000059535
+    },
+    {
+      "command": {
+        "op": "key",
+        "key": "enter"
+      },
+      "result": {},
+      "ms": 0.09991700000045967
+    }
+  ]
+}

@@ -1,0 +1,560 @@
+{
+  "profile": "paced",
+  "language": "robotjs",
+  "round": 1,
+  "warmup": false,
+  "recorded": false,
+  "verified": true,
+  "seconds": 9.540299999952316,
+  "failed_after_seconds": null,
+  "error": null,
+  "state": {
+    "saved": [
+      [
+        "Avery Chen",
+        "avery.chen@example.test",
+        "Send the revised onboarding pack and confirm the Friday review."
+      ],
+      [
+        "Morgan Patel",
+        "morgan.patel@example.test",
+        "Prepare a demo workspace with the import and export examples."
+      ],
+      [
+        "Jordan Silva",
+        "jordan.silva@example.test",
+        "Follow up on the accessibility feedback from the design review."
+      ],
+      [
+        "Casey Brooks",
+        "casey.brooks@example.test",
+        "Share the monthly report with the operations contact next week."
+      ],
+      [
+        "Riley Khan",
+        "riley.khan@example.test",
+        "Schedule a product walkthrough after the new account is ready."
+      ],
+      [
+        "Taylor Reed",
+        "taylor.reed@example.test",
+        "Confirm the trial requirements and send the setup instructions."
+      ],
+      [
+        "Sam Rivera",
+        "sam.rivera@example.test",
+        "Collect the migration checklist before the next planning call."
+      ],
+      [
+        "Alex Kim",
+        "alex.kim@example.test",
+        "Arrange a feedback session with the customer support team."
+      ]
+    ],
+    "hits": 0,
+    "misses": 0,
+    "errors": [],
+    "trusted": 1579,
+    "active": true,
+    "finished": true,
+    "failure": null,
+    "seconds": 9.540299999952316
+  },
+  "actualFields": {
+    "name": "",
+    "email": "",
+    "note": ""
+  },
+  "permissions": {
+    "accessibility": true,
+    "capture": true,
+    "displays": 1,
+    "cursor": {
+      "x": 398,
+      "y": 487
+    }
+  },
+  "actions": [
+    {
+      "command": {
+        "op": "click",
+        "x": 398,
+        "y": 487
+      },
+      "result": {},
+      "ms": 27.129124999999476
+    },
+    {
+      "command": {
+        "op": "type",
+        "text": "Avery Chen",
+        "cpm": 6000
+      },
+      "result": {},
+      "ms": 125.27841700000135
+    },
+    {
+      "command": {
+        "op": "key",
+        "key": "tab"
+      },
+      "result": {},
+      "ms": 0.08387500000389991
+    },
+    {
+      "command": {
+        "op": "type",
+        "text": "avery.chen@example.test",
+        "cpm": 6000
+      },
+      "result": {},
+      "ms": 273.9864579999994
+    },
+    {
+      "command": {
+        "op": "key",
+        "key": "tab"
+      },
+      "result": {},
+      "ms": 0.07120800000120653
+    },
+    {
+      "command": {
+        "op": "type",
+        "text": "Send the revised onboarding pack and confirm the Friday review.",
+        "cpm": 6000
+      },
+      "result": {},
+      "ms": 752.382458
+    },
+    {
+      "command": {
+        "op": "key",
+        "key": "tab"
+      },
+      "result": {},
+      "ms": 0.08475000000180444
+    },
+    {
+      "command": {
+        "op": "key",
+        "key": "enter"
+      },
+      "result": {},
+      "ms": 0.2762090000032913
+    },
+    {
+      "command": {
+        "op": "type",
+        "text": "Morgan Patel",
+        "cpm": 6000
+      },
+      "result": {},
+      "ms": 146.3227079999997
+    },
+    {
+      "command": {
+        "op": "key",
+        "key": "tab"
+      },
+      "result": {},
+      "ms": 0.06837500000256114
+    },
+    {
+      "command": {
+        "op": "type",
+        "text": "morgan.patel@example.test",
+        "cpm": 6000
+      },
+      "result": {},
+      "ms": 295.59729199999856
+    },
+    {
+      "command": {
+        "op": "key",
+        "key": "tab"
+      },
+      "result": {},
+      "ms": 0.10108400000171969
+    },
+    {
+      "command": {
+        "op": "type",
+        "text": "Prepare a demo workspace with the import and export examples.",
+        "cpm": 6000
+      },
+      "result": {},
+      "ms": 715.018707999996
+    },
+    {
+      "command": {
+        "op": "key",
+        "key": "tab"
+      },
+      "result": {},
+      "ms": 0.06891700000414858
+    },
+    {
+      "command": {
+        "op": "key",
+        "key": "enter"
+      },
+      "result": {},
+      "ms": 0.06258299999899464
+    },
+    {
+      "command": {
+        "op": "type",
+        "text": "Jordan Silva",
+        "cpm": 6000
+      },
+      "result": {},
+      "ms": 140.49112500000047
+    },
+    {
+      "command": {
+        "op": "key",
+        "key": "tab"
+      },
+      "result": {},
+      "ms": 0.07283400000596885
+    },
+    {
+      "command": {
+        "op": "type",
+        "text": "jordan.silva@example.test",
+        "cpm": 6000
+      },
+      "result": {},
+      "ms": 294.62625000000116
+    },
+    {
+      "command": {
+        "op": "key",
+        "key": "tab"
+      },
+      "result": {},
+      "ms": 0.08275000000139698
+    },
+    {
+      "command": {
+        "op": "type",
+        "text": "Follow up on the accessibility feedback from the design review.",
+        "cpm": 6000
+      },
+      "result": {},
+      "ms": 750.1959170000046
+    },
+    {
+      "command": {
+        "op": "key",
+        "key": "tab"
+      },
+      "result": {},
+      "ms": 0.0637499999938882
+    },
+    {
+      "command": {
+        "op": "key",
+        "key": "enter"
+      },
+      "result": {},
+      "ms": 0.07658299999457086
+    },
+    {
+      "command": {
+        "op": "type",
+        "text": "Casey Brooks",
+        "cpm": 6000
+      },
+      "result": {},
+      "ms": 138.5344580000019
+    },
+    {
+      "command": {
+        "op": "key",
+        "key": "tab"
+      },
+      "result": {},
+      "ms": 0.08966700000019046
+    },
+    {
+      "command": {
+        "op": "type",
+        "text": "casey.brooks@example.test",
+        "cpm": 6000
+      },
+      "result": {},
+      "ms": 303.0833749999947
+    },
+    {
+      "command": {
+        "op": "key",
+        "key": "tab"
+      },
+      "result": {},
+      "ms": 0.06524999999965075
+    },
+    {
+      "command": {
+        "op": "type",
+        "text": "Share the monthly report with the operations contact next week.",
+        "cpm": 6000
+      },
+      "result": {},
+      "ms": 748.1788750000051
+    },
+    {
+      "command": {
+        "op": "key",
+        "key": "tab"
+      },
+      "result": {},
+      "ms": 0.06991700000071432
+    },
+    {
+      "command": {
+        "op": "key",
+        "key": "enter"
+      },
+      "result": {},
+      "ms": 0.07712500000343425
+    },
+    {
+      "command": {
+        "op": "type",
+        "text": "Riley Khan",
+        "cpm": 6000
+      },
+      "result": {},
+      "ms": 121.42591700000048
+    },
+    {
+      "command": {
+        "op": "key",
+        "key": "tab"
+      },
+      "result": {},
+      "ms": 0.09408299999631708
+    },
+    {
+      "command": {
+        "op": "type",
+        "text": "riley.khan@example.test",
+        "cpm": 6000
+      },
+      "result": {},
+      "ms": 267.00974999999744
+    },
+    {
+      "command": {
+        "op": "key",
+        "key": "tab"
+      },
+      "result": {},
+      "ms": 0.06599999999889405
+    },
+    {
+      "command": {
+        "op": "type",
+        "text": "Schedule a product walkthrough after the new account is ready.",
+        "cpm": 6000
+      },
+      "result": {},
+      "ms": 736.2784170000014
+    },
+    {
+      "command": {
+        "op": "key",
+        "key": "tab"
+      },
+      "result": {},
+      "ms": 0.06883299999753945
+    },
+    {
+      "command": {
+        "op": "key",
+        "key": "enter"
+      },
+      "result": {},
+      "ms": 0.08024999999906868
+    },
+    {
+      "command": {
+        "op": "type",
+        "text": "Taylor Reed",
+        "cpm": 6000
+      },
+      "result": {},
+      "ms": 130.62308399999893
+    },
+    {
+      "command": {
+        "op": "key",
+        "key": "tab"
+      },
+      "result": {},
+      "ms": 0.07141599999886239
+    },
+    {
+      "command": {
+        "op": "type",
+        "text": "taylor.reed@example.test",
+        "cpm": 6000
+      },
+      "result": {},
+      "ms": 287.63699999999517
+    },
+    {
+      "command": {
+        "op": "key",
+        "key": "tab"
+      },
+      "result": {},
+      "ms": 0.0627909999966505
+    },
+    {
+      "command": {
+        "op": "type",
+        "text": "Confirm the trial requirements and send the setup instructions.",
+        "cpm": 6000
+      },
+      "result": {},
+      "ms": 740.083249999996
+    },
+    {
+      "command": {
+        "op": "key",
+        "key": "tab"
+      },
+      "result": {},
+      "ms": 0.0718330000017886
+    },
+    {
+      "command": {
+        "op": "key",
+        "key": "enter"
+      },
+      "result": {},
+      "ms": 0.07266600000002654
+    },
+    {
+      "command": {
+        "op": "type",
+        "text": "Sam Rivera",
+        "cpm": 6000
+      },
+      "result": {},
+      "ms": 120.96766699999716
+    },
+    {
+      "command": {
+        "op": "key",
+        "key": "tab"
+      },
+      "result": {},
+      "ms": 0.06779200000164565
+    },
+    {
+      "command": {
+        "op": "type",
+        "text": "sam.rivera@example.test",
+        "cpm": 6000
+      },
+      "result": {},
+      "ms": 270.3897500000021
+    },
+    {
+      "command": {
+        "op": "key",
+        "key": "tab"
+      },
+      "result": {},
+      "ms": 0.09341600000334438
+    },
+    {
+      "command": {
+        "op": "type",
+        "text": "Collect the migration checklist before the next planning call.",
+        "cpm": 6000
+      },
+      "result": {},
+      "ms": 733.0765000000029
+    },
+    {
+      "command": {
+        "op": "key",
+        "key": "tab"
+      },
+      "result": {},
+      "ms": 0.062041999997745734
+    },
+    {
+      "command": {
+        "op": "key",
+        "key": "enter"
+      },
+      "result": {},
+      "ms": 0.10758299999724841
+    },
+    {
+      "command": {
+        "op": "type",
+        "text": "Alex Kim",
+        "cpm": 6000
+      },
+      "result": {},
+      "ms": 93.0146670000031
+    },
+    {
+      "command": {
+        "op": "key",
+        "key": "tab"
+      },
+      "result": {},
+      "ms": 0.07083300000522286
+    },
+    {
+      "command": {
+        "op": "type",
+        "text": "alex.kim@example.test",
+        "cpm": 6000
+      },
+      "result": {},
+      "ms": 253.666916999995
+    },
+    {
+      "command": {
+        "op": "key",
+        "key": "tab"
+      },
+      "result": {},
+      "ms": 0.0765419999952428
+    },
+    {
+      "command": {
+        "op": "type",
+        "text": "Arrange a feedback session with the customer support team.",
+        "cpm": 6000
+      },
+      "result": {},
+      "ms": 680.1025829999999
+    },
+    {
+      "command": {
+        "op": "key",
+        "key": "tab"
+      },
+      "result": {},
+      "ms": 0.06366599999455502
+    },
+    {
+      "command": {
+        "op": "key",
+        "key": "enter"
+      },
+      "result": {},
+      "ms": 0.06658299999980954
+    }
+  ]
+}

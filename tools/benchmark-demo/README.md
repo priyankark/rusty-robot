@@ -54,4 +54,67 @@ Published run: `docs/workflows/2026-10-30`. Eight complete customer records were
 verified for both implementations. Rust completed 48 screenshot/search/click
 cycles with no misses. RobotJS capture returned an error on this host; this is
 retained as a failed run, not converted into a speedup. `workflow-report.py`
-checks the outcomes and video hashes and builds the primary video gallery.
+checks the outcomes and video hashes and builds the archived default-behavior gallery.
+
+
+## Controlled comparison (primary gallery)
+
+The default-delay form demo is not a matched typing-rate benchmark: RobotJS
+waits between characters, while Rust batches text. Use `workflow-compare.cjs`
+for the corrected comparison:
+
+```sh
+cargo build --release --locked --manifest-path tools/benchmark-demo/Cargo.toml --bin desktop
+node tools/benchmark-demo/workflow-compare.cjs /path/to/robotjs /new/output/directory
+python3 scripts/controlled-workflow-report.py --check
+```
+
+Both profiles set mouse delay to 10 ms and key-tap delay to 0 ms. The first
+uses each API's ordinary text entry with keyboard delay 0; Rust retains its
+internal 10 ms Unicode-batch safety interval. The second explicitly requests
+6,000 CPM from both paced-typing APIs. The harness waits for the expected field
+to receive focus before typing and verifies every field before advancing.
+
+Each profile runs one complete warmup per library, then six trials per library
+in alternating order, without video recording. A separate pair of illustrative
+runs is recorded afterward; those timings are not the measured medians.
+Published evidence is `docs/workflows/2026-10-30-controlled`. All 24 measured
+runs passed. No general language-speed claim follows from this one app and Mac.
+
+A preliminary zero-mouse-delay pilot stopped on lost focus. Measured profiles
+use the same 10 ms mouse delay and explicit field-focus checks for both libraries.
+The earlier RobotJS capture error is excluded from the speed comparison.
+
+
+## Screenshot-analysis workload (featured demo)
+
+The featured comparison detects known green Ready badges across 60 distinct
+1920×1080 generated dashboard screenshots, then groups matching pixels into
+rectangles. Both implementations use the public find-all-color API and the same
+row-major grouping steps. Exact results are checked against badge rectangles
+recorded independently from the fixture DOM. This is a known-color UI workload,
+not OCR or arbitrary screenshot understanding.
+
+The input archive is `docs/workflows/2026-10-30-dashboard/screenshots.zip`.
+Extract it into an empty directory. Decode each PNG to BGRA with ffmpeg, and
+verify the output SHA-256 against `fixtures.json` before running:
+
+```sh
+ffmpeg -i 00.png -f rawvideo -pix_fmt bgra 00.bgra
+# Repeat for 00.png through 59.png; hashes are in fixtures.json.
+cargo build --release --locked --manifest-path tools/benchmark-demo/Cargo.toml --bin dashboard
+node tools/benchmark-demo/dashboard-record.cjs /path/to/robotjs /path/to/fixtures /new/output/directory
+python3 scripts/dashboard-report.py --check
+```
+
+`make-dashboard-fixtures.cjs OUTPUT` regenerates the corpus with Chrome. Use
+the archived PNGs for byte-identical reproduction. File reads, decoding and a
+complete warmup are outside timing. Six rounds alternate library order; video
+recording is disabled. Additional sequential recorded takes illustrate the
+results; progress IPC and recording make those timings different. All measured
+outputs are retained. The result measures public API allocation plus grouping,
+not every possible optimized JavaScript buffer-scanning implementation.
+
+The primary gallery leads with this measured Rust win and links the controlled
+typing comparison, where zero-keyboard-delay Node was faster and equal-rate
+text entry was tied. Earlier default-delay videos remain explicitly qualified.
