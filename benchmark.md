@@ -12,6 +12,7 @@ in crate 0.1.3**; version 0.1.2 does not include it. Results were recorded on 20
 - [What the measurements mean](#what-the-measurements-mean)
 - [Current capture results](#current-capture-results)
 - [Historical input and capture baseline](#historical-input-and-capture-baseline)
+- [Real-app analysis versus RobotJS](#real-app-image-analysis-versus-robotjs-2026-10-30)
 - [RobotJS comparison](#robotjs-comparison-2026-10-27)
 - [Maintaining this report](#maintaining-this-report)
 
@@ -272,6 +273,38 @@ python3 tools/rust-ecosystem-benchmark/report.py --check
 
 </details>
 <!-- rust-ecosystem-benchmark:end -->
+
+## Real-app image analysis versus RobotJS (2026-10-30)
+
+These cases use native Rust captures of actual VS Code and GitHub windows.
+Each time covers analysis of **60 preloaded 1200×800 BGRA images** through the
+public APIs. Capture, navigation, loading, warmup, and verification are excluded.
+Both implementations scan the same rectangle for known theme colors and use the
+same row-extents grouping steps. Adjacent highlighted rows share a rectangle.
+
+| Task | RobotJS median | Rust median | Speedup | Verified regions |
+| --- | ---: | ---: | ---: | ---: |
+| Locate added-code regions in GitHub PR #24 | 3,805.26 ms | 77.39 ms | 49.17× | 64 |
+| Locate search highlights in VS Code | 45.00 ms | 14.28 ms | 3.15× | 106 |
+
+Six measured rounds alternate library order. Every answer matches an independent
+raw-pixel reference, cross-checked against app layout geometry. All six runs per
+library passed in both cases. Separate side-by-side recordings include progress
+and recording overhead; their clocks differ from these medians.
+
+The large diff gain includes creating and grouping many matching pixel positions:
+RobotJS materializes JavaScript objects; Rust uses a vector. These results do not
+measure app responsiveness or compare every possible optimized JavaScript buffer
+scan. The colors and search areas are specific to the captured layouts. The
+machine is an Apple M6 running macOS 27.0, Node 24.22.0 and Rust 1.99.1; RobotJS
+uses the pinned native addon revision recorded in the manifests.
+
+[Watch both app demos and read the story](https://priyankark.github.io/rusty-robot/building-rusty-robot.html#workloads) ·
+[GitHub raw evidence](docs/workflows/2026-10-30-github/) ·
+[VS Code raw evidence](docs/workflows/2026-10-30-vscode/) ·
+[Reproduction and oracle details](tools/benchmark-demo/README.md#real-application-screens).
+Each evidence folder includes all trial outputs, native capture provenance,
+video, and a ZIP with the exact PNGs and BGRA inputs.
 
 ## RobotJS comparison (2026-10-27)
 

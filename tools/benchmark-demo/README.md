@@ -122,8 +122,9 @@ text entry was tied. Earlier default-delay videos remain explicitly qualified.
 
 ## More screenshot workloads: alerts and test heatmaps
 
-The main write-up embeds all three screenshot comparisons and both controlled
-native typing videos. `scripts/workload-report.py --check` verifies all 36
+The main write-up keeps these three generated examples in an expandable section
+below the real-app demos. Controlled typing remains in its separate report.
+`scripts/workload-report.py --check` verifies all 36
 measured screenshot batches, six video event streams, alternating order, exact
 expected answers, and corpus/video hashes before checking generated article text.
 It also checks the heatmap's raw pixel counts, before any division into test tiles.
@@ -165,3 +166,94 @@ published experiment. The article generator targets the checked-in evidence,
 not an arbitrary new run. The manifests retain source commits, binary/source
 hashes, environment, and each trial time. No library release is needed for
 these benchmark additions.
+
+## Real application screens
+
+The story now features real **VS Code** and **GitHub diff** screenshots, captured
+through Rusty Robot. These measure **analysis of preloaded screenshots**. They do
+not time app navigation, screen capture, or clicking. The source used for the
+measured runners is pinned in each manifest (`86dc425…`); the input collector is
+preserved at `29e8c37…`.
+
+| Case | Inputs | Returned regions | Scan area in each 1200×800 image |
+| --- | --- | ---: | --- |
+| `vscode` | 60 editor views; six queries in `src/bitmap/search.rs` | 106 | x=84, y=150, width=790, height=580 |
+| `github` | 60 scrolled views of [merged PR #24](https://github.com/priyankark/rusty-robot/pull/24/files) | 64 | x=445, y=150, width=722, height=600 |
+
+Both implementations call their public find-all-color API for the same known
+colors, then compute per-row extents and combine consecutive occupied rows into
+rectangles. Adjacent matches can share a rectangle. RobotJS returns JavaScript
+pixel objects, while Rust returns a vector. Scanning, those allocations, and the
+same grouping steps are timed. This is a comparison of that public-API recipe,
+not a claim about all possible optimized JavaScript image-processing code.
+
+Each fresh process preloads the same BGRA bytes and verifies a complete warmup.
+Six rounds alternate library order. Recording is off during all measured runs;
+verification happens after the timer. A separate pair of recorded runs visualizes
+actual progress on the captured screens, aligned at start with the finished pane
+held. Their clocks include IPC and recording costs and are not the table medians.
+
+### Reproduce the recorded inputs
+
+Download and extract `screenshots.zip` from either
+`docs/workflows/2026-10-30-vscode/` or `docs/workflows/2026-10-30-github/` into a new
+directory. Each includes all 60 PNGs **and raw BGRA files**, so no decoder or live
+app setup is needed to reproduce analysis. Manifests pin RobotJS commit
+`0af6073e1f1bcff865ffe52801c71647829cdc1c`, toolchain versions, source and binary
+hashes, input hashes, timings, and recording hashes.
+
+```sh
+cargo build --release --locked --manifest-path tools/benchmark-demo/Cargo.toml --bin app-regions
+python3 tools/benchmark-demo/app-oracle.py /path/to/extracted-corpus --check
+node tools/benchmark-demo/app-record.cjs vscode /path/to/robotjs /path/to/extracted-vscode-corpus /new/vscode-results
+node tools/benchmark-demo/app-record.cjs github /path/to/robotjs /path/to/extracted-github-corpus /new/github-results
+python3 scripts/app-report.py --check
+```
+
+The recorder needs macOS, Chrome and ffmpeg. Standalone analysis drivers can be
+run without recording: pipe `go` followed by a newline to `app-regions CORPUS` or
+`node app-regions-robotjs.cjs ROBOTJS CORPUS`. Always use a new output directory.
+The article generator verifies the archived experiment, not arbitrary new runs.
+
+### Collect new app captures
+
+Use an isolated VS Code user-data directory with extensions disabled and a copy
+of the pinned `src/bitmap/search.rs`, plus a separate Chrome profile opened at
+PR #24's Files changed page. The original versions are VS Code 1.141.0 and Chrome
+155.0.8059.40 on macOS 27.0. Rendering can change between versions: archived inputs
+are the exact reproduction path.
+
+Configure VS Code's Dark Modern theme, 16px font, 24px line height, disabled
+minimap and sticky scroll, hidden activity bar, and title
+`Rusty Robot Demo — ${activeEditorShort}`. Open its editor Find widget. Start VS
+Code with `--remote-debugging-port=9450`; start Chrome in app mode with port 9451.
+Use fresh profiles, `--no-first-run`, and the app executables directly so the
+owned process IDs are known. Both windows must be 1200×800 at desktop (360,140).
+Chrome's content starts 32px below its window origin. The archived fixtures retain
+all viewport metadata, queries, rectangles, and actual image dimensions.
+
+```sh
+cargo run --release --locked --example inspect
+cargo build --release --locked --manifest-path tools/benchmark-demo/Cargo.toml --bin app-capture
+swiftc tools/benchmark-demo/owned-window.swift -o tools/benchmark-demo/target/release/owned-window
+node tools/benchmark-demo/capture-app-fixtures.cjs vscode /new/vscode-captures OWNED_VSCODE_PID
+node tools/benchmark-demo/capture-app-fixtures.cjs github /new/github-captures OWNED_CHROME_PID
+python3 tools/benchmark-demo/app-oracle.py /new/vscode-captures
+python3 tools/benchmark-demo/app-oracle.py /new/github-captures
+```
+
+The small Swift helper activates and checks ownership of the topmost ordinary
+app window; it does not capture or process images. **Capture and PNG creation
+happen in the persistent Rust process.** The collector verifies the search query,
+window ownership, frame dimensions, and uniqueness. It aborts if another app
+occludes the target. A capture error gets one bounded retry and is recorded.
+An earlier discarded attempt with a fresh capture process per frame hit a
+ScreenCaptureKit timeout. The published corpora completed with no capture errors.
+
+The independent Python oracle scans raw pixels directly and checks the resulting
+regions against app DOM geometry. All edges must agree within one pixel (collapsed
+GitHub table borders can paint outside their DOM boxes). Exact pixel-reference
+rectangles and original DOM rectangles are both retained; **both benchmark
+implementations must return the exact reference**, without a timing-time tolerance.
+`app-report.py --check` re-extracts both archives, reruns the oracle, checks every
+trial and recorded output, verifies hashes, and checks generated article text.

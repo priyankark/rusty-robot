@@ -1,12 +1,381 @@
-const fs=require('node:fs'),path=require('node:path'),http=require('node:http'),crypto=require('node:crypto'),assert=require('node:assert/strict'),{spawn,execFileSync}=require('node:child_process'),{createInterface}=require('node:readline');
-const [workload,robotArg,fixtureArg,outArg]=process.argv.slice(2),robot=path.resolve(robotArg),fixtures=path.resolve(fixtureArg),out=path.resolve(outArg);assert(!fs.existsSync(out),'Use new output directory');fs.mkdirSync(out,{recursive:true});const root=path.resolve(__dirname,'../..'),rust=path.join(__dirname,'target/release/app-regions'),sha=p=>crypto.createHash('sha256').update(fs.readFileSync(p)).digest('hex'),sleep=ms=>new Promise(r=>setTimeout(r,ms));
-let server,chrome,ws,config,clients=[],child;
-const emit=x=>{for(const res of clients)res.write('data: '+JSON.stringify(x)+'\n\n')};
-assert(['vscode','github'].includes(workload));
-const manifest={case:workload,date:new Date().toISOString(),cpu:execFileSync('sysctl',['-n','machdep.cpu.brand_string'],{encoding:'utf8'}).trim(),os:execFileSync('sw_vers',['-productVersion'],{encoding:'utf8'}).trim(),node:process.version,rustc:execFileSync('rustc',['--version'],{encoding:'utf8'}).trim(),source_commit:execFileSync('git',['rev-parse','HEAD'],{cwd:root,encoding:'utf8'}).trim(),robotjs_commit:execFileSync('git',['rev-parse','HEAD'],{cwd:robot,encoding:'utf8'}).trim(),sha256:{rust:sha(rust),robotjs:sha(path.join(robot,'build/Release/robotjs.node')),capture_provenance:sha(path.join(fixtures,'capture.json')),rust_source:sha(path.join(__dirname,'src/bin/app-regions.rs')),node_source:sha(path.join(__dirname,'app-regions-robotjs.cjs')),recorder:sha(__filename)},method:'60 distinct native Rust captures of a real application, with an independent raw-pixel oracle checked against DOM highlight rectangles (within one pixel at rasterized table borders). Both public find-all-color APIs scan identical preloaded BGRA32 inputs and the same fixed rectangle, then aggregate matches into vertical bands with the same row-extents algorithm. Capture, navigation, PNG loading, warmup, and verification are outside the timer. Six measured runs per library alternate order, without recording. Separate recorded takes visualize actual API progress; their timing includes IPC and recording overhead.',runs:[],videos:[]};fs.copyFileSync(path.join(fixtures,'fixtures.json'),path.join(out,'fixtures.json'));fs.copyFileSync(path.join(fixtures,'capture.json'),path.join(out,'capture.json'));for(const f of JSON.parse(fs.readFileSync(path.join(fixtures,'fixtures.json')))){assert(f.oracle_verified,'Run app-oracle.py before measuring');assert.equal(sha(path.join(fixtures,f.name+'.bgra')),f.sha256,'Input hash mismatch');assert.equal(sha(path.join(fixtures,f.name+'.png')),f.png_sha256,'Screenshot hash mismatch')}manifest.input_verification='All 60 raw BGRA32 inputs verified against fixture hashes before measurement';
-function driver(language,record){let resolveReady,rejectReady,resolveDone,rejectDone;const ready=new Promise((r,j)=>{resolveReady=r;rejectReady=j}),done=new Promise((r,j)=>{resolveDone=r;rejectDone=j});const cmd=language==='rust'?rust:'node',args=language==='rust'?[fixtures,...(record?['record']:[])]:[path.join(__dirname,'app-regions-robotjs.cjs'),robot,fixtures,...(record?['record']:[])];const p=spawn(cmd,args,{stdio:['pipe','pipe','pipe']});child=p;let stderr='',complete;const events=[];p.stderr.on('data',d=>stderr+=d);createInterface({input:p.stdout}).on('line',line=>{const x=JSON.parse(line);events.push(x);if(x.type==='ready')resolveReady();if(x.type==='complete')complete=x;if(record)emit(x)});p.on('exit',code=>{if(code===0&&complete){resolveDone({complete,events})}else{const e=Error(stderr||'Driver failed');rejectReady(e);rejectDone(e)}});return {p,ready,done}}
-(async()=>{
-for(let round=1;round<=6;round++)for(const language of round%2?['robotjs','rust']:['rust','robotjs']){const d=driver(language,false);await d.ready;d.p.stdin.end('go\n');const {complete}=await d.done;assert(complete.verified&&complete.screenshots===60);const file=`${language}-${round}.json`;fs.writeFileSync(path.join(out,file),JSON.stringify(complete,null,2)+'\n');manifest.runs.push({round,language,file,seconds:complete.seconds});console.log(round,language,complete.seconds.toFixed(4),complete.targets);fs.writeFileSync(path.join(out,'manifest.json'),JSON.stringify(manifest,null,2)+'\n')}
-server=http.createServer((req,res)=>{if(req.url==='/events'){res.writeHead(200,{'Content-Type':'text/event-stream'});res.write(':ready\n\n');clients.push(res);req.on('close',()=>clients=clients.filter(c=>c!==res));return}if(req.url==='/config'){res.setHeader('Content-Type','application/json');res.end(JSON.stringify(config));return}const match=req.url.match(/^\/frame\/(\d+)\.png$/);if(match){res.setHeader('Content-Type','image/png');res.end(fs.readFileSync(path.join(fixtures,match[1].padStart(2,'0')+'.png')));return}res.setHeader('Content-Type','text/html');res.end(fs.readFileSync(path.join(__dirname,'app-view.html')))});await new Promise(r=>server.listen(0,'127.0.0.1',r));const url='http://127.0.0.1:'+server.address().port,tmp=fs.mkdtempSync('/tmp/dashboard-record-');chrome=spawn('/Applications/Google Chrome.app/Contents/MacOS/Google Chrome',['--headless=new','--disable-gpu','--no-first-run','--user-data-dir='+path.join(tmp,'profile'),'--remote-debugging-port=9452','about:blank'],{stdio:'ignore'});let tabs;for(let i=0;i<100;i++){try{tabs=await(await fetch('http://127.0.0.1:9452/json')).json();break}catch{await sleep(100)}}ws=new WebSocket(tabs.find(t=>t.type==='page'&&t.url==='about:blank').webSocketDebuggerUrl);await new Promise(r=>ws.addEventListener('open',r,{once:true}));let id=0;const pending=new Map();ws.addEventListener('message',e=>{const m=JSON.parse(e.data);if(pending.has(m.id)){const p=pending.get(m.id);pending.delete(m.id);m.error?p.reject(m.error):p.resolve(m.result)}});const send=(method,params={})=>new Promise((resolve,reject)=>{const n=++id;pending.set(n,{resolve,reject});ws.send(JSON.stringify({id:n,method,params}))});const ev=async expression=>(await send('Runtime.evaluate',{expression,returnByValue:true})).result.value;await send('Page.enable');await send('Emulation.setDeviceMetricsOverride',{width:1000,height:1040,deviceScaleFactor:1,mobile:false});const movies=[];
-for(const language of ['robotjs','rust']){config={language,workload};await send('Page.navigate',{url});for(let i=0;i<100;i++){if(await ev('document.readyState==="complete"&&document.images[0].complete')&&clients.length)break;await sleep(20)}const d=driver(language,true);await d.ready;const dir=path.join(tmp,language);fs.mkdirSync(dir);const frames=[],start=performance.now();let recording=true;const capture=(async()=>{while(recording){const at=(performance.now()-start)/1000;const shot=await send('Page.captureScreenshot',{format:'jpeg',quality:92});const file=path.join(dir,String(frames.length).padStart(5,'0')+'.jpg');fs.writeFileSync(file,Buffer.from(shot.data,'base64'));frames.push({at,file});await sleep(20)}})();await sleep(1100);const offset=(performance.now()-start)/1000;emit({type:'start'});d.p.stdin.end('go\n');const {complete,events}=await d.done;for(let i=0;i<100&&!await ev('window.done');i++)await sleep(10);assert(await ev('window.done'));await sleep(1800);recording=false;await capture;fs.writeFileSync(path.join(out,language+'-video.json'),JSON.stringify({complete,events},null,2)+'\n');fs.writeFileSync(path.join(dir,'frames.txt'),frames.map((f,i)=>`file '${f.file}'\nduration ${i+1<frames.length?frames[i+1].at-f.at:0.04}\n`).join('')+`file '${frames.at(-1).file}'\n`);const movie=path.join(dir,'run.mp4');execFileSync('ffmpeg',['-hide_banner','-loglevel','error','-y','-f','concat','-safe','0','-i',path.join(dir,'frames.txt'),'-vf',`trim=start=${offset-1},setpts=PTS-STARTPTS,fps=30`,'-c:v','libx264','-crf','19','-pix_fmt','yuv420p',movie]);movies.push(movie);manifest.videos.push({language,seconds:complete.seconds,targets:complete.targets,verified:complete.verified});console.log('video',language,complete.seconds.toFixed(4));}
-const duration=Math.max(...manifest.videos.map(r=>r.seconds))+3;execFileSync('ffmpeg',['-hide_banner','-loglevel','error','-y','-i',movies[0],'-i',movies[1],'-filter_complex',`[0:v]tpad=stop_mode=clone:stop_duration=${duration},trim=duration=${duration},setpts=PTS-STARTPTS[a];[1:v]tpad=stop_mode=clone:stop_duration=${duration},trim=duration=${duration},setpts=PTS-STARTPTS[b];[a][b]hstack=inputs=2[v]`,'-map','[v]','-c:v','libx264','-crf','19','-pix_fmt','yuv420p','-movflags','+faststart','-an',path.join(out,'workload.mp4')]);execFileSync('ffmpeg',['-hide_banner','-loglevel','error','-y','-sseof','-0.4','-i',path.join(out,'workload.mp4'),'-frames:v','1',path.join(out,'workload.png')]);manifest.video_sha256=sha(path.join(out,'workload.mp4'));fs.writeFileSync(path.join(out,'manifest.json'),JSON.stringify(manifest,null,2)+'\n');await send('Browser.close');ws.close();server.close();})().catch(e=>{console.error(e);if(child)child.kill();if(chrome)chrome.kill();if(ws)ws.close();if(server)server.close();process.exitCode=1});
+const fs = require("node:fs"),
+  path = require("node:path"),
+  http = require("node:http"),
+  crypto = require("node:crypto"),
+  assert = require("node:assert/strict"),
+  { spawn, execFileSync } = require("node:child_process"),
+  { createInterface } = require("node:readline");
+const [workload, robotArg, fixtureArg, outArg] = process.argv.slice(2),
+  robot = path.resolve(robotArg),
+  fixtures = path.resolve(fixtureArg),
+  out = path.resolve(outArg);
+assert(!fs.existsSync(out), "Use new output directory");
+fs.mkdirSync(out, { recursive: true });
+const root = path.resolve(__dirname, "../.."),
+  rust = path.join(__dirname, "target/release/app-regions"),
+  sha = (p) =>
+    crypto.createHash("sha256").update(fs.readFileSync(p)).digest("hex"),
+  sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+let server,
+  chrome,
+  ws,
+  config,
+  clients = [],
+  child;
+const emit = (x) => {
+  for (const res of clients) res.write("data: " + JSON.stringify(x) + "\n\n");
+};
+assert(["vscode", "github"].includes(workload));
+const manifest = {
+  case: workload,
+  date: new Date().toISOString(),
+  cpu: execFileSync("sysctl", ["-n", "machdep.cpu.brand_string"], {
+    encoding: "utf8",
+  }).trim(),
+  os: execFileSync("sw_vers", ["-productVersion"], { encoding: "utf8" }).trim(),
+  node: process.version,
+  rustc: execFileSync("rustc", ["--version"], { encoding: "utf8" }).trim(),
+  source_commit: execFileSync("git", ["rev-parse", "HEAD"], {
+    cwd: root,
+    encoding: "utf8",
+  }).trim(),
+  robotjs_commit: execFileSync("git", ["rev-parse", "HEAD"], {
+    cwd: robot,
+    encoding: "utf8",
+  }).trim(),
+  sha256: {
+    rust: sha(rust),
+    robotjs: sha(path.join(robot, "build/Release/robotjs.node")),
+    capture_provenance: sha(path.join(fixtures, "capture.json")),
+    rust_source: sha(path.join(__dirname, "src/bin/app-regions.rs")),
+    node_source: sha(path.join(__dirname, "app-regions-robotjs.cjs")),
+    recorder: sha(__filename),
+  },
+  method:
+    "60 distinct native Rust captures of a real application, with an independent raw-pixel oracle checked against DOM highlight rectangles (within one pixel at rasterized table borders). Both public find-all-color APIs scan identical preloaded BGRA32 inputs and the same fixed rectangle, then aggregate matches into vertical bands with the same row-extents algorithm. Capture, navigation, PNG loading, warmup, and verification are outside the timer. Six measured runs per library alternate order, without recording. Separate recorded takes visualize actual API progress; their timing includes IPC and recording overhead.",
+  runs: [],
+  videos: [],
+};
+fs.copyFileSync(
+  path.join(fixtures, "fixtures.json"),
+  path.join(out, "fixtures.json"),
+);
+fs.copyFileSync(
+  path.join(fixtures, "capture.json"),
+  path.join(out, "capture.json"),
+);
+for (const f of JSON.parse(
+  fs.readFileSync(path.join(fixtures, "fixtures.json")),
+)) {
+  assert(f.oracle_verified, "Run app-oracle.py before measuring");
+  assert.equal(
+    sha(path.join(fixtures, f.name + ".bgra")),
+    f.sha256,
+    "Input hash mismatch",
+  );
+  assert.equal(
+    sha(path.join(fixtures, f.name + ".png")),
+    f.png_sha256,
+    "Screenshot hash mismatch",
+  );
+}
+manifest.input_verification =
+  "All 60 raw BGRA32 inputs verified against fixture hashes before measurement";
+function driver(language, record) {
+  let resolveReady, rejectReady, resolveDone, rejectDone;
+  const ready = new Promise((r, j) => {
+      resolveReady = r;
+      rejectReady = j;
+    }),
+    done = new Promise((r, j) => {
+      resolveDone = r;
+      rejectDone = j;
+    });
+  const cmd = language === "rust" ? rust : "node",
+    args =
+      language === "rust"
+        ? [fixtures, ...(record ? ["record"] : [])]
+        : [
+            path.join(__dirname, "app-regions-robotjs.cjs"),
+            robot,
+            fixtures,
+            ...(record ? ["record"] : []),
+          ];
+  const p = spawn(cmd, args, { stdio: ["pipe", "pipe", "pipe"] });
+  child = p;
+  let stderr = "",
+    complete;
+  const events = [];
+  p.stderr.on("data", (d) => (stderr += d));
+  createInterface({ input: p.stdout }).on("line", (line) => {
+    const x = JSON.parse(line);
+    events.push(x);
+    if (x.type === "ready") resolveReady();
+    if (x.type === "complete") complete = x;
+    if (record) emit(x);
+  });
+  p.on("exit", (code) => {
+    if (code === 0 && complete) {
+      resolveDone({ complete, events });
+    } else {
+      const e = Error(stderr || "Driver failed");
+      rejectReady(e);
+      rejectDone(e);
+    }
+  });
+  return { p, ready, done };
+}
+(async () => {
+  for (let round = 1; round <= 6; round++)
+    for (const language of round % 2
+      ? ["robotjs", "rust"]
+      : ["rust", "robotjs"]) {
+      const d = driver(language, false);
+      await d.ready;
+      d.p.stdin.end("go\n");
+      const { complete } = await d.done;
+      assert(complete.verified && complete.screenshots === 60);
+      const file = `${language}-${round}.json`;
+      fs.writeFileSync(
+        path.join(out, file),
+        JSON.stringify(complete, null, 2) + "\n",
+      );
+      manifest.runs.push({ round, language, file, seconds: complete.seconds });
+      console.log(
+        round,
+        language,
+        complete.seconds.toFixed(4),
+        complete.targets,
+      );
+      fs.writeFileSync(
+        path.join(out, "manifest.json"),
+        JSON.stringify(manifest, null, 2) + "\n",
+      );
+    }
+  server = http.createServer((req, res) => {
+    if (req.url === "/events") {
+      res.writeHead(200, { "Content-Type": "text/event-stream" });
+      res.write(":ready\n\n");
+      clients.push(res);
+      req.on("close", () => (clients = clients.filter((c) => c !== res)));
+      return;
+    }
+    if (req.url === "/config") {
+      res.setHeader("Content-Type", "application/json");
+      res.end(JSON.stringify(config));
+      return;
+    }
+    const match = req.url.match(/^\/frame\/(\d+)\.png$/);
+    if (match) {
+      res.setHeader("Content-Type", "image/png");
+      res.end(
+        fs.readFileSync(
+          path.join(fixtures, match[1].padStart(2, "0") + ".png"),
+        ),
+      );
+      return;
+    }
+    res.setHeader("Content-Type", "text/html");
+    res.end(fs.readFileSync(path.join(__dirname, "app-view.html")));
+  });
+  await new Promise((r) => server.listen(0, "127.0.0.1", r));
+  const url = "http://127.0.0.1:" + server.address().port,
+    tmp = fs.mkdtempSync("/tmp/dashboard-record-");
+  chrome = spawn(
+    "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
+    [
+      "--headless=new",
+      "--disable-gpu",
+      "--no-first-run",
+      "--user-data-dir=" + path.join(tmp, "profile"),
+      "--remote-debugging-port=9452",
+      "about:blank",
+    ],
+    { stdio: "ignore" },
+  );
+  let tabs;
+  for (let i = 0; i < 100; i++) {
+    try {
+      tabs = await (await fetch("http://127.0.0.1:9452/json")).json();
+      break;
+    } catch {
+      await sleep(100);
+    }
+  }
+  ws = new WebSocket(
+    tabs.find(
+      (t) => t.type === "page" && t.url === "about:blank",
+    ).webSocketDebuggerUrl,
+  );
+  await new Promise((r) => ws.addEventListener("open", r, { once: true }));
+  let id = 0;
+  const pending = new Map();
+  ws.addEventListener("message", (e) => {
+    const m = JSON.parse(e.data);
+    if (pending.has(m.id)) {
+      const p = pending.get(m.id);
+      pending.delete(m.id);
+      m.error ? p.reject(m.error) : p.resolve(m.result);
+    }
+  });
+  const send = (method, params = {}) =>
+    new Promise((resolve, reject) => {
+      const n = ++id;
+      pending.set(n, { resolve, reject });
+      ws.send(JSON.stringify({ id: n, method, params }));
+    });
+  const ev = async (expression) =>
+    (await send("Runtime.evaluate", { expression, returnByValue: true })).result
+      .value;
+  await send("Page.enable");
+  await send("Emulation.setDeviceMetricsOverride", {
+    width: 1000,
+    height: 1040,
+    deviceScaleFactor: 1,
+    mobile: false,
+  });
+  const movies = [];
+  for (const language of ["robotjs", "rust"]) {
+    config = { language, workload };
+    await send("Page.navigate", { url });
+    for (let i = 0; i < 100; i++) {
+      if (
+        (await ev(
+          'document.readyState==="complete"&&document.images[0].complete',
+        )) &&
+        clients.length
+      )
+        break;
+      await sleep(20);
+    }
+    const d = driver(language, true);
+    await d.ready;
+    const dir = path.join(tmp, language);
+    fs.mkdirSync(dir);
+    const frames = [],
+      start = performance.now();
+    let recording = true;
+    const capture = (async () => {
+      while (recording) {
+        const at = (performance.now() - start) / 1000;
+        const shot = await send("Page.captureScreenshot", {
+          format: "jpeg",
+          quality: 92,
+        });
+        const file = path.join(
+          dir,
+          String(frames.length).padStart(5, "0") + ".jpg",
+        );
+        fs.writeFileSync(file, Buffer.from(shot.data, "base64"));
+        frames.push({ at, file });
+        await sleep(20);
+      }
+    })();
+    await sleep(1100);
+    const offset = (performance.now() - start) / 1000;
+    emit({ type: "start" });
+    d.p.stdin.end("go\n");
+    const { complete, events } = await d.done;
+    for (let i = 0; i < 100 && !(await ev("window.done")); i++) await sleep(10);
+    assert(await ev("window.done"));
+    await sleep(1800);
+    recording = false;
+    await capture;
+    fs.writeFileSync(
+      path.join(out, language + "-video.json"),
+      JSON.stringify({ complete, events }, null, 2) + "\n",
+    );
+    fs.writeFileSync(
+      path.join(dir, "frames.txt"),
+      frames
+        .map(
+          (f, i) =>
+            `file '${f.file}'\nduration ${i + 1 < frames.length ? frames[i + 1].at - f.at : 0.04}\n`,
+        )
+        .join("") + `file '${frames.at(-1).file}'\n`,
+    );
+    const movie = path.join(dir, "run.mp4");
+    execFileSync("ffmpeg", [
+      "-hide_banner",
+      "-loglevel",
+      "error",
+      "-y",
+      "-f",
+      "concat",
+      "-safe",
+      "0",
+      "-i",
+      path.join(dir, "frames.txt"),
+      "-vf",
+      `trim=start=${offset - 1},setpts=PTS-STARTPTS,fps=30`,
+      "-c:v",
+      "libx264",
+      "-crf",
+      "19",
+      "-pix_fmt",
+      "yuv420p",
+      movie,
+    ]);
+    movies.push(movie);
+    manifest.videos.push({
+      language,
+      seconds: complete.seconds,
+      targets: complete.targets,
+      verified: complete.verified,
+    });
+    console.log("video", language, complete.seconds.toFixed(4));
+  }
+  const duration = Math.max(...manifest.videos.map((r) => r.seconds)) + 3;
+  execFileSync("ffmpeg", [
+    "-hide_banner",
+    "-loglevel",
+    "error",
+    "-y",
+    "-i",
+    movies[0],
+    "-i",
+    movies[1],
+    "-filter_complex",
+    `[0:v]tpad=stop_mode=clone:stop_duration=${duration},trim=duration=${duration},setpts=PTS-STARTPTS[a];[1:v]tpad=stop_mode=clone:stop_duration=${duration},trim=duration=${duration},setpts=PTS-STARTPTS[b];[a][b]hstack=inputs=2[v]`,
+    "-map",
+    "[v]",
+    "-c:v",
+    "libx264",
+    "-crf",
+    "19",
+    "-pix_fmt",
+    "yuv420p",
+    "-movflags",
+    "+faststart",
+    "-an",
+    path.join(out, "workload.mp4"),
+  ]);
+  execFileSync("ffmpeg", [
+    "-hide_banner",
+    "-loglevel",
+    "error",
+    "-y",
+    "-sseof",
+    "-0.4",
+    "-i",
+    path.join(out, "workload.mp4"),
+    "-frames:v",
+    "1",
+    path.join(out, "workload.png"),
+  ]);
+  manifest.video_sha256 = sha(path.join(out, "workload.mp4"));
+  fs.writeFileSync(
+    path.join(out, "manifest.json"),
+    JSON.stringify(manifest, null, 2) + "\n",
+  );
+  await send("Browser.close");
+  ws.close();
+  server.close();
+})().catch((e) => {
+  console.error(e);
+  if (child) child.kill();
+  if (chrome) chrome.kill();
+  if (ws) ws.close();
+  if (server) server.close();
+  process.exitCode = 1;
+});
