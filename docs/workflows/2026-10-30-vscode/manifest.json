@@ -1,0 +1,110 @@
+{
+  "case": "vscode",
+  "date": "2026-10-30T17:18:49.487Z",
+  "cpu": "Apple M6",
+  "os": "27.0",
+  "node": "v24.22.0",
+  "rustc": "rustc 1.99.1 (58cf8f9c3 2026-10-13)",
+  "source_commit": "86dc425821e33945f5fe33e4ed4e617994a604bf",
+  "robotjs_commit": "0af6073e1f1bcff865ffe52801c71647829cdc1c",
+  "sha256": {
+    "rust": "f37bcaeb71676051a25b96d68c59b51a736c81082aa420f4ca3ec68271e7dafc",
+    "robotjs": "417bf9ba442737797efeaa046518699ebc02c5b840b2fae267b18ba651c71777",
+    "capture_provenance": "1dbe364436ede0d768a778cceaea992cd9eb6bd496015b46e99d5ff03cb3605c",
+    "rust_source": "25ed7e49802b883d330e367dbe0f7ce2a9a6465f0ce1252d841c12c14ab6fc9e",
+    "node_source": "ad3e71ef624007278e70cb955ce01fc7f211b71b5cd5536cc9645eca19d89043",
+    "recorder": "97aff669c72223665d7c908c2a929ab735d5f57677e50e851a4f9a59da2a0cb6"
+  },
+  "method": "60 distinct native Rust captures of a real application, with an independent raw-pixel oracle checked against DOM highlight rectangles (within one pixel at rasterized table borders). Both public find-all-color APIs scan identical preloaded BGRA32 inputs and the same fixed rectangle, then aggregate matches into vertical bands with the same row-extents algorithm. Capture, navigation, PNG loading, warmup, and verification are outside the timer. Six measured runs per library alternate order, without recording. Separate recorded takes visualize actual API progress; their timing includes IPC and recording overhead.",
+  "runs": [
+    {
+      "round": 1,
+      "language": "robotjs",
+      "file": "robotjs-1.json",
+      "seconds": 0.044875917
+    },
+    {
+      "round": 1,
+      "language": "rust",
+      "file": "rust-1.json",
+      "seconds": 0.0142815
+    },
+    {
+      "round": 2,
+      "language": "rust",
+      "file": "rust-2.json",
+      "seconds": 0.014192584
+    },
+    {
+      "round": 2,
+      "language": "robotjs",
+      "file": "robotjs-2.json",
+      "seconds": 0.044854333
+    },
+    {
+      "round": 3,
+      "language": "robotjs",
+      "file": "robotjs-3.json",
+      "seconds": 0.051079
+    },
+    {
+      "round": 3,
+      "language": "rust",
+      "file": "rust-3.json",
+      "seconds": 0.014829875
+    },
+    {
+      "round": 4,
+      "language": "rust",
+      "file": "rust-4.json",
+      "seconds": 0.0144315
+    },
+    {
+      "round": 4,
+      "language": "robotjs",
+      "file": "robotjs-4.json",
+      "seconds": 0.044963708
+    },
+    {
+      "round": 5,
+      "language": "robotjs",
+      "file": "robotjs-5.json",
+      "seconds": 0.045045708
+    },
+    {
+      "round": 5,
+      "language": "rust",
+      "file": "rust-5.json",
+      "seconds": 0.014278125
+    },
+    {
+      "round": 6,
+      "language": "rust",
+      "file": "rust-6.json",
+      "seconds": 0.014286875
+    },
+    {
+      "round": 6,
+      "language": "robotjs",
+      "file": "robotjs-6.json",
+      "seconds": 0.045099708
+    }
+  ],
+  "videos": [
+    {
+      "language": "robotjs",
+      "seconds": 0.05939,
+      "targets": 106,
+      "verified": true
+    },
+    {
+      "language": "rust",
+      "seconds": 0.027688041,
+      "targets": 106,
+      "verified": true
+    }
+  ],
+  "input_verification": "All 60 raw BGRA32 inputs verified against fixture hashes before measurement",
+  "video_sha256": "ab0510d6593d6a25cf8d05d4e77aad5ac64f78e8ed591d5c446494b60bd2324f",
+  "corpus_sha256": "de1d16398af830ed276ee929832e9ae6006117b92c4752d839b011f5d6f66db0"
+}

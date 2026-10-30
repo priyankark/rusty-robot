@@ -1,0 +1,45 @@
+const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+async function connect(port, match = () => true) {
+  let tabs;
+  for (let i = 0; i < 100; i++) {
+    try {
+      tabs = await (await fetch(`http://127.0.0.1:${port}/json`)).json();
+      if (tabs.some((t) => t.type === "page" && match(t))) break;
+    } catch {}
+    await sleep(100);
+  }
+  const tab = tabs.find((t) => t.type === "page" && match(t));
+  if (!tab) throw Error("No owned page");
+  const ws = new WebSocket(tab.webSocketDebuggerUrl);
+  await new Promise((r, j) => {
+    ws.addEventListener("open", r, { once: true });
+    ws.addEventListener("error", j, { once: true });
+  });
+  let id = 0;
+  const pending = new Map();
+  ws.addEventListener("message", (e) => {
+    const m = JSON.parse(e.data);
+    if (pending.has(m.id)) {
+      const p = pending.get(m.id);
+      pending.delete(m.id);
+      m.error ? p.reject(Error(JSON.stringify(m.error))) : p.resolve(m.result);
+    }
+  });
+  const send = (method, params = {}) =>
+    new Promise((resolve, reject) => {
+      const n = ++id;
+      pending.set(n, { resolve, reject });
+      ws.send(JSON.stringify({ id: n, method, params }));
+    });
+  const ev = async (expression) => {
+    const r = await send("Runtime.evaluate", {
+      expression,
+      returnByValue: true,
+      awaitPromise: true,
+    });
+    if (r.exceptionDetails) throw Error(JSON.stringify(r.exceptionDetails));
+    return r.result.value;
+  };
+  return { ws, send, ev, tab };
+}
+module.exports = { connect, sleep };

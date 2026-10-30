@@ -17,6 +17,7 @@ consumer = (root / 'docs/consumer-benchmarks.html').read_text().replace('../asse
 for source, destination in [('site-index.html', 'index.html'),
                             ('building-rusty-robot.html', 'building-rusty-robot.html'),
                             ('site.css', 'site.css'),
+                            ('build-story.css', 'build-story.css'),
                             ('benchmark-explorer.css', 'benchmark-explorer.css'),
                             ('benchmark-explorer.js', 'benchmark-explorer.js'),
                             ('workload-videos.js', 'workload-videos.js'),
@@ -28,6 +29,7 @@ for source, destination in [('site-index.html', 'index.html'),
     shutil.copyfile(root / 'docs' / source, out / destination)
 shutil.copytree(root / 'docs/demos', out / 'demos')
 shutil.copytree(root / 'docs/workflows', out / 'workflows')
+shutil.copytree(root / 'docs/story', out / 'story')
 (out / '.nojekyll').touch()
 shutil.copytree(root / 'assets', out / 'assets')
 shutil.copytree(root / 'benchmarks', out / 'benchmarks')

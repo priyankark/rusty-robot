@@ -1,0 +1,4856 @@
+[
+  {
+    "name": "00",
+    "app": "vscode",
+    "query": "let",
+    "bits_per_pixel": 32,
+    "byte_width": 4800,
+    "bytes_per_pixel": 4,
+    "height": 800,
+    "scale_x": 1,
+    "scale_y": 1,
+    "screen_x": 360,
+    "screen_y": 140,
+    "width": 1200,
+    "colors": [
+      "9f6a04",
+      "6b351a"
+    ],
+    "roi": [
+      84,
+      150,
+      790,
+      580
+    ],
+    "expected": [
+      [
+        123,
+        196,
+        29,
+        24
+      ],
+      [
+        123,
+        292,
+        29,
+        24
+      ],
+      [
+        123,
+        508,
+        29,
+        24
+      ],
+      [
+        200,
+        604,
+        29,
+        24
+      ]
+    ],
+    "dom": {
+      "title": "Rusty Robot Demo \u2014 search.rs",
+      "url": "vscode-file://vscode-app/Applications/Visual%20Studio%20Code.app/Contents/Resources/app/out/vs/code/electron-browser/workbench/workbench.html",
+      "screenX": 360,
+      "screenY": 140,
+      "outerWidth": 1200,
+      "outerHeight": 800,
+      "innerHeight": 800,
+      "innerWidth": 1200,
+      "scrollY": 0,
+      "dpr": 2,
+      "rectangles": [
+        {
+          "x": 200,
+          "y": 604,
+          "width": 29,
+          "height": 24
+        },
+        {
+          "x": 123,
+          "y": 508,
+          "width": 29,
+          "height": 24
+        },
+        {
+          "x": 123,
+          "y": 196,
+          "width": 29,
+          "height": 24
+        },
+        {
+          "x": 123,
+          "y": 292,
+          "width": 29,
+          "height": 24
+        }
+      ]
+    },
+    "sha256": "24d8de2c4681e36d46314422becf96705213695841b8c6e2b868419fa8985b2e",
+    "png_sha256": "0fb46c4c343c261a7fa1e04fe1ddba64be3d33bd4cc802f78b9d598a07236aa4",
+    "dom_expected": [
+      [
+        123,
+        196,
+        29,
+        24
+      ],
+      [
+        123,
+        292,
+        29,
+        24
+      ],
+      [
+        123,
+        508,
+        29,
+        24
+      ],
+      [
+        200,
+        604,
+        29,
+        24
+      ]
+    ],
+    "oracle_verified": true
+  },
+  {
+    "name": "01",
+    "app": "vscode",
+    "query": "let",
+    "bits_per_pixel": 32,
+    "byte_width": 4800,
+    "bytes_per_pixel": 4,
+    "height": 800,
+    "scale_x": 1,
+    "scale_y": 1,
+    "screen_x": 360,
+    "screen_y": 140,
+    "width": 1200,
+    "colors": [
+      "9f6a04",
+      "6b351a"
+    ],
+    "roi": [
+      84,
+      150,
+      790,
+      580
+    ],
+    "expected": [
+      [
+        123,
+        150,
+        29,
+        20
+      ],
+      [
+        123,
+        242,
+        29,
+        24
+      ],
+      [
+        123,
+        458,
+        29,
+        24
+      ],
+      [
+        200,
+        554,
+        29,
+        24
+      ]
+    ],
+    "dom": {
+      "title": "Rusty Robot Demo \u2014 search.rs",
+      "url": "vscode-file://vscode-app/Applications/Visual%20Studio%20Code.app/Contents/Resources/app/out/vs/code/electron-browser/workbench/workbench.html",
+      "screenX": 360,
+      "screenY": 140,
+      "outerWidth": 1200,
+      "outerHeight": 800,
+      "innerHeight": 800,
+      "innerWidth": 1200,
+      "scrollY": 0,
+      "dpr": 2,
+      "rectangles": [
+        {
+          "x": 200,
+          "y": 554,
+          "width": 29,
+          "height": 24
+        },
+        {
+          "x": 123,
+          "y": 458,
+          "width": 29,
+          "height": 24
+        },
+        {
+          "x": 123,
+          "y": 146,
+          "width": 29,
+          "height": 24
+        },
+        {
+          "x": 123,
+          "y": 242,
+          "width": 29,
+          "height": 24
+        }
+      ]
+    },
+    "sha256": "c2b5f658623e19bcef750ae5cc3440328e79e8850c8a5de16d05d0b67e1d0b7d",
+    "png_sha256": "58c1bae9991912470cff8114049e0a5296362e7949045eedb149f39a58b71a56",
+    "dom_expected": [
+      [
+        123,
+        150,
+        29,
+        20
+      ],
+      [
+        123,
+        242,
+        29,
+        24
+      ],
+      [
+        123,
+        458,
+        29,
+        24
+      ],
+      [
+        200,
+        554,
+        29,
+        24
+      ]
+    ],
+    "oracle_verified": true
+  },
+  {
+    "name": "02",
+    "app": "vscode",
+    "query": "let",
+    "bits_per_pixel": 32,
+    "byte_width": 4800,
+    "bytes_per_pixel": 4,
+    "height": 800,
+    "scale_x": 1,
+    "scale_y": 1,
+    "screen_x": 360,
+    "screen_y": 140,
+    "width": 1200,
+    "colors": [
+      "9f6a04",
+      "6b351a"
+    ],
+    "roi": [
+      84,
+      150,
+      790,
+      580
+    ],
+    "expected": [
+      [
+        123,
+        192,
+        29,
+        24
+      ],
+      [
+        123,
+        408,
+        29,
+        24
+      ],
+      [
+        200,
+        504,
+        29,
+        24
+      ]
+    ],
+    "dom": {
+      "title": "Rusty Robot Demo \u2014 search.rs",
+      "url": "vscode-file://vscode-app/Applications/Visual%20Studio%20Code.app/Contents/Resources/app/out/vs/code/electron-browser/workbench/workbench.html",
+      "screenX": 360,
+      "screenY": 140,
+      "outerWidth": 1200,
+      "outerHeight": 800,
+      "innerHeight": 800,
+      "innerWidth": 1200,
+      "scrollY": 0,
+      "dpr": 2,
+      "rectangles": [
+        {
+          "x": 200,
+          "y": 504,
+          "width": 29,
+          "height": 24
+        },
+        {
+          "x": 123,
+          "y": 408,
+          "width": 29,
+          "height": 24
+        },
+        {
+          "x": 123,
+          "y": 192,
+          "width": 29,
+          "height": 24
+        }
+      ]
+    },
+    "sha256": "e1988ae11dab77976bc6706d23a8b3f80b035f3bb63ffc7160653e46a93dd389",
+    "png_sha256": "0facb2d06555047a885cf9a56d704a31666f5a2fe5ce7996c9925c89a7a28d67",
+    "dom_expected": [
+      [
+        123,
+        192,
+        29,
+        24
+      ],
+      [
+        123,
+        408,
+        29,
+        24
+      ],
+      [
+        200,
+        504,
+        29,
+        24
+      ]
+    ],
+    "oracle_verified": true
+  },
+  {
+    "name": "03",
+    "app": "vscode",
+    "query": "let",
+    "bits_per_pixel": 32,
+    "byte_width": 4800,
+    "bytes_per_pixel": 4,
+    "height": 800,
+    "scale_x": 1,
+    "scale_y": 1,
+    "screen_x": 360,
+    "screen_y": 140,
+    "width": 1200,
+    "colors": [
+      "9f6a04",
+      "6b351a"
+    ],
+    "roi": [
+      84,
+      150,
+      790,
+      580
+    ],
+    "expected": [
+      [
+        123,
+        150,
+        29,
+        16
+      ],
+      [
+        123,
+        358,
+        29,
+        24
+      ],
+      [
+        200,
+        454,
+        29,
+        24
+      ]
+    ],
+    "dom": {
+      "title": "Rusty Robot Demo \u2014 search.rs",
+      "url": "vscode-file://vscode-app/Applications/Visual%20Studio%20Code.app/Contents/Resources/app/out/vs/code/electron-browser/workbench/workbench.html",
+      "screenX": 360,
+      "screenY": 140,
+      "outerWidth": 1200,
+      "outerHeight": 800,
+      "innerHeight": 800,
+      "innerWidth": 1200,
+      "scrollY": 0,
+      "dpr": 2,
+      "rectangles": [
+        {
+          "x": 200,
+          "y": 454,
+          "width": 29,
+          "height": 24
+        },
+        {
+          "x": 123,
+          "y": 358,
+          "width": 29,
+          "height": 24
+        },
+        {
+          "x": 123,
+          "y": 142,
+          "width": 29,
+          "height": 24
+        }
+      ]
+    },
+    "sha256": "d9a42d0b9dd53f10f7dea62c5ea0fcfd01a48400de27b709015d54c299a92008",
+    "png_sha256": "5b5063825d90e90c7b6311081490b9678b2631221325824b9947aaccab9e1afd",
+    "dom_expected": [
+      [
+        123,
+        150,
+        29,
+        16
+      ],
+      [
+        123,
+        358,
+        29,
+        24
+      ],
+      [
+        200,
+        454,
+        29,
+        24
+      ]
+    ],
+    "oracle_verified": true
+  },
+  {
+    "name": "04",
+    "app": "vscode",
+    "query": "let",
+    "bits_per_pixel": 32,
+    "byte_width": 4800,
+    "bytes_per_pixel": 4,
+    "height": 800,
+    "scale_x": 1,
+    "scale_y": 1,
+    "screen_x": 360,
+    "screen_y": 140,
+    "width": 1200,
+    "colors": [
+      "9f6a04",
+      "6b351a"
+    ],
+    "roi": [
+      84,
+      150,
+      790,
+      580
+    ],
+    "expected": [
+      [
+        123,
+        308,
+        29,
+        24
+      ],
+      [
+        200,
+        404,
+        29,
+        24
+      ]
+    ],
+    "dom": {
+      "title": "Rusty Robot Demo \u2014 search.rs",
+      "url": "vscode-file://vscode-app/Applications/Visual%20Studio%20Code.app/Contents/Resources/app/out/vs/code/electron-browser/workbench/workbench.html",
+      "screenX": 360,
+      "screenY": 140,
+      "outerWidth": 1200,
+      "outerHeight": 800,
+      "innerHeight": 800,
+      "innerWidth": 1200,
+      "scrollY": 0,
+      "dpr": 2,
+      "rectangles": [
+        {
+          "x": 200,
+          "y": 404,
+          "width": 29,
+          "height": 24
+        },
+        {
+          "x": 123,
+          "y": 308,
+          "width": 29,
+          "height": 24
+        }
+      ]
+    },
+    "sha256": "22e3a1066ac5c171709ef34ae94060a6962e6153573c5231056c15ac96d8a5da",
+    "png_sha256": "44e3c6660465d228bb79e23ae96f219beaa45289dc56b9ff235cc1aefbbf2671",
+    "dom_expected": [
+      [
+        123,
+        308,
+        29,
+        24
+      ],
+      [
+        200,
+        404,
+        29,
+        24
+      ]
+    ],
+    "oracle_verified": true
+  },
+  {
+    "name": "05",
+    "app": "vscode",
+    "query": "let",
+    "bits_per_pixel": 32,
+    "byte_width": 4800,
+    "bytes_per_pixel": 4,
+    "height": 800,
+    "scale_x": 1,
+    "scale_y": 1,
+    "screen_x": 360,
+    "screen_y": 140,
+    "width": 1200,
+    "colors": [
+      "9f6a04",
+      "6b351a"
+    ],
+    "roi": [
+      84,
+      150,
+      790,
+      580
+    ],
+    "expected": [
+      [
+        123,
+        258,
+        29,
+        24
+      ],
+      [
+        200,
+        354,
+        29,
+        24
+      ]
+    ],
+    "dom": {
+      "title": "Rusty Robot Demo \u2014 search.rs",
+      "url": "vscode-file://vscode-app/Applications/Visual%20Studio%20Code.app/Contents/Resources/app/out/vs/code/electron-browser/workbench/workbench.html",
+      "screenX": 360,
+      "screenY": 140,
+      "outerWidth": 1200,
+      "outerHeight": 800,
+      "innerHeight": 800,
+      "innerWidth": 1200,
+      "scrollY": 0,
+      "dpr": 2,
+      "rectangles": [
+        {
+          "x": 200,
+          "y": 354,
+          "width": 29,
+          "height": 24
+        },
+        {
+          "x": 123,
+          "y": 258,
+          "width": 29,
+          "height": 24
+        }
+      ]
+    },
+    "sha256": "c8f9497ab47f410f3a07805cb29974dac16151251fb4df3859d1d515a9b287e2",
+    "png_sha256": "fa1a22405e2c4bcb07c1d5e4d30b711abd772b55ce41e1f41e9767b36c931f37",
+    "dom_expected": [
+      [
+        123,
+        258,
+        29,
+        24
+      ],
+      [
+        200,
+        354,
+        29,
+        24
+      ]
+    ],
+    "oracle_verified": true
+  },
+  {
+    "name": "06",
+    "app": "vscode",
+    "query": "let",
+    "bits_per_pixel": 32,
+    "byte_width": 4800,
+    "bytes_per_pixel": 4,
+    "height": 800,
+    "scale_x": 1,
+    "scale_y": 1,
+    "screen_x": 360,
+    "screen_y": 140,
+    "width": 1200,
+    "colors": [
+      "9f6a04",
+      "6b351a"
+    ],
+    "roi": [
+      84,
+      150,
+      790,
+      580
+    ],
+    "expected": [
+      [
+        123,
+        208,
+        29,
+        24
+      ],
+      [
+        200,
+        304,
+        29,
+        24
+      ]
+    ],
+    "dom": {
+      "title": "Rusty Robot Demo \u2014 search.rs",
+      "url": "vscode-file://vscode-app/Applications/Visual%20Studio%20Code.app/Contents/Resources/app/out/vs/code/electron-browser/workbench/workbench.html",
+      "screenX": 360,
+      "screenY": 140,
+      "outerWidth": 1200,
+      "outerHeight": 800,
+      "innerHeight": 800,
+      "innerWidth": 1200,
+      "scrollY": 0,
+      "dpr": 2,
+      "rectangles": [
+        {
+          "x": 200,
+          "y": 304,
+          "width": 29,
+          "height": 24
+        },
+        {
+          "x": 123,
+          "y": 208,
+          "width": 29,
+          "height": 24
+        }
+      ]
+    },
+    "sha256": "a181f17a211da27f039053b6036d457d45c3d13bebdadf4e0842107c39b9b230",
+    "png_sha256": "aab919aeb92b1adafaf15533810459f7df50e0b8135ee09abbd0c3666ad3b86d",
+    "dom_expected": [
+      [
+        123,
+        208,
+        29,
+        24
+      ],
+      [
+        200,
+        304,
+        29,
+        24
+      ]
+    ],
+    "oracle_verified": true
+  },
+  {
+    "name": "07",
+    "app": "vscode",
+    "query": "let",
+    "bits_per_pixel": 32,
+    "byte_width": 4800,
+    "bytes_per_pixel": 4,
+    "height": 800,
+    "scale_x": 1,
+    "scale_y": 1,
+    "screen_x": 360,
+    "screen_y": 140,
+    "width": 1200,
+    "colors": [
+      "9f6a04",
+      "6b351a"
+    ],
+    "roi": [
+      84,
+      150,
+      790,
+      580
+    ],
+    "expected": [
+      [
+        123,
+        158,
+        29,
+        24
+      ],
+      [
+        200,
+        254,
+        29,
+        24
+      ]
+    ],
+    "dom": {
+      "title": "Rusty Robot Demo \u2014 search.rs",
+      "url": "vscode-file://vscode-app/Applications/Visual%20Studio%20Code.app/Contents/Resources/app/out/vs/code/electron-browser/workbench/workbench.html",
+      "screenX": 360,
+      "screenY": 140,
+      "outerWidth": 1200,
+      "outerHeight": 800,
+      "innerHeight": 800,
+      "innerWidth": 1200,
+      "scrollY": 0,
+      "dpr": 2,
+      "rectangles": [
+        {
+          "x": 200,
+          "y": 254,
+          "width": 29,
+          "height": 24
+        },
+        {
+          "x": 123,
+          "y": 158,
+          "width": 29,
+          "height": 24
+        }
+      ]
+    },
+    "sha256": "a79018549ee82f99f79ae3573b7453f2398eb4f724ff1eb79c586345b4d575d9",
+    "png_sha256": "d865ec6d4845492d7639a54acf507a75280cd938910f6adde6334578461fbb80",
+    "dom_expected": [
+      [
+        123,
+        158,
+        29,
+        24
+      ],
+      [
+        200,
+        254,
+        29,
+        24
+      ]
+    ],
+    "oracle_verified": true
+  },
+  {
+    "name": "08",
+    "app": "vscode",
+    "query": "let",
+    "bits_per_pixel": 32,
+    "byte_width": 4800,
+    "bytes_per_pixel": 4,
+    "height": 800,
+    "scale_x": 1,
+    "scale_y": 1,
+    "screen_x": 360,
+    "screen_y": 140,
+    "width": 1200,
+    "colors": [
+      "9f6a04",
+      "6b351a"
+    ],
+    "roi": [
+      84,
+      150,
+      790,
+      580
+    ],
+    "expected": [
+      [
+        200,
+        204,
+        29,
+        24
+      ]
+    ],
+    "dom": {
+      "title": "Rusty Robot Demo \u2014 search.rs",
+      "url": "vscode-file://vscode-app/Applications/Visual%20Studio%20Code.app/Contents/Resources/app/out/vs/code/electron-browser/workbench/workbench.html",
+      "screenX": 360,
+      "screenY": 140,
+      "outerWidth": 1200,
+      "outerHeight": 800,
+      "innerHeight": 800,
+      "innerWidth": 1200,
+      "scrollY": 0,
+      "dpr": 2,
+      "rectangles": [
+        {
+          "x": 200,
+          "y": 204,
+          "width": 29,
+          "height": 24
+        }
+      ]
+    },
+    "sha256": "85e1ccba685c7031e4bb1ab7a1cadf569f821d04e06c1d3c26e4123397ad2ade",
+    "png_sha256": "ba706c6b6ee80c8ee19c8947c3697a6ba465f953ae58df8a77cb6c222b48f460",
+    "dom_expected": [
+      [
+        200,
+        204,
+        29,
+        24
+      ]
+    ],
+    "oracle_verified": true
+  },
+  {
+    "name": "09",
+    "app": "vscode",
+    "query": "let",
+    "bits_per_pixel": 32,
+    "byte_width": 4800,
+    "bytes_per_pixel": 4,
+    "height": 800,
+    "scale_x": 1,
+    "scale_y": 1,
+    "screen_x": 360,
+    "screen_y": 140,
+    "width": 1200,
+    "colors": [
+      "9f6a04",
+      "6b351a"
+    ],
+    "roi": [
+      84,
+      150,
+      790,
+      580
+    ],
+    "expected": [
+      [
+        200,
+        154,
+        29,
+        24
+      ],
+      [
+        161,
+        682,
+        29,
+        48
+      ]
+    ],
+    "dom": {
+      "title": "Rusty Robot Demo \u2014 search.rs",
+      "url": "vscode-file://vscode-app/Applications/Visual%20Studio%20Code.app/Contents/Resources/app/out/vs/code/electron-browser/workbench/workbench.html",
+      "screenX": 360,
+      "screenY": 140,
+      "outerWidth": 1200,
+      "outerHeight": 800,
+      "innerHeight": 800,
+      "innerWidth": 1200,
+      "scrollY": 0,
+      "dpr": 2,
+      "rectangles": [
+        {
+          "x": 200,
+          "y": 154,
+          "width": 29,
+          "height": 24
+        },
+        {
+          "x": 161,
+          "y": 682,
+          "width": 29,
+          "height": 24
+        },
+        {
+          "x": 161,
+          "y": 706,
+          "width": 29,
+          "height": 24
+        }
+      ]
+    },
+    "sha256": "7cbbcb05a9e9cec49f0224253c665e0d3dc07a4758cd3bd3e42f299649e528a8",
+    "png_sha256": "9f7f25f93a2a4ff82134308b41d36a538a44fd8282e2fd5c4f0501c7fccf941e",
+    "dom_expected": [
+      [
+        200,
+        154,
+        29,
+        24
+      ],
+      [
+        161,
+        682,
+        29,
+        48
+      ]
+    ],
+    "oracle_verified": true
+  },
+  {
+    "name": "10",
+    "app": "vscode",
+    "query": "return",
+    "bits_per_pixel": 32,
+    "byte_width": 4800,
+    "bytes_per_pixel": 4,
+    "height": 800,
+    "scale_x": 1,
+    "scale_y": 1,
+    "screen_x": 360,
+    "screen_y": 140,
+    "width": 1200,
+    "colors": [
+      "9f6a04",
+      "6b351a"
+    ],
+    "roi": [
+      84,
+      150,
+      790,
+      580
+    ],
+    "expected": [
+      [
+        161,
+        244,
+        58,
+        24
+      ],
+      [
+        161,
+        460,
+        58,
+        24
+      ]
+    ],
+    "dom": {
+      "title": "Rusty Robot Demo \u2014 search.rs",
+      "url": "vscode-file://vscode-app/Applications/Visual%20Studio%20Code.app/Contents/Resources/app/out/vs/code/electron-browser/workbench/workbench.html",
+      "screenX": 360,
+      "screenY": 140,
+      "outerWidth": 1200,
+      "outerHeight": 800,
+      "innerHeight": 800,
+      "innerWidth": 1200,
+      "scrollY": 0,
+      "dpr": 2,
+      "rectangles": [
+        {
+          "x": 161,
+          "y": 244,
+          "width": 58,
+          "height": 24
+        },
+        {
+          "x": 161,
+          "y": 460,
+          "width": 58,
+          "height": 24
+        }
+      ]
+    },
+    "sha256": "3acc39cc691693edb07adb9d4a792a3ad79b2d8ed1bbd899fe847b055639b4c6",
+    "png_sha256": "ca03e0fb37945a874a29843c5920db78f9fb4cfc0e52507551ac3700606fa728",
+    "dom_expected": [
+      [
+        161,
+        244,
+        58,
+        24
+      ],
+      [
+        161,
+        460,
+        58,
+        24
+      ]
+    ],
+    "oracle_verified": true
+  },
+  {
+    "name": "11",
+    "app": "vscode",
+    "query": "return",
+    "bits_per_pixel": 32,
+    "byte_width": 4800,
+    "bytes_per_pixel": 4,
+    "height": 800,
+    "scale_x": 1,
+    "scale_y": 1,
+    "screen_x": 360,
+    "screen_y": 140,
+    "width": 1200,
+    "colors": [
+      "9f6a04",
+      "6b351a"
+    ],
+    "roi": [
+      84,
+      150,
+      790,
+      580
+    ],
+    "expected": [
+      [
+        161,
+        194,
+        58,
+        24
+      ],
+      [
+        161,
+        410,
+        58,
+        24
+      ]
+    ],
+    "dom": {
+      "title": "Rusty Robot Demo \u2014 search.rs",
+      "url": "vscode-file://vscode-app/Applications/Visual%20Studio%20Code.app/Contents/Resources/app/out/vs/code/electron-browser/workbench/workbench.html",
+      "screenX": 360,
+      "screenY": 140,
+      "outerWidth": 1200,
+      "outerHeight": 800,
+      "innerHeight": 800,
+      "innerWidth": 1200,
+      "scrollY": 0,
+      "dpr": 2,
+      "rectangles": [
+        {
+          "x": 161,
+          "y": 194,
+          "width": 58,
+          "height": 24
+        },
+        {
+          "x": 161,
+          "y": 410,
+          "width": 58,
+          "height": 24
+        }
+      ]
+    },
+    "sha256": "1260bd59e94ce9d007d3a59a6b27d2a6e92c3e049cbda31fe891bf247508a523",
+    "png_sha256": "ff2afc74e99ffc2598f1e012eac6e56660fc9ca74a0cc0e54788e0dd8f7b9652",
+    "dom_expected": [
+      [
+        161,
+        194,
+        58,
+        24
+      ],
+      [
+        161,
+        410,
+        58,
+        24
+      ]
+    ],
+    "oracle_verified": true
+  },
+  {
+    "name": "12",
+    "app": "vscode",
+    "query": "return",
+    "bits_per_pixel": 32,
+    "byte_width": 4800,
+    "bytes_per_pixel": 4,
+    "height": 800,
+    "scale_x": 1,
+    "scale_y": 1,
+    "screen_x": 360,
+    "screen_y": 140,
+    "width": 1200,
+    "colors": [
+      "9f6a04",
+      "6b351a"
+    ],
+    "roi": [
+      84,
+      150,
+      790,
+      580
+    ],
+    "expected": [
+      [
+        161,
+        150,
+        58,
+        18
+      ],
+      [
+        161,
+        360,
+        58,
+        24
+      ]
+    ],
+    "dom": {
+      "title": "Rusty Robot Demo \u2014 search.rs",
+      "url": "vscode-file://vscode-app/Applications/Visual%20Studio%20Code.app/Contents/Resources/app/out/vs/code/electron-browser/workbench/workbench.html",
+      "screenX": 360,
+      "screenY": 140,
+      "outerWidth": 1200,
+      "outerHeight": 800,
+      "innerHeight": 800,
+      "innerWidth": 1200,
+      "scrollY": 0,
+      "dpr": 2,
+      "rectangles": [
+        {
+          "x": 161,
+          "y": 144,
+          "width": 58,
+          "height": 24
+        },
+        {
+          "x": 161,
+          "y": 360,
+          "width": 58,
+          "height": 24
+        }
+      ]
+    },
+    "sha256": "10aafdbe23cbf083e57f3c9262a48e8392293d8f2bbb213e2859694753af3e32",
+    "png_sha256": "2589b3769d14f93782ca035ecc68a2efdeb99f91fef408e75d06d4a056e3b1dd",
+    "dom_expected": [
+      [
+        161,
+        150,
+        58,
+        18
+      ],
+      [
+        161,
+        360,
+        58,
+        24
+      ]
+    ],
+    "oracle_verified": true
+  },
+  {
+    "name": "13",
+    "app": "vscode",
+    "query": "return",
+    "bits_per_pixel": 32,
+    "byte_width": 4800,
+    "bytes_per_pixel": 4,
+    "height": 800,
+    "scale_x": 1,
+    "scale_y": 1,
+    "screen_x": 360,
+    "screen_y": 140,
+    "width": 1200,
+    "colors": [
+      "9f6a04",
+      "6b351a"
+    ],
+    "roi": [
+      84,
+      150,
+      790,
+      580
+    ],
+    "expected": [
+      [
+        161,
+        310,
+        58,
+        24
+      ]
+    ],
+    "dom": {
+      "title": "Rusty Robot Demo \u2014 search.rs",
+      "url": "vscode-file://vscode-app/Applications/Visual%20Studio%20Code.app/Contents/Resources/app/out/vs/code/electron-browser/workbench/workbench.html",
+      "screenX": 360,
+      "screenY": 140,
+      "outerWidth": 1200,
+      "outerHeight": 800,
+      "innerHeight": 800,
+      "innerWidth": 1200,
+      "scrollY": 0,
+      "dpr": 2,
+      "rectangles": [
+        {
+          "x": 161,
+          "y": 310,
+          "width": 58,
+          "height": 24
+        }
+      ]
+    },
+    "sha256": "31e0673013ec8ba730fbdf3ada46ab14884e1c5c79ae6e85872e32ebb683ab2b",
+    "png_sha256": "8b92315462844df1c11e5feab1d8cbe54e328e11fd5dd67db6b1eceec1517bbb",
+    "dom_expected": [
+      [
+        161,
+        310,
+        58,
+        24
+      ]
+    ],
+    "oracle_verified": true
+  },
+  {
+    "name": "14",
+    "app": "vscode",
+    "query": "return",
+    "bits_per_pixel": 32,
+    "byte_width": 4800,
+    "bytes_per_pixel": 4,
+    "height": 800,
+    "scale_x": 1,
+    "scale_y": 1,
+    "screen_x": 360,
+    "screen_y": 140,
+    "width": 1200,
+    "colors": [
+      "9f6a04",
+      "6b351a"
+    ],
+    "roi": [
+      84,
+      150,
+      790,
+      580
+    ],
+    "expected": [
+      [
+        161,
+        260,
+        58,
+        24
+      ]
+    ],
+    "dom": {
+      "title": "Rusty Robot Demo \u2014 search.rs",
+      "url": "vscode-file://vscode-app/Applications/Visual%20Studio%20Code.app/Contents/Resources/app/out/vs/code/electron-browser/workbench/workbench.html",
+      "screenX": 360,
+      "screenY": 140,
+      "outerWidth": 1200,
+      "outerHeight": 800,
+      "innerHeight": 800,
+      "innerWidth": 1200,
+      "scrollY": 0,
+      "dpr": 2,
+      "rectangles": [
+        {
+          "x": 161,
+          "y": 260,
+          "width": 58,
+          "height": 24
+        }
+      ]
+    },
+    "sha256": "ef9f8130d0f4452809911e95f999e9d912ffd7ff6c62ae5849d27108359cbf94",
+    "png_sha256": "4eb1bb664d141a2f28277e8f7e15c4df92619445b0a60ffebd2c1eef979fc538",
+    "dom_expected": [
+      [
+        161,
+        260,
+        58,
+        24
+      ]
+    ],
+    "oracle_verified": true
+  },
+  {
+    "name": "15",
+    "app": "vscode",
+    "query": "return",
+    "bits_per_pixel": 32,
+    "byte_width": 4800,
+    "bytes_per_pixel": 4,
+    "height": 800,
+    "scale_x": 1,
+    "scale_y": 1,
+    "screen_x": 360,
+    "screen_y": 140,
+    "width": 1200,
+    "colors": [
+      "9f6a04",
+      "6b351a"
+    ],
+    "roi": [
+      84,
+      150,
+      790,
+      580
+    ],
+    "expected": [
+      [
+        161,
+        210,
+        58,
+        24
+      ]
+    ],
+    "dom": {
+      "title": "Rusty Robot Demo \u2014 search.rs",
+      "url": "vscode-file://vscode-app/Applications/Visual%20Studio%20Code.app/Contents/Resources/app/out/vs/code/electron-browser/workbench/workbench.html",
+      "screenX": 360,
+      "screenY": 140,
+      "outerWidth": 1200,
+      "outerHeight": 800,
+      "innerHeight": 800,
+      "innerWidth": 1200,
+      "scrollY": 0,
+      "dpr": 2,
+      "rectangles": [
+        {
+          "x": 161,
+          "y": 210,
+          "width": 58,
+          "height": 24
+        }
+      ]
+    },
+    "sha256": "48b93e51a37f44d8282bfc7a18a6f917c88f27a48e9b2abf19f5322bed250883",
+    "png_sha256": "78f2b634963161ca385238f94e0329feb4b84ab8f0ca212601dc250f030af1c3",
+    "dom_expected": [
+      [
+        161,
+        210,
+        58,
+        24
+      ]
+    ],
+    "oracle_verified": true
+  },
+  {
+    "name": "16",
+    "app": "vscode",
+    "query": "return",
+    "bits_per_pixel": 32,
+    "byte_width": 4800,
+    "bytes_per_pixel": 4,
+    "height": 800,
+    "scale_x": 1,
+    "scale_y": 1,
+    "screen_x": 360,
+    "screen_y": 140,
+    "width": 1200,
+    "colors": [
+      "9f6a04",
+      "6b351a"
+    ],
+    "roi": [
+      84,
+      150,
+      790,
+      580
+    ],
+    "expected": [
+      [
+        161,
+        160,
+        58,
+        24
+      ],
+      [
+        238,
+        688,
+        58,
+        24
+      ]
+    ],
+    "dom": {
+      "title": "Rusty Robot Demo \u2014 search.rs",
+      "url": "vscode-file://vscode-app/Applications/Visual%20Studio%20Code.app/Contents/Resources/app/out/vs/code/electron-browser/workbench/workbench.html",
+      "screenX": 360,
+      "screenY": 140,
+      "outerWidth": 1200,
+      "outerHeight": 800,
+      "innerHeight": 800,
+      "innerWidth": 1200,
+      "scrollY": 0,
+      "dpr": 2,
+      "rectangles": [
+        {
+          "x": 161,
+          "y": 160,
+          "width": 58,
+          "height": 24
+        },
+        {
+          "x": 238,
+          "y": 688,
+          "width": 58,
+          "height": 24
+        }
+      ]
+    },
+    "sha256": "a7ee1b3449d40620b4fd667246ae55c1c6e91483b929f31fc6d95d04d9c8b374",
+    "png_sha256": "c09f6a0082f45c10ecda80d09b8911164a817258ec08484d2f1a83d3dde4328d",
+    "dom_expected": [
+      [
+        161,
+        160,
+        58,
+        24
+      ],
+      [
+        238,
+        688,
+        58,
+        24
+      ]
+    ],
+    "oracle_verified": true
+  },
+  {
+    "name": "17",
+    "app": "vscode",
+    "query": "return",
+    "bits_per_pixel": 32,
+    "byte_width": 4800,
+    "bytes_per_pixel": 4,
+    "height": 800,
+    "scale_x": 1,
+    "scale_y": 1,
+    "screen_x": 360,
+    "screen_y": 140,
+    "width": 1200,
+    "colors": [
+      "9f6a04",
+      "6b351a"
+    ],
+    "roi": [
+      84,
+      150,
+      790,
+      580
+    ],
+    "expected": [
+      [
+        238,
+        638,
+        58,
+        24
+      ]
+    ],
+    "dom": {
+      "title": "Rusty Robot Demo \u2014 search.rs",
+      "url": "vscode-file://vscode-app/Applications/Visual%20Studio%20Code.app/Contents/Resources/app/out/vs/code/electron-browser/workbench/workbench.html",
+      "screenX": 360,
+      "screenY": 140,
+      "outerWidth": 1200,
+      "outerHeight": 800,
+      "innerHeight": 800,
+      "innerWidth": 1200,
+      "scrollY": 0,
+      "dpr": 2,
+      "rectangles": [
+        {
+          "x": 238,
+          "y": 638,
+          "width": 58,
+          "height": 24
+        }
+      ]
+    },
+    "sha256": "7d7425e6312107cf42ebb13315ad76574b36f5f25fcca5431eb3baa24116ab5d",
+    "png_sha256": "a8764f47c3df562f3b3423ba8535f8380e6217a69b76b25396a5f57e7756d955",
+    "dom_expected": [
+      [
+        238,
+        638,
+        58,
+        24
+      ]
+    ],
+    "oracle_verified": true
+  },
+  {
+    "name": "18",
+    "app": "vscode",
+    "query": "return",
+    "bits_per_pixel": 32,
+    "byte_width": 4800,
+    "bytes_per_pixel": 4,
+    "height": 800,
+    "scale_x": 1,
+    "scale_y": 1,
+    "screen_x": 360,
+    "screen_y": 140,
+    "width": 1200,
+    "colors": [
+      "9f6a04",
+      "6b351a"
+    ],
+    "roi": [
+      84,
+      150,
+      790,
+      580
+    ],
+    "expected": [
+      [
+        238,
+        588,
+        58,
+        24
+      ],
+      [
+        200,
+        684,
+        58,
+        24
+      ]
+    ],
+    "dom": {
+      "title": "Rusty Robot Demo \u2014 search.rs",
+      "url": "vscode-file://vscode-app/Applications/Visual%20Studio%20Code.app/Contents/Resources/app/out/vs/code/electron-browser/workbench/workbench.html",
+      "screenX": 360,
+      "screenY": 140,
+      "outerWidth": 1200,
+      "outerHeight": 800,
+      "innerHeight": 800,
+      "innerWidth": 1200,
+      "scrollY": 0,
+      "dpr": 2,
+      "rectangles": [
+        {
+          "x": 238,
+          "y": 588,
+          "width": 58,
+          "height": 24
+        },
+        {
+          "x": 200,
+          "y": 684,
+          "width": 58,
+          "height": 24
+        }
+      ]
+    },
+    "sha256": "31217b2dd3f6fa3bb7ae2808530858ec0b22de02fb65d888611a4475ee936699",
+    "png_sha256": "f33e4d03f3a321be57534ce4012fc7fd6db6a4647ef368f18d82b8a7d4bb0263",
+    "dom_expected": [
+      [
+        238,
+        588,
+        58,
+        24
+      ],
+      [
+        200,
+        684,
+        58,
+        24
+      ]
+    ],
+    "oracle_verified": true
+  },
+  {
+    "name": "19",
+    "app": "vscode",
+    "query": "return",
+    "bits_per_pixel": 32,
+    "byte_width": 4800,
+    "bytes_per_pixel": 4,
+    "height": 800,
+    "scale_x": 1,
+    "scale_y": 1,
+    "screen_x": 360,
+    "screen_y": 140,
+    "width": 1200,
+    "colors": [
+      "9f6a04",
+      "6b351a"
+    ],
+    "roi": [
+      84,
+      150,
+      790,
+      580
+    ],
+    "expected": [
+      [
+        238,
+        538,
+        58,
+        24
+      ],
+      [
+        200,
+        634,
+        58,
+        24
+      ]
+    ],
+    "dom": {
+      "title": "Rusty Robot Demo \u2014 search.rs",
+      "url": "vscode-file://vscode-app/Applications/Visual%20Studio%20Code.app/Contents/Resources/app/out/vs/code/electron-browser/workbench/workbench.html",
+      "screenX": 360,
+      "screenY": 140,
+      "outerWidth": 1200,
+      "outerHeight": 800,
+      "innerHeight": 800,
+      "innerWidth": 1200,
+      "scrollY": 0,
+      "dpr": 2,
+      "rectangles": [
+        {
+          "x": 238,
+          "y": 538,
+          "width": 58,
+          "height": 24
+        },
+        {
+          "x": 200,
+          "y": 634,
+          "width": 58,
+          "height": 24
+        }
+      ]
+    },
+    "sha256": "7bf2c59bd55d34d3233f23a2f947b79af7f02afd4cc1db964097601c460e1e2c",
+    "png_sha256": "6dbdb2bdd6e84fab5de5881097ee2980afdbf9b5a98237fe845df52480fdf8bc",
+    "dom_expected": [
+      [
+        238,
+        538,
+        58,
+        24
+      ],
+      [
+        200,
+        634,
+        58,
+        24
+      ]
+    ],
+    "oracle_verified": true
+  },
+  {
+    "name": "20",
+    "app": "vscode",
+    "query": "self",
+    "bits_per_pixel": 32,
+    "byte_width": 4800,
+    "bytes_per_pixel": 4,
+    "height": 800,
+    "scale_x": 1,
+    "scale_y": 1,
+    "screen_x": 360,
+    "screen_y": 140,
+    "width": 1200,
+    "colors": [
+      "9f6a04",
+      "6b351a"
+    ],
+    "roi": [
+      84,
+      150,
+      790,
+      580
+    ],
+    "expected": [
+      [
+        161,
+        372,
+        106,
+        48
+      ]
+    ],
+    "dom": {
+      "title": "Rusty Robot Demo \u2014 search.rs",
+      "url": "vscode-file://vscode-app/Applications/Visual%20Studio%20Code.app/Contents/Resources/app/out/vs/code/electron-browser/workbench/workbench.html",
+      "screenX": 360,
+      "screenY": 140,
+      "outerWidth": 1200,
+      "outerHeight": 800,
+      "innerHeight": 800,
+      "innerWidth": 1200,
+      "scrollY": 0,
+      "dpr": 2,
+      "rectangles": [
+        {
+          "x": 228,
+          "y": 372,
+          "width": 39,
+          "height": 24
+        },
+        {
+          "x": 161,
+          "y": 396,
+          "width": 39,
+          "height": 24
+        }
+      ]
+    },
+    "sha256": "1318549590b29a5a41158e5c12cc3a6e4a1d4c912f1890758691d96c927c70f5",
+    "png_sha256": "5dbc81c0bc36af9ff5aa787c0e72d1ac862834276d2e75608cbd8169529231e0",
+    "dom_expected": [
+      [
+        161,
+        372,
+        106,
+        48
+      ]
+    ],
+    "oracle_verified": true
+  },
+  {
+    "name": "21",
+    "app": "vscode",
+    "query": "self",
+    "bits_per_pixel": 32,
+    "byte_width": 4800,
+    "bytes_per_pixel": 4,
+    "height": 800,
+    "scale_x": 1,
+    "scale_y": 1,
+    "screen_x": 360,
+    "screen_y": 140,
+    "width": 1200,
+    "colors": [
+      "9f6a04",
+      "6b351a"
+    ],
+    "roi": [
+      84,
+      150,
+      790,
+      580
+    ],
+    "expected": [
+      [
+        161,
+        322,
+        106,
+        48
+      ]
+    ],
+    "dom": {
+      "title": "Rusty Robot Demo \u2014 search.rs",
+      "url": "vscode-file://vscode-app/Applications/Visual%20Studio%20Code.app/Contents/Resources/app/out/vs/code/electron-browser/workbench/workbench.html",
+      "screenX": 360,
+      "screenY": 140,
+      "outerWidth": 1200,
+      "outerHeight": 800,
+      "innerHeight": 800,
+      "innerWidth": 1200,
+      "scrollY": 0,
+      "dpr": 2,
+      "rectangles": [
+        {
+          "x": 228,
+          "y": 322,
+          "width": 39,
+          "height": 24
+        },
+        {
+          "x": 161,
+          "y": 346,
+          "width": 39,
+          "height": 24
+        }
+      ]
+    },
+    "sha256": "0c06a41d753179062a81b629ede328d6e31b8eef878518c028957103455578db",
+    "png_sha256": "14f8bbe9b0090590cbb1dfe6e63606838bef16071a6a3294718c42861267a3b4",
+    "dom_expected": [
+      [
+        161,
+        322,
+        106,
+        48
+      ]
+    ],
+    "oracle_verified": true
+  },
+  {
+    "name": "22",
+    "app": "vscode",
+    "query": "self",
+    "bits_per_pixel": 32,
+    "byte_width": 4800,
+    "bytes_per_pixel": 4,
+    "height": 800,
+    "scale_x": 1,
+    "scale_y": 1,
+    "screen_x": 360,
+    "screen_y": 140,
+    "width": 1200,
+    "colors": [
+      "9f6a04",
+      "6b351a"
+    ],
+    "roi": [
+      84,
+      150,
+      790,
+      580
+    ],
+    "expected": [
+      [
+        161,
+        272,
+        106,
+        48
+      ],
+      [
+        508,
+        680,
+        174,
+        50
+      ]
+    ],
+    "dom": {
+      "title": "Rusty Robot Demo \u2014 search.rs",
+      "url": "vscode-file://vscode-app/Applications/Visual%20Studio%20Code.app/Contents/Resources/app/out/vs/code/electron-browser/workbench/workbench.html",
+      "screenX": 360,
+      "screenY": 140,
+      "outerWidth": 1200,
+      "outerHeight": 800,
+      "innerHeight": 800,
+      "innerWidth": 1200,
+      "scrollY": 0,
+      "dpr": 2,
+      "rectangles": [
+        {
+          "x": 228,
+          "y": 272,
+          "width": 39,
+          "height": 24
+        },
+        {
+          "x": 161,
+          "y": 296,
+          "width": 39,
+          "height": 24
+        },
+        {
+          "x": 508,
+          "y": 680,
+          "width": 39,
+          "height": 24
+        },
+        {
+          "x": 527,
+          "y": 704,
+          "width": 39,
+          "height": 24
+        },
+        {
+          "x": 643,
+          "y": 728,
+          "width": 39,
+          "height": 24
+        }
+      ]
+    },
+    "sha256": "2bab9fe7faa3c094746bcf2884111ed4e8917cd9f087b313c12231fbc4060caf",
+    "png_sha256": "7631f5e48e1419d2cbb7101adfdabb4b04cdd320bd820d644448272d785c2b2b",
+    "dom_expected": [
+      [
+        161,
+        272,
+        106,
+        48
+      ],
+      [
+        508,
+        680,
+        174,
+        50
+      ]
+    ],
+    "oracle_verified": true
+  },
+  {
+    "name": "23",
+    "app": "vscode",
+    "query": "self",
+    "bits_per_pixel": 32,
+    "byte_width": 4800,
+    "bytes_per_pixel": 4,
+    "height": 800,
+    "scale_x": 1,
+    "scale_y": 1,
+    "screen_x": 360,
+    "screen_y": 140,
+    "width": 1200,
+    "colors": [
+      "9f6a04",
+      "6b351a"
+    ],
+    "roi": [
+      84,
+      150,
+      790,
+      580
+    ],
+    "expected": [
+      [
+        161,
+        222,
+        106,
+        48
+      ],
+      [
+        228,
+        630,
+        463,
+        100
+      ]
+    ],
+    "dom": {
+      "title": "Rusty Robot Demo \u2014 search.rs",
+      "url": "vscode-file://vscode-app/Applications/Visual%20Studio%20Code.app/Contents/Resources/app/out/vs/code/electron-browser/workbench/workbench.html",
+      "screenX": 360,
+      "screenY": 140,
+      "outerWidth": 1200,
+      "outerHeight": 800,
+      "innerHeight": 800,
+      "innerWidth": 1200,
+      "scrollY": 0,
+      "dpr": 2,
+      "rectangles": [
+        {
+          "x": 228,
+          "y": 222,
+          "width": 39,
+          "height": 24
+        },
+        {
+          "x": 161,
+          "y": 246,
+          "width": 39,
+          "height": 24
+        },
+        {
+          "x": 508,
+          "y": 630,
+          "width": 39,
+          "height": 24
+        },
+        {
+          "x": 527,
+          "y": 654,
+          "width": 39,
+          "height": 24
+        },
+        {
+          "x": 643,
+          "y": 678,
+          "width": 39,
+          "height": 24
+        },
+        {
+          "x": 652,
+          "y": 702,
+          "width": 39,
+          "height": 24
+        },
+        {
+          "x": 228,
+          "y": 726,
+          "width": 39,
+          "height": 24
+        },
+        {
+          "x": 402,
+          "y": 726,
+          "width": 39,
+          "height": 24
+        }
+      ]
+    },
+    "sha256": "db1ad63c254f37100d33e5db123e778423c4398f7adf479868c47b18fc310175",
+    "png_sha256": "fdfe52c77010598fc33b7e429f8ae353e0c0e8522bbbd8c6cfe98d034e6170a9",
+    "dom_expected": [
+      [
+        161,
+        222,
+        106,
+        48
+      ],
+      [
+        228,
+        630,
+        463,
+        100
+      ]
+    ],
+    "oracle_verified": true
+  },
+  {
+    "name": "24",
+    "app": "vscode",
+    "query": "self",
+    "bits_per_pixel": 32,
+    "byte_width": 4800,
+    "bytes_per_pixel": 4,
+    "height": 800,
+    "scale_x": 1,
+    "scale_y": 1,
+    "screen_x": 360,
+    "screen_y": 140,
+    "width": 1200,
+    "colors": [
+      "9f6a04",
+      "6b351a"
+    ],
+    "roi": [
+      84,
+      150,
+      790,
+      580
+    ],
+    "expected": [
+      [
+        161,
+        172,
+        106,
+        48
+      ],
+      [
+        228,
+        580,
+        463,
+        120
+      ]
+    ],
+    "dom": {
+      "title": "Rusty Robot Demo \u2014 search.rs",
+      "url": "vscode-file://vscode-app/Applications/Visual%20Studio%20Code.app/Contents/Resources/app/out/vs/code/electron-browser/workbench/workbench.html",
+      "screenX": 360,
+      "screenY": 140,
+      "outerWidth": 1200,
+      "outerHeight": 800,
+      "innerHeight": 800,
+      "innerWidth": 1200,
+      "scrollY": 0,
+      "dpr": 2,
+      "rectangles": [
+        {
+          "x": 228,
+          "y": 172,
+          "width": 39,
+          "height": 24
+        },
+        {
+          "x": 161,
+          "y": 196,
+          "width": 39,
+          "height": 24
+        },
+        {
+          "x": 508,
+          "y": 580,
+          "width": 39,
+          "height": 24
+        },
+        {
+          "x": 527,
+          "y": 604,
+          "width": 39,
+          "height": 24
+        },
+        {
+          "x": 643,
+          "y": 628,
+          "width": 39,
+          "height": 24
+        },
+        {
+          "x": 652,
+          "y": 652,
+          "width": 39,
+          "height": 24
+        },
+        {
+          "x": 228,
+          "y": 676,
+          "width": 39,
+          "height": 24
+        },
+        {
+          "x": 402,
+          "y": 676,
+          "width": 39,
+          "height": 24
+        }
+      ]
+    },
+    "sha256": "1a2c11dcef13842af3d36da1fafa867707c4a4a25e65a9b5d2f9261c60cfba9d",
+    "png_sha256": "ded98f78d806cf4d4318a5e4f5c21bb919d466cb0c05b078d11cdeaab67f7177",
+    "dom_expected": [
+      [
+        161,
+        172,
+        106,
+        48
+      ],
+      [
+        228,
+        580,
+        463,
+        120
+      ]
+    ],
+    "oracle_verified": true
+  },
+  {
+    "name": "25",
+    "app": "vscode",
+    "query": "self",
+    "bits_per_pixel": 32,
+    "byte_width": 4800,
+    "bytes_per_pixel": 4,
+    "height": 800,
+    "scale_x": 1,
+    "scale_y": 1,
+    "screen_x": 360,
+    "screen_y": 140,
+    "width": 1200,
+    "colors": [
+      "9f6a04",
+      "6b351a"
+    ],
+    "roi": [
+      84,
+      150,
+      790,
+      580
+    ],
+    "expected": [
+      [
+        161,
+        150,
+        39,
+        20
+      ],
+      [
+        228,
+        530,
+        463,
+        120
+      ]
+    ],
+    "dom": {
+      "title": "Rusty Robot Demo \u2014 search.rs",
+      "url": "vscode-file://vscode-app/Applications/Visual%20Studio%20Code.app/Contents/Resources/app/out/vs/code/electron-browser/workbench/workbench.html",
+      "screenX": 360,
+      "screenY": 140,
+      "outerWidth": 1200,
+      "outerHeight": 800,
+      "innerHeight": 800,
+      "innerWidth": 1200,
+      "scrollY": 0,
+      "dpr": 2,
+      "rectangles": [
+        {
+          "x": 161,
+          "y": 146,
+          "width": 39,
+          "height": 24
+        },
+        {
+          "x": 508,
+          "y": 530,
+          "width": 39,
+          "height": 24
+        },
+        {
+          "x": 527,
+          "y": 554,
+          "width": 39,
+          "height": 24
+        },
+        {
+          "x": 643,
+          "y": 578,
+          "width": 39,
+          "height": 24
+        },
+        {
+          "x": 652,
+          "y": 602,
+          "width": 39,
+          "height": 24
+        },
+        {
+          "x": 228,
+          "y": 626,
+          "width": 39,
+          "height": 24
+        },
+        {
+          "x": 402,
+          "y": 626,
+          "width": 39,
+          "height": 24
+        }
+      ]
+    },
+    "sha256": "2c53f8684bc5c0477dfafbdbe68bad015c29fd6e6701b17fdba4d62faf2199ea",
+    "png_sha256": "0f79e93371d248637f7ea9b930c81f1252a081867df7490684e7565d1516eb87",
+    "dom_expected": [
+      [
+        161,
+        150,
+        39,
+        20
+      ],
+      [
+        228,
+        530,
+        463,
+        120
+      ]
+    ],
+    "oracle_verified": true
+  },
+  {
+    "name": "26",
+    "app": "vscode",
+    "query": "self",
+    "bits_per_pixel": 32,
+    "byte_width": 4800,
+    "bytes_per_pixel": 4,
+    "height": 800,
+    "scale_x": 1,
+    "scale_y": 1,
+    "screen_x": 360,
+    "screen_y": 140,
+    "width": 1200,
+    "colors": [
+      "9f6a04",
+      "6b351a"
+    ],
+    "roi": [
+      84,
+      150,
+      790,
+      580
+    ],
+    "expected": [
+      [
+        228,
+        480,
+        463,
+        120
+      ]
+    ],
+    "dom": {
+      "title": "Rusty Robot Demo \u2014 search.rs",
+      "url": "vscode-file://vscode-app/Applications/Visual%20Studio%20Code.app/Contents/Resources/app/out/vs/code/electron-browser/workbench/workbench.html",
+      "screenX": 360,
+      "screenY": 140,
+      "outerWidth": 1200,
+      "outerHeight": 800,
+      "innerHeight": 800,
+      "innerWidth": 1200,
+      "scrollY": 0,
+      "dpr": 2,
+      "rectangles": [
+        {
+          "x": 508,
+          "y": 480,
+          "width": 39,
+          "height": 24
+        },
+        {
+          "x": 527,
+          "y": 504,
+          "width": 39,
+          "height": 24
+        },
+        {
+          "x": 643,
+          "y": 528,
+          "width": 39,
+          "height": 24
+        },
+        {
+          "x": 652,
+          "y": 552,
+          "width": 39,
+          "height": 24
+        },
+        {
+          "x": 228,
+          "y": 576,
+          "width": 39,
+          "height": 24
+        },
+        {
+          "x": 402,
+          "y": 576,
+          "width": 39,
+          "height": 24
+        }
+      ]
+    },
+    "sha256": "2c51e380cb6ece01975a136ad1236990f5bcc7d291b9b89730874ae5cf06945d",
+    "png_sha256": "69a59d01097fbfce0bed96429973c95d9f33a8afa3ec683473fd9ccee1efbf07",
+    "dom_expected": [
+      [
+        228,
+        480,
+        463,
+        120
+      ]
+    ],
+    "oracle_verified": true
+  },
+  {
+    "name": "27",
+    "app": "vscode",
+    "query": "self",
+    "bits_per_pixel": 32,
+    "byte_width": 4800,
+    "bytes_per_pixel": 4,
+    "height": 800,
+    "scale_x": 1,
+    "scale_y": 1,
+    "screen_x": 360,
+    "screen_y": 140,
+    "width": 1200,
+    "colors": [
+      "9f6a04",
+      "6b351a"
+    ],
+    "roi": [
+      84,
+      150,
+      790,
+      580
+    ],
+    "expected": [
+      [
+        228,
+        430,
+        463,
+        120
+      ]
+    ],
+    "dom": {
+      "title": "Rusty Robot Demo \u2014 search.rs",
+      "url": "vscode-file://vscode-app/Applications/Visual%20Studio%20Code.app/Contents/Resources/app/out/vs/code/electron-browser/workbench/workbench.html",
+      "screenX": 360,
+      "screenY": 140,
+      "outerWidth": 1200,
+      "outerHeight": 800,
+      "innerHeight": 800,
+      "innerWidth": 1200,
+      "scrollY": 0,
+      "dpr": 2,
+      "rectangles": [
+        {
+          "x": 508,
+          "y": 430,
+          "width": 39,
+          "height": 24
+        },
+        {
+          "x": 527,
+          "y": 454,
+          "width": 39,
+          "height": 24
+        },
+        {
+          "x": 643,
+          "y": 478,
+          "width": 39,
+          "height": 24
+        },
+        {
+          "x": 652,
+          "y": 502,
+          "width": 39,
+          "height": 24
+        },
+        {
+          "x": 228,
+          "y": 526,
+          "width": 39,
+          "height": 24
+        },
+        {
+          "x": 402,
+          "y": 526,
+          "width": 39,
+          "height": 24
+        }
+      ]
+    },
+    "sha256": "e00c0003855b0111a1951673f8b2778505fef0514e8104b46f6b39cd9943155d",
+    "png_sha256": "183db1c6ebcd9c46ef49f3eddc6d4008ab07d27faf7f9a31c91a454ee8081889",
+    "dom_expected": [
+      [
+        228,
+        430,
+        463,
+        120
+      ]
+    ],
+    "oracle_verified": true
+  },
+  {
+    "name": "28",
+    "app": "vscode",
+    "query": "self",
+    "bits_per_pixel": 32,
+    "byte_width": 4800,
+    "bytes_per_pixel": 4,
+    "height": 800,
+    "scale_x": 1,
+    "scale_y": 1,
+    "screen_x": 360,
+    "screen_y": 140,
+    "width": 1200,
+    "colors": [
+      "9f6a04",
+      "6b351a"
+    ],
+    "roi": [
+      84,
+      150,
+      790,
+      580
+    ],
+    "expected": [
+      [
+        228,
+        380,
+        463,
+        120
+      ],
+      [
+        171,
+        716,
+        39,
+        14
+      ]
+    ],
+    "dom": {
+      "title": "Rusty Robot Demo \u2014 search.rs",
+      "url": "vscode-file://vscode-app/Applications/Visual%20Studio%20Code.app/Contents/Resources/app/out/vs/code/electron-browser/workbench/workbench.html",
+      "screenX": 360,
+      "screenY": 140,
+      "outerWidth": 1200,
+      "outerHeight": 800,
+      "innerHeight": 800,
+      "innerWidth": 1200,
+      "scrollY": 0,
+      "dpr": 2,
+      "rectangles": [
+        {
+          "x": 508,
+          "y": 380,
+          "width": 39,
+          "height": 24
+        },
+        {
+          "x": 527,
+          "y": 404,
+          "width": 39,
+          "height": 24
+        },
+        {
+          "x": 643,
+          "y": 428,
+          "width": 39,
+          "height": 24
+        },
+        {
+          "x": 652,
+          "y": 452,
+          "width": 39,
+          "height": 24
+        },
+        {
+          "x": 228,
+          "y": 476,
+          "width": 39,
+          "height": 24
+        },
+        {
+          "x": 402,
+          "y": 476,
+          "width": 39,
+          "height": 24
+        },
+        {
+          "x": 171,
+          "y": 716,
+          "width": 39,
+          "height": 24
+        }
+      ]
+    },
+    "sha256": "b6ea14018a469ab835cae988f928f480714203576f3c10c748851ac7589f1c60",
+    "png_sha256": "be0a605a6508f9303caf21be07a1fb6ee7386e96368e69078702f18b8d06458f",
+    "dom_expected": [
+      [
+        228,
+        380,
+        463,
+        120
+      ],
+      [
+        171,
+        716,
+        39,
+        14
+      ]
+    ],
+    "oracle_verified": true
+  },
+  {
+    "name": "29",
+    "app": "vscode",
+    "query": "self",
+    "bits_per_pixel": 32,
+    "byte_width": 4800,
+    "bytes_per_pixel": 4,
+    "height": 800,
+    "scale_x": 1,
+    "scale_y": 1,
+    "screen_x": 360,
+    "screen_y": 140,
+    "width": 1200,
+    "colors": [
+      "9f6a04",
+      "6b351a"
+    ],
+    "roi": [
+      84,
+      150,
+      790,
+      580
+    ],
+    "expected": [
+      [
+        228,
+        330,
+        463,
+        120
+      ],
+      [
+        171,
+        666,
+        39,
+        24
+      ]
+    ],
+    "dom": {
+      "title": "Rusty Robot Demo \u2014 search.rs",
+      "url": "vscode-file://vscode-app/Applications/Visual%20Studio%20Code.app/Contents/Resources/app/out/vs/code/electron-browser/workbench/workbench.html",
+      "screenX": 360,
+      "screenY": 140,
+      "outerWidth": 1200,
+      "outerHeight": 800,
+      "innerHeight": 800,
+      "innerWidth": 1200,
+      "scrollY": 0,
+      "dpr": 2,
+      "rectangles": [
+        {
+          "x": 508,
+          "y": 330,
+          "width": 39,
+          "height": 24
+        },
+        {
+          "x": 527,
+          "y": 354,
+          "width": 39,
+          "height": 24
+        },
+        {
+          "x": 643,
+          "y": 378,
+          "width": 39,
+          "height": 24
+        },
+        {
+          "x": 652,
+          "y": 402,
+          "width": 39,
+          "height": 24
+        },
+        {
+          "x": 228,
+          "y": 426,
+          "width": 39,
+          "height": 24
+        },
+        {
+          "x": 402,
+          "y": 426,
+          "width": 39,
+          "height": 24
+        },
+        {
+          "x": 171,
+          "y": 666,
+          "width": 39,
+          "height": 24
+        }
+      ]
+    },
+    "sha256": "f63c246efb60adbd3e5a1c580f6fbeae73942008337ce711ea6e2ca91e054196",
+    "png_sha256": "0c4925aefa0973748bfb2302f7dea12febbbe6a026721e4bbaca7aa046db4a6b",
+    "dom_expected": [
+      [
+        228,
+        330,
+        463,
+        120
+      ],
+      [
+        171,
+        666,
+        39,
+        24
+      ]
+    ],
+    "oracle_verified": true
+  },
+  {
+    "name": "30",
+    "app": "vscode",
+    "query": "pub",
+    "bits_per_pixel": 32,
+    "byte_width": 4800,
+    "bytes_per_pixel": 4,
+    "height": 800,
+    "scale_x": 1,
+    "scale_y": 1,
+    "screen_x": 360,
+    "screen_y": 140,
+    "width": 1200,
+    "colors": [
+      "9f6a04",
+      "6b351a"
+    ],
+    "roi": [
+      84,
+      150,
+      790,
+      580
+    ],
+    "expected": [
+      [
+        123,
+        467,
+        29,
+        24
+      ],
+      [
+        123,
+        659,
+        29,
+        24
+      ]
+    ],
+    "dom": {
+      "title": "Rusty Robot Demo \u2014 search.rs",
+      "url": "vscode-file://vscode-app/Applications/Visual%20Studio%20Code.app/Contents/Resources/app/out/vs/code/electron-browser/workbench/workbench.html",
+      "screenX": 360,
+      "screenY": 140,
+      "outerWidth": 1200,
+      "outerHeight": 800,
+      "innerHeight": 800,
+      "innerWidth": 1200,
+      "scrollY": 0,
+      "dpr": 2,
+      "rectangles": [
+        {
+          "x": 123,
+          "y": 467,
+          "width": 29,
+          "height": 24
+        },
+        {
+          "x": 123,
+          "y": 659,
+          "width": 29,
+          "height": 24
+        }
+      ]
+    },
+    "sha256": "65bf37887118aa4bc3f2b338e2c93727bb76fb82c0ed4afed8b766c05a9dcecb",
+    "png_sha256": "11c5f2adc5da6450d6d61cb77e8357f6de66ac975fc401542e57f82be1bf9097",
+    "dom_expected": [
+      [
+        123,
+        467,
+        29,
+        24
+      ],
+      [
+        123,
+        659,
+        29,
+        24
+      ]
+    ],
+    "oracle_verified": true
+  },
+  {
+    "name": "31",
+    "app": "vscode",
+    "query": "pub",
+    "bits_per_pixel": 32,
+    "byte_width": 4800,
+    "bytes_per_pixel": 4,
+    "height": 800,
+    "scale_x": 1,
+    "scale_y": 1,
+    "screen_x": 360,
+    "screen_y": 140,
+    "width": 1200,
+    "colors": [
+      "9f6a04",
+      "6b351a"
+    ],
+    "roi": [
+      84,
+      150,
+      790,
+      580
+    ],
+    "expected": [
+      [
+        123,
+        417,
+        29,
+        24
+      ],
+      [
+        123,
+        609,
+        29,
+        24
+      ]
+    ],
+    "dom": {
+      "title": "Rusty Robot Demo \u2014 search.rs",
+      "url": "vscode-file://vscode-app/Applications/Visual%20Studio%20Code.app/Contents/Resources/app/out/vs/code/electron-browser/workbench/workbench.html",
+      "screenX": 360,
+      "screenY": 140,
+      "outerWidth": 1200,
+      "outerHeight": 800,
+      "innerHeight": 800,
+      "innerWidth": 1200,
+      "scrollY": 0,
+      "dpr": 2,
+      "rectangles": [
+        {
+          "x": 123,
+          "y": 417,
+          "width": 29,
+          "height": 24
+        },
+        {
+          "x": 123,
+          "y": 609,
+          "width": 29,
+          "height": 24
+        }
+      ]
+    },
+    "sha256": "c5144575512babb3e1b805830abf2b9195eefc496d46679931bd41fa3196f26c",
+    "png_sha256": "2d999841a1091fb84455a5cffcfcfe078f6930fb932e96b6f20508ccdc0d43ba",
+    "dom_expected": [
+      [
+        123,
+        417,
+        29,
+        24
+      ],
+      [
+        123,
+        609,
+        29,
+        24
+      ]
+    ],
+    "oracle_verified": true
+  },
+  {
+    "name": "32",
+    "app": "vscode",
+    "query": "pub",
+    "bits_per_pixel": 32,
+    "byte_width": 4800,
+    "bytes_per_pixel": 4,
+    "height": 800,
+    "scale_x": 1,
+    "scale_y": 1,
+    "screen_x": 360,
+    "screen_y": 140,
+    "width": 1200,
+    "colors": [
+      "9f6a04",
+      "6b351a"
+    ],
+    "roi": [
+      84,
+      150,
+      790,
+      580
+    ],
+    "expected": [
+      [
+        123,
+        367,
+        29,
+        24
+      ],
+      [
+        123,
+        559,
+        29,
+        24
+      ]
+    ],
+    "dom": {
+      "title": "Rusty Robot Demo \u2014 search.rs",
+      "url": "vscode-file://vscode-app/Applications/Visual%20Studio%20Code.app/Contents/Resources/app/out/vs/code/electron-browser/workbench/workbench.html",
+      "screenX": 360,
+      "screenY": 140,
+      "outerWidth": 1200,
+      "outerHeight": 800,
+      "innerHeight": 800,
+      "innerWidth": 1200,
+      "scrollY": 0,
+      "dpr": 2,
+      "rectangles": [
+        {
+          "x": 123,
+          "y": 367,
+          "width": 29,
+          "height": 24
+        },
+        {
+          "x": 123,
+          "y": 559,
+          "width": 29,
+          "height": 24
+        }
+      ]
+    },
+    "sha256": "ad5e6814415d0d749af03028b1e866aa3d7affed01d0f745c19ee605455ca49a",
+    "png_sha256": "d176c494778068cdadb1a45fb6378ec61c0edd8765e6148c32009f9ac31c7c34",
+    "dom_expected": [
+      [
+        123,
+        367,
+        29,
+        24
+      ],
+      [
+        123,
+        559,
+        29,
+        24
+      ]
+    ],
+    "oracle_verified": true
+  },
+  {
+    "name": "33",
+    "app": "vscode",
+    "query": "pub",
+    "bits_per_pixel": 32,
+    "byte_width": 4800,
+    "bytes_per_pixel": 4,
+    "height": 800,
+    "scale_x": 1,
+    "scale_y": 1,
+    "screen_x": 360,
+    "screen_y": 140,
+    "width": 1200,
+    "colors": [
+      "9f6a04",
+      "6b351a"
+    ],
+    "roi": [
+      84,
+      150,
+      790,
+      580
+    ],
+    "expected": [
+      [
+        123,
+        317,
+        29,
+        24
+      ],
+      [
+        123,
+        509,
+        29,
+        24
+      ],
+      [
+        123,
+        701,
+        29,
+        24
+      ]
+    ],
+    "dom": {
+      "title": "Rusty Robot Demo \u2014 search.rs",
+      "url": "vscode-file://vscode-app/Applications/Visual%20Studio%20Code.app/Contents/Resources/app/out/vs/code/electron-browser/workbench/workbench.html",
+      "screenX": 360,
+      "screenY": 140,
+      "outerWidth": 1200,
+      "outerHeight": 800,
+      "innerHeight": 800,
+      "innerWidth": 1200,
+      "scrollY": 0,
+      "dpr": 2,
+      "rectangles": [
+        {
+          "x": 123,
+          "y": 317,
+          "width": 29,
+          "height": 24
+        },
+        {
+          "x": 123,
+          "y": 509,
+          "width": 29,
+          "height": 24
+        },
+        {
+          "x": 123,
+          "y": 701,
+          "width": 29,
+          "height": 24
+        }
+      ]
+    },
+    "sha256": "5d594fdf4d85a9f27e298999bc7ce7c1700d593b5a13a3154e25899049fe531b",
+    "png_sha256": "5d69ed4a73f41cae5e0efde70f77efc7ec64c56414d1db84a432ac89caa83fe1",
+    "dom_expected": [
+      [
+        123,
+        317,
+        29,
+        24
+      ],
+      [
+        123,
+        509,
+        29,
+        24
+      ],
+      [
+        123,
+        701,
+        29,
+        24
+      ]
+    ],
+    "oracle_verified": true
+  },
+  {
+    "name": "34",
+    "app": "vscode",
+    "query": "pub",
+    "bits_per_pixel": 32,
+    "byte_width": 4800,
+    "bytes_per_pixel": 4,
+    "height": 800,
+    "scale_x": 1,
+    "scale_y": 1,
+    "screen_x": 360,
+    "screen_y": 140,
+    "width": 1200,
+    "colors": [
+      "9f6a04",
+      "6b351a"
+    ],
+    "roi": [
+      84,
+      150,
+      790,
+      580
+    ],
+    "expected": [
+      [
+        123,
+        267,
+        29,
+        24
+      ],
+      [
+        123,
+        459,
+        29,
+        24
+      ],
+      [
+        123,
+        651,
+        29,
+        24
+      ]
+    ],
+    "dom": {
+      "title": "Rusty Robot Demo \u2014 search.rs",
+      "url": "vscode-file://vscode-app/Applications/Visual%20Studio%20Code.app/Contents/Resources/app/out/vs/code/electron-browser/workbench/workbench.html",
+      "screenX": 360,
+      "screenY": 140,
+      "outerWidth": 1200,
+      "outerHeight": 800,
+      "innerHeight": 800,
+      "innerWidth": 1200,
+      "scrollY": 0,
+      "dpr": 2,
+      "rectangles": [
+        {
+          "x": 123,
+          "y": 267,
+          "width": 29,
+          "height": 24
+        },
+        {
+          "x": 123,
+          "y": 459,
+          "width": 29,
+          "height": 24
+        },
+        {
+          "x": 123,
+          "y": 651,
+          "width": 29,
+          "height": 24
+        }
+      ]
+    },
+    "sha256": "b9f2efe56bf5cb73262e3398dcc9b5f41ad9104243e3c648a823ac7308cddfbc",
+    "png_sha256": "f46cf7534c828376908c0c66156ff1ed318aca0b3a828ef8cb82b6d625f86950",
+    "dom_expected": [
+      [
+        123,
+        267,
+        29,
+        24
+      ],
+      [
+        123,
+        459,
+        29,
+        24
+      ],
+      [
+        123,
+        651,
+        29,
+        24
+      ]
+    ],
+    "oracle_verified": true
+  },
+  {
+    "name": "35",
+    "app": "vscode",
+    "query": "pub",
+    "bits_per_pixel": 32,
+    "byte_width": 4800,
+    "bytes_per_pixel": 4,
+    "height": 800,
+    "scale_x": 1,
+    "scale_y": 1,
+    "screen_x": 360,
+    "screen_y": 140,
+    "width": 1200,
+    "colors": [
+      "9f6a04",
+      "6b351a"
+    ],
+    "roi": [
+      84,
+      150,
+      790,
+      580
+    ],
+    "expected": [
+      [
+        123,
+        217,
+        29,
+        24
+      ],
+      [
+        123,
+        409,
+        29,
+        24
+      ],
+      [
+        123,
+        601,
+        29,
+        24
+      ]
+    ],
+    "dom": {
+      "title": "Rusty Robot Demo \u2014 search.rs",
+      "url": "vscode-file://vscode-app/Applications/Visual%20Studio%20Code.app/Contents/Resources/app/out/vs/code/electron-browser/workbench/workbench.html",
+      "screenX": 360,
+      "screenY": 140,
+      "outerWidth": 1200,
+      "outerHeight": 800,
+      "innerHeight": 800,
+      "innerWidth": 1200,
+      "scrollY": 0,
+      "dpr": 2,
+      "rectangles": [
+        {
+          "x": 123,
+          "y": 217,
+          "width": 29,
+          "height": 24
+        },
+        {
+          "x": 123,
+          "y": 409,
+          "width": 29,
+          "height": 24
+        },
+        {
+          "x": 123,
+          "y": 601,
+          "width": 29,
+          "height": 24
+        }
+      ]
+    },
+    "sha256": "d95b5ab5a76357823cbeca1965496f9336a72164eb605364308c68a882d0dd5a",
+    "png_sha256": "a3ae63ac275ca7b96ff77f29f9d4e92d3c1176d8e4a2cf4af30708f8f913cf6c",
+    "dom_expected": [
+      [
+        123,
+        217,
+        29,
+        24
+      ],
+      [
+        123,
+        409,
+        29,
+        24
+      ],
+      [
+        123,
+        601,
+        29,
+        24
+      ]
+    ],
+    "oracle_verified": true
+  },
+  {
+    "name": "36",
+    "app": "vscode",
+    "query": "pub",
+    "bits_per_pixel": 32,
+    "byte_width": 4800,
+    "bytes_per_pixel": 4,
+    "height": 800,
+    "scale_x": 1,
+    "scale_y": 1,
+    "screen_x": 360,
+    "screen_y": 140,
+    "width": 1200,
+    "colors": [
+      "9f6a04",
+      "6b351a"
+    ],
+    "roi": [
+      84,
+      150,
+      790,
+      580
+    ],
+    "expected": [
+      [
+        123,
+        167,
+        29,
+        24
+      ],
+      [
+        123,
+        359,
+        29,
+        24
+      ],
+      [
+        123,
+        551,
+        29,
+        24
+      ]
+    ],
+    "dom": {
+      "title": "Rusty Robot Demo \u2014 search.rs",
+      "url": "vscode-file://vscode-app/Applications/Visual%20Studio%20Code.app/Contents/Resources/app/out/vs/code/electron-browser/workbench/workbench.html",
+      "screenX": 360,
+      "screenY": 140,
+      "outerWidth": 1200,
+      "outerHeight": 800,
+      "innerHeight": 800,
+      "innerWidth": 1200,
+      "scrollY": 0,
+      "dpr": 2,
+      "rectangles": [
+        {
+          "x": 123,
+          "y": 167,
+          "width": 29,
+          "height": 24
+        },
+        {
+          "x": 123,
+          "y": 359,
+          "width": 29,
+          "height": 24
+        },
+        {
+          "x": 123,
+          "y": 551,
+          "width": 29,
+          "height": 24
+        }
+      ]
+    },
+    "sha256": "827835bdfe13f19a860a405c3a7cd5fe6ad30b750bedd94cba410af2ce4a26bc",
+    "png_sha256": "92ebf67d36487deb62efec7a4df17b3d0115b3c2f244b5129a5b204f55e7ac6b",
+    "dom_expected": [
+      [
+        123,
+        167,
+        29,
+        24
+      ],
+      [
+        123,
+        359,
+        29,
+        24
+      ],
+      [
+        123,
+        551,
+        29,
+        24
+      ]
+    ],
+    "oracle_verified": true
+  },
+  {
+    "name": "37",
+    "app": "vscode",
+    "query": "pub",
+    "bits_per_pixel": 32,
+    "byte_width": 4800,
+    "bytes_per_pixel": 4,
+    "height": 800,
+    "scale_x": 1,
+    "scale_y": 1,
+    "screen_x": 360,
+    "screen_y": 140,
+    "width": 1200,
+    "colors": [
+      "9f6a04",
+      "6b351a"
+    ],
+    "roi": [
+      84,
+      150,
+      790,
+      580
+    ],
+    "expected": [
+      [
+        123,
+        309,
+        29,
+        24
+      ],
+      [
+        123,
+        501,
+        29,
+        24
+      ],
+      [
+        123,
+        693,
+        29,
+        24
+      ]
+    ],
+    "dom": {
+      "title": "Rusty Robot Demo \u2014 search.rs",
+      "url": "vscode-file://vscode-app/Applications/Visual%20Studio%20Code.app/Contents/Resources/app/out/vs/code/electron-browser/workbench/workbench.html",
+      "screenX": 360,
+      "screenY": 140,
+      "outerWidth": 1200,
+      "outerHeight": 800,
+      "innerHeight": 800,
+      "innerWidth": 1200,
+      "scrollY": 0,
+      "dpr": 2,
+      "rectangles": [
+        {
+          "x": 123,
+          "y": 309,
+          "width": 29,
+          "height": 24
+        },
+        {
+          "x": 123,
+          "y": 501,
+          "width": 29,
+          "height": 24
+        },
+        {
+          "x": 123,
+          "y": 693,
+          "width": 29,
+          "height": 24
+        }
+      ]
+    },
+    "sha256": "5b3d2ba6faa3a7a1d1047724c05e9ffcf5d2666404ab0f3f102e5c2540478275",
+    "png_sha256": "babd96b80e5b9a3a7ef9593ef1bc93dc9a467e89a5e7ed9d94fd6afb640600da",
+    "dom_expected": [
+      [
+        123,
+        309,
+        29,
+        24
+      ],
+      [
+        123,
+        501,
+        29,
+        24
+      ],
+      [
+        123,
+        693,
+        29,
+        24
+      ]
+    ],
+    "oracle_verified": true
+  },
+  {
+    "name": "38",
+    "app": "vscode",
+    "query": "pub",
+    "bits_per_pixel": 32,
+    "byte_width": 4800,
+    "bytes_per_pixel": 4,
+    "height": 800,
+    "scale_x": 1,
+    "scale_y": 1,
+    "screen_x": 360,
+    "screen_y": 140,
+    "width": 1200,
+    "colors": [
+      "9f6a04",
+      "6b351a"
+    ],
+    "roi": [
+      84,
+      150,
+      790,
+      580
+    ],
+    "expected": [
+      [
+        123,
+        259,
+        29,
+        24
+      ],
+      [
+        123,
+        451,
+        29,
+        24
+      ],
+      [
+        123,
+        643,
+        29,
+        24
+      ]
+    ],
+    "dom": {
+      "title": "Rusty Robot Demo \u2014 search.rs",
+      "url": "vscode-file://vscode-app/Applications/Visual%20Studio%20Code.app/Contents/Resources/app/out/vs/code/electron-browser/workbench/workbench.html",
+      "screenX": 360,
+      "screenY": 140,
+      "outerWidth": 1200,
+      "outerHeight": 800,
+      "innerHeight": 800,
+      "innerWidth": 1200,
+      "scrollY": 0,
+      "dpr": 2,
+      "rectangles": [
+        {
+          "x": 123,
+          "y": 259,
+          "width": 29,
+          "height": 24
+        },
+        {
+          "x": 123,
+          "y": 451,
+          "width": 29,
+          "height": 24
+        },
+        {
+          "x": 123,
+          "y": 643,
+          "width": 29,
+          "height": 24
+        }
+      ]
+    },
+    "sha256": "9e03e446547da725557784cf9f9eddb7a6f1ea5b5b2be6e2027d77edb1c3a484",
+    "png_sha256": "114ea8cb7ae897dc78b711caac66f0b92ea3dd9ed4052517fa1bb295d1cb3d76",
+    "dom_expected": [
+      [
+        123,
+        259,
+        29,
+        24
+      ],
+      [
+        123,
+        451,
+        29,
+        24
+      ],
+      [
+        123,
+        643,
+        29,
+        24
+      ]
+    ],
+    "oracle_verified": true
+  },
+  {
+    "name": "39",
+    "app": "vscode",
+    "query": "pub",
+    "bits_per_pixel": 32,
+    "byte_width": 4800,
+    "bytes_per_pixel": 4,
+    "height": 800,
+    "scale_x": 1,
+    "scale_y": 1,
+    "screen_x": 360,
+    "screen_y": 140,
+    "width": 1200,
+    "colors": [
+      "9f6a04",
+      "6b351a"
+    ],
+    "roi": [
+      84,
+      150,
+      790,
+      580
+    ],
+    "expected": [
+      [
+        123,
+        209,
+        29,
+        24
+      ],
+      [
+        123,
+        401,
+        29,
+        24
+      ],
+      [
+        123,
+        593,
+        29,
+        24
+      ]
+    ],
+    "dom": {
+      "title": "Rusty Robot Demo \u2014 search.rs",
+      "url": "vscode-file://vscode-app/Applications/Visual%20Studio%20Code.app/Contents/Resources/app/out/vs/code/electron-browser/workbench/workbench.html",
+      "screenX": 360,
+      "screenY": 140,
+      "outerWidth": 1200,
+      "outerHeight": 800,
+      "innerHeight": 800,
+      "innerWidth": 1200,
+      "scrollY": 0,
+      "dpr": 2,
+      "rectangles": [
+        {
+          "x": 123,
+          "y": 209,
+          "width": 29,
+          "height": 24
+        },
+        {
+          "x": 123,
+          "y": 401,
+          "width": 29,
+          "height": 24
+        },
+        {
+          "x": 123,
+          "y": 593,
+          "width": 29,
+          "height": 24
+        }
+      ]
+    },
+    "sha256": "4f719ce9d901506c8865d77f41a3dacb47f3661a1a1df5999a50434a5c79fd57",
+    "png_sha256": "14545f1a27f1c974d2ff5f16e5a29eb6628c5228ce7affe9b8c6337ed6ca1b91",
+    "dom_expected": [
+      [
+        123,
+        209,
+        29,
+        24
+      ],
+      [
+        123,
+        401,
+        29,
+        24
+      ],
+      [
+        123,
+        593,
+        29,
+        24
+      ]
+    ],
+    "oracle_verified": true
+  },
+  {
+    "name": "40",
+    "app": "vscode",
+    "query": "fn",
+    "bits_per_pixel": 32,
+    "byte_width": 4800,
+    "bytes_per_pixel": 4,
+    "height": 800,
+    "scale_x": 1,
+    "scale_y": 1,
+    "screen_x": 360,
+    "screen_y": 140,
+    "width": 1200,
+    "colors": [
+      "9f6a04",
+      "6b351a"
+    ],
+    "roi": [
+      84,
+      150,
+      790,
+      580
+    ],
+    "expected": [
+      [
+        84,
+        172,
+        19,
+        24
+      ],
+      [
+        84,
+        388,
+        19,
+        24
+      ]
+    ],
+    "dom": {
+      "title": "Rusty Robot Demo \u2014 search.rs",
+      "url": "vscode-file://vscode-app/Applications/Visual%20Studio%20Code.app/Contents/Resources/app/out/vs/code/electron-browser/workbench/workbench.html",
+      "screenX": 360,
+      "screenY": 140,
+      "outerWidth": 1200,
+      "outerHeight": 800,
+      "innerHeight": 800,
+      "innerWidth": 1200,
+      "scrollY": 0,
+      "dpr": 2,
+      "rectangles": [
+        {
+          "x": 84,
+          "y": 172,
+          "width": 19,
+          "height": 24
+        },
+        {
+          "x": 84,
+          "y": 388,
+          "width": 19,
+          "height": 24
+        }
+      ]
+    },
+    "sha256": "a58b6635fcfdad33c32699f644a67c41c4b265195e4bb75323d690eba663bcc5",
+    "png_sha256": "30af31ca389825eb21e0c3de87a4a71b325902ad0eb973767a022ed44f7a34fb",
+    "dom_expected": [
+      [
+        84,
+        172,
+        19,
+        24
+      ],
+      [
+        84,
+        388,
+        19,
+        24
+      ]
+    ],
+    "oracle_verified": true
+  },
+  {
+    "name": "41",
+    "app": "vscode",
+    "query": "fn",
+    "bits_per_pixel": 32,
+    "byte_width": 4800,
+    "bytes_per_pixel": 4,
+    "height": 800,
+    "scale_x": 1,
+    "scale_y": 1,
+    "screen_x": 360,
+    "screen_y": 140,
+    "width": 1200,
+    "colors": [
+      "9f6a04",
+      "6b351a"
+    ],
+    "roi": [
+      84,
+      150,
+      790,
+      580
+    ],
+    "expected": [
+      [
+        84,
+        338,
+        19,
+        24
+      ],
+      [
+        123,
+        722,
+        19,
+        8
+      ]
+    ],
+    "dom": {
+      "title": "Rusty Robot Demo \u2014 search.rs",
+      "url": "vscode-file://vscode-app/Applications/Visual%20Studio%20Code.app/Contents/Resources/app/out/vs/code/electron-browser/workbench/workbench.html",
+      "screenX": 360,
+      "screenY": 140,
+      "outerWidth": 1200,
+      "outerHeight": 800,
+      "innerHeight": 800,
+      "innerWidth": 1200,
+      "scrollY": 0,
+      "dpr": 2,
+      "rectangles": [
+        {
+          "x": 84,
+          "y": 338,
+          "width": 19,
+          "height": 24
+        },
+        {
+          "x": 123,
+          "y": 722,
+          "width": 19,
+          "height": 24
+        }
+      ]
+    },
+    "sha256": "77d24cb6e8dd3a99166a8cd89ad27a512701a55f08ace56148d0bd066c65f916",
+    "png_sha256": "9f00931e2801a41f5349b2f13b795743851df0d9033613b8635d156d46455649",
+    "dom_expected": [
+      [
+        84,
+        338,
+        19,
+        24
+      ],
+      [
+        123,
+        722,
+        19,
+        8
+      ]
+    ],
+    "oracle_verified": true
+  },
+  {
+    "name": "42",
+    "app": "vscode",
+    "query": "fn",
+    "bits_per_pixel": 32,
+    "byte_width": 4800,
+    "bytes_per_pixel": 4,
+    "height": 800,
+    "scale_x": 1,
+    "scale_y": 1,
+    "screen_x": 360,
+    "screen_y": 140,
+    "width": 1200,
+    "colors": [
+      "9f6a04",
+      "6b351a"
+    ],
+    "roi": [
+      84,
+      150,
+      790,
+      580
+    ],
+    "expected": [
+      [
+        84,
+        288,
+        19,
+        24
+      ],
+      [
+        123,
+        672,
+        19,
+        24
+      ]
+    ],
+    "dom": {
+      "title": "Rusty Robot Demo \u2014 search.rs",
+      "url": "vscode-file://vscode-app/Applications/Visual%20Studio%20Code.app/Contents/Resources/app/out/vs/code/electron-browser/workbench/workbench.html",
+      "screenX": 360,
+      "screenY": 140,
+      "outerWidth": 1200,
+      "outerHeight": 800,
+      "innerHeight": 800,
+      "innerWidth": 1200,
+      "scrollY": 0,
+      "dpr": 2,
+      "rectangles": [
+        {
+          "x": 84,
+          "y": 288,
+          "width": 19,
+          "height": 24
+        },
+        {
+          "x": 123,
+          "y": 672,
+          "width": 19,
+          "height": 24
+        }
+      ]
+    },
+    "sha256": "99262028966915a82656faac6c5d4abaa821682043435bc04bddc1a0925613f7",
+    "png_sha256": "79fe61150e2710ccf90ee41c8258b6c188157598d3188ba4e279f9a4d884f41f",
+    "dom_expected": [
+      [
+        84,
+        288,
+        19,
+        24
+      ],
+      [
+        123,
+        672,
+        19,
+        24
+      ]
+    ],
+    "oracle_verified": true
+  },
+  {
+    "name": "43",
+    "app": "vscode",
+    "query": "fn",
+    "bits_per_pixel": 32,
+    "byte_width": 4800,
+    "bytes_per_pixel": 4,
+    "height": 800,
+    "scale_x": 1,
+    "scale_y": 1,
+    "screen_x": 360,
+    "screen_y": 140,
+    "width": 1200,
+    "colors": [
+      "9f6a04",
+      "6b351a"
+    ],
+    "roi": [
+      84,
+      150,
+      790,
+      580
+    ],
+    "expected": [
+      [
+        84,
+        238,
+        19,
+        24
+      ],
+      [
+        123,
+        622,
+        19,
+        24
+      ]
+    ],
+    "dom": {
+      "title": "Rusty Robot Demo \u2014 search.rs",
+      "url": "vscode-file://vscode-app/Applications/Visual%20Studio%20Code.app/Contents/Resources/app/out/vs/code/electron-browser/workbench/workbench.html",
+      "screenX": 360,
+      "screenY": 140,
+      "outerWidth": 1200,
+      "outerHeight": 800,
+      "innerHeight": 800,
+      "innerWidth": 1200,
+      "scrollY": 0,
+      "dpr": 2,
+      "rectangles": [
+        {
+          "x": 84,
+          "y": 238,
+          "width": 19,
+          "height": 24
+        },
+        {
+          "x": 123,
+          "y": 622,
+          "width": 19,
+          "height": 24
+        }
+      ]
+    },
+    "sha256": "416fb8cc4b26722caaab0f5dc9a70020c0315d90a179c46c86b08fa84d6e254b",
+    "png_sha256": "cfcd2b2f1a2e0d08425a122e6ceab9ca8973bbac90b46aa6474d1d105a2b8fac",
+    "dom_expected": [
+      [
+        84,
+        238,
+        19,
+        24
+      ],
+      [
+        123,
+        622,
+        19,
+        24
+      ]
+    ],
+    "oracle_verified": true
+  },
+  {
+    "name": "44",
+    "app": "vscode",
+    "query": "fn",
+    "bits_per_pixel": 32,
+    "byte_width": 4800,
+    "bytes_per_pixel": 4,
+    "height": 800,
+    "scale_x": 1,
+    "scale_y": 1,
+    "screen_x": 360,
+    "screen_y": 140,
+    "width": 1200,
+    "colors": [
+      "9f6a04",
+      "6b351a"
+    ],
+    "roi": [
+      84,
+      150,
+      790,
+      580
+    ],
+    "expected": [
+      [
+        84,
+        188,
+        19,
+        24
+      ],
+      [
+        123,
+        572,
+        19,
+        24
+      ]
+    ],
+    "dom": {
+      "title": "Rusty Robot Demo \u2014 search.rs",
+      "url": "vscode-file://vscode-app/Applications/Visual%20Studio%20Code.app/Contents/Resources/app/out/vs/code/electron-browser/workbench/workbench.html",
+      "screenX": 360,
+      "screenY": 140,
+      "outerWidth": 1200,
+      "outerHeight": 800,
+      "innerHeight": 800,
+      "innerWidth": 1200,
+      "scrollY": 0,
+      "dpr": 2,
+      "rectangles": [
+        {
+          "x": 84,
+          "y": 188,
+          "width": 19,
+          "height": 24
+        },
+        {
+          "x": 123,
+          "y": 572,
+          "width": 19,
+          "height": 24
+        }
+      ]
+    },
+    "sha256": "908e45cac2d94254c3c307b599d78bec5eaf29287f9d345a69966b965b56be91",
+    "png_sha256": "b33119410e3d62b4fda8c430acb506995f7e3c40560cf3eb06b0de4fb4c64b28",
+    "dom_expected": [
+      [
+        84,
+        188,
+        19,
+        24
+      ],
+      [
+        123,
+        572,
+        19,
+        24
+      ]
+    ],
+    "oracle_verified": true
+  },
+  {
+    "name": "45",
+    "app": "vscode",
+    "query": "fn",
+    "bits_per_pixel": 32,
+    "byte_width": 4800,
+    "bytes_per_pixel": 4,
+    "height": 800,
+    "scale_x": 1,
+    "scale_y": 1,
+    "screen_x": 360,
+    "screen_y": 140,
+    "width": 1200,
+    "colors": [
+      "9f6a04",
+      "6b351a"
+    ],
+    "roi": [
+      84,
+      150,
+      790,
+      580
+    ],
+    "expected": [
+      [
+        84,
+        150,
+        19,
+        12
+      ],
+      [
+        123,
+        522,
+        19,
+        24
+      ]
+    ],
+    "dom": {
+      "title": "Rusty Robot Demo \u2014 search.rs",
+      "url": "vscode-file://vscode-app/Applications/Visual%20Studio%20Code.app/Contents/Resources/app/out/vs/code/electron-browser/workbench/workbench.html",
+      "screenX": 360,
+      "screenY": 140,
+      "outerWidth": 1200,
+      "outerHeight": 800,
+      "innerHeight": 800,
+      "innerWidth": 1200,
+      "scrollY": 0,
+      "dpr": 2,
+      "rectangles": [
+        {
+          "x": 84,
+          "y": 138,
+          "width": 19,
+          "height": 24
+        },
+        {
+          "x": 123,
+          "y": 522,
+          "width": 19,
+          "height": 24
+        }
+      ]
+    },
+    "sha256": "7039ac1e0d2c20005d7911ac4acad2f45ea568cf3e2f22d874494aa699ab7c54",
+    "png_sha256": "4ed2ce7630fc91dfb1b447ccd7ce9706a584d48655480a428bb0b8aa5f64a144",
+    "dom_expected": [
+      [
+        84,
+        150,
+        19,
+        12
+      ],
+      [
+        123,
+        522,
+        19,
+        24
+      ]
+    ],
+    "oracle_verified": true
+  },
+  {
+    "name": "46",
+    "app": "vscode",
+    "query": "fn",
+    "bits_per_pixel": 32,
+    "byte_width": 4800,
+    "bytes_per_pixel": 4,
+    "height": 800,
+    "scale_x": 1,
+    "scale_y": 1,
+    "screen_x": 360,
+    "screen_y": 140,
+    "width": 1200,
+    "colors": [
+      "9f6a04",
+      "6b351a"
+    ],
+    "roi": [
+      84,
+      150,
+      790,
+      580
+    ],
+    "expected": [
+      [
+        123,
+        472,
+        19,
+        24
+      ]
+    ],
+    "dom": {
+      "title": "Rusty Robot Demo \u2014 search.rs",
+      "url": "vscode-file://vscode-app/Applications/Visual%20Studio%20Code.app/Contents/Resources/app/out/vs/code/electron-browser/workbench/workbench.html",
+      "screenX": 360,
+      "screenY": 140,
+      "outerWidth": 1200,
+      "outerHeight": 800,
+      "innerHeight": 800,
+      "innerWidth": 1200,
+      "scrollY": 0,
+      "dpr": 2,
+      "rectangles": [
+        {
+          "x": 123,
+          "y": 472,
+          "width": 19,
+          "height": 24
+        }
+      ]
+    },
+    "sha256": "7efca8c60189d5c1ad87360542aa8b32d68d7a3f62742cb618e88ef86165f2ee",
+    "png_sha256": "2bd135041435f8aa5419c5b577d776cae29f9d26685fa0fb3991495e41042e9c",
+    "dom_expected": [
+      [
+        123,
+        472,
+        19,
+        24
+      ]
+    ],
+    "oracle_verified": true
+  },
+  {
+    "name": "47",
+    "app": "vscode",
+    "query": "fn",
+    "bits_per_pixel": 32,
+    "byte_width": 4800,
+    "bytes_per_pixel": 4,
+    "height": 800,
+    "scale_x": 1,
+    "scale_y": 1,
+    "screen_x": 360,
+    "screen_y": 140,
+    "width": 1200,
+    "colors": [
+      "9f6a04",
+      "6b351a"
+    ],
+    "roi": [
+      84,
+      150,
+      790,
+      580
+    ],
+    "expected": [
+      [
+        123,
+        422,
+        19,
+        24
+      ]
+    ],
+    "dom": {
+      "title": "Rusty Robot Demo \u2014 search.rs",
+      "url": "vscode-file://vscode-app/Applications/Visual%20Studio%20Code.app/Contents/Resources/app/out/vs/code/electron-browser/workbench/workbench.html",
+      "screenX": 360,
+      "screenY": 140,
+      "outerWidth": 1200,
+      "outerHeight": 800,
+      "innerHeight": 800,
+      "innerWidth": 1200,
+      "scrollY": 0,
+      "dpr": 2,
+      "rectangles": [
+        {
+          "x": 123,
+          "y": 422,
+          "width": 19,
+          "height": 24
+        }
+      ]
+    },
+    "sha256": "a1b97bf7d8c8c77bfffedcd21a0a7a79efed5e622aa3a4aee5229d6643da04ba",
+    "png_sha256": "43651d9eedc47d4cdc164746aab0a63a0ec005826f241cf32b177834a7e9c7ea",
+    "dom_expected": [
+      [
+        123,
+        422,
+        19,
+        24
+      ]
+    ],
+    "oracle_verified": true
+  },
+  {
+    "name": "48",
+    "app": "vscode",
+    "query": "fn",
+    "bits_per_pixel": 32,
+    "byte_width": 4800,
+    "bytes_per_pixel": 4,
+    "height": 800,
+    "scale_x": 1,
+    "scale_y": 1,
+    "screen_x": 360,
+    "screen_y": 140,
+    "width": 1200,
+    "colors": [
+      "9f6a04",
+      "6b351a"
+    ],
+    "roi": [
+      84,
+      150,
+      790,
+      580
+    ],
+    "expected": [
+      [
+        123,
+        372,
+        19,
+        24
+      ]
+    ],
+    "dom": {
+      "title": "Rusty Robot Demo \u2014 search.rs",
+      "url": "vscode-file://vscode-app/Applications/Visual%20Studio%20Code.app/Contents/Resources/app/out/vs/code/electron-browser/workbench/workbench.html",
+      "screenX": 360,
+      "screenY": 140,
+      "outerWidth": 1200,
+      "outerHeight": 800,
+      "innerHeight": 800,
+      "innerWidth": 1200,
+      "scrollY": 0,
+      "dpr": 2,
+      "rectangles": [
+        {
+          "x": 123,
+          "y": 372,
+          "width": 19,
+          "height": 24
+        }
+      ]
+    },
+    "sha256": "a20fde53b66301da6073f522ac6cd5698d5a6c15f4868aec6582f69227513b1f",
+    "png_sha256": "9646b6bc26a8910b5ee88b7023d0a7f66672a946161f28154bc61d6b5c44e701",
+    "dom_expected": [
+      [
+        123,
+        372,
+        19,
+        24
+      ]
+    ],
+    "oracle_verified": true
+  },
+  {
+    "name": "49",
+    "app": "vscode",
+    "query": "fn",
+    "bits_per_pixel": 32,
+    "byte_width": 4800,
+    "bytes_per_pixel": 4,
+    "height": 800,
+    "scale_x": 1,
+    "scale_y": 1,
+    "screen_x": 360,
+    "screen_y": 140,
+    "width": 1200,
+    "colors": [
+      "9f6a04",
+      "6b351a"
+    ],
+    "roi": [
+      84,
+      150,
+      790,
+      580
+    ],
+    "expected": [
+      [
+        123,
+        322,
+        19,
+        24
+      ]
+    ],
+    "dom": {
+      "title": "Rusty Robot Demo \u2014 search.rs",
+      "url": "vscode-file://vscode-app/Applications/Visual%20Studio%20Code.app/Contents/Resources/app/out/vs/code/electron-browser/workbench/workbench.html",
+      "screenX": 360,
+      "screenY": 140,
+      "outerWidth": 1200,
+      "outerHeight": 800,
+      "innerHeight": 800,
+      "innerWidth": 1200,
+      "scrollY": 0,
+      "dpr": 2,
+      "rectangles": [
+        {
+          "x": 123,
+          "y": 322,
+          "width": 19,
+          "height": 24
+        }
+      ]
+    },
+    "sha256": "750afbbbc14123cfa0e41e40089372cbf8741ac10404e90c0e7cbcea685d992a",
+    "png_sha256": "ab12b36732da157253ba71d63137f9edf6de3b76e88bf7c30b0d2a483a1beadd",
+    "dom_expected": [
+      [
+        123,
+        322,
+        19,
+        24
+      ]
+    ],
+    "oracle_verified": true
+  },
+  {
+    "name": "50",
+    "app": "vscode",
+    "query": "match",
+    "bits_per_pixel": 32,
+    "byte_width": 4800,
+    "bytes_per_pixel": 4,
+    "height": 800,
+    "scale_x": 1,
+    "scale_y": 1,
+    "screen_x": 360,
+    "screen_y": 140,
+    "width": 1200,
+    "colors": [
+      "9f6a04",
+      "6b351a"
+    ],
+    "roi": [
+      84,
+      150,
+      790,
+      580
+    ],
+    "expected": [
+      [
+        681,
+        412,
+        48,
+        24
+      ]
+    ],
+    "dom": {
+      "title": "Rusty Robot Demo \u2014 search.rs",
+      "url": "vscode-file://vscode-app/Applications/Visual%20Studio%20Code.app/Contents/Resources/app/out/vs/code/electron-browser/workbench/workbench.html",
+      "screenX": 360,
+      "screenY": 140,
+      "outerWidth": 1200,
+      "outerHeight": 800,
+      "innerHeight": 800,
+      "innerWidth": 1200,
+      "scrollY": 0,
+      "dpr": 2,
+      "rectangles": [
+        {
+          "x": 681,
+          "y": 412,
+          "width": 48,
+          "height": 24
+        }
+      ]
+    },
+    "sha256": "60ac701c7bf392e2d9d60ef3157ae37fff461178f0a2c44bc9ae25f1133e16c6",
+    "png_sha256": "2c5dbae8b40d104428460aa3dd83997dead45432b1f3827481f4ab1881a9dd37",
+    "dom_expected": [
+      [
+        681,
+        412,
+        48,
+        24
+      ]
+    ],
+    "oracle_verified": true
+  },
+  {
+    "name": "51",
+    "app": "vscode",
+    "query": "match",
+    "bits_per_pixel": 32,
+    "byte_width": 4800,
+    "bytes_per_pixel": 4,
+    "height": 800,
+    "scale_x": 1,
+    "scale_y": 1,
+    "screen_x": 360,
+    "screen_y": 140,
+    "width": 1200,
+    "colors": [
+      "9f6a04",
+      "6b351a"
+    ],
+    "roi": [
+      84,
+      150,
+      790,
+      580
+    ],
+    "expected": [
+      [
+        681,
+        362,
+        48,
+        24
+      ]
+    ],
+    "dom": {
+      "title": "Rusty Robot Demo \u2014 search.rs",
+      "url": "vscode-file://vscode-app/Applications/Visual%20Studio%20Code.app/Contents/Resources/app/out/vs/code/electron-browser/workbench/workbench.html",
+      "screenX": 360,
+      "screenY": 140,
+      "outerWidth": 1200,
+      "outerHeight": 800,
+      "innerHeight": 800,
+      "innerWidth": 1200,
+      "scrollY": 0,
+      "dpr": 2,
+      "rectangles": [
+        {
+          "x": 681,
+          "y": 362,
+          "width": 48,
+          "height": 24
+        }
+      ]
+    },
+    "sha256": "94831a4f7afcf8a6def1d68b5c151303d60d47ee1011826586f7d14c3b7e19e8",
+    "png_sha256": "5284a3c44e9d92deec9dd2988c3a98527147122de78f085a6c513003fc19d780",
+    "dom_expected": [
+      [
+        681,
+        362,
+        48,
+        24
+      ]
+    ],
+    "oracle_verified": true
+  },
+  {
+    "name": "52",
+    "app": "vscode",
+    "query": "match",
+    "bits_per_pixel": 32,
+    "byte_width": 4800,
+    "bytes_per_pixel": 4,
+    "height": 800,
+    "scale_x": 1,
+    "scale_y": 1,
+    "screen_x": 360,
+    "screen_y": 140,
+    "width": 1200,
+    "colors": [
+      "9f6a04",
+      "6b351a"
+    ],
+    "roi": [
+      84,
+      150,
+      790,
+      580
+    ],
+    "expected": [
+      [
+        681,
+        312,
+        48,
+        24
+      ]
+    ],
+    "dom": {
+      "title": "Rusty Robot Demo \u2014 search.rs",
+      "url": "vscode-file://vscode-app/Applications/Visual%20Studio%20Code.app/Contents/Resources/app/out/vs/code/electron-browser/workbench/workbench.html",
+      "screenX": 360,
+      "screenY": 140,
+      "outerWidth": 1200,
+      "outerHeight": 800,
+      "innerHeight": 800,
+      "innerWidth": 1200,
+      "scrollY": 0,
+      "dpr": 2,
+      "rectangles": [
+        {
+          "x": 681,
+          "y": 312,
+          "width": 48,
+          "height": 24
+        }
+      ]
+    },
+    "sha256": "d3c8eadb86daa04f6a9f1e90922b8a4415e4da5ef50e7e2e5f5ac24f6e9a5e6c",
+    "png_sha256": "233ab7f0db3355e537b55bc8dd0a047c3e910b9beb029c68ffcd4c27d2ea5056",
+    "dom_expected": [
+      [
+        681,
+        312,
+        48,
+        24
+      ]
+    ],
+    "oracle_verified": true
+  },
+  {
+    "name": "53",
+    "app": "vscode",
+    "query": "match",
+    "bits_per_pixel": 32,
+    "byte_width": 4800,
+    "bytes_per_pixel": 4,
+    "height": 800,
+    "scale_x": 1,
+    "scale_y": 1,
+    "screen_x": 360,
+    "screen_y": 140,
+    "width": 1200,
+    "colors": [
+      "9f6a04",
+      "6b351a"
+    ],
+    "roi": [
+      84,
+      150,
+      790,
+      580
+    ],
+    "expected": [
+      [
+        681,
+        262,
+        48,
+        24
+      ]
+    ],
+    "dom": {
+      "title": "Rusty Robot Demo \u2014 search.rs",
+      "url": "vscode-file://vscode-app/Applications/Visual%20Studio%20Code.app/Contents/Resources/app/out/vs/code/electron-browser/workbench/workbench.html",
+      "screenX": 360,
+      "screenY": 140,
+      "outerWidth": 1200,
+      "outerHeight": 800,
+      "innerHeight": 800,
+      "innerWidth": 1200,
+      "scrollY": 0,
+      "dpr": 2,
+      "rectangles": [
+        {
+          "x": 681,
+          "y": 262,
+          "width": 48,
+          "height": 24
+        }
+      ]
+    },
+    "sha256": "c91fd37ad72db522f1042c8ba89cb049336e17b7813da6ecb18a085536ab07a8",
+    "png_sha256": "44cc711f5d94b1e787a47c9d492695b9a739826fa212af4a29710fe6356b9d13",
+    "dom_expected": [
+      [
+        681,
+        262,
+        48,
+        24
+      ]
+    ],
+    "oracle_verified": true
+  },
+  {
+    "name": "54",
+    "app": "vscode",
+    "query": "match",
+    "bits_per_pixel": 32,
+    "byte_width": 4800,
+    "bytes_per_pixel": 4,
+    "height": 800,
+    "scale_x": 1,
+    "scale_y": 1,
+    "screen_x": 360,
+    "screen_y": 140,
+    "width": 1200,
+    "colors": [
+      "9f6a04",
+      "6b351a"
+    ],
+    "roi": [
+      84,
+      150,
+      790,
+      580
+    ],
+    "expected": [
+      [
+        681,
+        212,
+        48,
+        24
+      ]
+    ],
+    "dom": {
+      "title": "Rusty Robot Demo \u2014 search.rs",
+      "url": "vscode-file://vscode-app/Applications/Visual%20Studio%20Code.app/Contents/Resources/app/out/vs/code/electron-browser/workbench/workbench.html",
+      "screenX": 360,
+      "screenY": 140,
+      "outerWidth": 1200,
+      "outerHeight": 800,
+      "innerHeight": 800,
+      "innerWidth": 1200,
+      "scrollY": 0,
+      "dpr": 2,
+      "rectangles": [
+        {
+          "x": 681,
+          "y": 212,
+          "width": 48,
+          "height": 24
+        }
+      ]
+    },
+    "sha256": "be34dedb442eaf7d8b64e064073775ceaa3d6f84dc755b9cc1f73e0d80df6881",
+    "png_sha256": "5918725f1667fea0514e6425e34d6e5744bd282ef6ced9a1b026b8c72e0757c7",
+    "dom_expected": [
+      [
+        681,
+        212,
+        48,
+        24
+      ]
+    ],
+    "oracle_verified": true
+  },
+  {
+    "name": "55",
+    "app": "vscode",
+    "query": "match",
+    "bits_per_pixel": 32,
+    "byte_width": 4800,
+    "bytes_per_pixel": 4,
+    "height": 800,
+    "scale_x": 1,
+    "scale_y": 1,
+    "screen_x": 360,
+    "screen_y": 140,
+    "width": 1200,
+    "colors": [
+      "9f6a04",
+      "6b351a"
+    ],
+    "roi": [
+      84,
+      150,
+      790,
+      580
+    ],
+    "expected": [
+      [
+        681,
+        162,
+        48,
+        24
+      ]
+    ],
+    "dom": {
+      "title": "Rusty Robot Demo \u2014 search.rs",
+      "url": "vscode-file://vscode-app/Applications/Visual%20Studio%20Code.app/Contents/Resources/app/out/vs/code/electron-browser/workbench/workbench.html",
+      "screenX": 360,
+      "screenY": 140,
+      "outerWidth": 1200,
+      "outerHeight": 800,
+      "innerHeight": 800,
+      "innerWidth": 1200,
+      "scrollY": 0,
+      "dpr": 2,
+      "rectangles": [
+        {
+          "x": 681,
+          "y": 162,
+          "width": 48,
+          "height": 24
+        }
+      ]
+    },
+    "sha256": "252f8872bddb4d97b102b4edadfa9965ba22e8d3f95ab9d775dcda285da24eae",
+    "png_sha256": "c506c1bc6920851454fe9c456fdafe66be9b9ebcdbd8aecbf8b4925adff1bdd4",
+    "dom_expected": [
+      [
+        681,
+        162,
+        48,
+        24
+      ]
+    ],
+    "oracle_verified": true
+  },
+  {
+    "name": "56",
+    "app": "vscode",
+    "query": "match",
+    "bits_per_pixel": 32,
+    "byte_width": 4800,
+    "bytes_per_pixel": 4,
+    "height": 800,
+    "scale_x": 1,
+    "scale_y": 1,
+    "screen_x": 360,
+    "screen_y": 140,
+    "width": 1200,
+    "colors": [
+      "9f6a04",
+      "6b351a"
+    ],
+    "roi": [
+      84,
+      150,
+      790,
+      580
+    ],
+    "expected": [],
+    "dom": {
+      "title": "Rusty Robot Demo \u2014 search.rs",
+      "url": "vscode-file://vscode-app/Applications/Visual%20Studio%20Code.app/Contents/Resources/app/out/vs/code/electron-browser/workbench/workbench.html",
+      "screenX": 360,
+      "screenY": 140,
+      "outerWidth": 1200,
+      "outerHeight": 800,
+      "innerHeight": 800,
+      "innerWidth": 1200,
+      "scrollY": 0,
+      "dpr": 2,
+      "rectangles": []
+    },
+    "sha256": "f8a8589c9612e26325af64af83d1fdc8534833ca931ea78649256491ad1e4abe",
+    "png_sha256": "fbaeeda64d48c42349e1860c091edbcd6270d20cb69d59ed9101b9f88a194d18",
+    "dom_expected": [],
+    "oracle_verified": true
+  },
+  {
+    "name": "57",
+    "app": "vscode",
+    "query": "match",
+    "bits_per_pixel": 32,
+    "byte_width": 4800,
+    "bytes_per_pixel": 4,
+    "height": 800,
+    "scale_x": 1,
+    "scale_y": 1,
+    "screen_x": 360,
+    "screen_y": 140,
+    "width": 1200,
+    "colors": [
+      "9f6a04",
+      "6b351a"
+    ],
+    "roi": [
+      84,
+      150,
+      790,
+      580
+    ],
+    "expected": [],
+    "dom": {
+      "title": "Rusty Robot Demo \u2014 search.rs",
+      "url": "vscode-file://vscode-app/Applications/Visual%20Studio%20Code.app/Contents/Resources/app/out/vs/code/electron-browser/workbench/workbench.html",
+      "screenX": 360,
+      "screenY": 140,
+      "outerWidth": 1200,
+      "outerHeight": 800,
+      "innerHeight": 800,
+      "innerWidth": 1200,
+      "scrollY": 0,
+      "dpr": 2,
+      "rectangles": []
+    },
+    "sha256": "c8d0d5cfdcdb6afb70c040ff5c16b74a76f3585b3421a7675f7877c92ee13c15",
+    "png_sha256": "e21066481f25b84aba98278c0f4789893fab93d7fdd8f458bc2a7872b46bdde5",
+    "dom_expected": [],
+    "oracle_verified": true
+  },
+  {
+    "name": "58",
+    "app": "vscode",
+    "query": "match",
+    "bits_per_pixel": 32,
+    "byte_width": 4800,
+    "bytes_per_pixel": 4,
+    "height": 800,
+    "scale_x": 1,
+    "scale_y": 1,
+    "screen_x": 360,
+    "screen_y": 140,
+    "width": 1200,
+    "colors": [
+      "9f6a04",
+      "6b351a"
+    ],
+    "roi": [
+      84,
+      150,
+      790,
+      580
+    ],
+    "expected": [],
+    "dom": {
+      "title": "Rusty Robot Demo \u2014 search.rs",
+      "url": "vscode-file://vscode-app/Applications/Visual%20Studio%20Code.app/Contents/Resources/app/out/vs/code/electron-browser/workbench/workbench.html",
+      "screenX": 360,
+      "screenY": 140,
+      "outerWidth": 1200,
+      "outerHeight": 800,
+      "innerHeight": 800,
+      "innerWidth": 1200,
+      "scrollY": 0,
+      "dpr": 2,
+      "rectangles": []
+    },
+    "sha256": "7af76f37cbe4d8345bdff325c7c71b1054a01bdcbc7458355d3f03c2d677ef67",
+    "png_sha256": "2180d74cb2462509949921e9c662c5b5aa0804cd9b0800ab5f709913ceb55768",
+    "dom_expected": [],
+    "oracle_verified": true
+  },
+  {
+    "name": "59",
+    "app": "vscode",
+    "query": "match",
+    "bits_per_pixel": 32,
+    "byte_width": 4800,
+    "bytes_per_pixel": 4,
+    "height": 800,
+    "scale_x": 1,
+    "scale_y": 1,
+    "screen_x": 360,
+    "screen_y": 140,
+    "width": 1200,
+    "colors": [
+      "9f6a04",
+      "6b351a"
+    ],
+    "roi": [
+      84,
+      150,
+      790,
+      580
+    ],
+    "expected": [],
+    "dom": {
+      "title": "Rusty Robot Demo \u2014 search.rs",
+      "url": "vscode-file://vscode-app/Applications/Visual%20Studio%20Code.app/Contents/Resources/app/out/vs/code/electron-browser/workbench/workbench.html",
+      "screenX": 360,
+      "screenY": 140,
+      "outerWidth": 1200,
+      "outerHeight": 800,
+      "innerHeight": 800,
+      "innerWidth": 1200,
+      "scrollY": 0,
+      "dpr": 2,
+      "rectangles": []
+    },
+    "sha256": "860e01305a26e217a962903d7c32e94579c406421e33354eebdb22516458db0a",
+    "png_sha256": "86dc5584ab35be5e44c3f5d75a5f1a5b6bb988d8f8e522161f0593b22bc155ef",
+    "dom_expected": [],
+    "oracle_verified": true
+  }
+]

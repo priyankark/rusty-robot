@@ -79,6 +79,15 @@ jobs:
         working-directory: rusty-robot
       - run: python3 scripts/workload-report.py --check
         working-directory: rusty-robot
+      - run: python3 scripts/app-report.py --check
+        working-directory: rusty-robot
+      - name: Check real-app benchmark scripts
+        run: |
+          node --check tools/benchmark-demo/app-cdp.cjs
+          node --check tools/benchmark-demo/app-regions-robotjs.cjs
+          node --check tools/benchmark-demo/capture-app-fixtures.cjs
+          node --check tools/benchmark-demo/app-record.cjs
+        working-directory: rusty-robot
       - run: node --check docs/workload-videos.js
         working-directory: rusty-robot
       - run: node --check docs/benchmark-explorer.js

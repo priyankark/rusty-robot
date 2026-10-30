@@ -1,0 +1,29 @@
+{
+  "app": "github",
+  "failures": [],
+  "created_at": "2026-10-30T17:14:36.807Z",
+  "capture": "Rusty Robot Robot.capture(Some(Rect)); PNG saved by Rust; capture excluded from analysis timings",
+  "capture_binary_sha256": "13479444aa3545e90ad9b2e5c6ea4e6abcef495e86e475daf44647e3a858a81d",
+  "capture_source_sha256": "2d677f18c7a2d13698da69d06ace132935dff834605bf80623802bfaad1f736f",
+  "collector_sha256": "6a2e120dd60cacf3a3339760bd5dbe251c0ca1b80a0239012ed3273dbb3000b5",
+  "oracle": "Expected vertical bands formed from clipped application DOM highlight rectangles, independent of either image-search implementation",
+  "app_version": "155.0.8059.40",
+  "pixel_oracle": {
+    "method": "Independent Python scan of raw BGRA bytes. Exact output rectangles retained; each must also match application DOM band count and all four edges within one pixel for rasterized table borders. Original DOM rectangles retained.",
+    "source_sha256": "dc24b8c5c86230913e7a999a8ce1c6a062b91c6c9255cfc939b710cbf1e54843",
+    "dom_border_adjustment_frames": [
+      "13",
+      "14",
+      "19",
+      "26",
+      "27",
+      "34",
+      "35",
+      "42",
+      "49",
+      "50",
+      "57"
+    ],
+    "verified_frames": 60
+  }
+}
