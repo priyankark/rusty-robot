@@ -7,8 +7,8 @@
 </style></head><body><main>
 <header><img src="../assets/robot.png" width="88" height="88" alt="Rusty Robot logo"><div class="eyebrow">Rusty Robot / Engineering benchmarks / 27 Oct 2026</div>
 <h1>Rusty Robot vs RobotJS</h1>
-<p><a href="index.html">New: real AirCodum and Agentum input/video benchmarks</a>. This page preserves the earlier API-only snapshot.</p>
-<p>The complete measured comparison: bitmap access, color and image search, image codecs, cursor queries, display enumeration, and screen capture. Current optimized Rust versus RobotJS 0.9.1’s JavaScript API and native C/C++ addon, on an Apple M6 Mac.</p></header>
+<p><a href="building-rusty-robot.html">How we ported RobotJS to Rust and improved it</a>. This page preserves the October 27 API comparison; later capture changes have not been rerun against RobotJS.</p>
+<p>The complete measured comparison: bitmap access, color and image search, image codecs, cursor queries, display enumeration, and screen capture. The October 27 optimized Rust build versus RobotJS 0.9.1’s JavaScript API and native C/C++ addon, on an Apple M6 Mac.</p></header>
 <section class="cards" aria-label="Overall Rust versus RobotJS measurements">
 <div class="card"><strong id="total"></strong><span>Operations benchmarked</span></div>
 <div class="card"><strong id="faster"></strong><span>Lower median time in Rust</span></div>
@@ -48,7 +48,7 @@ function render(){
  if(order!=='suite')rows.sort(order==='name'?(a,b)=>a.case.localeCompare(b.case):order==='time'?(a,b)=>b.after-a.after:(a,b)=>b.before/b.after-a.before/a.after);
  byId('ab').setAttribute('aria-pressed',mode==='ab');byId('js').setAttribute('aria-pressed',mode==='js');
  byId('heading').textContent=mode==='ab'?'Before and after optimization':'All 21 operations: Rust versus RobotJS';
- byId('description').textContent=mode==='ab'?'13 operations against the saved pre-change Rust executable. The overall summary above continues to compare current Rust against RobotJS.':'All 21 operations against RobotJS 0.9.1 and its native addon. This is a separate measurement run from the paired Rust comparison.';
+ byId('description').textContent=mode==='ab'?'13 operations against the saved pre-change Rust executable. The overall summary above continues to compare the October 27 Rust build against RobotJS.':'All 21 operations against RobotJS 0.9.1 and its native addon. This is a separate measurement run from the paired Rust comparison.';
  byId('baseline-label').textContent=mode==='ab'?'Previous Rust':'RobotJS';
  byId('before-label').textContent=mode==='ab'?'Before µs':'RobotJS µs';
  byId('results').replaceChildren(...rows.map(r=>{
