@@ -1,0 +1,11 @@
+[package]
+name = "rusty-robot-benchmark-demo"
+version = "0.1.0"
+edition = "2024"
+publish = false
+
+[dependencies]
+rusty-robot-desktop = { path = "../.." }
+serde_json = "1"
+
+[workspace]

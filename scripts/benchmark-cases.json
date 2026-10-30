@@ -1,0 +1,128 @@
+{
+  "color_at": {
+    "label": "Read one pixel from memory",
+    "group": "color",
+    "description": "Read the RGB color at (123, 456) in an image already loaded into memory. This does not take a screenshot.",
+    "caveat": "Tiny calls include API wrapper and return-value costs."
+  },
+  "find_color_early": {
+    "label": "Find a color at the start",
+    "group": "color",
+    "description": "Find the first black pixel at the start of the 1920 × 1080 image. The search can stop immediately.",
+    "caveat": "Best-case search, not a full-image scan."
+  },
+  "find_color_late": {
+    "label": "Find a color near the end",
+    "group": "color",
+    "description": "Find magenta at (1856, 1016), near the bottom-right of a 1920 × 1080 image. Most pixels must be checked.",
+    "caveat": "One match is returned; this avoids the cost of a large result collection."
+  },
+  "find_color_absent": {
+    "label": "Search for a missing color",
+    "group": "color",
+    "description": "Search the entire 1920 × 1080 image for cyan, which is absent. Both implementations must return no match.",
+    "caveat": "Measures a full scan with no result collection."
+  },
+  "count_color_absent": {
+    "label": "Count a color that is absent",
+    "group": "color",
+    "description": "Scan the 1920 × 1080 image and return zero matching pixels.",
+    "caveat": "Counting checks the whole search area."
+  },
+  "count_color_dense": {
+    "label": "Count 65,536 matching pixels",
+    "group": "color",
+    "description": "Every pixel in a uniform 256 × 256 image matches. Return the count, 65,536.",
+    "caveat": "Returns one number, not a list of positions."
+  },
+  "find_colors_dense": {
+    "label": "Return 65,536 pixel positions",
+    "group": "color",
+    "description": "Search a uniform 256 × 256 image and return every matching pixel position.",
+    "caveat": "Includes allocation: Rust returns a vector; RobotJS builds JavaScript objects. The ratio is not scan speed alone."
+  },
+  "find_image_late": {
+    "label": "Find an image near the end",
+    "group": "image",
+    "description": "Locate a 32 × 32 template at (1856, 1016) inside a 1920 × 1080 image. Return the first match.",
+    "caveat": "Exact matching; archived Node/Rust round ranges overlap."
+  },
+  "find_image_absent": {
+    "label": "Search for a missing image",
+    "group": "image",
+    "description": "Look for a 32 × 32 template that does not occur in the 1920 × 1080 source.",
+    "caveat": "Exact matching; archived Node/Rust round ranges overlap."
+  },
+  "find_image_tolerant": {
+    "label": "Find an image with color tolerance",
+    "group": "image",
+    "description": "Find the planted 32 × 32 template with a color tolerance of 0.02, allowing small color differences.",
+    "caveat": "Approximate matching requires extra color-distance arithmetic."
+  },
+  "count_image_dense": {
+    "label": "Count overlapping image matches",
+    "group": "image",
+    "description": "Count all 64,009 placements of a matching 4 × 4 tile in a uniform 256 × 256 image.",
+    "caveat": "Overlapping matches count. Returns one number."
+  },
+  "find_images_dense": {
+    "label": "Return 64,009 image positions",
+    "group": "image",
+    "description": "Return all 64,009 positions of a matching 4 × 4 tile in a uniform 256 × 256 image.",
+    "caveat": "Includes allocation of the complete collection of positions."
+  },
+  "load_bmp": {
+    "label": "Load a BMP image",
+    "group": "files",
+    "description": "Read and decode the same 1920 × 1080 BMP file into a pixel buffer.",
+    "caveat": "Warmed file cache. Rust produces BGRA32; RobotJS produces the smaller BGR24 buffer."
+  },
+  "load_png": {
+    "label": "Load a PNG image",
+    "group": "files",
+    "description": "Read and decode the same 1920 × 1080 PNG file into a pixel buffer.",
+    "caveat": "Warmed file cache; decoded buffer formats differ."
+  },
+  "save_bmp": {
+    "label": "Save a BMP image",
+    "group": "files",
+    "description": "Encode and write the 1920 × 1080 image as BMP.",
+    "caveat": "Rust writes BMP24; RobotJS writes BMP32. No fsync: durable storage completion is not timed."
+  },
+  "save_png": {
+    "label": "Save a PNG image",
+    "group": "files",
+    "description": "Encode and write the 1920 × 1080 image as PNG using each API’s defaults.",
+    "caveat": "Output sizes differ. No fsync. Archived Node/Rust round ranges overlap."
+  },
+  "get_mouse_pos": {
+    "label": "Read the pointer position",
+    "group": "desktop",
+    "description": "Ask the operating system for the current pointer coordinates.",
+    "caveat": "Does not move the pointer or measure input delivery."
+  },
+  "get_displays": {
+    "label": "List connected displays",
+    "group": "desktop",
+    "description": "Ask for the list of displays and consume the returned count.",
+    "caveat": "Does not take a screenshot."
+  },
+  "get_pixel_color": {
+    "label": "Capture one screen pixel",
+    "group": "desktop",
+    "description": "Capture the current screen color at desktop coordinate (0, 0).",
+    "caveat": "October 27 capture implementation, before the later Rust optimization. Different OS capture backends."
+  },
+  "capture_small": {
+    "label": "Capture a 100 × 100 region",
+    "group": "desktop",
+    "description": "Take a fresh screenshot of the 100 × 100 rectangle at the display’s top-left.",
+    "caveat": "October 27 capture implementation, before the later Rust optimization. No encoding or network transport."
+  },
+  "capture_full": {
+    "label": "Capture the whole display",
+    "group": "desktop",
+    "description": "Capture the main display at its 1920 × 1080 logical dimensions.",
+    "caveat": "October 27 capture implementation. Archived round ranges overlap; the small median advantage is uncertain."
+  }
+}

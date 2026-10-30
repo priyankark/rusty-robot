@@ -1,0 +1,126 @@
+{
+  "date": "2026-10-30T03:58:47.363Z",
+  "commit": "07104669031ce5f516fa09c6d95b73ba13e7f795",
+  "cpu": "Apple M6",
+  "os": "27.0",
+  "node": "v24.22.0",
+  "rustc": "rustc 1.99.1 (58cf8f9c3 2026-10-13)",
+  "robotjs_commit": "0af6073e1f1bcff865ffe52801c71647829cdc1c",
+  "sha256": {
+    "rust": "80090b23697d1a433f625b457cfc75dd1bc26a1db8a55eeedd79228930341b83",
+    "robotjs": "417bf9ba442737797efeaa046518699ebc02c5b840b2fae267b18ba651c71777"
+  },
+  "fixtures": {
+    "canvas.bgra": "1e3c83f6da10199c7b18c66691c1bf0b50997e8644e250ba42f581224e201686",
+    "dense.bgra": "a205b9da519edb4abb7eb42588761180a2a8dc9d8021e1c19d6e1d012690e546",
+    "needle.bgra": "7d1950605a4c3d9ff6052b2218fe421e2f094093141c1e9a2934f2c1e4e676e8",
+    "source.bmp": "b3e3a2d8e6081948f96f571a463755ae4d2fba70569778886b79563f78ba1571"
+  },
+  "method": "Concurrent live API demonstrations, 5 warmups, setup excluded. Checks and progress IPC included. 1x wall-time recording, not isolated benchmark samples.",
+  "runs": [
+    {
+      "case": "find_colors_dense",
+      "results": [
+        {
+          "done": 1000,
+          "result": 65536,
+          "seconds": 0.085366833,
+          "total": 1000,
+          "type": "complete",
+          "verified": true,
+          "language": "rust"
+        },
+        {
+          "type": "complete",
+          "done": 1000,
+          "total": 1000,
+          "seconds": 10.634507916,
+          "result": 65536,
+          "verified": true,
+          "language": "robotjs"
+        }
+      ],
+      "frames": 186,
+      "video_seconds": 14.534717791999999,
+      "video_sha256": "204829a26849d460824794b6e0dbac791ee5ec28e6cd5bde723cab12f14a0832"
+    },
+    {
+      "case": "find_color_absent",
+      "results": [
+        {
+          "done": 5000,
+          "result": 0,
+          "seconds": 2.7292196669999997,
+          "total": 5000,
+          "type": "complete",
+          "verified": true,
+          "language": "rust"
+        },
+        {
+          "type": "complete",
+          "done": 5000,
+          "total": 5000,
+          "seconds": 5.434685958,
+          "result": 0,
+          "verified": true,
+          "language": "robotjs"
+        }
+      ],
+      "frames": 105,
+      "video_seconds": 9.210511958,
+      "video_sha256": "4a85e2c952ac0201fc0acea4e362e30a524601a2a44c8c78fe3347c1ab43d1c7"
+    },
+    {
+      "case": "find_image_late",
+      "results": [
+        {
+          "type": "complete",
+          "done": 1500,
+          "total": 1500,
+          "seconds": 3.543219542,
+          "result": 7607289,
+          "verified": true,
+          "language": "robotjs"
+        },
+        {
+          "done": 1500,
+          "result": 7607289,
+          "seconds": 3.611832792,
+          "total": 1500,
+          "type": "complete",
+          "verified": true,
+          "language": "rust"
+        }
+      ],
+      "frames": 87,
+      "video_seconds": 7.386813709000002,
+      "video_sha256": "c179461ef71f505529af29309520a04d06d3926468f1a419dc1430b135a79877"
+    },
+    {
+      "case": "load_bmp",
+      "results": [
+        {
+          "type": "complete",
+          "done": 5000,
+          "total": 5000,
+          "seconds": 8.907500375,
+          "result": 2073600,
+          "verified": true,
+          "language": "robotjs"
+        },
+        {
+          "done": 5000,
+          "result": 2073600,
+          "seconds": 11.332411167,
+          "total": 5000,
+          "type": "complete",
+          "verified": true,
+          "language": "rust"
+        }
+      ],
+      "frames": 143,
+      "video_seconds": 15.085973167000004,
+      "video_sha256": "d07d689e3c99805eaadac7f24812007ae0f29738fae9137d3bc8572b20623e45"
+    }
+  ]
+}

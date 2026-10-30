@@ -1,0 +1,1278 @@
+{
+  "mode": "targets",
+  "language": "rust",
+  "seconds": 2.4534000000953675,
+  "verified": true,
+  "state": {
+    "saved": [],
+    "hits": 48,
+    "misses": 0,
+    "errors": [],
+    "trusted": 48,
+    "active": true,
+    "finished": true,
+    "failure": null,
+    "seconds": 2.4534000000953675
+  },
+  "permissions": {
+    "accessibility": true,
+    "capture": true,
+    "cursor": {
+      "x": 398,
+      "y": 487
+    },
+    "displays": 1
+  },
+  "actions": [
+    {
+      "command": {
+        "op": "find",
+        "x": 188,
+        "y": 376,
+        "width": 864,
+        "height": 410
+      },
+      "result": {
+        "height": 410,
+        "scale": 1,
+        "width": 864,
+        "x": 822,
+        "y": 408
+      },
+      "ms": 46.57145799999853
+    },
+    {
+      "command": {
+        "op": "click",
+        "x": 822,
+        "y": 408
+      },
+      "result": {},
+      "ms": 27.012125000001106
+    },
+    {
+      "command": {
+        "op": "find",
+        "x": 188,
+        "y": 376,
+        "width": 864,
+        "height": 410
+      },
+      "result": {
+        "height": 410,
+        "scale": 1,
+        "width": 864,
+        "x": 622,
+        "y": 610
+      },
+      "ms": 10.950916000001598
+    },
+    {
+      "command": {
+        "op": "click",
+        "x": 622,
+        "y": 610
+      },
+      "result": {},
+      "ms": 25.12408299999879
+    },
+    {
+      "command": {
+        "op": "find",
+        "x": 188,
+        "y": 376,
+        "width": 864,
+        "height": 410
+      },
+      "result": {
+        "height": 410,
+        "scale": 1,
+        "width": 864,
+        "x": 422,
+        "y": 509
+      },
+      "ms": 10.56470900000204
+    },
+    {
+      "command": {
+        "op": "click",
+        "x": 422,
+        "y": 509
+      },
+      "result": {},
+      "ms": 24.151334000001953
+    },
+    {
+      "command": {
+        "op": "find",
+        "x": 188,
+        "y": 376,
+        "width": 864,
+        "height": 410
+      },
+      "result": {
+        "height": 410,
+        "scale": 1,
+        "width": 864,
+        "x": 222,
+        "y": 408
+      },
+      "ms": 9.381624999998166
+    },
+    {
+      "command": {
+        "op": "click",
+        "x": 222,
+        "y": 408
+      },
+      "result": {},
+      "ms": 23.39666700000089
+    },
+    {
+      "command": {
+        "op": "find",
+        "x": 188,
+        "y": 376,
+        "width": 864,
+        "height": 410
+      },
+      "result": {
+        "height": 410,
+        "scale": 1,
+        "width": 864,
+        "x": 822,
+        "y": 509
+      },
+      "ms": 9.37516599999799
+    },
+    {
+      "command": {
+        "op": "click",
+        "x": 822,
+        "y": 509
+      },
+      "result": {},
+      "ms": 22.03608399999939
+    },
+    {
+      "command": {
+        "op": "find",
+        "x": 188,
+        "y": 376,
+        "width": 864,
+        "height": 410
+      },
+      "result": {
+        "height": 410,
+        "scale": 1,
+        "width": 864,
+        "x": 622,
+        "y": 408
+      },
+      "ms": 9.477707999998529
+    },
+    {
+      "command": {
+        "op": "click",
+        "x": 622,
+        "y": 408
+      },
+      "result": {},
+      "ms": 25.13579099999697
+    },
+    {
+      "command": {
+        "op": "find",
+        "x": 188,
+        "y": 376,
+        "width": 864,
+        "height": 410
+      },
+      "result": {
+        "height": 410,
+        "scale": 1,
+        "width": 864,
+        "x": 422,
+        "y": 610
+      },
+      "ms": 10.330541999999696
+    },
+    {
+      "command": {
+        "op": "click",
+        "x": 422,
+        "y": 610
+      },
+      "result": {},
+      "ms": 22.783666999999696
+    },
+    {
+      "command": {
+        "op": "find",
+        "x": 188,
+        "y": 376,
+        "width": 864,
+        "height": 410
+      },
+      "result": {
+        "height": 410,
+        "scale": 1,
+        "width": 864,
+        "x": 222,
+        "y": 509
+      },
+      "ms": 10.70037500000035
+    },
+    {
+      "command": {
+        "op": "click",
+        "x": 222,
+        "y": 509
+      },
+      "result": {},
+      "ms": 22.86908400000175
+    },
+    {
+      "command": {
+        "op": "find",
+        "x": 188,
+        "y": 376,
+        "width": 864,
+        "height": 410
+      },
+      "result": {
+        "height": 410,
+        "scale": 1,
+        "width": 864,
+        "x": 822,
+        "y": 610
+      },
+      "ms": 10.22412500000064
+    },
+    {
+      "command": {
+        "op": "click",
+        "x": 822,
+        "y": 610
+      },
+      "result": {},
+      "ms": 24.52679200000057
+    },
+    {
+      "command": {
+        "op": "find",
+        "x": 188,
+        "y": 376,
+        "width": 864,
+        "height": 410
+      },
+      "result": {
+        "height": 410,
+        "scale": 1,
+        "width": 864,
+        "x": 622,
+        "y": 509
+      },
+      "ms": 9.53045800000109
+    },
+    {
+      "command": {
+        "op": "click",
+        "x": 622,
+        "y": 509
+      },
+      "result": {},
+      "ms": 23.174749999998312
+    },
+    {
+      "command": {
+        "op": "find",
+        "x": 188,
+        "y": 376,
+        "width": 864,
+        "height": 410
+      },
+      "result": {
+        "height": 410,
+        "scale": 1,
+        "width": 864,
+        "x": 422,
+        "y": 408
+      },
+      "ms": 9.321374999999534
+    },
+    {
+      "command": {
+        "op": "click",
+        "x": 422,
+        "y": 408
+      },
+      "result": {},
+      "ms": 25.163416999999754
+    },
+    {
+      "command": {
+        "op": "find",
+        "x": 188,
+        "y": 376,
+        "width": 864,
+        "height": 410
+      },
+      "result": {
+        "height": 410,
+        "scale": 1,
+        "width": 864,
+        "x": 222,
+        "y": 610
+      },
+      "ms": 9.546542000000045
+    },
+    {
+      "command": {
+        "op": "click",
+        "x": 222,
+        "y": 610
+      },
+      "result": {},
+      "ms": 25.137291999999434
+    },
+    {
+      "command": {
+        "op": "find",
+        "x": 188,
+        "y": 376,
+        "width": 864,
+        "height": 410
+      },
+      "result": {
+        "height": 410,
+        "scale": 1,
+        "width": 864,
+        "x": 822,
+        "y": 408
+      },
+      "ms": 9.349749999997584
+    },
+    {
+      "command": {
+        "op": "click",
+        "x": 822,
+        "y": 408
+      },
+      "result": {},
+      "ms": 22.919708999997965
+    },
+    {
+      "command": {
+        "op": "find",
+        "x": 188,
+        "y": 376,
+        "width": 864,
+        "height": 410
+      },
+      "result": {
+        "height": 410,
+        "scale": 1,
+        "width": 864,
+        "x": 622,
+        "y": 610
+      },
+      "ms": 9.740708000001177
+    },
+    {
+      "command": {
+        "op": "click",
+        "x": 622,
+        "y": 610
+      },
+      "result": {},
+      "ms": 25.13933299999917
+    },
+    {
+      "command": {
+        "op": "find",
+        "x": 188,
+        "y": 376,
+        "width": 864,
+        "height": 410
+      },
+      "result": {
+        "height": 410,
+        "scale": 1,
+        "width": 864,
+        "x": 422,
+        "y": 509
+      },
+      "ms": 10.928334000003815
+    },
+    {
+      "command": {
+        "op": "click",
+        "x": 422,
+        "y": 509
+      },
+      "result": {},
+      "ms": 25.128375000000233
+    },
+    {
+      "command": {
+        "op": "find",
+        "x": 188,
+        "y": 376,
+        "width": 864,
+        "height": 410
+      },
+      "result": {
+        "height": 410,
+        "scale": 1,
+        "width": 864,
+        "x": 222,
+        "y": 408
+      },
+      "ms": 9.581291999995301
+    },
+    {
+      "command": {
+        "op": "click",
+        "x": 222,
+        "y": 408
+      },
+      "result": {},
+      "ms": 23.353957999999693
+    },
+    {
+      "command": {
+        "op": "find",
+        "x": 188,
+        "y": 376,
+        "width": 864,
+        "height": 410
+      },
+      "result": {
+        "height": 410,
+        "scale": 1,
+        "width": 864,
+        "x": 822,
+        "y": 509
+      },
+      "ms": 10.22070900000108
+    },
+    {
+      "command": {
+        "op": "click",
+        "x": 822,
+        "y": 509
+      },
+      "result": {},
+      "ms": 23.77708299999358
+    },
+    {
+      "command": {
+        "op": "find",
+        "x": 188,
+        "y": 376,
+        "width": 864,
+        "height": 410
+      },
+      "result": {
+        "height": 410,
+        "scale": 1,
+        "width": 864,
+        "x": 622,
+        "y": 408
+      },
+      "ms": 10.207792000001064
+    },
+    {
+      "command": {
+        "op": "click",
+        "x": 622,
+        "y": 408
+      },
+      "result": {},
+      "ms": 23.727249999996275
+    },
+    {
+      "command": {
+        "op": "find",
+        "x": 188,
+        "y": 376,
+        "width": 864,
+        "height": 410
+      },
+      "result": {
+        "height": 410,
+        "scale": 1,
+        "width": 864,
+        "x": 422,
+        "y": 610
+      },
+      "ms": 9.744207999996434
+    },
+    {
+      "command": {
+        "op": "click",
+        "x": 422,
+        "y": 610
+      },
+      "result": {},
+      "ms": 22.701916999998502
+    },
+    {
+      "command": {
+        "op": "find",
+        "x": 188,
+        "y": 376,
+        "width": 864,
+        "height": 410
+      },
+      "result": {
+        "height": 410,
+        "scale": 1,
+        "width": 864,
+        "x": 222,
+        "y": 509
+      },
+      "ms": 10.278291999995417
+    },
+    {
+      "command": {
+        "op": "click",
+        "x": 222,
+        "y": 509
+      },
+      "result": {},
+      "ms": 23.174458000001323
+    },
+    {
+      "command": {
+        "op": "find",
+        "x": 188,
+        "y": 376,
+        "width": 864,
+        "height": 410
+      },
+      "result": {
+        "height": 410,
+        "scale": 1,
+        "width": 864,
+        "x": 822,
+        "y": 610
+      },
+      "ms": 9.158582999996725
+    },
+    {
+      "command": {
+        "op": "click",
+        "x": 822,
+        "y": 610
+      },
+      "result": {},
+      "ms": 24.12695900000108
+    },
+    {
+      "command": {
+        "op": "find",
+        "x": 188,
+        "y": 376,
+        "width": 864,
+        "height": 410
+      },
+      "result": {
+        "height": 410,
+        "scale": 1,
+        "width": 864,
+        "x": 622,
+        "y": 509
+      },
+      "ms": 10.00783400000364
+    },
+    {
+      "command": {
+        "op": "click",
+        "x": 622,
+        "y": 509
+      },
+      "result": {},
+      "ms": 22.142249999997148
+    },
+    {
+      "command": {
+        "op": "find",
+        "x": 188,
+        "y": 376,
+        "width": 864,
+        "height": 410
+      },
+      "result": {
+        "height": 410,
+        "scale": 1,
+        "width": 864,
+        "x": 422,
+        "y": 408
+      },
+      "ms": 10.635083000001032
+    },
+    {
+      "command": {
+        "op": "click",
+        "x": 422,
+        "y": 408
+      },
+      "result": {},
+      "ms": 22.152916999999434
+    },
+    {
+      "command": {
+        "op": "find",
+        "x": 188,
+        "y": 376,
+        "width": 864,
+        "height": 410
+      },
+      "result": {
+        "height": 410,
+        "scale": 1,
+        "width": 864,
+        "x": 222,
+        "y": 610
+      },
+      "ms": 9.29187500000262
+    },
+    {
+      "command": {
+        "op": "click",
+        "x": 222,
+        "y": 610
+      },
+      "result": {},
+      "ms": 23.04383300000336
+    },
+    {
+      "command": {
+        "op": "find",
+        "x": 188,
+        "y": 376,
+        "width": 864,
+        "height": 410
+      },
+      "result": {
+        "height": 410,
+        "scale": 1,
+        "width": 864,
+        "x": 822,
+        "y": 408
+      },
+      "ms": 23.166833000002953
+    },
+    {
+      "command": {
+        "op": "click",
+        "x": 822,
+        "y": 408
+      },
+      "result": {},
+      "ms": 25.154499999996915
+    },
+    {
+      "command": {
+        "op": "find",
+        "x": 188,
+        "y": 376,
+        "width": 864,
+        "height": 410
+      },
+      "result": {
+        "height": 410,
+        "scale": 1,
+        "width": 864,
+        "x": 622,
+        "y": 610
+      },
+      "ms": 7.748583000000508
+    },
+    {
+      "command": {
+        "op": "click",
+        "x": 622,
+        "y": 610
+      },
+      "result": {},
+      "ms": 24.70441700000083
+    },
+    {
+      "command": {
+        "op": "find",
+        "x": 188,
+        "y": 376,
+        "width": 864,
+        "height": 410
+      },
+      "result": {
+        "height": 410,
+        "scale": 1,
+        "width": 864,
+        "x": 422,
+        "y": 509
+      },
+      "ms": 9.510582999995677
+    },
+    {
+      "command": {
+        "op": "click",
+        "x": 422,
+        "y": 509
+      },
+      "result": {},
+      "ms": 23.402083000000857
+    },
+    {
+      "command": {
+        "op": "find",
+        "x": 188,
+        "y": 376,
+        "width": 864,
+        "height": 410
+      },
+      "result": {
+        "height": 410,
+        "scale": 1,
+        "width": 864,
+        "x": 222,
+        "y": 408
+      },
+      "ms": 10.12458300000435
+    },
+    {
+      "command": {
+        "op": "click",
+        "x": 222,
+        "y": 408
+      },
+      "result": {},
+      "ms": 25.125499999994645
+    },
+    {
+      "command": {
+        "op": "find",
+        "x": 188,
+        "y": 376,
+        "width": 864,
+        "height": 410
+      },
+      "result": {
+        "height": 410,
+        "scale": 1,
+        "width": 864,
+        "x": 822,
+        "y": 509
+      },
+      "ms": 10.338791000001947
+    },
+    {
+      "command": {
+        "op": "click",
+        "x": 822,
+        "y": 509
+      },
+      "result": {},
+      "ms": 23.164500000006228
+    },
+    {
+      "command": {
+        "op": "find",
+        "x": 188,
+        "y": 376,
+        "width": 864,
+        "height": 410
+      },
+      "result": {
+        "height": 410,
+        "scale": 1,
+        "width": 864,
+        "x": 622,
+        "y": 408
+      },
+      "ms": 10.333082999997714
+    },
+    {
+      "command": {
+        "op": "click",
+        "x": 622,
+        "y": 408
+      },
+      "result": {},
+      "ms": 22.95916700000089
+    },
+    {
+      "command": {
+        "op": "find",
+        "x": 188,
+        "y": 376,
+        "width": 864,
+        "height": 410
+      },
+      "result": {
+        "height": 410,
+        "scale": 1,
+        "width": 864,
+        "x": 422,
+        "y": 610
+      },
+      "ms": 9.347374999997555
+    },
+    {
+      "command": {
+        "op": "click",
+        "x": 422,
+        "y": 610
+      },
+      "result": {},
+      "ms": 22.978457999997772
+    },
+    {
+      "command": {
+        "op": "find",
+        "x": 188,
+        "y": 376,
+        "width": 864,
+        "height": 410
+      },
+      "result": {
+        "height": 410,
+        "scale": 1,
+        "width": 864,
+        "x": 222,
+        "y": 509
+      },
+      "ms": 9.793957999994745
+    },
+    {
+      "command": {
+        "op": "click",
+        "x": 222,
+        "y": 509
+      },
+      "result": {},
+      "ms": 24.174832999997307
+    },
+    {
+      "command": {
+        "op": "find",
+        "x": 188,
+        "y": 376,
+        "width": 864,
+        "height": 410
+      },
+      "result": {
+        "height": 410,
+        "scale": 1,
+        "width": 864,
+        "x": 822,
+        "y": 610
+      },
+      "ms": 9.494707999998354
+    },
+    {
+      "command": {
+        "op": "click",
+        "x": 822,
+        "y": 610
+      },
+      "result": {},
+      "ms": 23.03954099999828
+    },
+    {
+      "command": {
+        "op": "find",
+        "x": 188,
+        "y": 376,
+        "width": 864,
+        "height": 410
+      },
+      "result": {
+        "height": 410,
+        "scale": 1,
+        "width": 864,
+        "x": 622,
+        "y": 509
+      },
+      "ms": 9.943209000004572
+    },
+    {
+      "command": {
+        "op": "click",
+        "x": 622,
+        "y": 509
+      },
+      "result": {},
+      "ms": 21.35700000000361
+    },
+    {
+      "command": {
+        "op": "find",
+        "x": 188,
+        "y": 376,
+        "width": 864,
+        "height": 410
+      },
+      "result": {
+        "height": 410,
+        "scale": 1,
+        "width": 864,
+        "x": 422,
+        "y": 408
+      },
+      "ms": 9.504166999999143
+    },
+    {
+      "command": {
+        "op": "click",
+        "x": 422,
+        "y": 408
+      },
+      "result": {},
+      "ms": 23.062082999997074
+    },
+    {
+      "command": {
+        "op": "find",
+        "x": 188,
+        "y": 376,
+        "width": 864,
+        "height": 410
+      },
+      "result": {
+        "height": 410,
+        "scale": 1,
+        "width": 864,
+        "x": 222,
+        "y": 610
+      },
+      "ms": 9.795124999996915
+    },
+    {
+      "command": {
+        "op": "click",
+        "x": 222,
+        "y": 610
+      },
+      "result": {},
+      "ms": 22.904167000000598
+    },
+    {
+      "command": {
+        "op": "find",
+        "x": 188,
+        "y": 376,
+        "width": 864,
+        "height": 410
+      },
+      "result": {
+        "height": 410,
+        "scale": 1,
+        "width": 864,
+        "x": 822,
+        "y": 408
+      },
+      "ms": 9.226333999999042
+    },
+    {
+      "command": {
+        "op": "click",
+        "x": 822,
+        "y": 408
+      },
+      "result": {},
+      "ms": 23.054250000001048
+    },
+    {
+      "command": {
+        "op": "find",
+        "x": 188,
+        "y": 376,
+        "width": 864,
+        "height": 410
+      },
+      "result": {
+        "height": 410,
+        "scale": 1,
+        "width": 864,
+        "x": 622,
+        "y": 610
+      },
+      "ms": 10.648084000000381
+    },
+    {
+      "command": {
+        "op": "click",
+        "x": 622,
+        "y": 610
+      },
+      "result": {},
+      "ms": 25.050708000002487
+    },
+    {
+      "command": {
+        "op": "find",
+        "x": 188,
+        "y": 376,
+        "width": 864,
+        "height": 410
+      },
+      "result": {
+        "height": 410,
+        "scale": 1,
+        "width": 864,
+        "x": 422,
+        "y": 509
+      },
+      "ms": 10.012334000006376
+    },
+    {
+      "command": {
+        "op": "click",
+        "x": 422,
+        "y": 509
+      },
+      "result": {},
+      "ms": 24.684666000001016
+    },
+    {
+      "command": {
+        "op": "find",
+        "x": 188,
+        "y": 376,
+        "width": 864,
+        "height": 410
+      },
+      "result": {
+        "height": 410,
+        "scale": 1,
+        "width": 864,
+        "x": 222,
+        "y": 408
+      },
+      "ms": 8.675749999994878
+    },
+    {
+      "command": {
+        "op": "click",
+        "x": 222,
+        "y": 408
+      },
+      "result": {},
+      "ms": 23.046875
+    },
+    {
+      "command": {
+        "op": "find",
+        "x": 188,
+        "y": 376,
+        "width": 864,
+        "height": 410
+      },
+      "result": {
+        "height": 410,
+        "scale": 1,
+        "width": 864,
+        "x": 822,
+        "y": 509
+      },
+      "ms": 9.649082999996608
+    },
+    {
+      "command": {
+        "op": "click",
+        "x": 822,
+        "y": 509
+      },
+      "result": {},
+      "ms": 24.151042000004963
+    },
+    {
+      "command": {
+        "op": "find",
+        "x": 188,
+        "y": 376,
+        "width": 864,
+        "height": 410
+      },
+      "result": {
+        "height": 410,
+        "scale": 1,
+        "width": 864,
+        "x": 622,
+        "y": 408
+      },
+      "ms": 10.154457999997248
+    },
+    {
+      "command": {
+        "op": "click",
+        "x": 622,
+        "y": 408
+      },
+      "result": {},
+      "ms": 24.136083000004874
+    },
+    {
+      "command": {
+        "op": "find",
+        "x": 188,
+        "y": 376,
+        "width": 864,
+        "height": 410
+      },
+      "result": {
+        "height": 410,
+        "scale": 1,
+        "width": 864,
+        "x": 422,
+        "y": 610
+      },
+      "ms": 10.267416000002413
+    },
+    {
+      "command": {
+        "op": "click",
+        "x": 422,
+        "y": 610
+      },
+      "result": {},
+      "ms": 25.112166999999317
+    },
+    {
+      "command": {
+        "op": "find",
+        "x": 188,
+        "y": 376,
+        "width": 864,
+        "height": 410
+      },
+      "result": {
+        "height": 410,
+        "scale": 1,
+        "width": 864,
+        "x": 222,
+        "y": 509
+      },
+      "ms": 10.37041699999827
+    },
+    {
+      "command": {
+        "op": "click",
+        "x": 222,
+        "y": 509
+      },
+      "result": {},
+      "ms": 23.445458000001963
+    },
+    {
+      "command": {
+        "op": "find",
+        "x": 188,
+        "y": 376,
+        "width": 864,
+        "height": 410
+      },
+      "result": {
+        "height": 410,
+        "scale": 1,
+        "width": 864,
+        "x": 822,
+        "y": 610
+      },
+      "ms": 9.819958000000042
+    },
+    {
+      "command": {
+        "op": "click",
+        "x": 822,
+        "y": 610
+      },
+      "result": {},
+      "ms": 23.221292000001995
+    },
+    {
+      "command": {
+        "op": "find",
+        "x": 188,
+        "y": 376,
+        "width": 864,
+        "height": 410
+      },
+      "result": {
+        "height": 410,
+        "scale": 1,
+        "width": 864,
+        "x": 622,
+        "y": 509
+      },
+      "ms": 9.373583000000508
+    },
+    {
+      "command": {
+        "op": "click",
+        "x": 622,
+        "y": 509
+      },
+      "result": {},
+      "ms": 25.147499999999127
+    },
+    {
+      "command": {
+        "op": "find",
+        "x": 188,
+        "y": 376,
+        "width": 864,
+        "height": 410
+      },
+      "result": {
+        "height": 410,
+        "scale": 1,
+        "width": 864,
+        "x": 422,
+        "y": 408
+      },
+      "ms": 10.895292000001064
+    },
+    {
+      "command": {
+        "op": "click",
+        "x": 422,
+        "y": 408
+      },
+      "result": {},
+      "ms": 25.147250000001804
+    },
+    {
+      "command": {
+        "op": "find",
+        "x": 188,
+        "y": 376,
+        "width": 864,
+        "height": 410
+      },
+      "result": {
+        "height": 410,
+        "scale": 1,
+        "width": 864,
+        "x": 222,
+        "y": 610
+      },
+      "ms": 9.116708000001381
+    },
+    {
+      "command": {
+        "op": "click",
+        "x": 222,
+        "y": 610
+      },
+      "result": {},
+      "ms": 23.378084000003582
+    }
+  ],
+  "frames": 77,
+  "start_offset": 1.1010038339999992
+}

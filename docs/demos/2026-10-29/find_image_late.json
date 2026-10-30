@@ -1,0 +1,1844 @@
+{
+  "config": {
+    "name": "find_image_late",
+    "total": 1500,
+    "title": "Find a small image near the bottom-right",
+    "subtitle": "1,500 searches · a 32 × 32 template inside the same 1920 × 1080 image",
+    "result": "match at (1856, 1016)",
+    "fixtureLabel": "The template is near the bottom-right corner",
+    "caveat": "Both return the same first match. Exact image-search timings were close in the archived benchmark.",
+    "date": "2026-10-30",
+    "cpu": "Apple M6"
+  },
+  "events": [
+    {
+      "type": "ready",
+      "language": "rust"
+    },
+    {
+      "type": "ready",
+      "language": "robotjs"
+    },
+    {
+      "type": "start"
+    },
+    {
+      "type": "progress",
+      "done": 15,
+      "total": 1500,
+      "seconds": 0.031193625,
+      "result": 7607289,
+      "verified": true,
+      "language": "robotjs"
+    },
+    {
+      "done": 15,
+      "result": 7607289,
+      "seconds": 0.04003925,
+      "total": 1500,
+      "type": "progress",
+      "verified": true,
+      "language": "rust"
+    },
+    {
+      "type": "progress",
+      "done": 30,
+      "total": 1500,
+      "seconds": 0.070701375,
+      "result": 7607289,
+      "verified": true,
+      "language": "robotjs"
+    },
+    {
+      "done": 30,
+      "result": 7607289,
+      "seconds": 0.074906834,
+      "total": 1500,
+      "type": "progress",
+      "verified": true,
+      "language": "rust"
+    },
+    {
+      "type": "progress",
+      "done": 45,
+      "total": 1500,
+      "seconds": 0.101245667,
+      "result": 7607289,
+      "verified": true,
+      "language": "robotjs"
+    },
+    {
+      "done": 45,
+      "result": 7607289,
+      "seconds": 0.111136667,
+      "total": 1500,
+      "type": "progress",
+      "verified": true,
+      "language": "rust"
+    },
+    {
+      "type": "progress",
+      "done": 60,
+      "total": 1500,
+      "seconds": 0.140129334,
+      "result": 7607289,
+      "verified": true,
+      "language": "robotjs"
+    },
+    {
+      "done": 60,
+      "result": 7607289,
+      "seconds": 0.149111917,
+      "total": 1500,
+      "type": "progress",
+      "verified": true,
+      "language": "rust"
+    },
+    {
+      "type": "progress",
+      "done": 75,
+      "total": 1500,
+      "seconds": 0.173310167,
+      "result": 7607289,
+      "verified": true,
+      "language": "robotjs"
+    },
+    {
+      "done": 75,
+      "result": 7607289,
+      "seconds": 0.188143334,
+      "total": 1500,
+      "type": "progress",
+      "verified": true,
+      "language": "rust"
+    },
+    {
+      "type": "progress",
+      "done": 90,
+      "total": 1500,
+      "seconds": 0.210035334,
+      "result": 7607289,
+      "verified": true,
+      "language": "robotjs"
+    },
+    {
+      "done": 90,
+      "result": 7607289,
+      "seconds": 0.219248959,
+      "total": 1500,
+      "type": "progress",
+      "verified": true,
+      "language": "rust"
+    },
+    {
+      "type": "progress",
+      "done": 105,
+      "total": 1500,
+      "seconds": 0.24921125,
+      "result": 7607289,
+      "verified": true,
+      "language": "robotjs"
+    },
+    {
+      "done": 105,
+      "result": 7607289,
+      "seconds": 0.252233042,
+      "total": 1500,
+      "type": "progress",
+      "verified": true,
+      "language": "rust"
+    },
+    {
+      "type": "progress",
+      "done": 120,
+      "total": 1500,
+      "seconds": 0.28144675,
+      "result": 7607289,
+      "verified": true,
+      "language": "robotjs"
+    },
+    {
+      "done": 120,
+      "result": 7607289,
+      "seconds": 0.291790834,
+      "total": 1500,
+      "type": "progress",
+      "verified": true,
+      "language": "rust"
+    },
+    {
+      "type": "progress",
+      "done": 135,
+      "total": 1500,
+      "seconds": 0.315462834,
+      "result": 7607289,
+      "verified": true,
+      "language": "robotjs"
+    },
+    {
+      "done": 135,
+      "result": 7607289,
+      "seconds": 0.32364675,
+      "total": 1500,
+      "type": "progress",
+      "verified": true,
+      "language": "rust"
+    },
+    {
+      "type": "progress",
+      "done": 150,
+      "total": 1500,
+      "seconds": 0.35516675,
+      "result": 7607289,
+      "verified": true,
+      "language": "robotjs"
+    },
+    {
+      "done": 150,
+      "result": 7607289,
+      "seconds": 0.355794167,
+      "total": 1500,
+      "type": "progress",
+      "verified": true,
+      "language": "rust"
+    },
+    {
+      "type": "progress",
+      "done": 165,
+      "total": 1500,
+      "seconds": 0.391171584,
+      "result": 7607289,
+      "verified": true,
+      "language": "robotjs"
+    },
+    {
+      "done": 165,
+      "result": 7607289,
+      "seconds": 0.393512667,
+      "total": 1500,
+      "type": "progress",
+      "verified": true,
+      "language": "rust"
+    },
+    {
+      "done": 180,
+      "result": 7607289,
+      "seconds": 0.425425959,
+      "total": 1500,
+      "type": "progress",
+      "verified": true,
+      "language": "rust"
+    },
+    {
+      "type": "progress",
+      "done": 180,
+      "total": 1500,
+      "seconds": 0.42983575,
+      "result": 7607289,
+      "verified": true,
+      "language": "robotjs"
+    },
+    {
+      "done": 195,
+      "result": 7607289,
+      "seconds": 0.458573,
+      "total": 1500,
+      "type": "progress",
+      "verified": true,
+      "language": "rust"
+    },
+    {
+      "type": "progress",
+      "done": 195,
+      "total": 1500,
+      "seconds": 0.462796125,
+      "result": 7607289,
+      "verified": true,
+      "language": "robotjs"
+    },
+    {
+      "type": "progress",
+      "done": 210,
+      "total": 1500,
+      "seconds": 0.493807917,
+      "result": 7607289,
+      "verified": true,
+      "language": "robotjs"
+    },
+    {
+      "done": 210,
+      "result": 7607289,
+      "seconds": 0.495644375,
+      "total": 1500,
+      "type": "progress",
+      "verified": true,
+      "language": "rust"
+    },
+    {
+      "done": 225,
+      "result": 7607289,
+      "seconds": 0.528772292,
+      "total": 1500,
+      "type": "progress",
+      "verified": true,
+      "language": "rust"
+    },
+    {
+      "type": "progress",
+      "done": 225,
+      "total": 1500,
+      "seconds": 0.536499084,
+      "result": 7607289,
+      "verified": true,
+      "language": "robotjs"
+    },
+    {
+      "done": 240,
+      "result": 7607289,
+      "seconds": 0.564707375,
+      "total": 1500,
+      "type": "progress",
+      "verified": true,
+      "language": "rust"
+    },
+    {
+      "type": "progress",
+      "done": 240,
+      "total": 1500,
+      "seconds": 0.574200459,
+      "result": 7607289,
+      "verified": true,
+      "language": "robotjs"
+    },
+    {
+      "done": 255,
+      "result": 7607289,
+      "seconds": 0.602410292,
+      "total": 1500,
+      "type": "progress",
+      "verified": true,
+      "language": "rust"
+    },
+    {
+      "type": "progress",
+      "done": 255,
+      "total": 1500,
+      "seconds": 0.61057,
+      "result": 7607289,
+      "verified": true,
+      "language": "robotjs"
+    },
+    {
+      "done": 270,
+      "result": 7607289,
+      "seconds": 0.635922834,
+      "total": 1500,
+      "type": "progress",
+      "verified": true,
+      "language": "rust"
+    },
+    {
+      "type": "progress",
+      "done": 270,
+      "total": 1500,
+      "seconds": 0.648966167,
+      "result": 7607289,
+      "verified": true,
+      "language": "robotjs"
+    },
+    {
+      "done": 285,
+      "result": 7607289,
+      "seconds": 0.670766667,
+      "total": 1500,
+      "type": "progress",
+      "verified": true,
+      "language": "rust"
+    },
+    {
+      "type": "progress",
+      "done": 285,
+      "total": 1500,
+      "seconds": 0.682092834,
+      "result": 7607289,
+      "verified": true,
+      "language": "robotjs"
+    },
+    {
+      "done": 300,
+      "result": 7607289,
+      "seconds": 0.7098015,
+      "total": 1500,
+      "type": "progress",
+      "verified": true,
+      "language": "rust"
+    },
+    {
+      "type": "progress",
+      "done": 300,
+      "total": 1500,
+      "seconds": 0.716910334,
+      "result": 7607289,
+      "verified": true,
+      "language": "robotjs"
+    },
+    {
+      "done": 315,
+      "result": 7607289,
+      "seconds": 0.745649917,
+      "total": 1500,
+      "type": "progress",
+      "verified": true,
+      "language": "rust"
+    },
+    {
+      "type": "progress",
+      "done": 315,
+      "total": 1500,
+      "seconds": 0.751802792,
+      "result": 7607289,
+      "verified": true,
+      "language": "robotjs"
+    },
+    {
+      "done": 330,
+      "result": 7607289,
+      "seconds": 0.782044792,
+      "total": 1500,
+      "type": "progress",
+      "verified": true,
+      "language": "rust"
+    },
+    {
+      "type": "progress",
+      "done": 330,
+      "total": 1500,
+      "seconds": 0.788161334,
+      "result": 7607289,
+      "verified": true,
+      "language": "robotjs"
+    },
+    {
+      "done": 345,
+      "result": 7607289,
+      "seconds": 0.816324917,
+      "total": 1500,
+      "type": "progress",
+      "verified": true,
+      "language": "rust"
+    },
+    {
+      "type": "progress",
+      "done": 345,
+      "total": 1500,
+      "seconds": 0.8194815,
+      "result": 7607289,
+      "verified": true,
+      "language": "robotjs"
+    },
+    {
+      "done": 360,
+      "result": 7607289,
+      "seconds": 0.854031459,
+      "total": 1500,
+      "type": "progress",
+      "verified": true,
+      "language": "rust"
+    },
+    {
+      "type": "progress",
+      "done": 360,
+      "total": 1500,
+      "seconds": 0.855367584,
+      "result": 7607289,
+      "verified": true,
+      "language": "robotjs"
+    },
+    {
+      "done": 375,
+      "result": 7607289,
+      "seconds": 0.888196084,
+      "total": 1500,
+      "type": "progress",
+      "verified": true,
+      "language": "rust"
+    },
+    {
+      "type": "progress",
+      "done": 375,
+      "total": 1500,
+      "seconds": 0.892114334,
+      "result": 7607289,
+      "verified": true,
+      "language": "robotjs"
+    },
+    {
+      "done": 390,
+      "result": 7607289,
+      "seconds": 0.925208334,
+      "total": 1500,
+      "type": "progress",
+      "verified": true,
+      "language": "rust"
+    },
+    {
+      "type": "progress",
+      "done": 390,
+      "total": 1500,
+      "seconds": 0.926930625,
+      "result": 7607289,
+      "verified": true,
+      "language": "robotjs"
+    },
+    {
+      "done": 405,
+      "result": 7607289,
+      "seconds": 0.96219575,
+      "total": 1500,
+      "type": "progress",
+      "verified": true,
+      "language": "rust"
+    },
+    {
+      "type": "progress",
+      "done": 405,
+      "total": 1500,
+      "seconds": 0.965169125,
+      "result": 7607289,
+      "verified": true,
+      "language": "robotjs"
+    },
+    {
+      "done": 420,
+      "result": 7607289,
+      "seconds": 0.996657917,
+      "total": 1500,
+      "type": "progress",
+      "verified": true,
+      "language": "rust"
+    },
+    {
+      "type": "progress",
+      "done": 420,
+      "total": 1500,
+      "seconds": 1.000001417,
+      "result": 7607289,
+      "verified": true,
+      "language": "robotjs"
+    },
+    {
+      "done": 435,
+      "result": 7607289,
+      "seconds": 1.031471584,
+      "total": 1500,
+      "type": "progress",
+      "verified": true,
+      "language": "rust"
+    },
+    {
+      "type": "progress",
+      "done": 435,
+      "total": 1500,
+      "seconds": 1.037603417,
+      "result": 7607289,
+      "verified": true,
+      "language": "robotjs"
+    },
+    {
+      "done": 450,
+      "result": 7607289,
+      "seconds": 1.067538,
+      "total": 1500,
+      "type": "progress",
+      "verified": true,
+      "language": "rust"
+    },
+    {
+      "type": "progress",
+      "done": 450,
+      "total": 1500,
+      "seconds": 1.071383167,
+      "result": 7607289,
+      "verified": true,
+      "language": "robotjs"
+    },
+    {
+      "done": 465,
+      "result": 7607289,
+      "seconds": 1.10014325,
+      "total": 1500,
+      "type": "progress",
+      "verified": true,
+      "language": "rust"
+    },
+    {
+      "type": "progress",
+      "done": 465,
+      "total": 1500,
+      "seconds": 1.108730292,
+      "result": 7607289,
+      "verified": true,
+      "language": "robotjs"
+    },
+    {
+      "done": 480,
+      "result": 7607289,
+      "seconds": 1.136634959,
+      "total": 1500,
+      "type": "progress",
+      "verified": true,
+      "language": "rust"
+    },
+    {
+      "type": "progress",
+      "done": 480,
+      "total": 1500,
+      "seconds": 1.144716667,
+      "result": 7607289,
+      "verified": true,
+      "language": "robotjs"
+    },
+    {
+      "done": 495,
+      "result": 7607289,
+      "seconds": 1.173367125,
+      "total": 1500,
+      "type": "progress",
+      "verified": true,
+      "language": "rust"
+    },
+    {
+      "type": "progress",
+      "done": 495,
+      "total": 1500,
+      "seconds": 1.177835084,
+      "result": 7607289,
+      "verified": true,
+      "language": "robotjs"
+    },
+    {
+      "done": 510,
+      "result": 7607289,
+      "seconds": 1.207659917,
+      "total": 1500,
+      "type": "progress",
+      "verified": true,
+      "language": "rust"
+    },
+    {
+      "type": "progress",
+      "done": 510,
+      "total": 1500,
+      "seconds": 1.218612584,
+      "result": 7607289,
+      "verified": true,
+      "language": "robotjs"
+    },
+    {
+      "done": 525,
+      "result": 7607289,
+      "seconds": 1.241545667,
+      "total": 1500,
+      "type": "progress",
+      "verified": true,
+      "language": "rust"
+    },
+    {
+      "type": "progress",
+      "done": 525,
+      "total": 1500,
+      "seconds": 1.257512709,
+      "result": 7607289,
+      "verified": true,
+      "language": "robotjs"
+    },
+    {
+      "done": 540,
+      "result": 7607289,
+      "seconds": 1.2785747920000001,
+      "total": 1500,
+      "type": "progress",
+      "verified": true,
+      "language": "rust"
+    },
+    {
+      "type": "progress",
+      "done": 540,
+      "total": 1500,
+      "seconds": 1.298197125,
+      "result": 7607289,
+      "verified": true,
+      "language": "robotjs"
+    },
+    {
+      "done": 555,
+      "result": 7607289,
+      "seconds": 1.309266292,
+      "total": 1500,
+      "type": "progress",
+      "verified": true,
+      "language": "rust"
+    },
+    {
+      "type": "progress",
+      "done": 555,
+      "total": 1500,
+      "seconds": 1.332765625,
+      "result": 7607289,
+      "verified": true,
+      "language": "robotjs"
+    },
+    {
+      "done": 570,
+      "result": 7607289,
+      "seconds": 1.349805167,
+      "total": 1500,
+      "type": "progress",
+      "verified": true,
+      "language": "rust"
+    },
+    {
+      "type": "progress",
+      "done": 570,
+      "total": 1500,
+      "seconds": 1.366535042,
+      "result": 7607289,
+      "verified": true,
+      "language": "robotjs"
+    },
+    {
+      "done": 585,
+      "result": 7607289,
+      "seconds": 1.384998709,
+      "total": 1500,
+      "type": "progress",
+      "verified": true,
+      "language": "rust"
+    },
+    {
+      "type": "progress",
+      "done": 585,
+      "total": 1500,
+      "seconds": 1.402327,
+      "result": 7607289,
+      "verified": true,
+      "language": "robotjs"
+    },
+    {
+      "done": 600,
+      "result": 7607289,
+      "seconds": 1.423386834,
+      "total": 1500,
+      "type": "progress",
+      "verified": true,
+      "language": "rust"
+    },
+    {
+      "type": "progress",
+      "done": 600,
+      "total": 1500,
+      "seconds": 1.439063875,
+      "result": 7607289,
+      "verified": true,
+      "language": "robotjs"
+    },
+    {
+      "done": 615,
+      "result": 7607289,
+      "seconds": 1.462658834,
+      "total": 1500,
+      "type": "progress",
+      "verified": true,
+      "language": "rust"
+    },
+    {
+      "type": "progress",
+      "done": 615,
+      "total": 1500,
+      "seconds": 1.471789709,
+      "result": 7607289,
+      "verified": true,
+      "language": "robotjs"
+    },
+    {
+      "done": 630,
+      "result": 7607289,
+      "seconds": 1.497575417,
+      "total": 1500,
+      "type": "progress",
+      "verified": true,
+      "language": "rust"
+    },
+    {
+      "type": "progress",
+      "done": 630,
+      "total": 1500,
+      "seconds": 1.508361584,
+      "result": 7607289,
+      "verified": true,
+      "language": "robotjs"
+    },
+    {
+      "done": 645,
+      "result": 7607289,
+      "seconds": 1.533143792,
+      "total": 1500,
+      "type": "progress",
+      "verified": true,
+      "language": "rust"
+    },
+    {
+      "type": "progress",
+      "done": 645,
+      "total": 1500,
+      "seconds": 1.542027792,
+      "result": 7607289,
+      "verified": true,
+      "language": "robotjs"
+    },
+    {
+      "done": 660,
+      "result": 7607289,
+      "seconds": 1.573083792,
+      "total": 1500,
+      "type": "progress",
+      "verified": true,
+      "language": "rust"
+    },
+    {
+      "type": "progress",
+      "done": 660,
+      "total": 1500,
+      "seconds": 1.577103417,
+      "result": 7607289,
+      "verified": true,
+      "language": "robotjs"
+    },
+    {
+      "done": 675,
+      "result": 7607289,
+      "seconds": 1.609585584,
+      "total": 1500,
+      "type": "progress",
+      "verified": true,
+      "language": "rust"
+    },
+    {
+      "type": "progress",
+      "done": 675,
+      "total": 1500,
+      "seconds": 1.610347459,
+      "result": 7607289,
+      "verified": true,
+      "language": "robotjs"
+    },
+    {
+      "done": 690,
+      "result": 7607289,
+      "seconds": 1.642203125,
+      "total": 1500,
+      "type": "progress",
+      "verified": true,
+      "language": "rust"
+    },
+    {
+      "type": "progress",
+      "done": 690,
+      "total": 1500,
+      "seconds": 1.646220459,
+      "result": 7607289,
+      "verified": true,
+      "language": "robotjs"
+    },
+    {
+      "done": 705,
+      "result": 7607289,
+      "seconds": 1.677143125,
+      "total": 1500,
+      "type": "progress",
+      "verified": true,
+      "language": "rust"
+    },
+    {
+      "type": "progress",
+      "done": 705,
+      "total": 1500,
+      "seconds": 1.684883709,
+      "result": 7607289,
+      "verified": true,
+      "language": "robotjs"
+    },
+    {
+      "done": 720,
+      "result": 7607289,
+      "seconds": 1.708568,
+      "total": 1500,
+      "type": "progress",
+      "verified": true,
+      "language": "rust"
+    },
+    {
+      "type": "progress",
+      "done": 720,
+      "total": 1500,
+      "seconds": 1.723764959,
+      "result": 7607289,
+      "verified": true,
+      "language": "robotjs"
+    },
+    {
+      "done": 735,
+      "result": 7607289,
+      "seconds": 1.745250084,
+      "total": 1500,
+      "type": "progress",
+      "verified": true,
+      "language": "rust"
+    },
+    {
+      "type": "progress",
+      "done": 735,
+      "total": 1500,
+      "seconds": 1.757605292,
+      "result": 7607289,
+      "verified": true,
+      "language": "robotjs"
+    },
+    {
+      "done": 750,
+      "result": 7607289,
+      "seconds": 1.777236542,
+      "total": 1500,
+      "type": "progress",
+      "verified": true,
+      "language": "rust"
+    },
+    {
+      "type": "progress",
+      "done": 750,
+      "total": 1500,
+      "seconds": 1.793070209,
+      "result": 7607289,
+      "verified": true,
+      "language": "robotjs"
+    },
+    {
+      "done": 765,
+      "result": 7607289,
+      "seconds": 1.816445292,
+      "total": 1500,
+      "type": "progress",
+      "verified": true,
+      "language": "rust"
+    },
+    {
+      "type": "progress",
+      "done": 765,
+      "total": 1500,
+      "seconds": 1.825610417,
+      "result": 7607289,
+      "verified": true,
+      "language": "robotjs"
+    },
+    {
+      "done": 780,
+      "result": 7607289,
+      "seconds": 1.853282834,
+      "total": 1500,
+      "type": "progress",
+      "verified": true,
+      "language": "rust"
+    },
+    {
+      "type": "progress",
+      "done": 780,
+      "total": 1500,
+      "seconds": 1.864197917,
+      "result": 7607289,
+      "verified": true,
+      "language": "robotjs"
+    },
+    {
+      "done": 795,
+      "result": 7607289,
+      "seconds": 1.8921966669999999,
+      "total": 1500,
+      "type": "progress",
+      "verified": true,
+      "language": "rust"
+    },
+    {
+      "type": "progress",
+      "done": 795,
+      "total": 1500,
+      "seconds": 1.895302334,
+      "result": 7607289,
+      "verified": true,
+      "language": "robotjs"
+    },
+    {
+      "done": 810,
+      "result": 7607289,
+      "seconds": 1.930151375,
+      "total": 1500,
+      "type": "progress",
+      "verified": true,
+      "language": "rust"
+    },
+    {
+      "type": "progress",
+      "done": 810,
+      "total": 1500,
+      "seconds": 1.931992792,
+      "result": 7607289,
+      "verified": true,
+      "language": "robotjs"
+    },
+    {
+      "type": "progress",
+      "done": 825,
+      "total": 1500,
+      "seconds": 1.964251375,
+      "result": 7607289,
+      "verified": true,
+      "language": "robotjs"
+    },
+    {
+      "done": 825,
+      "result": 7607289,
+      "seconds": 1.967798584,
+      "total": 1500,
+      "type": "progress",
+      "verified": true,
+      "language": "rust"
+    },
+    {
+      "done": 840,
+      "result": 7607289,
+      "seconds": 2.000376542,
+      "total": 1500,
+      "type": "progress",
+      "verified": true,
+      "language": "rust"
+    },
+    {
+      "type": "progress",
+      "done": 840,
+      "total": 1500,
+      "seconds": 2.001042459,
+      "result": 7607289,
+      "verified": true,
+      "language": "robotjs"
+    },
+    {
+      "type": "progress",
+      "done": 855,
+      "total": 1500,
+      "seconds": 2.037159209,
+      "result": 7607289,
+      "verified": true,
+      "language": "robotjs"
+    },
+    {
+      "done": 855,
+      "result": 7607289,
+      "seconds": 2.0410165,
+      "total": 1500,
+      "type": "progress",
+      "verified": true,
+      "language": "rust"
+    },
+    {
+      "type": "progress",
+      "done": 870,
+      "total": 1500,
+      "seconds": 2.072869375,
+      "result": 7607289,
+      "verified": true,
+      "language": "robotjs"
+    },
+    {
+      "done": 870,
+      "result": 7607289,
+      "seconds": 2.074809417,
+      "total": 1500,
+      "type": "progress",
+      "verified": true,
+      "language": "rust"
+    },
+    {
+      "done": 885,
+      "result": 7607289,
+      "seconds": 2.107319334,
+      "total": 1500,
+      "type": "progress",
+      "verified": true,
+      "language": "rust"
+    },
+    {
+      "type": "progress",
+      "done": 885,
+      "total": 1500,
+      "seconds": 2.109175292,
+      "result": 7607289,
+      "verified": true,
+      "language": "robotjs"
+    },
+    {
+      "done": 900,
+      "result": 7607289,
+      "seconds": 2.143978625,
+      "total": 1500,
+      "type": "progress",
+      "verified": true,
+      "language": "rust"
+    },
+    {
+      "type": "progress",
+      "done": 900,
+      "total": 1500,
+      "seconds": 2.147955542,
+      "result": 7607289,
+      "verified": true,
+      "language": "robotjs"
+    },
+    {
+      "done": 915,
+      "result": 7607289,
+      "seconds": 2.180354125,
+      "total": 1500,
+      "type": "progress",
+      "verified": true,
+      "language": "rust"
+    },
+    {
+      "type": "progress",
+      "done": 915,
+      "total": 1500,
+      "seconds": 2.182523584,
+      "result": 7607289,
+      "verified": true,
+      "language": "robotjs"
+    },
+    {
+      "done": 930,
+      "result": 7607289,
+      "seconds": 2.214607917,
+      "total": 1500,
+      "type": "progress",
+      "verified": true,
+      "language": "rust"
+    },
+    {
+      "type": "progress",
+      "done": 930,
+      "total": 1500,
+      "seconds": 2.214581125,
+      "result": 7607289,
+      "verified": true,
+      "language": "robotjs"
+    },
+    {
+      "type": "progress",
+      "done": 945,
+      "total": 1500,
+      "seconds": 2.251761584,
+      "result": 7607289,
+      "verified": true,
+      "language": "robotjs"
+    },
+    {
+      "done": 945,
+      "result": 7607289,
+      "seconds": 2.252654084,
+      "total": 1500,
+      "type": "progress",
+      "verified": true,
+      "language": "rust"
+    },
+    {
+      "done": 960,
+      "result": 7607289,
+      "seconds": 2.288414375,
+      "total": 1500,
+      "type": "progress",
+      "verified": true,
+      "language": "rust"
+    },
+    {
+      "type": "progress",
+      "done": 960,
+      "total": 1500,
+      "seconds": 2.288835875,
+      "result": 7607289,
+      "verified": true,
+      "language": "robotjs"
+    },
+    {
+      "done": 975,
+      "result": 7607289,
+      "seconds": 2.323277334,
+      "total": 1500,
+      "type": "progress",
+      "verified": true,
+      "language": "rust"
+    },
+    {
+      "type": "progress",
+      "done": 975,
+      "total": 1500,
+      "seconds": 2.323456,
+      "result": 7607289,
+      "verified": true,
+      "language": "robotjs"
+    },
+    {
+      "type": "progress",
+      "done": 990,
+      "total": 1500,
+      "seconds": 2.356789084,
+      "result": 7607289,
+      "verified": true,
+      "language": "robotjs"
+    },
+    {
+      "done": 990,
+      "result": 7607289,
+      "seconds": 2.357548042,
+      "total": 1500,
+      "type": "progress",
+      "verified": true,
+      "language": "rust"
+    },
+    {
+      "type": "progress",
+      "done": 1005,
+      "total": 1500,
+      "seconds": 2.3885045,
+      "result": 7607289,
+      "verified": true,
+      "language": "robotjs"
+    },
+    {
+      "done": 1005,
+      "result": 7607289,
+      "seconds": 2.3986605,
+      "total": 1500,
+      "type": "progress",
+      "verified": true,
+      "language": "rust"
+    },
+    {
+      "type": "progress",
+      "done": 1020,
+      "total": 1500,
+      "seconds": 2.425094209,
+      "result": 7607289,
+      "verified": true,
+      "language": "robotjs"
+    },
+    {
+      "done": 1020,
+      "result": 7607289,
+      "seconds": 2.435753917,
+      "total": 1500,
+      "type": "progress",
+      "verified": true,
+      "language": "rust"
+    },
+    {
+      "type": "progress",
+      "done": 1035,
+      "total": 1500,
+      "seconds": 2.456562542,
+      "result": 7607289,
+      "verified": true,
+      "language": "robotjs"
+    },
+    {
+      "done": 1035,
+      "result": 7607289,
+      "seconds": 2.471772084,
+      "total": 1500,
+      "type": "progress",
+      "verified": true,
+      "language": "rust"
+    },
+    {
+      "type": "progress",
+      "done": 1050,
+      "total": 1500,
+      "seconds": 2.487871375,
+      "result": 7607289,
+      "verified": true,
+      "language": "robotjs"
+    },
+    {
+      "done": 1050,
+      "result": 7607289,
+      "seconds": 2.509827417,
+      "total": 1500,
+      "type": "progress",
+      "verified": true,
+      "language": "rust"
+    },
+    {
+      "type": "progress",
+      "done": 1065,
+      "total": 1500,
+      "seconds": 2.52067075,
+      "result": 7607289,
+      "verified": true,
+      "language": "robotjs"
+    },
+    {
+      "done": 1065,
+      "result": 7607289,
+      "seconds": 2.549199625,
+      "total": 1500,
+      "type": "progress",
+      "verified": true,
+      "language": "rust"
+    },
+    {
+      "type": "progress",
+      "done": 1080,
+      "total": 1500,
+      "seconds": 2.558009459,
+      "result": 7607289,
+      "verified": true,
+      "language": "robotjs"
+    },
+    {
+      "done": 1080,
+      "result": 7607289,
+      "seconds": 2.585633875,
+      "total": 1500,
+      "type": "progress",
+      "verified": true,
+      "language": "rust"
+    },
+    {
+      "type": "progress",
+      "done": 1095,
+      "total": 1500,
+      "seconds": 2.5942525,
+      "result": 7607289,
+      "verified": true,
+      "language": "robotjs"
+    },
+    {
+      "done": 1095,
+      "result": 7607289,
+      "seconds": 2.620932084,
+      "total": 1500,
+      "type": "progress",
+      "verified": true,
+      "language": "rust"
+    },
+    {
+      "type": "progress",
+      "done": 1110,
+      "total": 1500,
+      "seconds": 2.63174175,
+      "result": 7607289,
+      "verified": true,
+      "language": "robotjs"
+    },
+    {
+      "done": 1110,
+      "result": 7607289,
+      "seconds": 2.654085417,
+      "total": 1500,
+      "type": "progress",
+      "verified": true,
+      "language": "rust"
+    },
+    {
+      "type": "progress",
+      "done": 1125,
+      "total": 1500,
+      "seconds": 2.671759584,
+      "result": 7607289,
+      "verified": true,
+      "language": "robotjs"
+    },
+    {
+      "done": 1125,
+      "result": 7607289,
+      "seconds": 2.6925945000000002,
+      "total": 1500,
+      "type": "progress",
+      "verified": true,
+      "language": "rust"
+    },
+    {
+      "type": "progress",
+      "done": 1140,
+      "total": 1500,
+      "seconds": 2.70506525,
+      "result": 7607289,
+      "verified": true,
+      "language": "robotjs"
+    },
+    {
+      "done": 1140,
+      "result": 7607289,
+      "seconds": 2.727766709,
+      "total": 1500,
+      "type": "progress",
+      "verified": true,
+      "language": "rust"
+    },
+    {
+      "type": "progress",
+      "done": 1155,
+      "total": 1500,
+      "seconds": 2.73939125,
+      "result": 7607289,
+      "verified": true,
+      "language": "robotjs"
+    },
+    {
+      "done": 1155,
+      "result": 7607289,
+      "seconds": 2.766201875,
+      "total": 1500,
+      "type": "progress",
+      "verified": true,
+      "language": "rust"
+    },
+    {
+      "type": "progress",
+      "done": 1170,
+      "total": 1500,
+      "seconds": 2.774342875,
+      "result": 7607289,
+      "verified": true,
+      "language": "robotjs"
+    },
+    {
+      "done": 1170,
+      "result": 7607289,
+      "seconds": 2.803674042,
+      "total": 1500,
+      "type": "progress",
+      "verified": true,
+      "language": "rust"
+    },
+    {
+      "type": "progress",
+      "done": 1185,
+      "total": 1500,
+      "seconds": 2.8119145,
+      "result": 7607289,
+      "verified": true,
+      "language": "robotjs"
+    },
+    {
+      "done": 1185,
+      "result": 7607289,
+      "seconds": 2.84225925,
+      "total": 1500,
+      "type": "progress",
+      "verified": true,
+      "language": "rust"
+    },
+    {
+      "type": "progress",
+      "done": 1200,
+      "total": 1500,
+      "seconds": 2.844188459,
+      "result": 7607289,
+      "verified": true,
+      "language": "robotjs"
+    },
+    {
+      "type": "progress",
+      "done": 1215,
+      "total": 1500,
+      "seconds": 2.876127667,
+      "result": 7607289,
+      "verified": true,
+      "language": "robotjs"
+    },
+    {
+      "done": 1200,
+      "result": 7607289,
+      "seconds": 2.886760959,
+      "total": 1500,
+      "type": "progress",
+      "verified": true,
+      "language": "rust"
+    },
+    {
+      "type": "progress",
+      "done": 1230,
+      "total": 1500,
+      "seconds": 2.91058075,
+      "result": 7607289,
+      "verified": true,
+      "language": "robotjs"
+    },
+    {
+      "done": 1215,
+      "result": 7607289,
+      "seconds": 2.925628792,
+      "total": 1500,
+      "type": "progress",
+      "verified": true,
+      "language": "rust"
+    },
+    {
+      "type": "progress",
+      "done": 1245,
+      "total": 1500,
+      "seconds": 2.944711334,
+      "result": 7607289,
+      "verified": true,
+      "language": "robotjs"
+    },
+    {
+      "done": 1230,
+      "result": 7607289,
+      "seconds": 2.9589543750000002,
+      "total": 1500,
+      "type": "progress",
+      "verified": true,
+      "language": "rust"
+    },
+    {
+      "type": "progress",
+      "done": 1260,
+      "total": 1500,
+      "seconds": 2.982021209,
+      "result": 7607289,
+      "verified": true,
+      "language": "robotjs"
+    },
+    {
+      "done": 1245,
+      "result": 7607289,
+      "seconds": 2.996739709,
+      "total": 1500,
+      "type": "progress",
+      "verified": true,
+      "language": "rust"
+    },
+    {
+      "type": "progress",
+      "done": 1275,
+      "total": 1500,
+      "seconds": 3.017558584,
+      "result": 7607289,
+      "verified": true,
+      "language": "robotjs"
+    },
+    {
+      "done": 1260,
+      "result": 7607289,
+      "seconds": 3.036759542,
+      "total": 1500,
+      "type": "progress",
+      "verified": true,
+      "language": "rust"
+    },
+    {
+      "type": "progress",
+      "done": 1290,
+      "total": 1500,
+      "seconds": 3.050294292,
+      "result": 7607289,
+      "verified": true,
+      "language": "robotjs"
+    },
+    {
+      "done": 1275,
+      "result": 7607289,
+      "seconds": 3.069305834,
+      "total": 1500,
+      "type": "progress",
+      "verified": true,
+      "language": "rust"
+    },
+    {
+      "type": "progress",
+      "done": 1305,
+      "total": 1500,
+      "seconds": 3.088871667,
+      "result": 7607289,
+      "verified": true,
+      "language": "robotjs"
+    },
+    {
+      "done": 1290,
+      "result": 7607289,
+      "seconds": 3.106877625,
+      "total": 1500,
+      "type": "progress",
+      "verified": true,
+      "language": "rust"
+    },
+    {
+      "type": "progress",
+      "done": 1320,
+      "total": 1500,
+      "seconds": 3.121413209,
+      "result": 7607289,
+      "verified": true,
+      "language": "robotjs"
+    },
+    {
+      "done": 1305,
+      "result": 7607289,
+      "seconds": 3.144765375,
+      "total": 1500,
+      "type": "progress",
+      "verified": true,
+      "language": "rust"
+    },
+    {
+      "type": "progress",
+      "done": 1335,
+      "total": 1500,
+      "seconds": 3.157015209,
+      "result": 7607289,
+      "verified": true,
+      "language": "robotjs"
+    },
+    {
+      "done": 1320,
+      "result": 7607289,
+      "seconds": 3.179791584,
+      "total": 1500,
+      "type": "progress",
+      "verified": true,
+      "language": "rust"
+    },
+    {
+      "type": "progress",
+      "done": 1350,
+      "total": 1500,
+      "seconds": 3.1917065,
+      "result": 7607289,
+      "verified": true,
+      "language": "robotjs"
+    },
+    {
+      "done": 1335,
+      "result": 7607289,
+      "seconds": 3.216156084,
+      "total": 1500,
+      "type": "progress",
+      "verified": true,
+      "language": "rust"
+    },
+    {
+      "type": "progress",
+      "done": 1365,
+      "total": 1500,
+      "seconds": 3.228362584,
+      "result": 7607289,
+      "verified": true,
+      "language": "robotjs"
+    },
+    {
+      "done": 1350,
+      "result": 7607289,
+      "seconds": 3.250015542,
+      "total": 1500,
+      "type": "progress",
+      "verified": true,
+      "language": "rust"
+    },
+    {
+      "type": "progress",
+      "done": 1380,
+      "total": 1500,
+      "seconds": 3.263197334,
+      "result": 7607289,
+      "verified": true,
+      "language": "robotjs"
+    },
+    {
+      "done": 1365,
+      "result": 7607289,
+      "seconds": 3.289384625,
+      "total": 1500,
+      "type": "progress",
+      "verified": true,
+      "language": "rust"
+    },
+    {
+      "type": "progress",
+      "done": 1395,
+      "total": 1500,
+      "seconds": 3.294758209,
+      "result": 7607289,
+      "verified": true,
+      "language": "robotjs"
+    },
+    {
+      "done": 1380,
+      "result": 7607289,
+      "seconds": 3.3254472919999998,
+      "total": 1500,
+      "type": "progress",
+      "verified": true,
+      "language": "rust"
+    },
+    {
+      "type": "progress",
+      "done": 1410,
+      "total": 1500,
+      "seconds": 3.335819667,
+      "result": 7607289,
+      "verified": true,
+      "language": "robotjs"
+    },
+    {
+      "done": 1395,
+      "result": 7607289,
+      "seconds": 3.3639995,
+      "total": 1500,
+      "type": "progress",
+      "verified": true,
+      "language": "rust"
+    },
+    {
+      "type": "progress",
+      "done": 1425,
+      "total": 1500,
+      "seconds": 3.369284417,
+      "result": 7607289,
+      "verified": true,
+      "language": "robotjs"
+    },
+    {
+      "done": 1410,
+      "result": 7607289,
+      "seconds": 3.39858,
+      "total": 1500,
+      "type": "progress",
+      "verified": true,
+      "language": "rust"
+    },
+    {
+      "type": "progress",
+      "done": 1440,
+      "total": 1500,
+      "seconds": 3.402499584,
+      "result": 7607289,
+      "verified": true,
+      "language": "robotjs"
+    },
+    {
+      "done": 1425,
+      "result": 7607289,
+      "seconds": 3.438572584,
+      "total": 1500,
+      "type": "progress",
+      "verified": true,
+      "language": "rust"
+    },
+    {
+      "type": "progress",
+      "done": 1455,
+      "total": 1500,
+      "seconds": 3.438481334,
+      "result": 7607289,
+      "verified": true,
+      "language": "robotjs"
+    },
+    {
+      "type": "progress",
+      "done": 1470,
+      "total": 1500,
+      "seconds": 3.473228792,
+      "result": 7607289,
+      "verified": true,
+      "language": "robotjs"
+    },
+    {
+      "done": 1440,
+      "result": 7607289,
+      "seconds": 3.476355084,
+      "total": 1500,
+      "type": "progress",
+      "verified": true,
+      "language": "rust"
+    },
+    {
+      "type": "progress",
+      "done": 1485,
+      "total": 1500,
+      "seconds": 3.507992125,
+      "result": 7607289,
+      "verified": true,
+      "language": "robotjs"
+    },
+    {
+      "done": 1455,
+      "result": 7607289,
+      "seconds": 3.5126340000000003,
+      "total": 1500,
+      "type": "progress",
+      "verified": true,
+      "language": "rust"
+    },
+    {
+      "type": "progress",
+      "done": 1500,
+      "total": 1500,
+      "seconds": 3.543185,
+      "result": 7607289,
+      "verified": true,
+      "language": "robotjs"
+    },
+    {
+      "type": "complete",
+      "done": 1500,
+      "total": 1500,
+      "seconds": 3.543219542,
+      "result": 7607289,
+      "verified": true,
+      "language": "robotjs"
+    },
+    {
+      "done": 1470,
+      "result": 7607289,
+      "seconds": 3.550297917,
+      "total": 1500,
+      "type": "progress",
+      "verified": true,
+      "language": "rust"
+    },
+    {
+      "done": 1485,
+      "result": 7607289,
+      "seconds": 3.5804224590000002,
+      "total": 1500,
+      "type": "progress",
+      "verified": true,
+      "language": "rust"
+    },
+    {
+      "done": 1500,
+      "result": 7607289,
+      "seconds": 3.611828375,
+      "total": 1500,
+      "type": "progress",
+      "verified": true,
+      "language": "rust"
+    },
+    {
+      "done": 1500,
+      "result": 7607289,
+      "seconds": 3.611832792,
+      "total": 1500,
+      "type": "complete",
+      "verified": true,
+      "language": "rust"
+    }
+  ]
+}

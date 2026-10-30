@@ -1,0 +1,324 @@
+{
+  "date": "2026-10-30T04:27:25.823Z",
+  "cpu": "Apple M6",
+  "os": "27.0",
+  "node": "v24.22.0",
+  "rustc": "rustc 1.99.1 (58cf8f9c3 2026-10-13)",
+  "source_commit": "e4259a36bfc9b8d5b762ae04ec665e8da14293d6",
+  "robotjs_commit": "0af6073e1f1bcff865ffe52801c71647829cdc1c",
+  "sha256": {
+    "desktop-robotjs.cjs": "6ba0f8b0b455ca94edb4383008bdea1ebfce7864b69bbf9d1329f793ec860def",
+    "workflow.html": "de8cdb03742d158156d912d4c1602d8feca788fce98fb95b6b0503ebdce0b671",
+    "workflow-compare.cjs": "8773c92387bf462f700bcebf099bdd15539c6277c904980197a37fd46e01c7b9",
+    "src/bin/desktop.rs": "1dcda2e066959ac1c80f5de011b3f0ae0362618da14b25097c617d6d85e02d44",
+    "target/release/desktop": "fe382d16d05cbc24623bae900ee18a07383bfb5e124bae511e0349bb85eb1266"
+  },
+  "method": "Same eight-record form, exact field equality, same calls and settings (mouse delay 10ms, keyboard delay 0ms). One warmup per backend/profile, six measured runs each, alternating order. No video capture during measurements. Separate illustrative recordings afterward at 1x speed. Timer includes native delivery, app processing, verification IPC; startup/reset excluded. Zero-delay profile retains each library’s intrinsic behavior (Rust 10ms text-batch safety floor). Paced profile requests 6000 CPM from both APIs.",
+  "profiles": [
+    {
+      "id": "zero",
+      "label": "Keyboard delay: 0 ms",
+      "keyboard_ms": 0,
+      "mouse_ms": 10
+    },
+    {
+      "id": "paced",
+      "label": "Matched rate: 100 characters / second",
+      "keyboard_ms": 0,
+      "mouse_ms": 10,
+      "cpm": 6000
+    }
+  ],
+  "runs": [
+    {
+      "file": "zero-robotjs-warmup.json",
+      "profile": "zero",
+      "language": "robotjs",
+      "round": 0,
+      "warmup": true,
+      "verified": true,
+      "seconds": 0.9787000000476838
+    },
+    {
+      "file": "zero-rust-warmup.json",
+      "profile": "zero",
+      "language": "rust",
+      "round": 0,
+      "warmup": true,
+      "verified": true,
+      "seconds": 1.11
+    },
+    {
+      "file": "zero-robotjs-round-1.json",
+      "profile": "zero",
+      "language": "robotjs",
+      "round": 1,
+      "warmup": false,
+      "verified": true,
+      "seconds": 0.9499000000953675
+    },
+    {
+      "file": "zero-rust-round-1.json",
+      "profile": "zero",
+      "language": "rust",
+      "round": 1,
+      "warmup": false,
+      "verified": true,
+      "seconds": 1.1057999999523163
+    },
+    {
+      "file": "zero-rust-round-2.json",
+      "profile": "zero",
+      "language": "rust",
+      "round": 2,
+      "warmup": false,
+      "verified": true,
+      "seconds": 1.1027999999523164
+    },
+    {
+      "file": "zero-robotjs-round-2.json",
+      "profile": "zero",
+      "language": "robotjs",
+      "round": 2,
+      "warmup": false,
+      "verified": true,
+      "seconds": 0.9537999999523162
+    },
+    {
+      "file": "zero-robotjs-round-3.json",
+      "profile": "zero",
+      "language": "robotjs",
+      "round": 3,
+      "warmup": false,
+      "verified": true,
+      "seconds": 0.9508999999761582
+    },
+    {
+      "file": "zero-rust-round-3.json",
+      "profile": "zero",
+      "language": "rust",
+      "round": 3,
+      "warmup": false,
+      "verified": true,
+      "seconds": 1.0951000000238418
+    },
+    {
+      "file": "zero-rust-round-4.json",
+      "profile": "zero",
+      "language": "rust",
+      "round": 4,
+      "warmup": false,
+      "verified": true,
+      "seconds": 1.105600000023842
+    },
+    {
+      "file": "zero-robotjs-round-4.json",
+      "profile": "zero",
+      "language": "robotjs",
+      "round": 4,
+      "warmup": false,
+      "verified": true,
+      "seconds": 0.9416999999284744
+    },
+    {
+      "file": "zero-robotjs-round-5.json",
+      "profile": "zero",
+      "language": "robotjs",
+      "round": 5,
+      "warmup": false,
+      "verified": true,
+      "seconds": 0.9503000000715256
+    },
+    {
+      "file": "zero-rust-round-5.json",
+      "profile": "zero",
+      "language": "rust",
+      "round": 5,
+      "warmup": false,
+      "verified": true,
+      "seconds": 1.0892000000476838
+    },
+    {
+      "file": "zero-rust-round-6.json",
+      "profile": "zero",
+      "language": "rust",
+      "round": 6,
+      "warmup": false,
+      "verified": true,
+      "seconds": 1.0965
+    },
+    {
+      "file": "zero-robotjs-round-6.json",
+      "profile": "zero",
+      "language": "robotjs",
+      "round": 6,
+      "warmup": false,
+      "verified": true,
+      "seconds": 0.9265
+    },
+    {
+      "file": "paced-robotjs-warmup.json",
+      "profile": "paced",
+      "language": "robotjs",
+      "round": 0,
+      "warmup": true,
+      "verified": true,
+      "seconds": 9.577799999952317
+    },
+    {
+      "file": "paced-rust-warmup.json",
+      "profile": "paced",
+      "language": "rust",
+      "round": 0,
+      "warmup": true,
+      "verified": true,
+      "seconds": 9.653100000023842
+    },
+    {
+      "file": "paced-robotjs-round-1.json",
+      "profile": "paced",
+      "language": "robotjs",
+      "round": 1,
+      "warmup": false,
+      "verified": true,
+      "seconds": 9.540299999952316
+    },
+    {
+      "file": "paced-rust-round-1.json",
+      "profile": "paced",
+      "language": "rust",
+      "round": 1,
+      "warmup": false,
+      "verified": true,
+      "seconds": 9.610700000047684
+    },
+    {
+      "file": "paced-rust-round-2.json",
+      "profile": "paced",
+      "language": "rust",
+      "round": 2,
+      "warmup": false,
+      "verified": true,
+      "seconds": 9.609899999976157
+    },
+    {
+      "file": "paced-robotjs-round-2.json",
+      "profile": "paced",
+      "language": "robotjs",
+      "round": 2,
+      "warmup": false,
+      "verified": true,
+      "seconds": 9.589399999976159
+    },
+    {
+      "file": "paced-robotjs-round-3.json",
+      "profile": "paced",
+      "language": "robotjs",
+      "round": 3,
+      "warmup": false,
+      "verified": true,
+      "seconds": 9.651899999976159
+    },
+    {
+      "file": "paced-rust-round-3.json",
+      "profile": "paced",
+      "language": "rust",
+      "round": 3,
+      "warmup": false,
+      "verified": true,
+      "seconds": 9.646100000023841
+    },
+    {
+      "file": "paced-rust-round-4.json",
+      "profile": "paced",
+      "language": "rust",
+      "round": 4,
+      "warmup": false,
+      "verified": true,
+      "seconds": 9.600700000047684
+    },
+    {
+      "file": "paced-robotjs-round-4.json",
+      "profile": "paced",
+      "language": "robotjs",
+      "round": 4,
+      "warmup": false,
+      "verified": true,
+      "seconds": 9.626699999928475
+    },
+    {
+      "file": "paced-robotjs-round-5.json",
+      "profile": "paced",
+      "language": "robotjs",
+      "round": 5,
+      "warmup": false,
+      "verified": true,
+      "seconds": 9.612099999904633
+    },
+    {
+      "file": "paced-rust-round-5.json",
+      "profile": "paced",
+      "language": "rust",
+      "round": 5,
+      "warmup": false,
+      "verified": true,
+      "seconds": 9.570799999952316
+    },
+    {
+      "file": "paced-rust-round-6.json",
+      "profile": "paced",
+      "language": "rust",
+      "round": 6,
+      "warmup": false,
+      "verified": true,
+      "seconds": 9.578299999952316
+    },
+    {
+      "file": "paced-robotjs-round-6.json",
+      "profile": "paced",
+      "language": "robotjs",
+      "round": 6,
+      "warmup": false,
+      "verified": true,
+      "seconds": 9.635100000023842
+    }
+  ],
+  "videos": [
+    {
+      "profile": "zero",
+      "results": [
+        {
+          "file": "zero-robotjs-video.json",
+          "language": "robotjs",
+          "verified": true,
+          "seconds": 1.0074000000953673
+        },
+        {
+          "file": "zero-rust-video.json",
+          "language": "rust",
+          "verified": true,
+          "seconds": 1.153
+        }
+      ],
+      "sha256": "7517c601e7287490b9df1ba5ecdb81c4ff3b6fd9a84ec473e15a164330f0a25d"
+    },
+    {
+      "profile": "paced",
+      "results": [
+        {
+          "file": "paced-robotjs-video.json",
+          "language": "robotjs",
+          "verified": true,
+          "seconds": 9.728299999952316
+        },
+        {
+          "file": "paced-rust-video.json",
+          "language": "rust",
+          "verified": true,
+          "seconds": 9.673599999904633
+        }
+      ],
+      "sha256": "a92f33fc5df67cd7e81963aaf970a3c92d28a161088c14ffa32503f874826cde"
+    }
+  ]
+}

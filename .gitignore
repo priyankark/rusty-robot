@@ -13,3 +13,5 @@ __pycache__/
 /packages/node/*.tgz
 
 /tools/rust-ecosystem-benchmark/target/
+
+/tools/benchmark-demo/target/

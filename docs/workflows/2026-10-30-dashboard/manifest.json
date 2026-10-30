@@ -1,0 +1,109 @@
+{
+  "date": "2026-10-30T04:38:41.678Z",
+  "cpu": "Apple M6",
+  "os": "27.0",
+  "node": "v24.22.0",
+  "rustc": "rustc 1.99.1 (58cf8f9c3 2026-10-13)",
+  "source_commit": "e4259a36bfc9b8d5b762ae04ec665e8da14293d6",
+  "robotjs_commit": "0af6073e1f1bcff865ffe52801c71647829cdc1c",
+  "sha256": {
+    "rust": "da920c13c50d06459a92799ec840e16dab73ed2b3a531ce80823436db85eff68",
+    "robotjs": "417bf9ba442737797efeaa046518699ebc02c5b840b2fae267b18ba651c71777",
+    "fixture_html": "03d927df0cfd86f60634fdc4726ea1b02212f3c5cc464a68ed4f9991051ef316",
+    "rust_source": "3f5d4ab15271885bf20f8a176bb4ad8075cdd6781bc55abe8ffc4e926e6e701f",
+    "node_source": "8f4ab3a92bc1506b562dba6542f1b6bb2858467353990d6572a31e7c96328e4b",
+    "recorder": "2b1f10ee37c6abb0621c1905d32542c41bba668a27fe84876b69f1b5cfe18e6f"
+  },
+  "method": "60 distinct generated dashboard screenshots; identical BGRA32 buffers. Same find-all-color API and row-major bounding-box grouping algorithm. Preload and one full warmup outside timing. Six measured runs per library, alternating order, no recording. Complete processing batch timed; exact output checks afterward. Separate sequential video takes at 1x speed.",
+  "runs": [
+    {
+      "round": 1,
+      "language": "robotjs",
+      "file": "robotjs-1.json",
+      "seconds": 0.715304375
+    },
+    {
+      "round": 1,
+      "language": "rust",
+      "file": "rust-1.json",
+      "seconds": 0.048557958
+    },
+    {
+      "round": 2,
+      "language": "rust",
+      "file": "rust-2.json",
+      "seconds": 0.049165958
+    },
+    {
+      "round": 2,
+      "language": "robotjs",
+      "file": "robotjs-2.json",
+      "seconds": 0.794042083
+    },
+    {
+      "round": 3,
+      "language": "robotjs",
+      "file": "robotjs-3.json",
+      "seconds": 0.734186042
+    },
+    {
+      "round": 3,
+      "language": "rust",
+      "file": "rust-3.json",
+      "seconds": 0.048686333
+    },
+    {
+      "round": 4,
+      "language": "rust",
+      "file": "rust-4.json",
+      "seconds": 0.051531
+    },
+    {
+      "round": 4,
+      "language": "robotjs",
+      "file": "robotjs-4.json",
+      "seconds": 0.748755208
+    },
+    {
+      "round": 5,
+      "language": "robotjs",
+      "file": "robotjs-5.json",
+      "seconds": 0.779028041
+    },
+    {
+      "round": 5,
+      "language": "rust",
+      "file": "rust-5.json",
+      "seconds": 0.049394667
+    },
+    {
+      "round": 6,
+      "language": "rust",
+      "file": "rust-6.json",
+      "seconds": 0.054088166
+    },
+    {
+      "round": 6,
+      "language": "robotjs",
+      "file": "robotjs-6.json",
+      "seconds": 0.790992416
+    }
+  ],
+  "videos": [
+    {
+      "language": "robotjs",
+      "seconds": 0.851215625,
+      "targets": 1527,
+      "verified": true
+    },
+    {
+      "language": "rust",
+      "seconds": 0.064419792,
+      "targets": 1527,
+      "verified": true
+    }
+  ],
+  "video_sha256": "13e9946e77c8f59da06e603908c384f6616289c45a40e9be3e810a8bf2b6f5db",
+  "corpus_sha256": "afc121126034d1880dae406a0c6d9c600f509a0f68a76498127bc3056ec9285a",
+  "input_verification": "All 60 raw BGRA buffers matched the archived fixture SHA-256 values after the recorded runs."
+}
