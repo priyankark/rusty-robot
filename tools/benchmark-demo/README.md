@@ -280,9 +280,10 @@ owned window is at (360,140), 1200×800 on a 1920×1080 logical display. The run
 stops on focus loss or occlusion. It checks 1×1, 100×100 and 1200×800 captures,
 then full interactions with both mouse delays set to 0 ms and 10 ms per API call.
 Both libraries use the same public first-color search and native move/click calls.
-The search target is exact magenta. The freshness marker allows one value of
-error per RGB channel for display color conversion; successive tokens differ
-by more than that tolerance. Geometry and input receipts must match exactly.
+The search target is exact magenta. The freshness marker uses alternating black/gray states and white completion and a unique 16-bit
+black-and-white trial code. Larger captures verify both exactly; the 1×1 case
+can verify only the alternating color. This avoids treating arbitrary-color
+display conversion as stale frames. Geometry and input receipts match exactly.
 
 Six rounds alternate implementation order, with a fresh process and five warmup
 trials before twenty measured trials per case/backend/round. Five failed

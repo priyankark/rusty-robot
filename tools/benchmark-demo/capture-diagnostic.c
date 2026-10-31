@@ -3,7 +3,7 @@
 #include <ApplicationServices/ApplicationServices.h>
 #include <dlfcn.h>
 #include <stdio.h>
-int main(void) {
+static int diagnostic(void) {
     typedef CGImageRef (*capture_fn)(CGDirectDisplayID, CGRect);
     capture_fn capture = (capture_fn)dlsym(RTLD_DEFAULT, "CGDisplayCreateImageForRect");
     printf("{\"permission\":%s,\"symbol_present\":%s,\"display\":%u,\"captures\":[", CGPreflightScreenCaptureAccess()?"true":"false",capture?"true":"false",CGMainDisplayID());
@@ -16,3 +16,21 @@ int main(void) {
     }
     printf("]}\n");return 0;
 }
+#ifdef NODE_DIAGNOSTIC
+#include <node_api.h>
+static napi_value run(napi_env env, napi_callback_info info) {
+    (void)info;
+    diagnostic();
+    napi_value result;
+    napi_get_undefined(env, &result);
+    return result;
+}
+NAPI_MODULE_INIT() {
+    napi_value fn;
+    napi_create_function(env, "capture", 7, run, NULL, &fn);
+    napi_set_named_property(env, exports, "capture", fn);
+    return exports;
+}
+#else
+int main(void) {return diagnostic();}
+#endif

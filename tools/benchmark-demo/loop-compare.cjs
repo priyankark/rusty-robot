@@ -153,6 +153,14 @@ function startDriver(language) {
       delay: 10,
     },
   ];
+  for (const c of cases)
+    c.code_points =
+      c.id === "pixel"
+        ? []
+        : Array.from({ length: 16 }, (_, i) => [
+            geometry.x + 49 + (i % 4) * 10 - c.rect[0],
+            geometry.y + 49 + Math.floor(i / 4) * 10 - c.rect[1],
+          ]);
   const source = [
     "loop.html",
     "loop-compare.cjs",
@@ -181,7 +189,7 @@ function startDriver(language) {
     geometry,
     cases,
     method:
-      "Owned local Chrome review queue. Per trial reset, two animation frames, 50 ms settling and focus/ownership checks outside timer. Distinct before/after color tokens verify frame freshness, allowing at most one value per RGB channel for display color conversion. Exact magenta target search. Capture timer is capture call only; full-loop timer includes first capture, freshness assertion, exact public findColor, coordinate mapping, native move/click, fresh captures until visible after-token. Both mouse delays explicitly matched (0 or 10 ms per call). No polling sleep. Visible-response deadline 1 second; incomplete loops retain timing but are excluded from successful-latency medians. Five failed preflight calls mark a backend/case unavailable rather than retrying hundreds of known failures. DOM receipts independently verify exactly one trusted click inside target, no focus loss. No retries or recording. Fresh process per backend/round/case, five excluded warmups; six alternating rounds of 20 measured trials. Capture/search/input/render latency and any failed attempts retained. Launch/reset/IPC/DOM receipts excluded from driver timer.",
+      "Owned local Chrome review queue. Per trial reset, two animation frames, 50 ms settling and focus/ownership checks outside timer. Alternating grayscale states and a unique 16-bit black/white trial code verify frame freshness with exact colors. The 1x1 case can verify only the alternating state; larger captures verify the code too. Exact magenta target search. Capture timer is capture call only; full-loop timer includes first capture, freshness assertion, exact public findColor, coordinate mapping, native move/click, fresh captures until visible after-token. Both mouse delays explicitly matched (0 or 10 ms per call). No polling sleep. Visible-response deadline 1 second; incomplete loops retain timing but are excluded from successful-latency medians. Five failed preflight calls mark a backend/case unavailable rather than retrying hundreds of known failures. DOM receipts independently verify exactly one trusted click inside target, no focus loss. No retries or recording. Fresh process per backend/round/case, five excluded warmups; six alternating rounds of 20 measured trials. Capture/search/input/render latency and any failed attempts retained. Launch/reset/IPC/DOM receipts excluded from driver timer.",
     runs: [],
   };
   const save = () =>
@@ -192,14 +200,18 @@ function startDriver(language) {
   save();
   for (const c of cases) {
     const rounds = pilot ? 1 : 6,
-      count = pilot ? 3 : 20,
+      count = pilot === "rust-only" ? 12 : pilot ? 3 : 20,
       warmups = pilot ? 1 : 5;
     const unavailable = new Set();
     for (let round = 1; round <= rounds; round++)
       for (const language of round % 2
         ? ["robotjs", "rust"]
         : ["rust", "robotjs"]) {
-        if (unavailable.has(language)) continue;
+        if (
+          unavailable.has(language) ||
+          (pilot === "rust-only" && language === "robotjs")
+        )
+          continue;
         driver = startDriver(language);
         const probe = await driver.ask({ op: "probe" });
         assert(probe.ok);
@@ -215,17 +227,16 @@ function startDriver(language) {
         manifest.runs.push(run);
         for (let n = -warmups; n < count; n++) {
           const id = (round - 1) * count + Math.max(0, n),
-            before = (0x204060 + ++nonce * 137).toString(16).padStart(6, "0"),
-            after = (parseInt(before, 16) ^ 0xffffff)
-              .toString(16)
-              .padStart(6, "0");
+            code = ++nonce,
+            before = code % 2 ? "000000" : "808080",
+            after = "ffffff";
           const state = await cdp.ev(
-            `window.reset(${id},${JSON.stringify(before)},${JSON.stringify(after)})`,
+            `window.reset(${id},${JSON.stringify(before)},${JSON.stringify(after)},${code})`,
           );
           await sleep(50);
           guard();
           assert(state.active);
-          const request = { ...c, before, after };
+          const request = { ...c, before, after, code };
           const result = await driver.ask(request);
           const receipt = await cdp.ev("window.state()");
           assert(

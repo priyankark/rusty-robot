@@ -72,16 +72,22 @@
   window.addEventListener("blur", () => {
     if (trial) trial.focusLost = true;
   });
-  window.reset = (id, before, after) => {
+  window.reset = (id, before, after, code) => {
     trial = {
       id,
       before,
+      code,
       after,
       clicks: [],
       focusLost: false,
       complete: false,
     };
     token.style.background = "#" + before;
+    token.innerHTML = Array.from(
+      { length: 16 },
+      (_, i) =>
+        `<span style="position:absolute;left:${20 + (i % 4) * 10}px;top:${20 + Math.floor(i / 4) * 10}px;width:10px;height:10px;background:${code & (1 << i) ? "#ffffff" : "#000000"}"></span>`,
+    ).join("");
     document.querySelector("#result").textContent = "Waiting for approval";
     document.querySelector("main").innerHTML = Array.from(
       { length: 12 },

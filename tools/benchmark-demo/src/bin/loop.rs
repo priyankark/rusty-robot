@@ -4,12 +4,22 @@ use std::{
     io::{self, BufRead, Write},
     time::{Duration, Instant},
 };
-fn color_matches(a: &str, b: &str) -> bool {
-    (0..3).all(|i| {
-        let x = u8::from_str_radix(&a[i * 2..i * 2 + 2], 16).unwrap();
-        let y = u8::from_str_radix(&b[i * 2..i * 2 + 2], 16).unwrap();
-        x.abs_diff(y) <= 1
-    })
+fn read_code(
+    b: &rusty_robot::Bitmap,
+    points: &[[i64; 2]],
+) -> Result<Option<u64>, Box<dyn std::error::Error>> {
+    if points.is_empty() {
+        return Ok(None);
+    }
+    let mut code = 0;
+    for (i, p) in points.iter().enumerate() {
+        match b.color_at(p[0], p[1])?.as_str() {
+            "ffffff" => code |= 1 << i,
+            "000000" => {}
+            other => return Err(format!("Invalid code pixel: {other}").into()),
+        }
+    }
+    Ok(Some(code))
 }
 fn run(v: &Value) -> Result<Value, Box<dyn std::error::Error>> {
     if v["op"] == "probe" {
@@ -25,6 +35,7 @@ fn run(v: &Value) -> Result<Value, Box<dyn std::error::Error>> {
         height: a[3] as usize,
     };
     let sample: [i64; 2] = serde_json::from_value(v["sample"].clone())?;
+    let points: Vec<[i64; 2]> = serde_json::from_value(v["code_points"].clone())?;
     let before = v["before"].as_str().ok_or("before missing")?;
     let after = v["after"].as_str().ok_or("after missing")?;
     Robot.set_mouse_delay(v["delay"].as_u64().unwrap_or(0))?;
@@ -35,10 +46,14 @@ fn run(v: &Value) -> Result<Value, Box<dyn std::error::Error>> {
         return Err("Unexpected capture geometry".into());
     }
     let actual_before = b.color_at(sample[0], sample[1])?;
-    if !color_matches(&actual_before, before) {
-        return Err("Stale or incorrect first capture".into());
+    if actual_before != before {
+        return Err(format!("First state mismatch: {actual_before} != {before}").into());
     }
-    let mut result = json!({"capture_ms":capture_ms,"width":b.width,"height":b.height,"scale_x":b.scale_x,"scale_y":b.scale_y,"first_color":actual_before});
+    let first_code = read_code(&b, &points)?;
+    if first_code.is_some() && first_code != v["code"].as_u64() {
+        return Err("First frame trial code mismatch".into());
+    }
+    let mut result = json!({"capture_ms":capture_ms,"width":b.width,"height":b.height,"scale_x":b.scale_x,"scale_y":b.scale_y,"first_color":actual_before,"first_code":first_code});
     if v["op"] == "loop" {
         let search = Instant::now();
         let p = b
@@ -62,24 +77,28 @@ fn run(v: &Value) -> Result<Value, Box<dyn std::error::Error>> {
         let observe = Instant::now();
         let mut polls = 0;
         let actual_after;
+        let last_code;
         let mut complete = true;
         loop {
             let fresh = Robot.capture(Some(rect))?;
             polls += 1;
             let color = fresh.color_at(sample[0], sample[1])?;
-            if color_matches(&color, after) {
+            let code = read_code(&fresh, &points)?;
+            if color == after && code == v["code"].as_u64() {
+                last_code = code;
                 actual_after = color;
                 break;
             }
             if start.elapsed() > Duration::from_secs(1) {
                 actual_after = color;
+                last_code = code;
                 complete = false;
                 break;
             }
         }
         let observe_ms = observe.elapsed().as_secs_f64() * 1000.;
         let total_ms = start.elapsed().as_secs_f64() * 1000.;
-        result["loop"] = json!({"find_ms":find_ms,"input_ms":input_ms,"observe_ms":observe_ms,"total_ms":total_ms,"polls":polls,"click":[x,y],"last_color":actual_after,"complete":complete});
+        result["loop"] = json!({"find_ms":find_ms,"input_ms":input_ms,"observe_ms":observe_ms,"total_ms":total_ms,"polls":polls,"click":[x,y],"last_color":actual_after,"complete":complete,"last_code":last_code});
     }
     Ok(result)
 }
