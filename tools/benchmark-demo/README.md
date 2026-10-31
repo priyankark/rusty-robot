@@ -257,3 +257,45 @@ rectangles and original DOM rectangles are both retained; **both benchmark
 implementations must return the exact reference**, without a timing-time tolerance.
 `app-report.py --check` re-extracts both archives, reruns the oracle, checks every
 trial and recorded output, verifies hashes, and checks generated article text.
+
+## Fresh capture and the complete interaction loop
+
+`loop-compare.cjs` opens an isolated local Chrome review queue on macOS. This is
+a controlled desktop application, not a measurement of VS Code or GitHub. Each
+trial changes a screen marker and moves the approval button among twelve cards.
+The library captures the window, finds the magenta button, maps its pixels to
+screen coordinates, sends a native click, and takes fresh captures until the
+application displays the expected response. A separate DOM receipt checks the
+trusted click and final state. DOM access does not select the target or provide
+the timed completion signal.
+
+```sh
+cargo build --release --locked --manifest-path tools/benchmark-demo/Cargo.toml --bin loop
+swiftc tools/benchmark-demo/owned-window.swift -o tools/benchmark-demo/target/release/owned-window
+node tools/benchmark-demo/loop-compare.cjs /path/to/pinned/robotjs NEW_OUTPUT_DIRECTORY
+```
+
+Use an unlocked desktop with Accessibility and Screen Recording granted. The
+owned window is at (360,140), 1200×800 on a 1920×1080 logical display. The runner
+stops on focus loss or occlusion. It checks 1×1, 100×100 and 1200×800 captures,
+then full interactions with both mouse delays set to 0 ms and 10 ms per API call.
+Both libraries use the same public first-color search and native move/click calls.
+The search target is exact magenta. The freshness marker allows one value of
+error per RGB channel for display color conversion; successive tokens differ
+by more than that tolerance. Geometry and input receipts must match exactly.
+
+Six rounds alternate implementation order, with a fresh process and five warmup
+trials before twenty measured trials per case/backend/round. Five failed
+preflight calls mark that backend/case unavailable; remaining trials are skipped
+and no speed ratio is computed. Incomplete interactions have a one-second
+response deadline and retain their timing and receipt as failures. Medians and
+p95 describe successful trials only, alongside the failure count. There are no
+retries. Startup, reset, two animation frames plus 50 ms settling, ownership
+checks, host IPC, and DOM verification are outside the driver timer. Application
+rendering, capture polling, and native input delivery are inside the loop timer.
+No video recording runs during measurement. `app.png` is a final illustrative
+browser screenshot, not benchmark input or a captured completion signal.
+
+`capture-diagnostic.c` independently checks whether the legacy CoreGraphics
+entry point returns images. A successful standalone call does not establish
+that it works inside the Node runtime or identify the cause of a Node failure.

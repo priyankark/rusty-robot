@@ -1,0 +1,115 @@
+<!doctype html><meta charset="utf-8" /><title>
+  Rusty Robot approval benchmark
+</title>
+<style>
+  * {
+    box-sizing: border-box;
+  }
+  body {
+    margin: 0;
+    background: #111827;
+    color: #e5e7eb;
+    font: 18px system-ui;
+    padding: 28px;
+  }
+  h1 {
+    margin: 0 0 10px 160px;
+    font-size: 28px;
+  }
+  p {
+    margin-left: 160px;
+    color: #aebacc;
+  }
+  #token {
+    position: absolute;
+    left: 24px;
+    top: 24px;
+    width: 128px;
+    height: 128px;
+  }
+  main {
+    margin-top: 70px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+  }
+  article {
+    height: 140px;
+    background: #1f2937;
+    padding: 18px;
+    border: 1px solid #475569;
+  }
+  button {
+    display: block;
+    margin-top: 16px;
+    border: 0;
+    border-radius: 0;
+    padding: 12px 20px;
+    color: #111827;
+    font: 600 16px system-ui;
+    background: #ff00ff;
+    cursor: pointer;
+  }
+  button:focus {
+    outline: none;
+  }
+  #result {
+    font-size: 24px;
+    margin: 20px 0;
+  }
+</style>
+<div id="token"></div>
+<h1>Review queue</h1>
+<p>
+  Approve the highlighted change. The status square changes only after a native
+  click.
+</p>
+<main></main>
+<p id="result"></p>
+<script>
+  let trial = null;
+  const token = document.querySelector("#token");
+  window.addEventListener("blur", () => {
+    if (trial) trial.focusLost = true;
+  });
+  window.reset = (id, before, after) => {
+    trial = {
+      id,
+      before,
+      after,
+      clicks: [],
+      focusLost: false,
+      complete: false,
+    };
+    token.style.background = "#" + before;
+    document.querySelector("#result").textContent = "Waiting for approval";
+    document.querySelector("main").innerHTML = Array.from(
+      { length: 12 },
+      (_, i) =>
+        `<article>Change ${i + 1}<div>${i === (id * 7) % 12 ? "<button>Approve</button>" : "Already reviewed"}</div></article>`,
+    ).join("");
+    document.querySelector("button").onclick = (e) => {
+      trial.clicks.push({ trusted: e.isTrusted, x: e.clientX, y: e.clientY });
+      if (!e.isTrusted || trial.focusLost || trial.clicks.length !== 1) return;
+      trial.complete = true;
+      token.style.background = "#" + after;
+      document.querySelector("#result").textContent =
+        "Approved change " + (((id * 7) % 12) + 1);
+      e.target.style.background = "#94a3b8";
+      e.target.textContent = "Approved";
+    };
+    return new Promise((r) =>
+      requestAnimationFrame(() =>
+        requestAnimationFrame(() => r(window.state())),
+      ),
+    );
+  };
+  window.state = () => ({
+    ...trial,
+    active: document.hasFocus(),
+    button: (() => {
+      const b = document.querySelector("button").getBoundingClientRect();
+      return { x: b.x, y: b.y, width: b.width, height: b.height };
+    })(),
+  });
+</script>
