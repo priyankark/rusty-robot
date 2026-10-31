@@ -1,0 +1,81 @@
+{
+  "date": "2026-10-31T01:48:58.145Z",
+  "source_sha256": "73c28cf0cd6159f6bed2d23685c2ecc201b9170c308b85a57f49e9a8b82c9556",
+  "node": "v24.22.0",
+  "standalone": {
+    "permission": true,
+    "symbol_present": true,
+    "display": 1,
+    "captures": [
+      {
+        "requested": [
+          1,
+          1
+        ],
+        "returned_image": true
+      },
+      {
+        "requested": [
+          100,
+          100
+        ],
+        "returned_image": true
+      },
+      {
+        "requested": [
+          1200,
+          800
+        ],
+        "returned_image": true
+      }
+    ]
+  },
+  "node_context": {
+    "permission": true,
+    "symbol_present": true,
+    "display": 1,
+    "captures": [
+      {
+        "requested": [
+          1,
+          1
+        ],
+        "returned_image": false
+      },
+      {
+        "requested": [
+          100,
+          100
+        ],
+        "returned_image": false
+      },
+      {
+        "requested": [
+          1200,
+          800
+        ],
+        "returned_image": false
+      }
+    ]
+  },
+  "robotjs": {
+    "original": {
+      "permission": true,
+      "returned_image": false,
+      "error": "Failed to capture the requested screen rect.",
+      "elapsed_ms": 5021.0472500000005,
+      "source_commit": "0af6073e1f1bcff865ffe52801c71647829cdc1c",
+      "source_clean": true,
+      "binary_sha256": "417bf9ba442737797efeaa046518699ebc02c5b840b2fae267b18ba651c71777"
+    },
+    "rebuilt": {
+      "permission": true,
+      "returned_image": false,
+      "error": "Failed to capture the requested screen rect.",
+      "elapsed_ms": 5017.288167,
+      "source_commit": "0af6073e1f1bcff865ffe52801c71647829cdc1c",
+      "source_clean": true,
+      "binary_sha256": "123f9f11fd524d86817778ced5b560eae2d3ec4ae73e6d92b18794ad50b9aee7"
+    }
+  }
+}

@@ -257,3 +257,62 @@ rectangles and original DOM rectangles are both retained; **both benchmark
 implementations must return the exact reference**, without a timing-time tolerance.
 `app-report.py --check` re-extracts both archives, reruns the oracle, checks every
 trial and recorded output, verifies hashes, and checks generated article text.
+
+## Fresh capture and the complete interaction loop
+
+`loop-compare.cjs` opens an isolated local Chrome review queue on macOS. This is
+a controlled desktop application, not a measurement of VS Code or GitHub. Each
+trial changes a screen marker and moves the approval button among twelve cards.
+The library captures the window, finds the magenta button, maps its pixels to
+screen coordinates, sends a native click, and takes fresh captures until the
+application displays the expected response. A separate DOM receipt checks the
+trusted click and final state. DOM access does not select the target or provide
+the timed completion signal.
+
+```sh
+cargo build --release --locked --manifest-path tools/benchmark-demo/Cargo.toml --bin loop
+swiftc tools/benchmark-demo/owned-window.swift -o tools/benchmark-demo/target/release/owned-window
+node tools/benchmark-demo/loop-compare.cjs /path/to/pinned/robotjs NEW_OUTPUT_DIRECTORY
+```
+
+Use an unlocked desktop with Accessibility and Screen Recording granted. The
+owned window is at (360,140), 1200×800 on a 1920×1080 logical display. The runner
+stops on focus loss or occlusion. It checks 1×1, 100×100 and 1200×800 captures,
+then full interactions with both mouse delays set to 0 ms and 10 ms per API call.
+Both libraries use the same public first-color search and native move/click calls.
+The search target is exact magenta. The freshness marker alternates between
+black and gray, turns white on completion, and contains a unique 16-bit
+black-and-white trial code. Larger captures verify both exactly; the 1×1 case
+can verify only the alternating color. This avoids treating arbitrary-color
+display conversion as stale frames. Geometry and input receipts match exactly.
+
+Six rounds alternate implementation order, with a fresh process and five warmup
+trials before twenty measured trials per case/backend/round. Five failed
+preflight calls mark that backend/case unavailable; remaining trials are skipped
+and no speed ratio is computed. Incomplete interactions have a one-second
+response deadline and retain their timing and receipt as failures. Medians and
+p95 describe successful trials only, alongside the failure count. There are no
+retries. Startup, reset, two animation frames plus 50 ms settling, ownership
+checks, host IPC, and DOM verification are outside the driver timer. Application
+rendering, capture polling, and native input delivery are inside the loop timer.
+No video recording runs during measurement. `app.png` is a final illustrative
+browser screenshot, not benchmark input or a captured completion signal.
+
+`capture-diagnostic.c` independently checks whether the legacy CoreGraphics
+entry point returns images. It is a benchmark diagnostic, not part of the Rust
+crate’s runtime. A successful standalone call does not establish
+that it works inside the Node runtime or identify the cause of a Node failure.
+
+Run diagnostics separately after timing, using the original and freshly rebuilt
+pinned RobotJS checkouts and the header directory for your Node installation:
+
+```sh
+node tools/benchmark-demo/capture-diagnose.cjs ORIGINAL_ROBOTJS REBUILT_ROBOTJS OUTPUT_JSON NODE_HEADERS
+python3 scripts/loop-report.py --check
+```
+
+Preparation discarded an arbitrary-RGB marker protocol because display conversion
+changed some low RGB channels. The final protocol uses exact grayscale values and
+binary frame IDs, validated across all twelve button positions before measurement.
+An earlier run was stopped by the focus guard and discarded. These preparations are
+not combined with the final timing dataset. No library code changed for this run.
