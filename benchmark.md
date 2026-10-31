@@ -21,14 +21,18 @@ in crate 0.1.3**; version 0.1.2 does not include it. Results were recorded on 20
 <!-- full-loop:start -->
 ## Fresh capture and complete interactions (2026-10-31 UTC)
 
-We tested the current implementation in a controlled local Chrome approval app.
-Rust captures the screen, finds a button, sends native input and captures again
-until the app displays the response. The app independently verifies a trusted
-click on the right button. This is a local desktop automation task.
+This benchmark measures the time from requesting a screenshot to seeing an
+application respond to a click. A local test app in Chrome simulates a review
+queue, with an Approve button that moves among twelve cards. Rust captures the
+screen, finds the button by color, sends a native mouse click, and captures again
+until approval appears. The app independently checks that the button received
+exactly one trusted click. Returning successfully from an input API is not enough.
 
 **At the normal 10 ms mouse delay, Rust completed 120/120 measured
 interactions: median 53.24 ms, p95 58.67 ms.** At zero requested delay,
-96/120 attempts failed to produce a verified response within one second.
+96/120 attempts failed: screenshots and target searches succeeded, but
+the button recorded no click and the one-second response deadline expired.
+The precise cause of the zero-delay failures has not been confirmed.
 
 | Task | Completed | Median | p95 | Failed |
 | --- | --- | --- | --- | --- |
@@ -48,15 +52,17 @@ checks, host IPC and independent DOM receipts are outside timing. Both drivers
 check exact grayscale states, a unique 16-bit black-and-white trial ID
 (except the one-pixel case), and the exact magenta target.
 
-**RobotJS failed all five preflight captures in each of the five cases.** Remaining
-attempts were skipped; there is no current comparative latency or speed ratio.
+**RobotJS failed five initial capture attempts for each of the three capture
+sizes and two interaction settings.** Further attempts were skipped. Without a
+successful RobotJS result, this test cannot establish which library is faster.
 Permissions passed. A clean rebuild of the pinned addon also failed. A standalone
 C capture succeeded; a minimal Node addon calling the same legacy API failed.
 That narrows the context without establishing the underlying cause. The older
 successful RobotJS measurements are not substituted for missing current samples.
 
-The 49× real-app analysis win above concerns preloaded pixels and many returned
-matches. This complete interaction spends most of its time capturing, delivering
+The [49× GitHub diff-analysis speedup](#real-app-image-analysis-versus-robotjs-2026-10-30)
+measures searching and grouping matches in 60 screenshots already in memory. This complete interaction spends most of its time capturing,
+delivering
 input and waiting for the app to render. It does not establish a general Rust
 automation speedup. Hardware: Apple M6, macOS 27.0, Node v24.22.0; Rust release.
 
