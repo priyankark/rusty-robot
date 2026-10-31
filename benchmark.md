@@ -2,19 +2,70 @@
 
 These benchmarks measure how quickly Rusty Robot captures the desktop, reads and
 searches pixels, handles image files, and delivers keyboard/mouse input. They are
-library tests on one Mac, not application, network, or remote-desktop benchmarks.
+library tests and a controlled local application task on one Mac. They do not
+measure network or remote-desktop latency.
 
 The latest capture implementation takes **22.31 ms** for a full-screen RGB image,
 compared with **29.02 ms** for XCap. XCap is still faster for small regions.
 The optimized implementation was measured at **source `1535dc2` and is included
 in crate 0.1.3**; version 0.1.2 does not include it. Results were recorded on 2026-10-28.
 
+- [Fresh capture and complete interactions](#fresh-capture-and-complete-interactions-2026-10-31-utc)
 - [What the measurements mean](#what-the-measurements-mean)
 - [Current capture results](#current-capture-results)
 - [Historical input and capture baseline](#historical-input-and-capture-baseline)
 - [Real-app analysis versus RobotJS](#real-app-image-analysis-versus-robotjs-2026-10-30)
 - [RobotJS comparison](#robotjs-comparison-2026-10-27)
 - [Maintaining this report](#maintaining-this-report)
+
+<!-- full-loop:start -->
+## Fresh capture and complete interactions (2026-10-31 UTC)
+
+We tested the current implementation in a controlled local Chrome approval app.
+Rust captures the screen, finds a button, sends native input and captures again
+until the app displays the response. The app independently verifies a trusted
+click on the right button. This is a local desktop automation task.
+
+**At the normal 10 ms mouse delay, Rust completed 120/120 measured
+interactions: median 53.24 ms, p95 58.67 ms.** At zero requested delay,
+96/120 attempts failed to produce a verified response within one second.
+
+| Task | Completed | Median | p95 | Failed |
+| --- | --- | --- | --- | --- |
+| One pixel | 120/120 | 11.33 ms | 13.18 ms | 0 |
+| 100 × 100 region | 120/120 | 11.88 ms | 13.00 ms | 0 |
+| 1200 × 800 window | 120/120 | 14.17 ms | 18.39 ms | 0 |
+| Complete loop, 0 ms mouse delay | 24/120 | 47.10 ms | 51.82 ms | 96 |
+| Complete loop, 10 ms mouse delay | 120/120 | 53.24 ms | 58.67 ms | 0 |
+
+Capture rows time the capture call. Loop rows include initial capture, freshness
+verification, exact target search, coordinate conversion, mouse movement/click,
+and fresh screenshot polling until the changed marker appears. Timings describe
+successful attempts only; failures remain in the raw data. p95 is the nearest-rank
+95th percentile. Six fresh processes each run five excluded warmups and twenty
+measured attempts. Resets, two animation frames plus 50 ms settling, ownership
+checks, host IPC and independent DOM receipts are outside timing. Both drivers
+check exact grayscale states, a unique 16-bit black-and-white trial ID
+(except the one-pixel case), and the exact magenta target.
+
+**RobotJS failed all five preflight captures in each of the five cases.** Remaining
+attempts were skipped; there is no current comparative latency or speed ratio.
+Permissions passed. A clean rebuild of the pinned addon also failed. A standalone
+C capture succeeded; a minimal Node addon calling the same legacy API failed.
+That narrows the context without establishing the underlying cause. The older
+successful RobotJS measurements are not substituted for missing current samples.
+
+The 49× real-app analysis win above concerns preloaded pixels and many returned
+matches. This complete interaction spends most of its time capturing, delivering
+input and waiting for the app to render. It does not establish a general Rust
+automation speedup. Hardware: Apple M6, macOS 27.0, Node v24.22.0; Rust release.
+
+[Full report and stage chart](https://priyankark.github.io/rusty-robot/building-rusty-robot.html#capture)
+· [Every attempt](docs/workflows/2026-10-31-loop/manifest.json)
+· [Summary](docs/workflows/2026-10-31-loop/summary.json)
+· [Diagnostics](docs/workflows/2026-10-31-loop/diagnostics.json)
+· [Reproduction](tools/benchmark-demo/README.md#fresh-capture-and-the-complete-interaction-loop)
+<!-- full-loop:end -->
 
 ## What the measurements mean
 

@@ -1,0 +1,197 @@
+{
+  "date": "2026-10-31T01:42:28.921Z",
+  "source_commit": "f844df158790c453f04a7bfbeb779451ade7c596",
+  "cases": {
+    "pixel": {
+      "robotjs": {
+        "attempts": 0,
+        "successful": 0,
+        "failed": 0,
+        "warmup_attempts": 5,
+        "warmup_failures": 5,
+        "unavailable": true
+      },
+      "rust": {
+        "attempts": 120,
+        "successful": 120,
+        "failed": 0,
+        "warmup_attempts": 30,
+        "warmup_failures": 0,
+        "unavailable": false,
+        "median_ms": 11.328208,
+        "p95_ms": 13.178917,
+        "mean_ms": 11.277776016666667,
+        "round_medians_ms": [
+          11.4586045,
+          11.854854,
+          10.207937999999999,
+          11.110291499999999,
+          11.3419795,
+          11.743792
+        ]
+      }
+    },
+    "region": {
+      "robotjs": {
+        "attempts": 0,
+        "successful": 0,
+        "failed": 0,
+        "warmup_attempts": 5,
+        "warmup_failures": 5,
+        "unavailable": true
+      },
+      "rust": {
+        "attempts": 120,
+        "successful": 120,
+        "failed": 0,
+        "warmup_attempts": 30,
+        "warmup_failures": 0,
+        "unavailable": false,
+        "median_ms": 11.877333,
+        "p95_ms": 12.999749999999999,
+        "mean_ms": 11.762873933333333,
+        "round_medians_ms": [
+          11.975000000000001,
+          11.4727505,
+          11.681687499999999,
+          11.3211255,
+          12.102875,
+          12.271708
+        ]
+      }
+    },
+    "window": {
+      "robotjs": {
+        "attempts": 0,
+        "successful": 0,
+        "failed": 0,
+        "warmup_attempts": 5,
+        "warmup_failures": 5,
+        "unavailable": true
+      },
+      "rust": {
+        "attempts": 120,
+        "successful": 120,
+        "failed": 0,
+        "warmup_attempts": 30,
+        "warmup_failures": 0,
+        "unavailable": false,
+        "median_ms": 14.166479500000001,
+        "p95_ms": 18.386708000000002,
+        "mean_ms": 15.606426741666667,
+        "round_medians_ms": [
+          15.7330415,
+          14.0790625,
+          14.002749999999999,
+          14.0301045,
+          13.664812000000001,
+          14.009
+        ]
+      }
+    },
+    "loop-zero": {
+      "robotjs": {
+        "attempts": 0,
+        "successful": 0,
+        "failed": 0,
+        "warmup_attempts": 5,
+        "warmup_failures": 5,
+        "unavailable": true
+      },
+      "rust": {
+        "attempts": 120,
+        "successful": 24,
+        "failed": 96,
+        "warmup_attempts": 30,
+        "warmup_failures": 7,
+        "unavailable": false,
+        "median_ms": 47.102458,
+        "p95_ms": 51.818875,
+        "mean_ms": 46.54489233333333,
+        "round_medians_ms": [
+          46.963770999999994,
+          46.37245849999999,
+          43.397000000000006,
+          45.550583,
+          47.671583,
+          49.375125
+        ],
+        "stages": {
+          "capture_ms": {
+            "median_ms": 12.8655,
+            "p95_ms": 16.374334,
+            "mean_ms": 13.773026083333333
+          },
+          "find_ms": {
+            "median_ms": 0.1267915,
+            "p95_ms": 0.174834,
+            "mean_ms": 0.14039216666666668
+          },
+          "input_ms": {
+            "median_ms": 0.21702100000000002,
+            "p95_ms": 0.239791,
+            "mean_ms": 0.1809375
+          },
+          "observe_ms": {
+            "median_ms": 32.71704150000001,
+            "p95_ms": 36.697916,
+            "mean_ms": 32.446133583333335
+          }
+        },
+        "median_poll_count": 2.0
+      }
+    },
+    "loop-default": {
+      "robotjs": {
+        "attempts": 0,
+        "successful": 0,
+        "failed": 0,
+        "warmup_attempts": 5,
+        "warmup_failures": 5,
+        "unavailable": true
+      },
+      "rust": {
+        "attempts": 120,
+        "successful": 120,
+        "failed": 0,
+        "warmup_attempts": 30,
+        "warmup_failures": 0,
+        "unavailable": false,
+        "median_ms": 53.2368545,
+        "p95_ms": 58.668084,
+        "mean_ms": 54.677849316666666,
+        "round_medians_ms": [
+          54.51252050000001,
+          54.9600415,
+          54.0574795,
+          52.3955415,
+          53.415437999999995,
+          52.2184375
+        ],
+        "stages": {
+          "capture_ms": {
+            "median_ms": 14.016521000000001,
+            "p95_ms": 15.990708999999999,
+            "mean_ms": 14.81273925
+          },
+          "find_ms": {
+            "median_ms": 0.122729,
+            "p95_ms": 0.175416,
+            "mean_ms": 0.12521144166666667
+          },
+          "input_ms": {
+            "median_ms": 23.8393335,
+            "p95_ms": 25.047125,
+            "mean_ms": 23.436164591666667
+          },
+          "observe_ms": {
+            "median_ms": 16.336292,
+            "p95_ms": 19.568458,
+            "mean_ms": 16.299548966666666
+          }
+        },
+        "median_poll_count": 1.0
+      }
+    }
+  }
+}

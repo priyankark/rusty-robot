@@ -64,7 +64,7 @@ for (const [name, folder] of [
     ...probe,
     source_commit: cmd("git", ["-C", root, "rev-parse", "HEAD"]).trim(),
     source_clean:
-      cmd("git", ["-C", root, "status", "--porcelain"]).trim() === "",
+      cmd("git", ["-C", root, "status", "--porcelain", "--untracked-files=no"]).trim() === "",
     binary_sha256: sha(path.join(root, "build/Release/robotjs.node")),
   };
 }

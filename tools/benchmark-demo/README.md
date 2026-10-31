@@ -280,7 +280,8 @@ owned window is at (360,140), 1200×800 on a 1920×1080 logical display. The run
 stops on focus loss or occlusion. It checks 1×1, 100×100 and 1200×800 captures,
 then full interactions with both mouse delays set to 0 ms and 10 ms per API call.
 Both libraries use the same public first-color search and native move/click calls.
-The search target is exact magenta. The freshness marker uses alternating black/gray states and white completion and a unique 16-bit
+The search target is exact magenta. The freshness marker alternates between
+black and gray, turns white on completion, and contains a unique 16-bit
 black-and-white trial code. Larger captures verify both exactly; the 1×1 case
 can verify only the alternating color. This avoids treating arbitrary-color
 display conversion as stale frames. Geometry and input receipts match exactly.
@@ -298,5 +299,20 @@ No video recording runs during measurement. `app.png` is a final illustrative
 browser screenshot, not benchmark input or a captured completion signal.
 
 `capture-diagnostic.c` independently checks whether the legacy CoreGraphics
-entry point returns images. A successful standalone call does not establish
+entry point returns images. It is a benchmark diagnostic, not part of the Rust
+crate’s runtime. A successful standalone call does not establish
 that it works inside the Node runtime or identify the cause of a Node failure.
+
+Run diagnostics separately after timing, using the original and freshly rebuilt
+pinned RobotJS checkouts and the header directory for your Node installation:
+
+```sh
+node tools/benchmark-demo/capture-diagnose.cjs ORIGINAL_ROBOTJS REBUILT_ROBOTJS OUTPUT_JSON NODE_HEADERS
+python3 scripts/loop-report.py --check
+```
+
+Preparation discarded an arbitrary-RGB marker protocol because display conversion
+changed some low RGB channels. The final protocol uses exact grayscale values and
+binary frame IDs, validated across all twelve button positions before measurement.
+An earlier run was stopped by the focus guard and discarded. These preparations are
+not combined with the final timing dataset. No library code changed for this run.
