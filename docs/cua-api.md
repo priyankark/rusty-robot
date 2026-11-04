@@ -88,10 +88,12 @@ Frame identity is not evidence that the application has stayed unchanged since c
 1,000 per axis per call. Positive x scrolls left; positive y scrolls up. macOS also
 supports `ScrollUnit::Pixels`; query `scroll_capabilities` before choosing units.
 Unsupported units fail before native input. OS settings and the application control
-the eventual distance. The original `scroll_mouse` retains its backend-specific units.
+the eventual distance. The original `scroll_mouse` retains its backend-specific
+units: macOS pixels, Windows wheel data (120 per detent), and X11 wheel-button pairs.
 
-Small macOS ScreenCaptureKit source rectangles use padding to avoid transparent
-edges, then sample the requested interior. Returned bitmap dimensions and logical
+macOS 15.2+ retains the direct region capture already introduced in 0.1.3. The
+macOS 14 fallback now pads small source rectangles to avoid transparent edges,
+then samples the requested interior. Returned bitmap dimensions and logical
 coordinate semantics stay the same. Correctness is tested against real fixture
 colors, repeated one-pixel captures, and negative-origin displays; timing claims
 require separate release-build measurements.

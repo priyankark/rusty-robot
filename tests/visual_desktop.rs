@@ -479,6 +479,48 @@ fn cua_workflows() {
     };
     use std::cell::RefCell;
     let mut ui = Desktop::start();
+    // Compare small captures with the same static region in a larger frame.
+    // Two simultaneous consumers must receive independent, correctly mapped data.
+    let reference = ui.capture();
+    let marker = ui.region("marker");
+    std::thread::scope(|scope| {
+        for _ in 0..2 {
+            let reference = &reference;
+            scope.spawn(move || {
+                for (dx, dy, width, height) in [(1, 1, 1, 1), (14, 14, 30, 30), (95, 63, 1, 1)] {
+                    let rect = Rect {
+                        x: marker.x + dx,
+                        y: marker.y + dy,
+                        width,
+                        height,
+                    };
+                    let crop = Robot.capture(Some(rect)).unwrap();
+                    assert_eq!((crop.screen_x, crop.screen_y), (rect.x, rect.y));
+                    for y in 0..crop.height {
+                        for x in 0..crop.width {
+                            let logical = crop
+                                .to_screen_point(
+                                    Point {
+                                        x: x as i64,
+                                        y: y as i64,
+                                    },
+                                    None,
+                                )
+                                .unwrap();
+                            let rx = ((logical.x - reference.screen_x) as f64 * reference.scale_x)
+                                .round() as i64;
+                            let ry = ((logical.y - reference.screen_y) as f64 * reference.scale_y)
+                                .round() as i64;
+                            assert_eq!(
+                                crop.color_at(x as i64, y as i64).unwrap(),
+                                reference.color_at(rx, ry).unwrap()
+                            );
+                        }
+                    }
+                }
+            });
+        }
+    });
     let target = Robot
         .windows()
         .unwrap()
@@ -543,16 +585,17 @@ fn cua_workflows() {
         }
     }
     let cell = RefCell::new(ui);
+    let literal = format!("{source}{}", "// café 中文 🚀\n".repeat(256));
     #[cfg(target_os = "macos")]
     let mut clipboard = rusty_robot::paste::SystemClipboard::new().unwrap();
     #[cfg(not(target_os = "macos"))]
     let mut clipboard = Clipboard(&cell);
     let result: PasteOutcome = Robot
-        .paste_text(&mut clipboard, source, || {
+        .paste_text(&mut clipboard, &literal, || {
             wait_until(
                 WaitOptions::default(),
                 || Ok(cell.borrow_mut().request(json!({}))["text"].clone()),
-                |v| v == source,
+                |v| v == literal.as_str(),
                 || false,
             )
             .map_err(|e| rusty_robot::Error(format!("paste observation: {:?}", e.reason)))?;
@@ -562,7 +605,7 @@ fn cua_workflows() {
     assert!(result.clipboard_restored);
     let mut ui = cell.into_inner();
     let state = ui.state();
-    assert_eq!(state["text"], source);
+    assert_eq!(state["text"], literal);
     assert!(
         state["events"]
             .as_array()

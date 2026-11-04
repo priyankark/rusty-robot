@@ -17,6 +17,8 @@ This creates an external application pinned to crates.io `rusty-robot-desktop`
 PNG enabled and disabled. `--desktop` also runs the Chromium workflows and, on
 macOS, AppKit editing against that registry dependency. GUI tooling is reused
 from `tests/gui/node_modules`; no local library source or path override is used.
+Contracts and fixtures come from the matching local `vVERSION` Git tag, so
+unreleased tests cannot accidentally require APIs absent from the registry package.
 Results are saved under `target/registry-dogfood`. Ignored GUI cases in headless
 runs are reported separately from executed desktop tests.
 
