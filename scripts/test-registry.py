@@ -2,10 +2,11 @@
 """Run consumer contracts against crates.io, never a workspace/path dependency."""
 import argparse
 import json
+import io
+import tarfile
 import os
 from pathlib import Path
 import re
-import shutil
 import subprocess
 import tempfile
 
@@ -45,8 +46,20 @@ png = "0.18"
 objc2 = "0.6"
 objc2-foundation = "0.3"
 ''')
-    # Reuse public API contracts as an external application. No library source is copied.
-    shutil.copytree(root / 'tests', consumer / 'tests', ignore=shutil.ignore_patterns('node_modules', 'package-lock.json'))
+    # Use the release's contracts: current tests can require unreleased APIs.
+    # This copies test fixtures only, never library source or a path dependency.
+    release_ref = f'v{args.version}'
+    archive = subprocess.check_output(['git', 'archive', release_ref, 'tests'], cwd=root)
+    with tarfile.open(fileobj=io.BytesIO(archive)) as fixtures:
+        for member in fixtures.getmembers():
+            if not member.isfile():
+                continue
+            destination = consumer / member.name
+            if not destination.resolve().is_relative_to(consumer.resolve()):
+                raise ValueError('Unsafe fixture path')
+            destination.parent.mkdir(parents=True, exist_ok=True)
+            destination.write_bytes(fixtures.extractfile(member).read())
+    report['contracts_ref'] = release_ref
     env = os.environ.copy()
     for key in ['CARGO_TARGET_DIR', 'RUSTY_ROBOT_QA_SECONDARY', 'RUSTY_ROBOT_QA_ARTIFACTS']:
         env.pop(key, None)
@@ -63,9 +76,9 @@ objc2-foundation = "0.3"
     if args.desktop:
         # The harness needs Electron; the library still resolves exclusively from crates.io.
         os.symlink(root / 'tests/gui/node_modules', consumer / 'tests/gui/node_modules', target_is_directory=True)
-        commands.append(('chromium', ['cargo', 'test', '--locked', '--test', 'visual_desktop', '--', '--ignored', '--nocapture']))
+        commands.append(('chromium', ['cargo', 'test', '--locked', '--test', 'visual_desktop', '--', '--ignored', '--nocapture', '--test-threads=1']))
         if os.sys.platform == 'darwin':
-            commands.append(('appkit', ['cargo', 'test', '--locked', '--test', 'native_macos', '--', '--ignored', '--nocapture']))
+            commands.append(('appkit', ['cargo', 'test', '--locked', '--test', 'native_macos', '--', '--ignored', '--nocapture', '--test-threads=1']))
     for name, command in commands:
         log = output / (name + '.log')
         env['RUSTY_ROBOT_QA_ARTIFACTS'] = str(output / name)

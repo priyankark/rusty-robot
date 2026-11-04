@@ -225,6 +225,12 @@ pub(crate) fn button(button: Button, down: bool, clicks: i64) -> Result<()> {
     Ok(())
 }
 pub(crate) fn scroll(x: i32, y: i32) -> Result<()> {
+    scroll_unit(x, y, 0)
+}
+pub(crate) fn scroll_steps(x: i32, y: i32) -> Result<()> {
+    scroll_unit(x, y, 1)
+}
+fn scroll_unit(x: i32, y: i32, unit: u32) -> Result<()> {
     input_permission()?;
     let location = mouse_position()?;
     // SAFETY: Use the non-variadic API to preserve wheel ordering on ARM64. Explicit location
@@ -232,7 +238,7 @@ pub(crate) fn scroll(x: i32, y: i32) -> Result<()> {
     unsafe {
         let event = Owned::new(CGEventCreateScrollWheelEvent2(
             ptr::null_mut(),
-            0,
+            unit,
             2,
             y,
             x,
@@ -494,8 +500,10 @@ pub(crate) fn capture(display: &Display, rect: Rect) -> Result<Bitmap> {
     }
     let (sender, receiver) = std::sync::mpsc::sync_channel(1);
     let display_id = display.id;
-    let display_size = (display.width, display.height);
-    let origin = (display.x, display.y);
+    let region = super::region::padded(display, rect);
+    let display_size = (region.width, region.height);
+    let origin = (region.x, region.y);
+    let source_origin = (region.x - display.x, region.y - display.y);
     let content_ready = RcBlock::new(
         move |content: *mut SCShareableContent, error: *mut NSError| {
             if !error.is_null() {
@@ -527,7 +535,7 @@ pub(crate) fn capture(display: &Display, rect: Rect) -> Result<Bitmap> {
                 config.setWidth((display_size.0 as f64 * scale).round() as usize);
                 config.setHeight((display_size.1 as f64 * scale).round() as usize);
                 config.setSourceRect(NSRect::new(
-                    NSPoint::new(0.0, 0.0),
+                    NSPoint::new(source_origin.0 as f64, source_origin.1 as f64),
                     NSSize::new(display_size.0 as f64, display_size.1 as f64),
                 ));
                 config.setShowsCursor(false);
@@ -567,8 +575,8 @@ fn copy_captured_image(
     display_size: (usize, usize),
 ) -> Result<Bitmap> {
     // Capture at native density to avoid resampling/antialiasing exact pixel colors.
-    // Crop after capture because tiny ScreenCaptureKit source rectangles can acquire
-    // partially transparent edges. Output is already sRGB/BGRA: no second conversion.
+    // Crop the padded source region because tiny ScreenCaptureKit rectangles can
+    // acquire transparent edges. Output is already sRGB/BGRA: no second conversion.
     unsafe {
         let width = CGImageGetWidth(image);
         let height = CGImageGetHeight(image);
@@ -624,4 +632,94 @@ fn copy_captured_image(
 mod capture_image;
 fn render_srgb(image: Ref, width: usize, height: usize) -> Result<Bitmap> {
     capture_image::render(image, width, height)
+}
+
+pub(crate) fn windows() -> Result<Vec<crate::TargetWindow>> {
+    use objc2::{
+        msg_send,
+        rc::Retained,
+        runtime::{AnyClass, AnyObject},
+    };
+    use objc2_foundation::{NSArray, NSString};
+    #[link(name = "CoreGraphics", kind = "framework")]
+    unsafe extern "C" {
+        fn CGWindowListCopyWindowInfo(options: u32, relative: u32) -> *mut NSArray<AnyObject>;
+    }
+    #[link(name = "AppKit", kind = "framework")]
+    unsafe extern "C" {}
+    unsafe {
+        let list = Retained::from_raw(CGWindowListCopyWindowInfo(1 | 16, 0))
+            .ok_or_else(|| err("Could not enumerate windows"))?;
+        let workspace = AnyClass::get(c"NSWorkspace").ok_or_else(|| err("AppKit unavailable"))?;
+        let ws: Retained<AnyObject> = msg_send![workspace, sharedWorkspace];
+        let front: Option<Retained<AnyObject>> = msg_send![&ws, frontmostApplication];
+        let front_pid: i32 = front
+            .as_ref()
+            .map(|a| msg_send![a, processIdentifier])
+            .unwrap_or(0);
+        fn object(d: &AnyObject, key: &str) -> Option<Retained<AnyObject>> {
+            unsafe { msg_send![d,objectForKey:&*NSString::from_str(key)] }
+        }
+        fn number(d: &AnyObject, key: &str) -> f64 {
+            unsafe {
+                object(d, key)
+                    .map(|v| msg_send![&v, doubleValue])
+                    .unwrap_or(0.0)
+            }
+        }
+        let mut result = Vec::new();
+        let mut found_active = false;
+        for entry in list.iter() {
+            let layer = number(&entry, "kCGWindowLayer");
+            if !(0.0..=3.0).contains(&layer) {
+                continue;
+            }
+            let Some(bounds) = object(&entry, "kCGWindowBounds") else {
+                continue;
+            };
+            let width = number(&bounds, "Width");
+            let height = number(&bounds, "Height");
+            if width <= 0.0 || height <= 0.0 {
+                continue;
+            }
+            let pid = number(&entry, "kCGWindowOwnerPID") as u32;
+            let active = !found_active && pid == front_pid as u32;
+            found_active |= active;
+            let title: Option<Retained<NSString>> =
+                msg_send![&entry,objectForKey:&*NSString::from_str("kCGWindowName")];
+            result.push(crate::TargetWindow {
+                id: number(&entry, "kCGWindowNumber") as u64,
+                process_id: pid,
+                bounds: Rect {
+                    x: number(&bounds, "X") as i64,
+                    y: number(&bounds, "Y") as i64,
+                    width: width as usize,
+                    height: height as usize,
+                },
+                title: title.map(|s| s.to_string()).unwrap_or_default(),
+                active,
+            });
+        }
+        Ok(result)
+    }
+}
+pub(crate) fn activate_window(target: &crate::TargetWindow) -> Result<()> {
+    use objc2::{
+        msg_send,
+        rc::Retained,
+        runtime::{AnyClass, AnyObject},
+    };
+    unsafe {
+        let class =
+            AnyClass::get(c"NSRunningApplication").ok_or_else(|| err("AppKit unavailable"))?;
+        let app: Option<Retained<AnyObject>> =
+            msg_send![class,runningApplicationWithProcessIdentifier:target.process_id as i32];
+        let app = app.ok_or_else(|| err("Target process exited"))?;
+        let accepted: bool = msg_send![&app,activateWithOptions:3usize];
+        if accepted {
+            Ok(())
+        } else {
+            Err(err("Target activation denied"))
+        }
+    }
 }

@@ -20,9 +20,14 @@ name = "rusty_robot"
 [features]
 default = ["png"]
 png = ["dep:png"]
+media = ["dep:image", "dep:fast_image_resize", "dep:rayon", "dep:blake3"]
 
 [dependencies]
 png = { version = "0.18", optional = true }
+image = { version = "=0.25.10", default-features = false, features = ["jpeg", "png"], optional = true }
+fast_image_resize = { version = "=6.1.0", features = ["rayon"], optional = true }
+rayon = { version = "1.11", optional = true }
+blake3 = { version = "1.8.2", optional = true }
 
 [dev-dependencies]
 libc = "0.2"

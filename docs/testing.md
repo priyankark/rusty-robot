@@ -1,5 +1,9 @@
 # Testing rusty-robot
 
+For screenshot-guided interaction with real Chrome through the Rust API, see
+[the CUA dogfood driver and findings](cua-dogfood.md). The opt-in example opens
+a disposable Chrome profile and records actions, screenshots, and timings.
+
 ## Published-package dogfood
 
 ```sh
@@ -17,6 +21,13 @@ Results are saved under `target/registry-dogfood`. Ignored GUI cases in headless
 runs are reported separately from executed desktop tests.
 
 ## Headless contracts
+
+The [computer-use helpers](cua-api.md) have regressions for deadline/cancellation
+boundaries, last-observation diagnostics, partial input failures and unwind cleanup,
+clipboard restoration/ownership, explicit scroll validation, encoded coordinate
+mapping/cache invalidation, and padded capture bounds. They run in the Linux,
+Windows, and macOS contract jobs. CI also tests `--no-default-features --features
+media` so the public Rust media feature cannot rely on workspace feature unification.
 
 ```sh
 cargo fmt --check
@@ -128,14 +139,22 @@ JavaScript. Each checkpoint saves observed JSON and a Rust BMP capture; on macOS
 it also saves an independent `/usr/sbin/screencapture` PNG for visual inspection.
 
 ```sh
-cargo test --test visual_desktop -- --ignored --nocapture
-RUSTY_ROBOT_QA_SECONDARY=1 cargo run --example virtual_display -- cargo test --test visual_desktop -- --ignored --nocapture
+cargo test --test visual_desktop -- --ignored --nocapture --test-threads=1
+RUSTY_ROBOT_QA_SECONDARY=1 cargo run --example virtual_display -- cargo test --test visual_desktop -- --ignored --nocapture --test-threads=1
 ```
 
 Artifacts are in `target/desktop-qa/primary` and `target/desktop-qa/secondary`.
 Set `RUSTY_ROBOT_QA_ARTIFACTS` to preserve separate runs. The final checkpoint is
 `08-all-workflows-passed`; failures save a `failure` checkpoint before cleanup.
 Run GUI suites sequentially because they share the real desktop.
+
+The additional `cua_workflows` case reproduces editor auto-indent with native typing,
+then verifies exact multiline/Unicode paste and a trusted paste event. It also
+checks focus loss against an owned decoy window, stale target rejection, cancelled
+drag release followed by another click, both explicit wheel axes, and polling a
+delayed pixel change. It runs in the Linux/X11 and Windows desktop CI jobs (not
+just as an ignored headless test). On macOS the same test uses `SystemClipboard`;
+hosted macOS runs only headless contracts because native input/capture require grants.
 
 Coverage includes single/double/right/middle clicks, smooth movement, held-button
 state and drag/drop, both scroll axes and reversal, multilingual text, emoji,

@@ -29,13 +29,13 @@ if args.secondary:
 else:
     desktop += ["--skip", "captures_secondary_display_at_signed_origin"]
     omissions.append("Secondary-display capture and negative-origin visual workflows were not run")
-visual = ["cargo", "test", "--locked", "--test", "visual_desktop", "--", "--ignored", "--nocapture"]
+visual = ["cargo", "test", "--locked", "--test", "visual_desktop", "--", "--ignored", "--nocapture", "--test-threads=1"]
 checks = [("inspect", ["cargo", "run", "--locked", "--example", "inspect"], {}),
           ("desktop", desktop, {}), ("primary", visual, {})]
 if args.secondary:
     checks.append(("secondary", virtual + visual, {"RUSTY_ROBOT_QA_SECONDARY": "1"}))
 if sys.platform == "darwin":
-    checks.append(("appkit", ["cargo", "test", "--locked", "--test", "native_macos", "--", "--ignored", "--nocapture"], {}))
+    checks.append(("appkit", ["cargo", "test", "--locked", "--test", "native_macos", "--", "--ignored", "--nocapture", "--test-threads=1"], {}))
 report = {"started": datetime.datetime.now(datetime.timezone.utc).isoformat(),
           "platform": platform.platform(), "omissions": omissions, "results": []}
 if args.dry_run:

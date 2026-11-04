@@ -40,16 +40,52 @@ pub(super) fn load(path: &Path) -> Result<Bitmap> {
 pub(super) fn save(bitmap: &Bitmap, path: &Path) -> Result<()> {
     let width = u32::try_from(bitmap.width).map_err(|_| err("PNG width overflow"))?;
     let height = u32::try_from(bitmap.height).map_err(|_| err("PNG height overflow"))?;
-    let mut encoder = png::Encoder::new(BufWriter::new(File::create(path)?), width, height);
+    encode(
+        bitmap,
+        BufWriter::new(File::create(path)?),
+        width,
+        height,
+        false,
+    )
+}
+pub(super) fn bytes(bitmap: &Bitmap, fast: bool) -> Result<Vec<u8>> {
+    bitmap.validate()?;
+    let width = u32::try_from(bitmap.width).map_err(|_| err("PNG width overflow"))?;
+    let height = u32::try_from(bitmap.height).map_err(|_| err("PNG height overflow"))?;
+    let mut bytes = Vec::new();
+    encode(bitmap, &mut bytes, width, height, fast)?;
+    Ok(bytes)
+}
+fn encode(
+    bitmap: &Bitmap,
+    sink: impl std::io::Write,
+    width: u32,
+    height: u32,
+    fast: bool,
+) -> Result<()> {
+    let mut encoder = png::Encoder::new(sink, width, height);
+    if fast {
+        encoder.set_compression(png::Compression::Fast);
+    }
     encoder.set_color(png::ColorType::Rgb);
     encoder.set_depth(png::BitDepth::Eight);
     let mut writer = encoder.write_header().map_err(|e| err(e.to_string()))?;
     let mut stream = writer.stream_writer().map_err(|e| err(e.to_string()))?;
     use std::io::Write;
+    let mut row = Vec::new();
+    row.try_reserve_exact(
+        bitmap
+            .width
+            .checked_mul(3)
+            .ok_or_else(|| err("PNG row overflow"))?,
+    )
+    .map_err(|e| err(e.to_string()))?;
     for y in 0..bitmap.height {
+        row.clear();
         for x in 0..bitmap.width {
-            stream.write_all(&bitmap.rgb(x, y))?;
+            row.extend_from_slice(&bitmap.rgb(x, y));
         }
+        stream.write_all(&row)?;
     }
     stream.finish().map_err(|e| err(e.to_string()))?;
     writer.finish().map_err(|e| err(e.to_string()))?;

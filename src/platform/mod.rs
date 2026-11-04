@@ -15,6 +15,8 @@ pub(crate) use windows::*;
 compile_error!("rusty-robot supports macOS, Linux/X11 and Windows");
 use crate::{Result, error::err};
 use std::sync::{Mutex, MutexGuard};
+#[cfg(any(target_os = "macos", test))]
+mod region;
 static INPUT: Mutex<()> = Mutex::new(());
 pub(crate) fn input_lock() -> Result<MutexGuard<'static, ()>> {
     INPUT

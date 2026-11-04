@@ -1,5 +1,15 @@
 # Changelog
 
+## Unreleased
+
+- Add literal paste with clipboard leases and completion observation, including a native macOS adapter.
+- Add native window discovery, explicit activation, and refreshed focus checks.
+- Add deadline/cancellation polling and scoped input sessions with error/unwind cleanup.
+- Add explicit pixel/wheel scroll units without changing legacy scrolling.
+- Expose in-memory PNG and optional Rust media processing with resized coordinate metadata.
+- Bound macOS fallback capture regions with padding for tiny crops.
+- Add deterministic contracts and owned desktop regressions to the existing CI matrix.
+
 ## 0.1.3 — 2026-10-28
 
 - Capture requested regions directly on macOS 15.2+ instead of enumerating windows and copying the full display for every screenshot; retain the macOS 14 path.

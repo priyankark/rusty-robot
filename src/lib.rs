@@ -9,9 +9,16 @@ pub use error::{Error, Result};
 pub use types::*;
 mod keyboard;
 mod mouse;
+pub mod observation;
+pub mod paste;
 mod permissions;
 mod platform;
 mod screen;
+mod scroll;
+pub mod session;
+pub use scroll::{ScrollCapabilities, ScrollUnit};
+mod target;
+pub use target::TargetWindow;
 
 /// Stateless handle to the desktop; delay settings are process-wide.
 #[derive(Debug, Default)]
@@ -24,3 +31,6 @@ impl MouseOutput for Robot {
         Robot::mouse_click(self, button, double)
     }
 }
+
+#[cfg(feature = "media")]
+pub mod media;

@@ -53,6 +53,10 @@ BMP-only builds.
 
 ## Capabilities and platforms
 
+Source builds also include [computer-use helpers](docs/cua-api.md): literal paste,
+target/focus checks, deadline polling, scoped input, explicit scroll units, and
+encoded frames with coordinate mapping. These additions are not yet released.
+
 | Area | Included |
 | --- | --- |
 | Mouse | Move/smooth move, click/double click, held buttons, drag, two-axis scroll |
