@@ -121,7 +121,10 @@ fn reads_pixel_color() {
     let _serial = super::serial();
     let target = Target::start(false);
     let p = target.point("color_1");
-    assert_eq!(Robot.get_pixel_color(p.x, p.y).unwrap(), TARGET_COLOR);
+    assert!(super::target::colors::matches_srgb(
+        &Robot.get_pixel_color(p.x, p.y).unwrap(),
+        TARGET_COLOR
+    ));
 }
 #[test]
 #[ignore = "requires Target Practice, screen permission and native backend"]
@@ -142,10 +145,12 @@ fn full_capture_uses_pixel_color_origin() {
         width: (50.0 * img.scale_x).round() as usize,
         height: (50.0 * img.scale_y).round() as usize,
     };
-    let found = img.find_color(TARGET_COLOR, Default::default()).unwrap();
-    assert_eq!(Robot.get_pixel_color(p.x, p.y).unwrap(), TARGET_COLOR);
+    let actual = img.color_at(center.x, center.y).unwrap();
+    assert!(super::target::colors::matches_srgb(&actual, TARGET_COLOR));
+    let found = img.find_color(&actual, Default::default()).unwrap();
+    assert_eq!(Robot.get_pixel_color(p.x, p.y).unwrap(), actual);
     assert_eq!(found, Some(top_left));
-    assert_eq!(img.color_at(center.x, center.y).unwrap(), TARGET_COLOR);
+    assert_eq!(img.color_at(center.x, center.y).unwrap(), actual);
     assert_eq!(
         img.to_screen_point(found.unwrap(), Some(dimensions))
             .unwrap(),

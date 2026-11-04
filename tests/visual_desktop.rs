@@ -1,4 +1,6 @@
 //! Opt-in native workflows with independent Chromium observations and OS screenshots.
+#[path = "gui/colors.rs"]
+mod colors;
 use rusty_robot::{Bitmap, Point, Rect, Robot};
 use serde_json::{Value, json};
 use std::{
@@ -123,7 +125,7 @@ impl Desktop {
                     height: 1,
                 }))
                 .unwrap();
-            if pixel.color_at(0, 0).unwrap() == "c0ff33" {
+            if colors::matches_srgb(&pixel.color_at(0, 0).unwrap(), "c0ff33") {
                 break;
             }
             assert!(Instant::now() < deadline, "QA window not visible");
@@ -379,8 +381,14 @@ fn visible_desktop_workflows() {
     // 6. Pattern captured from real screen, relocated in a larger capture, clicked natively.
     let marker = ui.region("marker");
     let needle = Robot.capture(Some(marker)).unwrap();
-    assert_eq!(needle.color_at(0, 0).unwrap(), "c0ff33");
-    assert_eq!(needle.color_at(20, 20).unwrap(), "e94079");
+    assert!(colors::matches_srgb(
+        &needle.color_at(0, 0).unwrap(),
+        "c0ff33"
+    ));
+    assert!(colors::matches_srgb(
+        &needle.color_at(20, 20).unwrap(),
+        "e94079"
+    ));
     let screen = ui.capture();
     let found = screen
         .find_image(&needle, Default::default())
@@ -450,7 +458,10 @@ fn visible_desktop_workflows() {
                 height: 1,
             }))
             .unwrap();
-        assert_eq!(pixel.color_at(0, 0).unwrap(), "c0ff33");
+        assert!(colors::matches_srgb(
+            &pixel.color_at(0, 0).unwrap(),
+            "c0ff33"
+        ));
         assert_eq!(
             pixel.to_screen_point(Point::default(), None).unwrap(),
             Point {
@@ -674,7 +685,7 @@ fn cua_workflows() {
     let completed = wait_until(
         WaitOptions::default(),
         || Robot.capture(Some(sample)),
-        |b| b.color_at(0, 0).unwrap() == "31d278",
+        |b| colors::matches_srgb(&b.color_at(0, 0).unwrap(), "31d278"),
         || false,
     )
     .unwrap();

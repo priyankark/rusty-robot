@@ -49,6 +49,11 @@ objc2-foundation = "0.3"
     # Use the release's contracts: current tests can require unreleased APIs.
     # This copies test fixtures only, never library source or a path dependency.
     release_ref = f'v{args.version}'
+    if subprocess.run(['git', 'rev-parse', '--verify', '--quiet', f'refs/tags/{release_ref}'],
+                      cwd=root, stdout=subprocess.DEVNULL).returncode:
+        # CI checkouts are shallow and do not contain historical release tags.
+        subprocess.run(['git', 'fetch', '--depth=1', 'origin',
+                        f'refs/tags/{release_ref}:refs/tags/{release_ref}'], cwd=root, check=True)
     archive = subprocess.check_output(['git', 'archive', release_ref, 'tests'], cwd=root)
     with tarfile.open(fileobj=io.BytesIO(archive)) as fixtures:
         for member in fixtures.getmembers():
