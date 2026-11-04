@@ -201,3 +201,56 @@ Each issue distinguishes live evidence from source inspection or proposed
 behavior, and includes environment details and acceptance criteria. No desktop
 screenshots or unrelated user-window contents were uploaded. Both owned Chrome
 processes were closed after their sessions.
+
+## Follow-up fixes and validation
+
+[PR #36](https://github.com/priyankark/rusty-robot/pull/36) adds the
+[Rust computer-use helpers](cua-api.md) with CI regressions. It is based on current
+`main` (`a9cb255`), which already contains the macOS 15.2+ direct region optimization
+from 0.1.3. This branch preserves that path and improves the older capture fallback.
+The initial dogfood used 0.1.2; its measurements should not be read as measurements
+of 0.1.3.
+
+The local macOS run passed all 34 desktop tests, two Chromium workflows on each
+of the primary and negative-origin displays, and one AppKit test. The new workflow
+verifies long literal Unicode paste, focus transfer, stale targets, cancelled drag
+release, explicit scroll units, delayed pixel observation, and concurrent crop/full
+frame consistency. The earlier run also exercised the padded fallback before the
+direct-region code was integrated. Logs are under `target/cua-final-validation`;
+the earlier fallback run is under `target/cua-fix-validation`.
+
+A release-built Rust consumer at `d104bd3` repeated encoding on the **same RGB
+Wikipedia image** used above, with one warmup and 12 rotating rounds. Full-size PNG
+outputs decoded to exactly the source pixels; all outputs decoded at the expected
+dimensions:
+
+| Path | Median ms | Bytes |
+| --- | ---: | ---: |
+| Core PNG file save, 1920×1080 | 52.58 | 573,135 |
+| New core fast PNG memory buffer, 1920×1080 | 4.98 | 706,693 |
+| Public media PNG memory buffer, 1920×1080 | 6.66 | 704,851 |
+| Public media PNG memory buffer, 1440×810 | 6.21 | 582,923 |
+| Public media JPEG q85 memory buffer, 1440×810 | 10.33 | 230,100 |
+
+File-save measurements include writing; memory measurements do not. These are
+single-host path measurements, not end-to-end agent speedups. Dependency versions
+also advanced with main, so the earlier file-save difference is not a paired
+measurement isolating the row-write change. Local harness and samples are in
+`target/cua-final-measure` and `target/cua-final-encoding.json`.
+
+A separate release capture burst rotated four centered regions over 12 warm
+rounds, with zero failures. No pixel data was saved:
+
+| Logical region | First call ms | Warm median ms | Warm range ms |
+| --- | ---: | ---: | ---: |
+| 1×1 | 39.57 | 7.03 | 5.69–7.87 |
+| 64×64 | 30.64 | 6.71 | 5.04–7.91 |
+| 640×480 | 14.01 | 7.23 | 6.38–7.86 |
+| 1920×1080 | 17.20 | 14.31 | 13.65–15.36 |
+
+Only the first case is process-cold; subsequent first calls share initialized
+framework state. These include the existing 0.1.3 optimization and do not isolate
+the fallback change. CPU/system load, network delivery, mixed physical monitor
+hardware, and confidence intervals were not measured. Samples are in
+`target/cua-final-capture.json`. Native CI covers Windows and Linux/X11;
+permission-dependent macOS desktop delivery remains a local check.

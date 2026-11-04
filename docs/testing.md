@@ -30,6 +30,8 @@ clipboard restoration/ownership, explicit scroll validation, encoded coordinate
 mapping/cache invalidation, and padded capture bounds. They run in the Linux,
 Windows, and macOS contract jobs. CI also tests `--no-default-features --features
 media` so the public Rust media feature cannot rely on workspace feature unification.
+The macOS clipboard test uses a uniquely named pasteboard, verifies multiple items
+and formats plus replacement ownership, and never touches the user's clipboard.
 
 ```sh
 cargo fmt --check
@@ -157,6 +159,9 @@ drag release followed by another click, both explicit wheel axes, and polling a
 delayed pixel change. It runs in the Linux/X11 and Windows desktop CI jobs (not
 just as an ignored headless test). On macOS the same test uses `SystemClipboard`;
 hosted macOS runs only headless contracts because native input/capture require grants.
+CSS-literal color checks permit at most three levels per channel on macOS, matching
+the existing tagged screenshot/display-profile capture-quality bound. Comparisons
+between crops and larger captures, and captured-template searches, remain exact.
 
 Coverage includes single/double/right/middle clicks, smooth movement, held-button
 state and drag/drop, both scroll axes and reversal, multilingual text, emoji,

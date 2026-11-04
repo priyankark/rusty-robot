@@ -106,3 +106,68 @@ impl PasteClipboard for SystemClipboard {
         Ok(true)
     }
 }
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+    type Contents = Vec<Vec<(String, Vec<u8>)>>;
+    fn contents(c: &SystemClipboard) -> Contents {
+        let mut result = Vec::new();
+        for item in c.snapshot().unwrap().iter() {
+            let mut formats = Vec::new();
+            unsafe {
+                let types: Retained<NSArray<NSString>> = msg_send![&item, types];
+                for format in types.iter() {
+                    let data: Retained<NSData> = msg_send![&item, dataForType: &*format];
+                    formats.push((format.to_string(), data.to_vec()));
+                }
+            }
+            formats.sort();
+            result.push(formats);
+        }
+        result
+    }
+    #[test]
+    fn private_pasteboard_restores_all_items_and_respects_replacement() {
+        // A uniquely named board never reads or modifies the user's clipboard.
+        // Pasteboard services work in hosted macOS CI without input/capture grants.
+        unsafe {
+            let class = AnyClass::get(c"NSPasteboard").unwrap();
+            let board: Retained<AnyObject> = msg_send![class, pasteboardWithUniqueName];
+            let mut c = SystemClipboard { board };
+            let item_class = AnyClass::get(c"NSPasteboardItem").unwrap();
+            let mut items = Vec::new();
+            for i in 0..2 {
+                let item: Retained<AnyObject> = msg_send![item_class, new];
+                for (format, value) in [
+                    ("public.utf8-plain-text", format!("original {i} 中文")),
+                    ("public.html", format!("<b>original {i}</b>")),
+                ] {
+                    let data = NSData::with_bytes(value.as_bytes());
+                    let ok: bool =
+                        msg_send![&item, setData: &*data, forType: &*NSString::from_str(format)];
+                    assert!(ok);
+                }
+                items.push(item);
+            }
+            c.write_items(&NSArray::from_retained_slice(&items))
+                .unwrap();
+            let original = contents(&c);
+            assert_eq!(original.len(), 2);
+            assert!(original.iter().all(|item| item.len() == 2));
+            let text = "literal\n    café 中文 🚀\n".repeat(256);
+            let lease = c.install_text(&text).unwrap();
+            assert_eq!(contents(&c)[0][0].1, text.as_bytes());
+            assert!(c.restore_if_owned(lease).unwrap());
+            assert_eq!(contents(&c), original);
+
+            let lease = c.install_text("first owner").unwrap();
+            let _: isize = msg_send![&c.board, clearContents];
+            let ok: bool = msg_send![&c.board, setString: &*NSString::from_str("another owner"), forType: &*NSString::from_str("public.utf8-plain-text")];
+            assert!(ok);
+            assert!(!c.restore_if_owned(lease).unwrap());
+            assert_eq!(contents(&c)[0][0].1, b"another owner");
+            let _: () = msg_send![&c.board, releaseGlobally];
+        }
+    }
+}
