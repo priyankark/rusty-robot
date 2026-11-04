@@ -676,8 +676,9 @@ fn cua_workflows() {
 
     let r = ui.region("delayed");
     let sample = Rect {
-        x: r.x + 3,
-        y: r.y + 3,
+        // A plain interior pixel away from text, theme borders and the pointer.
+        x: r.x + r.width as i64 - 8,
+        y: r.y + r.height as i64 / 2,
         width: 1,
         height: 1,
     };
