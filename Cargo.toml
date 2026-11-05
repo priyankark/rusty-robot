@@ -17,6 +17,10 @@ include = ["/src/**", "/docs/type-contracts.md", "/skills/rusty-robot/references
 [lib]
 name = "rusty_robot"
 
+[[example]]
+name = "capture_preview"
+required-features = ["media"]
+
 [features]
 default = ["png"]
 png = ["dep:png"]

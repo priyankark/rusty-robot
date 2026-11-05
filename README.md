@@ -16,9 +16,9 @@ Windows pass native desktop CI. Multi-monitor coverage differs by OS; see the da
 [validation record](docs/validation.md) for exactly what has run.
 
 [API documentation](https://priyankark.github.io/rusty-robot/api/rusty_robot/) ·
+[Rust recipes](skills/rusty-robot/references/rust-api.md) ·
+[Node.js](packages/node/README.md) ·
 [Benchmarks](benchmark.md) ·
-[How we built it](https://priyankark.github.io/rusty-robot/building-rusty-robot.html) ·
-[Watch the app demos](https://priyankark.github.io/rusty-robot/building-rusty-robot.html#workloads) ·
 [Agent skill](skills/rusty-robot/SKILL.md) · [Contributing](CONTRIBUTING.md)
 
 ## Start here
@@ -53,9 +53,9 @@ BMP-only builds.
 
 ## Capabilities and platforms
 
-Source builds also include [computer-use helpers](docs/cua-api.md): literal paste,
-target/focus checks, deadline polling, scoped input, explicit scroll units, and
-encoded frames with coordinate mapping. These additions are not yet released.
+For unreleased source APIs, see [desktop automation recipes](docs/automation.md):
+focus a window, paste literal text, wait for a result, cancel a drag, and save a
+resized screenshot with desktop coordinates.
 
 | Area | Included |
 | --- | --- |

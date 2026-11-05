@@ -1,10 +1,6 @@
 # Testing rusty-robot
 
-For screenshot-guided interaction with real Chrome through the Rust API, see
-[the CUA dogfood driver and findings](cua-dogfood.md). The opt-in example opens
-a disposable Chrome profile and records actions, screenshots, and timings.
-
-## Published-package dogfood
+## Test the published package
 
 ```sh
 python3 scripts/test-registry.py
@@ -24,14 +20,9 @@ runs are reported separately from executed desktop tests.
 
 ## Headless contracts
 
-The [computer-use helpers](cua-api.md) have regressions for deadline/cancellation
-boundaries, last-observation diagnostics, partial input failures and unwind cleanup,
-clipboard restoration/ownership, explicit scroll validation, encoded coordinate
-mapping/cache invalidation, and padded capture bounds. They run in the Linux,
-Windows, and macOS contract jobs. CI also tests `--no-default-features --features
-media` so the public Rust media feature cannot rely on workspace feature unification.
-The macOS clipboard test uses a uniquely named pasteboard, verifies multiple items
-and formats plus replacement ownership, and never touches the user's clipboard.
+Linux, Windows, and macOS CI run these contracts. They include cancellation,
+clipboard ownership, input cleanup, scroll validation, and frame mapping.
+The macOS clipboard test uses a private pasteboard.
 
 ```sh
 cargo fmt --check
@@ -39,6 +30,7 @@ cargo clippy --all-targets --all-features -- -D warnings
 cargo clippy --all-targets --no-default-features -- -D warnings
 cargo test --all-features --locked --no-fail-fast
 cargo test --no-default-features --locked --no-fail-fast
+cargo test --no-default-features --features media --locked --no-fail-fast
 ```
 
 These commands exercise bitmap search, file codecs, metadata validation,
@@ -152,13 +144,9 @@ Set `RUSTY_ROBOT_QA_ARTIFACTS` to preserve separate runs. The final checkpoint i
 `08-all-workflows-passed`; failures save a `failure` checkpoint before cleanup.
 Run GUI suites sequentially because they share the real desktop.
 
-The additional `cua_workflows` case reproduces editor auto-indent with native typing,
-then verifies exact multiline/Unicode paste and a trusted paste event. It also
-checks focus loss against an owned decoy window, stale target rejection, cancelled
-drag release followed by another click, both explicit wheel axes, and polling a
-delayed pixel change. It runs in the Linux/X11 and Windows desktop CI jobs (not
-just as an ignored headless test). On macOS the same test uses `SystemClipboard`;
-hosted macOS runs only headless contracts because native input/capture require grants.
+`cua_workflows` checks literal Unicode paste, focus loss, stale targets, cancelled
+drag cleanup, explicit scroll units, and delayed rendering. It runs in Linux/X11
+and Windows desktop CI; macOS desktop tests require a local permission grant.
 CSS-literal color checks permit at most three levels per channel on macOS, matching
 the existing tagged screenshot/display-profile capture-quality bound. Comparisons
 between crops and larger captures, and captured-template searches, remain exact.
