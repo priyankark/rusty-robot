@@ -16,9 +16,9 @@ Windows pass native desktop CI. Multi-monitor coverage differs by OS; see the da
 [validation record](docs/validation.md) for exactly what has run.
 
 [API documentation](https://priyankark.github.io/rusty-robot/api/rusty_robot/) ·
+[Rust recipes](skills/rusty-robot/references/rust-api.md) ·
+[Node.js](packages/node/README.md) ·
 [Benchmarks](benchmark.md) ·
-[How we built it](https://priyankark.github.io/rusty-robot/building-rusty-robot.html) ·
-[Watch the app demos](https://priyankark.github.io/rusty-robot/building-rusty-robot.html#workloads) ·
 [Agent skill](skills/rusty-robot/SKILL.md) · [Contributing](CONTRIBUTING.md)
 
 ## Start here
@@ -52,6 +52,10 @@ image search, held keys, and verification. Disable the default `png` feature for
 BMP-only builds.
 
 ## Capabilities and platforms
+
+For unreleased source APIs, see [desktop automation recipes](docs/automation.md):
+focus a window, paste literal text, wait for a result, cancel a drag, and save a
+resized screenshot with desktop coordinates.
 
 | Area | Included |
 | --- | --- |

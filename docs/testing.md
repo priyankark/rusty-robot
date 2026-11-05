@@ -1,6 +1,6 @@
 # Testing rusty-robot
 
-## Published-package dogfood
+## Test the published package
 
 ```sh
 python3 scripts/test-registry.py
@@ -13,10 +13,16 @@ This creates an external application pinned to crates.io `rusty-robot-desktop`
 PNG enabled and disabled. `--desktop` also runs the Chromium workflows and, on
 macOS, AppKit editing against that registry dependency. GUI tooling is reused
 from `tests/gui/node_modules`; no local library source or path override is used.
+Contracts and fixtures come from the matching local `vVERSION` Git tag, so
+unreleased tests cannot accidentally require APIs absent from the registry package.
 Results are saved under `target/registry-dogfood`. Ignored GUI cases in headless
 runs are reported separately from executed desktop tests.
 
 ## Headless contracts
+
+Linux, Windows, and macOS CI run these contracts. They include cancellation,
+clipboard ownership, input cleanup, scroll validation, and frame mapping.
+The macOS clipboard test uses a private pasteboard.
 
 ```sh
 cargo fmt --check
@@ -24,6 +30,7 @@ cargo clippy --all-targets --all-features -- -D warnings
 cargo clippy --all-targets --no-default-features -- -D warnings
 cargo test --all-features --locked --no-fail-fast
 cargo test --no-default-features --locked --no-fail-fast
+cargo test --no-default-features --features media --locked --no-fail-fast
 ```
 
 These commands exercise bitmap search, file codecs, metadata validation,
@@ -128,14 +135,21 @@ JavaScript. Each checkpoint saves observed JSON and a Rust BMP capture; on macOS
 it also saves an independent `/usr/sbin/screencapture` PNG for visual inspection.
 
 ```sh
-cargo test --test visual_desktop -- --ignored --nocapture
-RUSTY_ROBOT_QA_SECONDARY=1 cargo run --example virtual_display -- cargo test --test visual_desktop -- --ignored --nocapture
+cargo test --test visual_desktop -- --ignored --nocapture --test-threads=1
+RUSTY_ROBOT_QA_SECONDARY=1 cargo run --example virtual_display -- cargo test --test visual_desktop -- --ignored --nocapture --test-threads=1
 ```
 
 Artifacts are in `target/desktop-qa/primary` and `target/desktop-qa/secondary`.
 Set `RUSTY_ROBOT_QA_ARTIFACTS` to preserve separate runs. The final checkpoint is
 `08-all-workflows-passed`; failures save a `failure` checkpoint before cleanup.
 Run GUI suites sequentially because they share the real desktop.
+
+`cua_workflows` checks literal Unicode paste, focus loss, stale targets, cancelled
+drag cleanup, explicit scroll units, and delayed rendering. It runs in Linux/X11
+and Windows desktop CI; macOS desktop tests require a local permission grant.
+CSS-literal color checks permit at most three levels per channel on macOS, matching
+the existing tagged screenshot/display-profile capture-quality bound. Comparisons
+between crops and larger captures, and captured-template searches, remain exact.
 
 Coverage includes single/double/right/middle clicks, smooth movement, held-button
 state and drag/drop, both scroll axes and reversal, multilingual text, emoji,

@@ -5,6 +5,12 @@ mod png_codec;
 use crate::{Bitmap, Result, error::err};
 use std::path::Path;
 pub const SUPPORTS_PNG: bool = cfg!(feature = "png");
+/// Encode in memory; fast=true trades compressed size for latency.
+/// For resize/JPEG and coordinate-preserving frames use the optional media module.
+#[cfg(feature = "png")]
+pub fn encode_png(bitmap: &Bitmap, fast: bool) -> Result<Vec<u8>> {
+    png_codec::bytes(bitmap, fast)
+}
 fn extension(path: &Path) -> Result<String> {
     let extension = path
         .extension()

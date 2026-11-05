@@ -35,10 +35,26 @@ textarea { width: 100%; height: 125px; padding: 10px; font: 18px system-ui; resi
 </div>
 <label for="editor">Unicode text and keyboard editing</label>
 <textarea id="editor" spellcheck="false"></textarea>
+<button id="delayed" style="position:fixed;right:24px;bottom:16px;height:40px;border:0;border-radius:0;background:#cc2244">Delayed result</button>
 <script>
 const counts = { click: 0, dblclick: 0, contextmenu: 0, middle: 0, marker: 0, drops: 0 };
 const events = [];
 const $ = id => document.getElementById(id);
+let delayedCompleted = false;
+$('delayed').onclick = () => {
+  delayedCompleted = false; $('delayed').style.background = '#cc2244';
+  setTimeout(() => { delayedCompleted = true; $('delayed').style.background = '#31d278'; }, 350);
+};
+// A real editor behavior: native Enter copies the current line's indentation.
+// Native paste uses the browser's normal paste handling and remains literal.
+$('editor').addEventListener('keydown', e => {
+  if (!window.autoindent || e.key !== 'Enter') return;
+  e.preventDefault();
+  const start = e.target.selectionStart, end = e.target.selectionEnd;
+  const line = e.target.value.slice(0, start).split('\n').pop();
+  const indent = line.match(/^\s*/)[0];
+  e.target.setRangeText('\n' + indent, start, end, 'end');
+});
 function log(event) {
   events.push(event);
   if (events.length > 10000) events.shift();
@@ -78,11 +94,11 @@ $('drag').addEventListener('pointerup', e => {
   log({ type: 'drop', x: e.screenX, y: e.screenY, trusted: e.isTrusted });
 });
 function geometry() {
-  return Object.fromEntries(['clicks','marker','drag','drop','scroll','editor'].map(id => {
+  return Object.fromEntries(['clicks','marker','drag','drop','scroll','editor','delayed'].map(id => {
     const r = $(id).getBoundingClientRect();
     return [id, { x: r.x, y: r.y, width: r.width, height: r.height }];
   }));
 }
-function observe() { return { focused: document.hasFocus(), counts: {...counts}, text: $('editor').value,
+function observe() { return { focused: document.hasFocus(), dragging, delayedCompleted, counts: {...counts}, text: $('editor').value,
   scroll: { x: $('scroll').scrollLeft, y: $('scroll').scrollTop }, events: [...events] }; }
 </script>

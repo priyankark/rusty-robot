@@ -371,3 +371,97 @@ pub(crate) fn capture(_display: &Display, rect: Rect) -> Result<Bitmap> {
     }
     Ok(bitmap)
 }
+
+pub(crate) fn scroll_steps(x: i32, y: i32) -> Result<()> {
+    scroll(x, y)
+}
+
+pub(crate) fn windows() -> Result<Vec<crate::TargetWindow>> {
+    use x11rb::protocol::xproto::AtomEnum;
+    let (conn, screen) = connect()?;
+    let root = conn.setup().roots[screen].root;
+    let atom = |name: &[u8]| -> Result<u32> {
+        Ok(conn
+            .intern_atom(false, name)
+            .map_err(failure)?
+            .reply()
+            .map_err(failure)?
+            .atom)
+    };
+    let list = atom(b"_NET_CLIENT_LIST_STACKING")?;
+    let pid = atom(b"_NET_WM_PID")?;
+    let name = atom(b"_NET_WM_NAME")?;
+    let active = atom(b"_NET_ACTIVE_WINDOW")?;
+    let prop = |window: u32, key: u32| -> Result<xproto::GetPropertyReply> {
+        conn.get_property(false, window, key, AtomEnum::ANY, 0, 65536)
+            .map_err(failure)?
+            .reply()
+            .map_err(failure)
+    };
+    let foreground = prop(root, active)?
+        .value32()
+        .and_then(|mut v| v.next())
+        .unwrap_or(0);
+    let ids: Vec<_> = prop(root, list)?
+        .value32()
+        .map(|v| v.collect())
+        .unwrap_or_default();
+    let mut result = Vec::new();
+    for id in ids.into_iter().rev() {
+        // Windows can disappear while enumerating. Skip stale entries.
+        let entry = (|| -> Result<crate::TargetWindow> {
+            let g = conn
+                .get_geometry(id)
+                .map_err(failure)?
+                .reply()
+                .map_err(failure)?;
+            let p = conn
+                .translate_coordinates(id, root, 0, 0)
+                .map_err(failure)?
+                .reply()
+                .map_err(failure)?;
+            let process_id = prop(id, pid)?
+                .value32()
+                .and_then(|mut v| v.next())
+                .unwrap_or(0);
+            let title = String::from_utf8_lossy(&prop(id, name)?.value).into_owned();
+            Ok(crate::TargetWindow {
+                id: id as u64,
+                process_id,
+                bounds: Rect {
+                    x: p.dst_x as i64,
+                    y: p.dst_y as i64,
+                    width: g.width as usize,
+                    height: g.height as usize,
+                },
+                title,
+                active: id == foreground,
+            })
+        })();
+        if let Ok(w) = entry {
+            result.push(w);
+        }
+    }
+    Ok(result)
+}
+pub(crate) fn activate_window(target: &crate::TargetWindow) -> Result<()> {
+    let (conn, screen) = connect()?;
+    let root = conn.setup().roots[screen].root;
+    let atom = conn
+        .intern_atom(false, b"_NET_ACTIVE_WINDOW")
+        .map_err(failure)?
+        .reply()
+        .map_err(failure)?
+        .atom;
+    let event = xproto::ClientMessageEvent::new(32, target.id as u32, atom, [2, 0, 0, 0, 0]);
+    conn.send_event(
+        false,
+        root,
+        xproto::EventMask::SUBSTRUCTURE_REDIRECT | xproto::EventMask::SUBSTRUCTURE_NOTIFY,
+        event,
+    )
+    .map_err(failure)?
+    .check()
+    .map_err(failure)?;
+    conn.flush().map_err(failure)
+}

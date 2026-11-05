@@ -1,5 +1,14 @@
 # Changelog
 
+## Unreleased
+
+- Add literal paste with clipboard restoration, including a native macOS adapter.
+- Add window discovery, activation, focus checks, and polling with timeouts.
+- Add scoped input sessions that release held keys/buttons on cancellation and errors.
+- Add explicit pixel/wheel scroll units without changing legacy scrolling.
+- Expose in-memory PNG and optional Rust media processing with resized coordinate metadata.
+- Bound macOS fallback capture regions with padding for tiny crops.
+
 ## 0.1.3 — 2026-10-28
 
 - Capture requested regions directly on macOS 15.2+ instead of enumerating windows and copying the full display for every screenshot; retain the macOS 14 path.

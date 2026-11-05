@@ -1,11 +1,29 @@
 // A real Electron window receiving OS events. No synthetic input or RobotJS.
-const { app, BrowserWindow, screen } = require('electron');
+const { app, BrowserWindow, screen, clipboard } = require('electron');
 const readline = require('node:readline');
 const path = require('node:path');
 const net = require('node:net');
 app.commandLine.appendSwitch('force-color-profile', 'srgb');
 app.commandLine.appendSwitch('force-raster-color-profile', 'srgb');
 let window;
+let decoy;
+let clipboardLease;
+let clipboardGeneration = 0;
+// Fixture-only text clipboard adapter. Reject richer formats before changing them.
+// Production hosts should provide their own revision-aware clipboard implementation.
+function textSnapshot() {
+  const formats = clipboard.availableFormats();
+  if (formats.some(f => f !== 'text/plain')) throw new Error('Fixture only preserves plain-text clipboards');
+  return { text: clipboard.readText(), empty: formats.length === 0 };
+}
+function restoreClipboard() {
+  if (!clipboardLease) return false;
+  const lease = clipboardLease; clipboardLease = undefined;
+  const current = textSnapshot();
+  if (current.text !== lease.text || current.empty) return false;
+  if (lease.previous.empty) clipboard.clear(); else clipboard.writeText(lease.previous.text);
+  return true;
+}
 const { encode } = require('./protocol.cjs');
 const send = value => process.stdout.write(encode(value) + '\n');
 app.whenReady().then(async () => {
@@ -32,6 +50,25 @@ app.whenReady().then(async () => {
   }).on('error', error => { send({ error: String(error) }); app.quit(); }) }).on('line', async line => {
     try {
       const command = JSON.parse(line);
+      let extra = {};
+      if (command.clipboardInstall !== undefined) {
+        if (clipboardLease) throw new Error('Clipboard lease already active');
+        const previous = textSnapshot();
+        clipboard.writeText(command.clipboardInstall);
+        clipboardLease = { previous, text: command.clipboardInstall, id: ++clipboardGeneration };
+        extra.clipboardLease = clipboardLease.id;
+      }
+      if (command.clipboardRestore !== undefined) {
+        if (!clipboardLease || clipboardLease.id !== command.clipboardRestore) throw new Error('Wrong clipboard lease');
+        extra.clipboardRestored = restoreClipboard();
+      }
+      if (command.decoy === true) {
+        decoy = new BrowserWindow({width:300,height:200,alwaysOnTop:true});
+        await decoy.loadURL('data:text/html,<title>Owned focus decoy</title>Focus decoy');
+        decoy.show(); decoy.focus();
+      }
+      if (command.decoy === false && decoy) { decoy.close(); decoy = undefined; }
+      if (command.autoindent !== undefined) await window.webContents.executeJavaScript(`window.autoindent = ${Boolean(command.autoindent)}`);
       if (command.phase) await window.webContents.executeJavaScript(
         `document.querySelector('#phase').textContent = ${JSON.stringify(command.phase)}`);
       if (command.focus) {
@@ -39,8 +76,9 @@ app.whenReady().then(async () => {
         window.focusOnWebView(); window.webContents.focus();
       }
       const state = await window.webContents.executeJavaScript('observe()');
-      send({ ...state, nativeFocus: window.isFocused(), rendererFocus: window.webContents.isFocused() });
+      send({ ...state, ...extra, nativeFocus: window.isFocused(), rendererFocus: window.webContents.isFocused() });
     } catch (error) { send({ error: String(error) }); }
   });
 }).catch(error => { send({ error: String(error) }); app.quit(); });
 app.on('window-all-closed', () => app.quit());
+app.on('will-quit', () => { try { restoreClipboard(); } catch {} });

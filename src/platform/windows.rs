@@ -397,3 +397,63 @@ pub(crate) fn capture(_display: &Display, rect: Rect) -> Result<Bitmap> {
     }
     Ok(bitmap)
 }
+
+pub(crate) fn scroll_steps(x: i32, y: i32) -> Result<()> {
+    scroll(
+        x.checked_mul(120)
+            .ok_or_else(|| err("Wheel delta overflow"))?,
+        y.checked_mul(120)
+            .ok_or_else(|| err("Wheel delta overflow"))?,
+    )
+}
+
+pub(crate) fn windows() -> Result<Vec<crate::TargetWindow>> {
+    let _dpi = Dpi::enter();
+    unsafe extern "system" fn collect(
+        window: windows_sys::Win32::Foundation::HWND,
+        data: LPARAM,
+    ) -> i32 {
+        unsafe {
+            if IsWindowVisible(window) == 0 {
+                return 1;
+            }
+            let mut pid = 0;
+            GetWindowThreadProcessId(window, &mut pid);
+            let mut bounds = RECT::default();
+            if GetWindowRect(window, &mut bounds) == 0
+                || bounds.right <= bounds.left
+                || bounds.bottom <= bounds.top
+            {
+                return 1;
+            }
+            let mut title = vec![0u16; (GetWindowTextLengthW(window).max(0) as usize) + 1];
+            let len = GetWindowTextW(window, title.as_mut_ptr(), title.len() as i32);
+            let windows = &mut *(data as *mut Vec<crate::TargetWindow>);
+            windows.push(crate::TargetWindow {
+                id: window as usize as u64,
+                process_id: pid,
+                bounds: Rect {
+                    x: bounds.left as i64,
+                    y: bounds.top as i64,
+                    width: (bounds.right - bounds.left) as usize,
+                    height: (bounds.bottom - bounds.top) as usize,
+                },
+                title: String::from_utf16_lossy(&title[..len.max(0) as usize]),
+                active: GetForegroundWindow() == window,
+            });
+            1
+        }
+    }
+    let mut result = Vec::<crate::TargetWindow>::new();
+    if unsafe { EnumWindows(Some(collect), &mut result as *mut _ as LPARAM) } == 0 {
+        return Err(failure("EnumWindows"));
+    }
+    Ok(result)
+}
+pub(crate) fn activate_window(target: &crate::TargetWindow) -> Result<()> {
+    let window = target.id as usize as windows_sys::Win32::Foundation::HWND;
+    if unsafe { SetForegroundWindow(window) } == 0 {
+        return Err(failure("Foreground activation denied"));
+    }
+    Ok(())
+}

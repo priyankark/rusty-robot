@@ -10,6 +10,8 @@ use std::{
 };
 
 pub const TARGET_COLOR: &str = "c0ff33";
+#[path = "colors.rs"]
+pub mod colors;
 const TIMEOUT: Duration = Duration::from_secs(5);
 pub struct Target {
     child: Child,
@@ -99,7 +101,7 @@ impl Target {
                     ((marker.y + dy - capture.screen_y) as f64 * capture.scale_y).round() as i64;
                 colors.push(capture.color_at(x, y).expect("sample marker bounds"));
             }
-            if colors.iter().all(|c| c == TARGET_COLOR) {
+            if colors.iter().all(|c| colors::matches_srgb(c, TARGET_COLOR)) {
                 stable += 1;
             } else {
                 stable = 0;
