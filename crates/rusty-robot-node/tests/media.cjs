@@ -14,6 +14,17 @@ test('asynchronous media validates, owns input, bounds the queue, releases permi
   for (const value of [NaN, Infinity, -1, 0, 0.5, 16385]) assert.throws(()=>native.resizeImage(fixture,value), /integer|dimension/i);
   assert.throws(()=>native.captureFrame(800,101), /quality/i);
   assert.throws(()=>native.captureFrame(800,85,null,true,'gif'), /format/i);
+  // Package IPC validation must reject exactly the same arguments without capture.
+  for (const args of [[0], [800,101], [800,85,null,true,'gif'], [800,85,{},true]]) {
+    assert.throws(()=>native.captureFrame(...args));
+    assert.throws(()=>native.validateCaptureFrame(...args));
+  }
+  native.validateCaptureFrame(800,85,null,true,'png');
+  for (const args of [[fixture,0], [fixture,800,0], [fixture,800,null,101], [fixture,800,null,85,'gif']]) {
+    assert.throws(()=>native.resizeImage(...args));
+    assert.throws(()=>native.validateResizeImage(...args));
+  }
+  native.validateResizeImage(fixture,800,null,85,'png');
   let ticks=0; const timer=setInterval(()=>ticks++,1);
   try {
     const source = Buffer.from(fixture);

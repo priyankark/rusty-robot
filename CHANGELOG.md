@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+- Isolate Node package capture on macOS 27+ to avoid competing ScreenCaptureKit clients sharing an executable path. Keep the public API, synchronous native validation, two-job media bound and four-thread resize pool; add worker deadlines, cleanup and no-replay regression coverage.
+
 - Add literal paste with clipboard restoration, including a native macOS adapter.
 - Add window discovery, activation, focus checks, and polling with timeouts.
 - Add scoped input sessions that release held keys/buttons on cancellation and errors.

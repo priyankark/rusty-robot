@@ -321,3 +321,28 @@ both apps, versus 9.7FPS in AirCodum and 9.5FPS in Agentum.
 input-only tests, full stream delivery, host CPU and isolated image processing.
 The resize comparison has a documented filter/fidelity difference; no equal-quality
 claim is inferred solely from the JPEG quality setting.
+
+
+## 2026-11-13: Node package capture isolation
+
+On the Apple Silicon Mini (macOS 27.0 build 26A425, Node 24.22.0), two ordinary
+Node host processes using the same executable path imported the development
+package and requested three frames each (PNG, JPEG, PNG). All six returned valid
+1280×720 images. Both JS event loops advanced during capture. Initial calls took
+1.405 and 1.409 seconds including worker startup; subsequent calls took 32–80 ms.
+The final PNG was visually inspected and ImageIO decoded all six output sizes.
+The pre-existing Node applications remained running.
+
+The desktop lease and permission checks were retained, using the guarded helper
+from Citta commit `0b0c392`, before Citta's executable-isolation workaround. The
+helper's test adapter launched both ordinary Node clients for a single authorized
+capture operation; isolation came entirely from the Rusty Robot package. This
+verifies the public Node entry point on this Mac, not raw `.node` imports,
+standalone Rust binaries, Electron bundles, other macOS releases, or long-running
+streaming stability. Private screenshots were kept locally rather than published.
+
+Inert-worker regressions separately cover synchronous hangs, worker crashes,
+host termination during a hang, bounded shared media admission, buffer ownership,
+error propagation, no replay, idle process exit, and runtime cleanup. These tests
+do not require desktop access. The published 0.1.3 package is unchanged; this fix
+is unreleased until a subsequent package version is built and published.

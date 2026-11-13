@@ -6,7 +6,11 @@ export interface Frame {
   captureMs: number; convertMs: number; resizeMs: number; hashMs: number; encodeMs: number;
 }
 export function captureFrame(width?: number | null, quality?: number | null, previous?: string | null, force?: boolean, format?: 'jpeg' | 'jpg' | 'png'): Promise<Frame>;
+/** Validates capture arguments synchronously without accessing the desktop. Used by the package transport. */
+export function validateCaptureFrame(width?: number | null, quality?: number | null, previous?: string | null, force?: boolean, format?: 'jpeg' | 'jpg' | 'png'): void;
 export function resizeImage(input: Buffer, width: number, height?: number | null, quality?: number | null, format?: 'jpeg' | 'jpg' | 'png'): Promise<Frame>;
+/** Validates resize arguments synchronously without decoding or copying the image. Used by the package transport. */
+export function validateResizeImage(input: Buffer, width: number, height?: number | null, quality?: number | null, format?: 'jpeg' | 'jpg' | 'png'): void;
 export function getScreenSize(): { width: number; height: number };
 export function getMousePos(): { x: number; y: number };
 export function getPermissions(): { accessibility?: boolean | null; screenCapture?: boolean | null };
