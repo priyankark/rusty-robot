@@ -28,6 +28,7 @@ jobs:
           node-version: '24'
       - run: node scripts/build-node.cjs
       - run: node --test crates/rusty-robot-node/tests/media.cjs
+      - run: node --test packages/node/platform.test.cjs packages/node/capture-client.test.cjs
       - run: cargo fmt --all --check
       - run: cargo clippy --workspace --all-targets --all-features --locked -- -D warnings
       - run: cargo clippy --workspace --all-targets --no-default-features --locked -- -D warnings

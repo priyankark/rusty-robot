@@ -20,6 +20,9 @@ function png() {
 (async () => {
   if (process.argv[2] === '--smoke') {
     const packageRoot = path.resolve(process.argv[3]);
+    for (const file of ['native.cjs', 'capture-client.cjs', 'capture-worker.cjs', 'capture-watchdog.cjs']) {
+      assert(fs.existsSync(path.join(packageRoot, file)), `Missing packaged worker dependency: ${file}`);
+    }
     const native=require(packageRoot);
     assert.equal(typeof native.getPermissions,'function');assert.equal(typeof native.typeString,'function');
     assert.equal(typeof native.getPermissions(),'object');

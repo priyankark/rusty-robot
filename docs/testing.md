@@ -232,3 +232,23 @@ Electron fixtures use `--disable-gpu`. Xvfb has no hardware GPU; otherwise the
 first Chromium GPU process can time out before the fixture emits readiness.
 All native X11 input, capture, pixel, and event assertions still run. This does
 not change the library backend or the default local desktop tests.
+
+## Node package capture transport
+
+Run `node --test packages/node/platform.test.cjs packages/node/capture-client.test.cjs`.
+On Unix, these tests run real isolated Node workers with an inert media fixture,
+without screen capture or input. Windows checks platform selection and skips the
+copied-runtime lifecycle suite: production Windows uses the existing native path
+and does not support unlinking a running executable. They cover unique executable paths, reuse, native error
+propagation, synchronous hangs, worker crashes, host death, idle exit, cleanup,
+shared capture/resize admission, and ownership of mutable image buffers.
+The synchronous-hang case also verifies that queued work is rejected without replay.
+
+`node scripts/test-node-package.cjs ARCHIVE.tgz` verifies the installed package,
+including its private worker files and native manifest, on release CI targets.
+Actual concurrent macOS capture needs an unlocked, authorized desktop: run two
+Node hosts from the same executable path, import the package entry point in each,
+and request overlapping JPEG and PNG frames. Verify decoded dimensions/content,
+JS timer progress, warm worker reuse, and cleanup. An application wrapper that
+already isolates its Node executable must be removed from this test path, while
+preserving the application's desktop ownership and permission checks.

@@ -15,6 +15,10 @@
   },
   "files": [
     "index.cjs",
+    "native.cjs",
+    "capture-client.cjs",
+    "capture-worker.cjs",
+    "capture-watchdog.cjs",
     "platform.cjs",
     "index.d.ts",
     "prebuilds/*.node",

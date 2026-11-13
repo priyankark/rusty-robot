@@ -38,3 +38,37 @@ frames can omit `data`, so periodically request a forced refresh. Input calls ar
 synchronous; preserve ordering and release held keys/buttons during cancellation.
 
 See the [source, API and benchmarks](https://github.com/priyankark/rusty-robot).
+
+## macOS capture isolation (unreleased)
+
+On macOS 27 and newer, the package automatically runs capture and resize in a
+private worker with its own byte-identical copy of the host's Node executable.
+This avoids the reproduced ScreenCaptureKit connection collision between Node
+apps sharing one executable path. Keep using `captureFrame()` and `resizeImage()`;
+no application-side process wrapper or capture fallback is needed. Input stays
+in the host process with its existing ordering and permission checks.
+
+The worker is reused across frames and closes after five idle seconds. Both media
+APIs share the existing two-job admission limit and one native pool of at most
+four resize threads. Image bytes are copied for transport; decoding, capture,
+resizing, hashing and encoding still run in Rust. Each admitted media request has
+a 15-second deadline including startup and queueing. On timeout, the owned worker
+is terminated and all its pending requests reject with `ERR_RUSTY_MEDIA_TIMEOUT`.
+A later explicit call can start a fresh worker; failed work is never replayed.
+Worker startup/IPC failures reject with `ERR_RUSTY_MEDIA_WORKER`; native errors
+retain their message and code. A native capture failure also discards its worker
+and rejects pending requests, so stale ScreenCaptureKit callbacks cannot leak
+into the next explicit request. Invalid arguments and queue saturation still throw
+synchronously. The package verifies the native binary again inside the worker.
+
+Runtime copies use copy-on-write when supported, are private to the user, and
+are removed on normal exit, worker failure, idle shutdown or timeout. A separate
+watchdog can terminate a worker even when a native call blocks its event loop,
+including after abrupt host death. OS termination during runtime preparation can
+leave a temporary directory, since no worker exists yet to clean it up.
+No TCC grants, signing identities or other applications are changed. If the host
+executable cannot run from a private copy (for example, a bundled runtime with
+relative framework dependencies), startup fails explicitly; standalone Node is
+the verified host. Older macOS, Linux and Windows retain their existing execution
+path. Direct `.node` imports and the standalone Rust crate bypass this Node
+package transport and do not acquire this isolation.

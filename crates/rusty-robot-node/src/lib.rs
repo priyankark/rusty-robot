@@ -234,6 +234,18 @@ impl Task for MediaTask {
         })
     }
 }
+/// Validate capture arguments without scheduling work or touching the desktop.
+#[napi]
+pub fn validate_capture_frame(
+    width: Option<f64>,
+    quality: Option<f64>,
+    _previous: Option<String>,
+    _force: Option<bool>,
+    format: Option<String>,
+) -> Result<()> {
+    media_options(width, quality, format).map(|_| ())
+}
+
 /// Capture + resize + hash + encode on a worker; no JS pixel work or temporary file.
 #[napi]
 pub fn capture_frame(
@@ -253,6 +265,32 @@ pub fn capture_frame(
         _permit: MediaPermit::acquire()?,
     }))
 }
+fn resize_options(
+    input_len: usize,
+    width: f64,
+    height: Option<f64>,
+    quality: Option<f64>,
+    format: Option<String>,
+) -> Result<(Options, u32, Option<u32>)> {
+    let options = media_options(Some(width), quality, format)?;
+    if input_len > 64 * 1024 * 1024 {
+        return Err(Error::from_reason("Encoded input exceeds 64 MiB"));
+    }
+    let width = positive(width)?;
+    let height = height.map(positive).transpose()?;
+    Ok((options, width, height))
+}
+/// Validate resize arguments without scheduling work or copying image bytes.
+#[napi]
+pub fn validate_resize_image(
+    input: Buffer,
+    width: f64,
+    height: Option<f64>,
+    quality: Option<f64>,
+    format: Option<String>,
+) -> Result<()> {
+    resize_options(input.len(), width, height, quality, format).map(|_| ())
+}
 /// Decode/resize/re-encode JPEG or PNG on a bounded worker.
 #[napi]
 pub fn resize_image(
@@ -262,12 +300,7 @@ pub fn resize_image(
     quality: Option<f64>,
     format: Option<String>,
 ) -> Result<AsyncTask<MediaTask>> {
-    let options = media_options(Some(width), quality, format)?;
-    if input.len() > 64 * 1024 * 1024 {
-        return Err(Error::from_reason("Encoded input exceeds 64 MiB"));
-    }
-    let width = positive(width)?;
-    let height = height.map(positive).transpose()?;
+    let (options, width, height) = resize_options(input.len(), width, height, quality, format)?;
     let permit = MediaPermit::acquire()?;
     Ok(AsyncTask::new(MediaTask {
         options,
