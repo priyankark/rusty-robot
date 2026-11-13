@@ -71,6 +71,12 @@ function createCaptureClient(bindingPath, { timeoutMs = 15000, idleMs = 5000,
           state.ready = true;
           dispatch(state);
         } else if (state.active && message?.id === state.active.id) {
+          // ScreenCaptureKit can report a timeout before our outer deadline.
+          // Discard its connection/callback state rather than reuse it next time.
+          if (message.error && state.active.type === 'capture') {
+            close(state, failure(message.error.message, message.error.code));
+            return;
+          }
           const job = state.jobs.shift();
           state.active = null;
           clearTimeout(job.timer);

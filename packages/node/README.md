@@ -56,7 +56,9 @@ a 15-second deadline including startup and queueing. On timeout, the owned worke
 is terminated and all its pending requests reject with `ERR_RUSTY_MEDIA_TIMEOUT`.
 A later explicit call can start a fresh worker; failed work is never replayed.
 Worker startup/IPC failures reject with `ERR_RUSTY_MEDIA_WORKER`; native errors
-retain their message and code. Invalid arguments and queue saturation still throw
+retain their message and code. A native capture failure also discards its worker
+and rejects pending requests, so stale ScreenCaptureKit callbacks cannot leak
+into the next explicit request. Invalid arguments and queue saturation still throw
 synchronously. The package verifies the native binary again inside the worker.
 
 Runtime copies use copy-on-write when supported, are private to the user, and

@@ -47,10 +47,12 @@ test('distinct clients use private runtime copies, reuse workers and preserve fr
   assert.equal(unchanged.pid,first.pid);assert.equal(unchanged.data,undefined);
   a.close();b.close();await until(()=>f.directories().length===0);
 });
-test('native failures preserve their error and allow a later explicit capture',async t=>{
+test('native capture failures preserve their error and discard the worker before a later explicit capture',async t=>{
   const f=fixture(t), c=f.client();
   await assert.rejects(c.capture([9]),{message:'permission refused',code:'GenericFailure'});
+  await until(()=>f.directories().length===0);
   assert.equal((await c.capture([42])).width,42);
+  assert.notEqual(f.calls()[0].pid,f.calls()[1].pid);
   c.close();await until(()=>f.directories().length===0);
 });
 test('synchronous hang times out, rejects queued work without replay, cleans up and recovers',async t=>{
