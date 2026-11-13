@@ -4,6 +4,12 @@ const fs = require('node:fs');
 const path = require('node:path');
 const { Worker } = require('node:worker_threads');
 const directory = process.argv[3];
+// This file is an implementation detail, not a CLI that accepts a cleanup path.
+// Only remove the private directory containing this worker's copied executable.
+if (!directory || !path.basename(directory).startsWith('rusty-robot-capture-') ||
+    fs.realpathSync(directory) !== fs.realpathSync(path.dirname(process.execPath))) {
+  throw new Error('Capture worker must be launched from its private package runtime');
+}
 // A separate JS thread still runs if loading the addon or a native call blocks
 // this event loop. It also reaps the worker if its host is killed abruptly.
 const watchdog = new Worker(path.join(__dirname, 'capture-watchdog.cjs'), {

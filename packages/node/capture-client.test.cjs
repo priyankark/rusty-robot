@@ -1,5 +1,5 @@
 'use strict';
-const { test } = require('node:test');
+const { test, describe } = require('node:test');
 const assert = require('node:assert/strict');
 const fs = require('node:fs');
 const os = require('node:os');
@@ -29,6 +29,9 @@ test('only affected macOS hosts use isolation',()=>{
   assert(!needsIsolation('linux','27.0'));
   assert(!needsIsolation('win32','27.0'));
 });
+// The copied-runtime transport is not enabled on Windows, where running files
+// cannot be unlinked. Platform selection above is still checked there.
+describe('isolated worker lifecycle on Unix', {skip:process.platform==='win32'},()=>{
 test('distinct clients use private runtime copies, reuse workers and preserve frame bytes/arguments', async t=>{
   const f=fixture(t), a=f.client(), b=f.client();
   const [first,second]=await Promise.all([a.capture([123,85,null,true,'png']),b.capture([234,81,'old',false,'jpeg'])]);
@@ -126,4 +129,6 @@ test('a blocked worker is reaped when its host is killed', {skip:process.platfor
   // A reparented zombie can remain until init reaps it; its runtime must already be gone.
   const {spawnSync}=require('node:child_process');
   await until(()=>{const r=spawnSync('ps',['-p',String(pid),'-o','stat='],{encoding:'utf8'});return r.status!==0||r.stdout.trim().startsWith('Z');});
+});
+
 });
