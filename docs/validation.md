@@ -346,3 +346,12 @@ host termination during a hang, bounded shared media admission, buffer ownership
 error propagation, no replay, idle process exit, and runtime cleanup. These tests
 do not require desktop access. The published 0.1.3 package is unchanged; this fix
 is unreleased until a subsequent package version is built and published.
+
+
+The initial package CI attempt could not start its Apple Silicon build: GitHub
+reported `macos-14-arm64-us-default` as unsupported, before running any steps.
+The package build/install matrix now uses `macos-15` for Apple Silicon, retaining
+`MACOSX_DEPLOYMENT_TARGET=14.0`. GitHub [retired macOS 14 runners on November 2,
+2026](https://github.com/actions/runner-images/issues/13518). This is a runner
+migration, not evidence of runtime verification on macOS 14. Superseded attempts
+remain in Actions history and were cancelled after replacement changes.
