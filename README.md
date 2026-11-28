@@ -19,7 +19,7 @@ Windows pass native desktop CI. Multi-monitor coverage differs by OS; see the da
 [Rust recipes](skills/rusty-robot/references/rust-api.md) ·
 [Node.js](packages/node/README.md) ·
 [Benchmarks](benchmark.md) ·
-[Agent skill](skills/rusty-robot/SKILL.md) · [Contributing](CONTRIBUTING.md)
+[Agent skills](#for-agents) · [Contributing](CONTRIBUTING.md)
 
 ## Start here
 
@@ -102,15 +102,15 @@ See [the agent skill](skills/rusty-robot/SKILL.md) for integration and bounded s
 
 ## For agents
 
-Install the bundled skill into your agent's skill directory, for example:
+- [CUA skill](skills/cua/SKILL.md): operate apps through screenshots and native
+  Rust input, with coordinate mapping, outcome checks, and recovery.
+- [Library integration skill](skills/rusty-robot/SKILL.md): integrate Rusty Robot
+  into Rust or Node applications and migrate RobotJS call sites.
 
-```sh
-cp -R skills/rusty-robot ~/.codex/skills/rusty-robot
-```
-
-Read [SKILL.md](skills/rusty-robot/SKILL.md), then use `$rusty-robot` to integrate
-native automation or migrate a RobotJS call site. The skill includes tested API
-recipes and a guide for Node/TypeScript consumers.
+Copy the chosen folder from `skills/` into your agent's skill directory. For
+agents without skill discovery, load its `SKILL.md` and referenced files as
+instructions. The CUA skill uses no provider-specific tools; the host must supply
+desktop execution and screenshot inspection.
 
 ## Development
 
